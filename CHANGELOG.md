@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - New items to the checklist of the `pull_request_template.md` ([#4](https://github.com/vtex-sites/nextjs.store/pull/4))
 - Integrates with search.query event api (#2)
 - Applies new local tokens to `Badge` (#462)
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Changed name from BaseStore to GatsbyStore (#497)
 - Applies new local tokens to `BannerText` (#470)
 - Update the Incentives component to handle CMS data (#474)
 
