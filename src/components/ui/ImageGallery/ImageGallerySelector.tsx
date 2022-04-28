@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { Button, IconButton } from '@faststore/ui'
+
 import Icon from 'src/components/ui/Icon'
 import { Image } from 'src/components/ui/Image'
 
