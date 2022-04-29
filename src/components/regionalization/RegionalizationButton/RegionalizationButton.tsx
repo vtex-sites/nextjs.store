@@ -1,9 +1,9 @@
 import type { HTMLAttributes } from 'react'
 import { useSession } from '@faststore/sdk'
 
-import { useModal } from 'src/sdk/ui/modal/Provider'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
+import { useModal } from 'src/sdk/ui/modal/Provider'
 
 interface RegionalizationButtonProps extends HTMLAttributes<HTMLDivElement> {
   classes: string
