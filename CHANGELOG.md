@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Update `RegionalizationButton` and `RegionalizationBar` to show the postal code (#7)
+- Update `RegionalizationButton` and `RegionalizationBar` to show the postal code ([#7](https://github.com/vtex-sites/nextjs.store/pull/7))
 - Migrates to Next.JS (#475)
 - Applies new local tokens to `ProductShelf` component (#464)
 - Adds Storybook configs (#463)
