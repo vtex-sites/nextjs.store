@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `EmptyState` component to be customized with a rounded `variant` prop (`default` | `rounded`) ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - Update Regionalization input to use the `TextInput` component ([#9](https://github.com/vtex-sites/nextjs.store/pull/9))
 - Update `RegionalizationButton` and `RegionalizationBar` to show the postal code ([#7](https://github.com/vtex-sites/nextjs.store/pull/7))
 - Migrates to Next.JS (#475)
