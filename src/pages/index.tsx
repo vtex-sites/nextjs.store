@@ -57,7 +57,9 @@ function Page() {
         imageAlt="Quest 2 Controller on a table"
       />
 
-      <IncentivesHeader incentives={IncentivesMock} />
+      <main>
+        <IncentivesHeader incentives={IncentivesMock} />
+      </main>
 
       <ProductShelf
         first={ITEMS_PER_SECTION}
