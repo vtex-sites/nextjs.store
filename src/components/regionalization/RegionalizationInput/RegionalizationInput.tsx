@@ -8,6 +8,7 @@ import type {
   UpdateSessionMutationMutationVariables,
 } from '@generated/graphql'
 import InputText from 'src/components/ui/InputText'
+import { useModal } from 'src/sdk/ui/modal/Provider'
 
 export const UpdateSessionMutation = gql`
   mutation UpdateSessionMutation($session: IStoreSession!) {
@@ -21,6 +22,7 @@ export default function RegionalizationInput() {
   const inputRef = useRef<HTMLInputElement>(null)
   const { country, setSession, ...partialSession } = useSession()
   const [errorMessage, setErrorMessage] = useState<string>('')
+  const { onModalClose } = useModal()
 
   const handleSubmit = async () => {
     const value = inputRef.current?.value
@@ -49,6 +51,8 @@ export default function RegionalizationInput() {
         postalCode: value,
         channel: channel ?? partialSession.channel,
       })
+
+      onModalClose()
     } catch (error) {
       setErrorMessage('You entered an invalid Zip Code')
     }
