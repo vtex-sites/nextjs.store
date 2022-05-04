@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Accessibility tests to output what were the actual violations, not just how many ([#12](https://github.com/vtex-sites/nextjs.store/pull/12)).
+- Changed name from BaseStore to GatsbyStore ([#497](https://github.com/vtex-sites/base.store/pull/497))
 - `CHANGELOG.md` to link to PRs, removed a duplicated section, and fixed some markdown ([#13](https://github.com/vtex-sites/nextjs.store/pull/13)).
 - Update Regionalization input to use the `TextInput` component ([#9](https://github.com/vtex-sites/nextjs.store/pull/9))
 - Update `RegionalizationButton` and `RegionalizationBar` to show the postal code ([#7](https://github.com/vtex-sites/nextjs.store/pull/7))
@@ -38,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixes `ProductCard` bordered variant ([#5](https://github.com/vtex-sites/nextjs.store/pull/5))
 - Fix Storybook initialization ([#492](https://www.github.com/vtex-sites/base.store/pull/492))
 - Fix styling issue on Regionalization Modal by adding the missing imports in layout.scss ([#488](https://www.github.com/vtex-sites/base.store/pull/488))
 - Fix unused CSS problem by separating imports into different files for each page ([#473](https://www.github.com/vtex-sites/base.store/pull/473))
