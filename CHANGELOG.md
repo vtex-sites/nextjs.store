@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Applies new local tokens to `Select` ([#16](https://github.com/vtex-sites/nextjs.store/pull/16))
+- Applies new local tokens to `Link` ([#17](https://github.com/vtex-sites/nextjs.store/pull/17))
 - New items to the checklist of the `pull_request_template.md` ([#4](https://github.com/vtex-sites/nextjs.store/pull/4))
 - Integrates with search.query event api ([#2](https://www.github.com/vtex-sites/nextjs.store/pull/2))
 - Applies new local tokens to `Badge` ([#462](https://www.github.com/vtex-sites/base.store/pull/462))
