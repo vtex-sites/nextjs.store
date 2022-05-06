@@ -9,6 +9,8 @@ const nextConfig = {
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
+  /* enable for debug and profile at devtools */
+  productionBrowserSourceMaps: false,
 }
 
 module.exports = nextConfig
