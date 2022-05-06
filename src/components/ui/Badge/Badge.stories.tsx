@@ -7,6 +7,9 @@ const story = {
   title: 'Molecules/Badge',
   argTypes: {
     onClose: { table: { disable: true } },
+    children: {
+      name: 'content',
+    },
   },
 }
 
