@@ -1,6 +1,6 @@
 @import "src/styles/scaffold";
 
-[data-fs-image-gallery-selector] {
+.fs-image-gallery-selector[data-fs-image-gallery-selector] {
   position: relative;
   display: flex;
   align-items: center;
