@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- ImageGallery to PDP ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
+- `ImageGallery` to PDP ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
 - New items to the checklist of the `pull_request_template.md` ([#4](https://github.com/vtex-sites/nextjs.store/pull/4))
 - Integrates with search.query event api ([#2](https://www.github.com/vtex-sites/nextjs.store/pull/2))
 - Applies new local tokens to `Badge` ([#462](https://www.github.com/vtex-sites/base.store/pull/462))
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- ImageGallery now uses native scroll instead of useSlider ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
+- `ImageGallery` now uses native scroll instead of `useSlider` ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
 - Accessibility tests to output what were the actual violations, not just how many ([#12](https://github.com/vtex-sites/nextjs.store/pull/12)).
 - Changed name from BaseStore to GatsbyStore ([#497](https://github.com/vtex-sites/base.store/pull/497))
 - `CHANGELOG.md` to link to PRs, removed a duplicated section, and fixed some markdown ([#13](https://github.com/vtex-sites/nextjs.store/pull/13)).
