@@ -7,7 +7,5 @@ module.exports = VTEXLHConfig({
   server: lh.server,
   assertions: {
     'csp-xss': 'off',
-    'legacy-javascript': ['error', { maxLength: 1 }],
-    deprecations: 'off',
   },
 })
