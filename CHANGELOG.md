@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Addded
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [22.19.0.beta] - 2022-05-06
+
 ### Added
 
 - `ImageGallery` to PDP ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
