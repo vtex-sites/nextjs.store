@@ -30,7 +30,7 @@ declare type SearchInputProps = {
   buttonTestId?: string
 } & Omit<UISearchInputProps, 'onSubmit'>
 
-const useSearchHanlder = () => {
+const useSearchHanlder = (callback: (term: string) => void) => {
   const router = useRouter()
   const { addToSearchHistory } = useSearchHistory()
 
@@ -49,9 +49,10 @@ const useSearchHanlder = () => {
       })
 
       addToSearchHistory(term)
+      callback(term)
       router.push(`${pathname}${search}`)
     },
-    [addToSearchHistory, router]
+    [addToSearchHistory, callback, router]
   )
 }
 
@@ -63,9 +64,10 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
     const [searchQuery, setSearchQuery] = useState<string>('')
     const [suggestionsOpen, setSuggestionsOpen] = useState<boolean>(false)
     const searchRef = useRef<HTMLDivElement>(null)
-    const handleSearch = useSearchHanlder()
-    // setSuggestionsOpen(false)
-    // setSearchQuery(term)
+    const handleSearch = useSearchHanlder((term: string) => {
+      setSuggestionsOpen(false)
+      setSearchQuery(term)
+    })
 
     useOnClickOutside(searchRef, () => setSuggestionsOpen(false))
 
