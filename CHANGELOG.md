@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - `ImageGallery` now uses native scroll instead of `useSlider` ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
+- `useQuery` fetcher to run into new tasks to improve performance ([#18](https://github.com/vtex-sites/nextjs.store/pull/18)).
 
 ### Deprecated
 
