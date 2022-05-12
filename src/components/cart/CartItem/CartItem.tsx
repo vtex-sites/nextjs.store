@@ -1,4 +1,11 @@
 import { Card, CardActions, CardContent, CardImage } from '@faststore/ui'
+import type {
+  AddToCartEvent,
+  CurrencyCode,
+  RemoveFromCartEvent,
+} from '@faststore/sdk'
+import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
+import { useCallback } from 'react'
 
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
@@ -9,6 +16,7 @@ import { useCart } from 'src/sdk/cart/useCart'
 import { useRemoveButton } from 'src/sdk/cart/useRemoveButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import type { CartItem as ICartItem } from 'src/sdk/cart/validate'
+import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
 interface Props {
   item: ICartItem
@@ -17,6 +25,44 @@ interface Props {
 function CartItem({ item }: Props) {
   const btnProps = useRemoveButton(item)
   const { updateItemQuantity } = useCart()
+  const {
+    currency: { code },
+  } = useSession()
+
+  const onQuantityChange = useCallback(
+    (quantity: number) => {
+      const quantityDelta = quantity - item.quantity
+
+      sendAnalyticsEvent<
+        AddToCartEvent<AnalyticsItem> | RemoveFromCartEvent<AnalyticsItem>
+      >({
+        name: quantityDelta > 0 ? 'add_to_cart' : 'remove_from_cart',
+        params: {
+          currency: code as CurrencyCode,
+          // TODO: In the future, we can explore more robust ways of
+          // calculating the value (gift items, discounts, etc.).
+          value: item.price * Math.abs(quantityDelta),
+          items: [
+            {
+              item_id: item.itemOffered.isVariantOf.productGroupID,
+              item_name: item.itemOffered.isVariantOf.name,
+              item_brand: item.itemOffered.brand.name,
+              item_variant: item.itemOffered.sku,
+              quantity: Math.abs(quantityDelta),
+              price: item.price,
+              discount: item.listPrice - item.price,
+              currency: code as CurrencyCode,
+              item_variant_name: item.itemOffered.name,
+              product_reference_id: item.itemOffered.gtin,
+            },
+          ],
+        },
+      })
+
+      updateItemQuantity(item.id, quantity)
+    },
+    [item, updateItemQuantity, code]
+  )
 
   return (
     <Card
@@ -73,7 +119,7 @@ function CartItem({ item }: Props) {
         <QuantitySelector
           min={1}
           initial={item.quantity}
-          onChange={(quantity) => updateItemQuantity(item.id, quantity)}
+          onChange={onQuantityChange}
         />
       </CardActions>
     </Card>
