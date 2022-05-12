@@ -1,11 +1,12 @@
 import { Card, CardContent, CardImage } from '@faststore/ui'
 
-import type { ProductSummary_ProductFragment } from '@generated/graphql'
-import Link from 'src/components/ui/Link'
+import styles from 'src/components/search/SuggestionProductCard/suggestion-product-card.module.scss'
 import { Image } from 'src/components/ui/Image'
+import Link from 'src/components/ui/Link'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
+import type { ProductSummary_ProductFragment } from '@generated/graphql'
 
 type SuggestionProductCardProps = {
   product: ProductSummary_ProductFragment
@@ -24,7 +25,11 @@ function SuggestionProductCard({ product, index }: SuggestionProductCardProps) {
   } = product
 
   return (
-    <Card data-fs-suggestion-product-card data-testid="suggestion-product-card">
+    <Card
+      className={styles['fs-suggestion-product-card']}
+      data-fs-suggestion-product-card
+      data-testid="suggestion-product-card"
+    >
       <Link {...linkProps} title={name} variant="display">
         <CardContent>
           <CardImage>
