@@ -73,3 +73,6 @@ public/~partytown
 
 # TypeScript
 tsconfig.tsbuildinfo
+
+# VTEX Webops
+.webops
