@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Addded
+
+- An initial integration of the search term & product suggestions ([#33](https://github.com/vtex-sites/nextjs.store/pull/33)).
+- `ImageGallery` to PDP ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
+
+### Changed
+
+- `ImageGallery` now uses native scroll instead of `useSlider` ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [22.19.0.beta] - 2022-05-06
+
 ### Added
 
 - Applies new local tokens to `Link` ([#17](https://github.com/vtex-sites/nextjs.store/pull/17))
@@ -18,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Accessibility tests to output what were the actual violations, not just how many ([#12](https://github.com/vtex-sites/nextjs.store/pull/12)).
 - Changed name from BaseStore to GatsbyStore ([#497](https://github.com/vtex-sites/base.store/pull/497))
 - `CHANGELOG.md` to link to PRs, removed a duplicated section, and fixed some markdown ([#13](https://github.com/vtex-sites/nextjs.store/pull/13)).
 - Update Regionalization input to use the `TextInput` component ([#9](https://github.com/vtex-sites/nextjs.store/pull/9))
