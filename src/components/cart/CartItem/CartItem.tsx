@@ -5,7 +5,7 @@ import type {
   RemoveFromCartEvent,
 } from '@faststore/sdk'
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
@@ -18,22 +18,16 @@ import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import type { CartItem as ICartItem } from 'src/sdk/cart/validate'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
-interface Props {
-  item: ICartItem
-}
-
-function CartItem({ item }: Props) {
-  const btnProps = useRemoveButton(item)
-  const { updateItemQuantity } = useCart()
+function useCartItemEvent() {
   const {
     currency: { code },
   } = useSession()
 
-  const onQuantityChange = useCallback(
-    (quantity: number) => {
+  const sendCartItemEvent = useCallback(
+    (item: Props['item'], quantity: number) => {
       const quantityDelta = quantity - item.quantity
 
-      sendAnalyticsEvent<
+      return sendAnalyticsEvent<
         AddToCartEvent<AnalyticsItem> | RemoveFromCartEvent<AnalyticsItem>
       >({
         name: quantityDelta > 0 ? 'add_to_cart' : 'remove_from_cart',
@@ -58,10 +52,29 @@ function CartItem({ item }: Props) {
           ],
         },
       })
+    },
+    [code]
+  )
+
+  return useMemo(() => ({ sendCartItemEvent }), [sendCartItemEvent])
+}
+
+interface Props {
+  item: ICartItem
+}
+
+function CartItem({ item }: Props) {
+  const btnProps = useRemoveButton(item)
+  const { updateItemQuantity } = useCart()
+  const { sendCartItemEvent } = useCartItemEvent()
+
+  const onQuantityChange = useCallback(
+    (quantity: number) => {
+      sendCartItemEvent(item, quantity)
 
       updateItemQuantity(item.id, quantity)
     },
-    [item, updateItemQuantity, code]
+    [item, sendCartItemEvent, updateItemQuantity]
   )
 
   return (
