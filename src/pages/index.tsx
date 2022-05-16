@@ -1,15 +1,27 @@
 import { NextSeo, SiteLinksSearchBoxJsonLd } from 'next-seo'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
-import ProductShelf from 'src/components/sections/ProductShelf'
-import ProductTiles from 'src/components/sections/ProductTiles'
+import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
+import ProductTilesSkeleton from 'src/components/skeletons/ProductTilesSkeleton'
 import { ITEMS_PER_SECTION } from 'src/constants'
 import { mark } from 'src/sdk/tests/mark'
 
 import storeConfig from '../../store.config'
+
+const ProductShelf = dynamic(
+  () => import('src/components/sections/ProductShelf'),
+  { ssr: true, suspense: true }
+)
+
+const ProductTiles = dynamic(
+  () => import('src/components/sections/ProductTiles'),
+  { ssr: true, suspense: true }
+)
 
 function Page() {
   return (
@@ -59,17 +71,23 @@ function Page() {
 
       <IncentivesHeader incentives={IncentivesMock} />
 
-      <ProductShelf
-        first={ITEMS_PER_SECTION}
-        selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
-        title="Most Wanted"
-      />
+      <Suspense fallback={<ProductShelfSkeleton title="Most Wanted" loading />}>
+        <ProductShelf
+          first={ITEMS_PER_SECTION}
+          selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
+          title="Most Wanted"
+        />
+      </Suspense>
 
-      <ProductTiles
-        first={3}
-        selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
-        title="Just Arrived"
-      />
+      <Suspense
+        fallback={<ProductTilesSkeleton title="Just Arrived" loading />}
+      >
+        <ProductTiles
+          first={3}
+          selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
+          title="Just Arrived"
+        />
+      </Suspense>
 
       <BannerText
         title="Receive our news and promotions in advance. Enjoy and get 10% off on your first purchase."
@@ -77,11 +95,15 @@ function Page() {
         actionLabel="Call to action"
       />
 
-      <ProductShelf
-        first={ITEMS_PER_SECTION}
-        selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
-        title="Deals & Promotions"
-      />
+      <Suspense
+        fallback={<ProductShelfSkeleton title="Deals & Promotions" loading />}
+      >
+        <ProductShelf
+          first={ITEMS_PER_SECTION}
+          selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
+          title="Deals & Promotions"
+        />
+      </Suspense>
     </>
   )
 }
