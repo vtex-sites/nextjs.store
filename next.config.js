@@ -10,6 +10,7 @@ const nextConfig = {
     defaultLocale: 'en-US',
   },
   webpack: (config) => {
+    // https://github.com/vercel/next.js/discussions/11267#discussioncomment-2479112
     // camel-case style names from css modules
     config.module.rules
       .find(({ oneOf }) => !!oneOf)
