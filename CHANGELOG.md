@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Uses `ProductCard` component from FSUI instead of `Card` ([#41](https://github.com/vtex-sites/nextjs.store/pull/41))
+- Uses camelCase classes when using CSS Modules ([#42](https://github.com/vtex-sites/nextjs.store/pull/42))
 - `ImageGallery` now uses native scroll instead of `useSlider` ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
 
 ### Deprecated
