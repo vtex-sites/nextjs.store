@@ -115,7 +115,7 @@ describe('Infinite Scroll pagination', () => {
     cy.waitForHydration()
 
     cy.getById('product-gallery').within(() => {
-      cy.getById('store-card')
+      cy.getById('store-product-card')
         .should('exist')
         .should('have.length.gt', 0)
         .then(($links) => {
@@ -125,7 +125,7 @@ describe('Infinite Scroll pagination', () => {
             .should('exist')
             .click()
             .then(() => {
-              cy.getById('store-card')
+              cy.getById('store-product-card')
                 .should('have.length.gte', before)
                 .then(($products) => {
                   const after = $products.length
@@ -141,7 +141,7 @@ describe('Infinite Scroll pagination', () => {
     cy.visit(pages.collection, options)
     cy.waitForHydration()
 
-    cy.get('[data-testid=product-gallery] [data-testid=store-card]')
+    cy.get('[data-testid=product-gallery] [data-testid=store-product-card]')
       .should('exist')
       .should('have.length.gt', 0)
       .then(($links) => {
@@ -152,12 +152,12 @@ describe('Infinite Scroll pagination', () => {
           .should('exist')
           .click()
           // Go up the page
-          .get('[data-testid=product-gallery] [data-testid=store-card]')
+          .get('[data-testid=product-gallery] [data-testid=store-product-card]')
           .first()
           .scrollIntoView({ duration: 1000 })
 
           // Go down the page
-          .get('[data-testid=product-gallery] [data-testid=store-card]')
+          .get('[data-testid=product-gallery] [data-testid=store-product-card]')
           .last()
           .scrollIntoView({ duration: 1000 })
           .then(() => {
