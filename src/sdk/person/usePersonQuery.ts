@@ -1,4 +1,6 @@
-import { useEffect } from 'react'
+/* eslint-disable-next-line */
+// @ts-ignore
+import { useEffect, startTransition } from 'react'
 import { gql } from '@vtex/graphql-utils'
 import { useSession } from '@faststore/sdk'
 
@@ -33,10 +35,12 @@ const usePersonQuery = (options?: QueryOptions) => {
 
   useEffect(() => {
     if (!!person && person !== user) {
-      setSession({
-        ...session,
-        user: person,
-      })
+      startTransition(
+        setSession({
+          ...session,
+          user: person,
+        })
+      )
     }
   }, [person, user, session, setSession])
 
