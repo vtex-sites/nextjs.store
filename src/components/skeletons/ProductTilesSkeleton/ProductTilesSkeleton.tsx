@@ -20,14 +20,16 @@ function ProductTilesSkeleton({
   title,
 }: PropsWithChildren<Props>) {
   return loading ? (
-    <Tiles>
+    <>
       {title && <h2 className="text__title-section">{title}</h2>}
-      {Array.from({ length: DEFAULT_ITEMS_NUMBER }, (_, index) => (
-        <Tile key={String(index)}>
-          <ProductTileSkeleton tileIndex={index + 1} variant={variant} />
-        </Tile>
-      ))}
-    </Tiles>
+      <Tiles>
+        {Array.from({ length: DEFAULT_ITEMS_NUMBER }, (_, index) => (
+          <Tile key={String(index)}>
+            <ProductTileSkeleton tileIndex={index + 1} variant={variant} />
+          </Tile>
+        ))}
+      </Tiles>
+    </>
   ) : (
     <>{children}</>
   )
