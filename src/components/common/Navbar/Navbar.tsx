@@ -1,5 +1,5 @@
 import { List as UIList } from '@faststore/ui'
-import { useRef, useState } from 'react'
+import { Suspense, useRef, useState } from 'react'
 import type { AnchorHTMLAttributes } from 'react'
 import type { SearchInputRef } from '@faststore/ui'
 import dynamic from 'next/dynamic'
@@ -18,7 +18,7 @@ import { useModal } from 'src/sdk/ui/modal/Provider'
 
 const ButtonSignIn = dynamic(
   () => import('src/components/ui/Button/ButtonSignIn'),
-  { ssr: true, loading: ButtonSignInFallback }
+  { suspense: true }
 )
 
 interface NavLinksProps {
@@ -122,7 +122,9 @@ function Navbar() {
               buttonTestId="store-input-mobile-button"
               onSearchClick={handlerExpandSearch}
             />
-            <ButtonSignIn />
+            <Suspense fallback={<ButtonSignInFallback />}>
+              <ButtonSignIn />
+            </Suspense>
             <CartToggle />
           </div>
         </section>
@@ -158,7 +160,9 @@ function Navbar() {
             <div className="navlinks">
               <NavLinks onClickLink={handleCloseSlideOver} />
               <div className="navlinks__signin">
-                <ButtonSignIn />
+                <Suspense fallback={<ButtonSignInFallback />}>
+                  <ButtonSignIn />
+                </Suspense>
               </div>
             </div>
           </div>
