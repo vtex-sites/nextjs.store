@@ -167,7 +167,9 @@ describe('Infinite Scroll pagination', () => {
             // The skuId of the last product on the page
             let skuIdBeforeNavigate
 
-            cy.get('[data-testid=product-gallery] [data-testid=store-card]')
+            cy.get(
+              '[data-testid=product-gallery] [data-testid=store-product-card]'
+            )
               // Number of products after showMore is clicked should be higher
               .should('have.length.gte', before)
               .last()
@@ -183,7 +185,9 @@ describe('Infinite Scroll pagination', () => {
               })
               .then(() => {
                 cy.go('back')
-                  .get('[data-testid=product-gallery] [data-testid=store-card]')
+                  .get(
+                    '[data-testid=product-gallery] [data-testid=store-product-card]'
+                  )
                   .last()
                   .then(($card) => {
                     const skuIdAfterNavigate = $card.attr(
@@ -212,7 +216,7 @@ describe('Infinite Scroll pagination', () => {
       .location('search')
       .should('match', /page=0$/)
 
-      .get('[data-testid=product-gallery] [data-testid=store-card]')
+      .get('[data-testid=product-gallery] [data-testid=store-product-card]')
       .last()
       .scrollIntoView({ duration: 1000 })
       .location('search')
