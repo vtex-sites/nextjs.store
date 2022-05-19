@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - An initial integration of the search term & product suggestions ([#33](https://github.com/vtex-sites/nextjs.store/pull/33)).
 - `ImageGallery` to PDP ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
 - `add_to_cart` and `remove_from_cart` analytics events to `CartItem` ([#35](https://github.com/vtex-sites/nextjs.store/pull/35))
+- `ButtonSignInFallback` component ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
+- Break into new tasks the `useQuery` fetcher execution ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
 
 ### Changed
 
@@ -21,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `EmptyState` component to be customized with a rounded `variant` prop (`default` | `rounded`) ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - Uses camelCase classes when using CSS Modules ([#42](https://github.com/vtex-sites/nextjs.store/pull/42))
 - `ImageGallery` now uses native scroll instead of `useSlider` ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
+- Suspense the `ButtonSignIn` usage at `Navbar` ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
 
 ### Deprecated
 
