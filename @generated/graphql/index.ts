@@ -16,6 +16,8 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
+  /** A string or the string representation of an object (a stringified object). */
+  ObjectOrString: any
 }
 
 /** Shopping cart identification input. */
@@ -62,12 +64,23 @@ export type IStoreOrganization = {
 
 /** Product input. */
 export type IStoreProduct = {
+  /** Custom Product Additional Properties. */
+  additionalProperty: InputMaybe<Array<IStorePropertyValue>>
   /** Array of product images. */
   image: Array<IStoreImage>
   /** Product name. */
   name: Scalars['String']
   /** Stock Keeping Unit ID. */
   sku: Scalars['String']
+}
+
+export type IStorePropertyValue = {
+  /** Property name. */
+  name: Scalars['String']
+  /** Property value. May hold a string or the string representation of an object. */
+  value: Scalars['ObjectOrString']
+  /** Specifies the nature of the value */
+  valueReference: Scalars['String']
 }
 
 /** Selected facet input. */
@@ -102,11 +115,17 @@ export type MutationValidateCartArgs = {
 }
 
 export type Query = {
+  /** All collections query. */
   allCollections: StoreCollectionConnection
+  /** All products query. */
   allProducts: StoreProductConnection
+  /** Collection query. */
   collection: StoreCollection
+  /** Person query. */
   person: Maybe<StorePerson>
+  /** Product query. */
   product: StoreProduct
+  /** Search query. */
   search: StoreSearchResult
 }
 
@@ -422,17 +441,25 @@ export type StoreProductGroup = {
 export type StorePropertyValue = {
   /** Property name. */
   name: Scalars['String']
-  /** Property value. */
-  value: Scalars['String']
+  /** Property value. May hold a string or the string representation of an object. */
+  value: Scalars['ObjectOrString']
+  /** Specifies the nature of the value */
+  valueReference: Scalars['String']
 }
 
+/** Information of a given review. */
 export type StoreReview = {
+  /** Review author. */
   author: StoreAuthor
+  /** Review rating information. */
   reviewRating: StoreReviewRating
 }
 
+/** Information of a given review rating. */
 export type StoreReviewRating = {
+  /** Best rating value. */
   bestRating: Scalars['Float']
+  /** Rating value. */
   ratingValue: Scalars['Float']
 }
 
@@ -446,10 +473,15 @@ export type StoreSearchResult = {
   suggestions: StoreSuggestions
 }
 
+/** Search Engine Optimization (SEO) tags data. */
 export type StoreSeo = {
+  /** Canonical tag. */
   canonical: Scalars['String']
+  /** Description tag. */
   description: Scalars['String']
+  /** Title tag. */
   title: Scalars['String']
+  /** Title template tag. */
   titleTemplate: Scalars['String']
 }
 
@@ -474,6 +506,7 @@ export type StoreSort =
   | 'release_desc'
   | 'score_desc'
 
+/** Status used to indicate type of message. For instance, in shopping cart messages. */
 export type StoreStatus = 'ERROR' | 'INFO' | 'WARNING'
 
 /** Suggestions information. */
@@ -578,6 +611,11 @@ export type ProductDetailsFragment_ProductFragment = {
   breadcrumbList: {
     itemListElement: Array<{ item: string; name: string; position: number }>
   }
+  additionalProperty: Array<{
+    name: string
+    value: any
+    valueReference: string
+  }>
 }
 
 export type ProductGalleryQueryQueryVariables = Exact<{
@@ -652,6 +690,11 @@ export type ServerProductPageQueryQuery = {
       }>
     }
     isVariantOf: { productGroupID: string; name: string }
+    additionalProperty: Array<{
+      name: string
+      value: any
+      valueReference: string
+    }>
   }
 }
 
@@ -675,6 +718,11 @@ export type ValidateCartMutationMutation = {
           image: Array<{ url: string; alternateName: string }>
           brand: { name: string }
           isVariantOf: { productGroupID: string; name: string }
+          additionalProperty: Array<{
+            name: string
+            value: any
+            valueReference: string
+          }>
         }
       }>
     }
@@ -696,6 +744,11 @@ export type CartItemFragment = {
     image: Array<{ url: string; alternateName: string }>
     brand: { name: string }
     isVariantOf: { productGroupID: string; name: string }
+    additionalProperty: Array<{
+      name: string
+      value: any
+      valueReference: string
+    }>
   }
 }
 
@@ -736,6 +789,11 @@ export type BrowserProductQueryQuery = {
     breadcrumbList: {
       itemListElement: Array<{ item: string; name: string; position: number }>
     }
+    additionalProperty: Array<{
+      name: string
+      value: any
+      valueReference: string
+    }>
   }
 }
 

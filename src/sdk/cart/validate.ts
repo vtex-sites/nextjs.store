@@ -1,12 +1,12 @@
 import { gql } from '@vtex/graphql-utils'
 import type { CartItem as SDKCartItem, Cart as SDKCart } from '@faststore/sdk'
-import type { IStoreOffer } from '@faststore/api'
 
 import type {
   ValidateCartMutationMutation,
   ValidateCartMutationMutationVariables,
   CartItemFragment,
   CartMessageFragment,
+  IStoreOffer,
 } from '@generated/graphql'
 
 import { request } from '../graphql/request'
@@ -59,15 +59,47 @@ export const ValidateCartMutation = gql`
         name
       }
       gtin
+      additionalProperty {
+        name
+        value
+        valueReference
+      }
     }
   }
 `
 
 export const isGift = (item: CartItem) => item.price === 0
 
+const getAttachments = (itemOffered: CartItem['itemOffered']) =>
+  itemOffered.additionalProperty.filter(
+    (i) => i.valueReference === 'ATTACHMENT'
+  )
+
+const serializeAttachment = (itemOffered: CartItem['itemOffered']) => {
+  const attachments = getAttachments(itemOffered)
+
+  if (attachments.length === 0) {
+    return null
+  }
+
+  return attachments
+    .map(
+      (attachment) => `${attachment.name}:${JSON.stringify(attachment.value)}`
+    )
+    .join('-')
+}
+
 export const getItemId = (
   item: Pick<CartItem, 'itemOffered' | 'seller' | 'price'>
-) => `${item.itemOffered.sku}:${item.seller.identifier}:${item.price}`
+) =>
+  [
+    item.itemOffered.sku,
+    item.seller.identifier,
+    item.price,
+    serializeAttachment(item.itemOffered),
+  ]
+    .filter(Boolean)
+    .join('::')
 
 export const validateCart = async (cart: Cart): Promise<Cart | null> => {
   const { validateCart: validated = null } = await request<
@@ -93,6 +125,7 @@ export const validateCart = async (cart: Cart): Promise<Cart | null> => {
               sku: itemOffered.sku,
               image: itemOffered.image,
               name: itemOffered.name,
+              additionalProperty: null,
             },
           })
         ),
