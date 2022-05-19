@@ -2,6 +2,8 @@ import type { NextApiHandler, NextApiRequest } from 'next'
 
 import { execute } from '../../server'
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
 const parseRequest = (request: NextApiRequest) => {
   const { operationName, variables, query } =
     request.method === 'POST'
@@ -36,6 +38,8 @@ const handler: NextApiHandler = async (request, response) => {
   const { operationName, variables, query } = parseRequest(request)
 
   try {
+    await sleep(5 * 1e3)
+
     const result = await execute(
       {
         operationName,
