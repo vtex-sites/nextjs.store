@@ -1,24 +1,15 @@
 import { NextSeo, SiteLinksSearchBoxJsonLd } from 'next-seo'
-import dynamic from 'next/dynamic'
 
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
+import ProductShelf from 'src/components/sections/ProductShelf'
+import ProductTiles from 'src/components/sections/ProductTiles'
 import { ITEMS_PER_SECTION } from 'src/constants'
 import { mark } from 'src/sdk/tests/mark'
 
 import storeConfig from '../../store.config'
-
-const ProductShelf = dynamic(
-  () => import('src/components/sections/ProductShelf'),
-  { ssr: true }
-)
-
-const ProductTiles = dynamic(
-  () => import('src/components/sections/ProductTiles'),
-  { ssr: true }
-)
 
 function Page() {
   return (
