@@ -149,11 +149,15 @@ const query = gql`
   }
 `
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
 export const getStaticProps: GetStaticProps<
   ServerProductPageQueryQuery,
   { slug: string }
 > = async ({ params }) => {
   const id = params?.slug.split('-').pop() ?? ''
+
+  await sleep(5 * 1e3)
 
   const { data } = await execute<
     ServerProductPageQueryQueryVariables,
