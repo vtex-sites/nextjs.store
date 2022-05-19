@@ -1442,6 +1442,17 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/f17223e4/@faststore/api":
+  version "1.8.33"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/f17223e4/@faststore/api#e9d39efda30171e490c21de9dcf886303970c4a6"
+  dependencies:
+    "@graphql-tools/schema" "^8.2.0"
+    "@rollup/plugin-graphql" "^1.0.0"
+    dataloader "^2.1.0"
+    fast-deep-equal "^3.1.3"
+    isomorphic-unfetch "^3.1.0"
+    p-limit "^3.1.0"
+
 "@faststore/sdk@^1.8.33":
   version "1.8.33"
   resolved "https://registry.yarnpkg.com/@faststore/sdk/-/sdk-1.8.33.tgz#6fbbd1bedd1d370068f861975db134891963ef24"
