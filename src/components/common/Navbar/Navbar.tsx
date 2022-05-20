@@ -17,8 +17,7 @@ import { mark } from 'src/sdk/tests/mark'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 
 const ButtonSignIn = dynamic(
-  () => import('src/components/ui/Button/ButtonSignIn'),
-  { suspense: true }
+  () => import('src/components/ui/Button/ButtonSignIn')
 )
 
 interface NavLinksProps {
