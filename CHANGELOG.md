@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `EmptyState` component to be customized with a rounded `variant` prop (`default` | `rounded`) ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - Uses camelCase classes when using CSS Modules ([#42](https://github.com/vtex-sites/nextjs.store/pull/42))
 - `ImageGallery` now uses native scroll instead of `useSlider` ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
-- Suspense the `ButtonSignIn` usage at `Navbar` ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
+- Removed `ButtonSignIn`, `ProductShelf` and `ProductTiles` from the first render ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
 
 ### Deprecated
 
