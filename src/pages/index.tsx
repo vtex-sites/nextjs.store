@@ -76,6 +76,7 @@ function Page() {
           first={3}
           selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
           title="Just Arrived"
+          suspense
         />
       </Suspense>
 
