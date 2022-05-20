@@ -62,7 +62,7 @@ function Page() {
 
       <IncentivesHeader incentives={IncentivesMock} />
 
-      <Suspense fallback={<ProductShelfSkeleton />}>
+      <Suspense fallback={<ProductShelfSkeleton loading />}>
         <ProductShelf
           first={ITEMS_PER_SECTION}
           selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
@@ -86,7 +86,7 @@ function Page() {
         actionLabel="Call to action"
       />
 
-      <Suspense fallback={<ProductShelfSkeleton />}>
+      <Suspense fallback={<ProductShelfSkeleton loading />}>
         <ProductShelf
           first={ITEMS_PER_SECTION}
           selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
