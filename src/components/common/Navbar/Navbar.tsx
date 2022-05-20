@@ -2,23 +2,22 @@ import { List as UIList } from '@faststore/ui'
 import { Suspense, useRef, useState } from 'react'
 import type { AnchorHTMLAttributes } from 'react'
 import type { SearchInputRef } from '@faststore/ui'
-import dynamic from 'next/dynamic'
 
 import CartToggle from 'src/components/cart/CartToggle'
 import LinkFramework from 'src/components/common/Link'
 import SearchInput from 'src/components/common/SearchInput'
 import RegionalizationButton from 'src/components/regionalization/RegionalizationButton'
-import { ButtonIcon, ButtonSignInFallback } from 'src/components/ui/Button'
+import {
+  ButtonIcon,
+  ButtonSignIn,
+  ButtonSignInFallback,
+} from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import Logo from 'src/components/ui/Logo'
 import SlideOver from 'src/components/ui/SlideOver'
 import { mark } from 'src/sdk/tests/mark'
 import { useModal } from 'src/sdk/ui/modal/Provider'
-
-const ButtonSignIn = dynamic(
-  () => import('src/components/ui/Button/ButtonSignIn')
-)
 
 interface NavLinksProps {
   onClickLink?: AnchorHTMLAttributes<HTMLAnchorElement>['onClick']

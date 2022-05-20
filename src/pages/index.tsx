@@ -1,25 +1,18 @@
 import { NextSeo, SiteLinksSearchBoxJsonLd } from 'next-seo'
-import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
 import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
+import ProductShelf from 'src/components/sections/ProductShelf'
+import ProductTiles from 'src/components/sections/ProductTiles'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
 import ProductTilesSkeleton from 'src/components/skeletons/ProductTilesSkeleton'
 import { ITEMS_PER_SECTION } from 'src/constants'
 import { mark } from 'src/sdk/tests/mark'
 
 import storeConfig from '../../store.config'
-
-const ProductTiles = dynamic(
-  () => import('src/components/sections/ProductTiles')
-)
-
-const ProductShelf = dynamic(
-  () => import('src/components/sections/ProductShelf')
-)
 
 function Page() {
   return (
@@ -74,6 +67,7 @@ function Page() {
           first={ITEMS_PER_SECTION}
           selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
           title="Most Wanted"
+          suspense
         />
       </Suspense>
 
@@ -96,6 +90,7 @@ function Page() {
           first={ITEMS_PER_SECTION}
           selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
           title="Deals & Promotions"
+          suspense
         />
       </Suspense>
     </>
