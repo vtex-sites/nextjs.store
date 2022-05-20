@@ -9,10 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Break into new tasks the `useQuery` fetcher execution ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
+- Suspend queries in the `ButtonSignIn`, `ProductShelf` and `ProductTiles` ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
 - Uses new WebOps Incremental Static Builds ([#39](https://github.com/vtex-sites/nextjs.store/pull/39))
 - An initial integration of the search term & product suggestions ([#33](https://github.com/vtex-sites/nextjs.store/pull/33)).
 - `ImageGallery` to PDP ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
 - `add_to_cart` and `remove_from_cart` analytics events to `CartItem` ([#35](https://github.com/vtex-sites/nextjs.store/pull/35))
+- `ButtonSignInFallback` component ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
 
 ### Changed
 
@@ -25,6 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
 ### Removed
+
+- The `default` nomenclature from global tokens ([#51](https://github.com/vtex-sites/nextjs.store/pull/51))
 
 ### Fixed
 
