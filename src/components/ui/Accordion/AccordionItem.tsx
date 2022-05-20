@@ -63,9 +63,11 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
           }
         />
       </UIAccordionButton>
-      <UIAccordionPanel data-testid={`${testId}-panel`}>
-        {children}
-      </UIAccordionPanel>
+      {isExpanded && (
+        <UIAccordionPanel data-testid={`${testId}-panel`}>
+          {children}
+        </UIAccordionPanel>
+      )}
     </UIAccordionItem>
   )
 })

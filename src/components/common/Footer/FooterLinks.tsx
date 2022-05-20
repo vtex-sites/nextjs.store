@@ -124,15 +124,19 @@ function FooterLinks() {
     <section className="footer__links">
       <div className="display-mobile">
         <Accordion expandedIndices={indicesExpanded} onChange={onChange}>
-          {links.map((section, index) => (
-            <AccordionItem
-              key={section.title}
-              isExpanded={indicesExpanded.has(index)}
-              buttonLabel={section.title}
-            >
-              <LinksList items={section.items} />
-            </AccordionItem>
-          ))}
+          {links.map((section, index) => {
+            const isExpanded = indicesExpanded.has(index)
+
+            return (
+              <AccordionItem
+                key={section.title}
+                isExpanded={isExpanded}
+                buttonLabel={section.title}
+              >
+                {isExpanded && <LinksList items={section.items} />}
+              </AccordionItem>
+            )
+          })}
         </Accordion>
       </div>
 
