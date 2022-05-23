@@ -29,7 +29,7 @@ module.exports = {
     // SCSS import support
     config.module.rules.push({
       test: /\.scss$/,
-      use: ['sass-loader'],
+      use: ['sass-loader', 'css-loader', 'style-loader'],
       include: resolve(__dirname, '../'),
     })
 
