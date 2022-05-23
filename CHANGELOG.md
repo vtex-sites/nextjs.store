@@ -33,6 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Warning related to `fetchPriority` prop not being recognized as `img` and `link`'s prop ([#54](https://github.com/vtex-sites/nextjs.store/pull/54))
+- Error on Storybook build when trying to import base CSS styles/mixins in CSS module files ([#53](https://github.com/vtex-sites/nextjs.store/pull/53))
 - A missing gap between the Sign In link and Cart button on desktop ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - A bugged vertical gap with the `EmptyState` component inside the cart ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - Fixes Storybook build removing unused imports ([#40](https://github.com/vtex-sites/nextjs.store/pull/40))
@@ -75,6 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fix `ImageGallerySelector` arrow toggle according to scroll position ([#43](https://github.com/vtex-sites/nextjs.store/pull/43))
 - Fixes `ProductCard` bordered variant ([#5](https://github.com/vtex-sites/nextjs.store/pull/5))
 - Fix Storybook initialization ([#492](https://www.github.com/vtex-sites/base.store/pull/492))
 - Fix styling issue on Regionalization Modal by adding the missing imports in layout.scss ([#488](https://www.github.com/vtex-sites/base.store/pull/488))
