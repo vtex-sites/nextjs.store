@@ -15,7 +15,7 @@ import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
 import type { ProductSummary_ProductFragment } from '@generated/graphql'
-import * as styles from 'src/components/product/ProductCard/product-card.module.scss'
+import styles from 'src/components/product/ProductCard/product-card.module.scss'
 
 type Variant = 'wide' | 'default'
 
