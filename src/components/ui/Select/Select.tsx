@@ -3,6 +3,8 @@ import type { SelectProps } from '@faststore/ui'
 
 import Icon from 'src/components/ui/Icon'
 
+import styles from './select.module.scss'
+
 export interface UISelectProps extends SelectProps {
   /*
    * Redefines the id property to be required when using the Select component. The
@@ -34,7 +36,7 @@ export default function Select({
   ...otherProps
 }: UISelectProps) {
   return (
-    <div data-fs-select className={className}>
+    <div data-fs-select className={`${styles.fsSelect} ${className}`}>
       {label && (
         <UILabel data-fs-select-label htmlFor={id}>
           {label}

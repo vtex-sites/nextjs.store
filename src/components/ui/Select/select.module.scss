@@ -1,6 +1,6 @@
 @import "src/styles/scaffold";
 
-[data-fs-select] {
+.fs-select[data-fs-select] {
   // --------------------------------------------------------
   // Design Tokens for Select
   // --------------------------------------------------------
@@ -62,16 +62,16 @@
 
     @include media(">=notebook") { height: var(--fs-select-height); }
   }
-}
 
-[data-fs-select-label] {
-  margin-right: var(--fs-select-label-margin-right);
-  color: var(--fs-select-label-color);
-}
+  [data-fs-select-label] {
+    margin-right: var(--fs-select-label-margin-right);
+    color: var(--fs-select-label-color);
+  }
 
-[data-fs-select-icon] {
-  position: absolute;
-  right: var(--fs-select-icon-position-right);
-  color: var(--fs-select-icon-color);
-  pointer-events: none;
+  [data-fs-select-icon] {
+    position: absolute;
+    right: var(--fs-select-icon-position-right);
+    color: var(--fs-select-icon-color);
+    pointer-events: none;
+  }
 }
