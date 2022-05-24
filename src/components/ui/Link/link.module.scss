@@ -33,6 +33,7 @@
   // Inline
   --fs-link-inline-padding             : 0;
   --fs-link-inline-text-decoration     : underline;
+  --fs-link-inline-text-color          : var(--fs-link-text-color);
 
   // Footer
   --fs-link-footer-text-size           : var(--fs-text-size-1);
@@ -78,6 +79,7 @@
   &[data-fs-link-variant="inline"] {
     display: inline-block;
     padding: var(--fs-link-inline-padding);
+    color: var(--fs-link-inline-text-color);
     text-decoration: var(--fs-link-inline-text-decoration);
   }
 
