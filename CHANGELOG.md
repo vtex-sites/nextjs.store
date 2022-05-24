@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Applies new local tokens to `Link` ([#17](https://github.com/vtex-sites/nextjs.store/pull/17))
+- Applies new local tokens to `Select` ([#16](https://github.com/vtex-sites/nextjs.store/pull/16))
 - `Toggle` component ([#15](https://github.com/vtex-sites/nextjs.store/pull/15))
 - Break into new tasks the `useQuery` fetcher execution ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
 - Suspend queries in the `ButtonSignIn`, `ProductShelf` and `ProductTiles` ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
@@ -35,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Limit custom props only for `img` and `link` tags ([#60](https://github.com/vtex-sites/nextjs.store/pull/60))
 - Warning related to `fetchPriority` prop not being recognized as `img` and `link`'s prop ([#54](https://github.com/vtex-sites/nextjs.store/pull/54))
 - Error on Storybook build when trying to import base CSS styles/mixins in CSS module files ([#53](https://github.com/vtex-sites/nextjs.store/pull/53))
 - A missing gap between the Sign In link and Cart button on desktop ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
