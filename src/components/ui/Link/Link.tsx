@@ -4,6 +4,8 @@ import type { LinkProps as UILinkProps } from '@faststore/ui'
 
 import FrameworkLink from 'src/components/common/Link'
 
+import styles from './link.module.scss'
+
 type Variant = 'default' | 'display' | 'footer' | 'inline'
 
 export type LinkProps<T extends ElementType = typeof FrameworkLink> =
@@ -24,6 +26,7 @@ function Link<T extends ElementType = typeof FrameworkLink>({
       data-fs-link
       data-fs-link-variant={variant}
       data-fs-link-inverse={inverse}
+      className={styles.fsLink}
       href={href}
       {...otherProps}
     />
