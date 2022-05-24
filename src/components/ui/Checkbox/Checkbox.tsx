@@ -6,7 +6,13 @@ type CheckboxProps = {
 } & UICheckboxProps
 
 function Checkbox({ partial, ...otherProps }: CheckboxProps) {
-  return <UICheckbox data-store-checkbox-partial={partial} {...otherProps} />
+  return (
+    <UICheckbox
+      data-fs-checkbox
+      data-fs-store-checkbox-partial={partial}
+      {...otherProps}
+    />
+  )
 }
 
 export default Checkbox
