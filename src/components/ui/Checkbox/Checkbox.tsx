@@ -1,7 +1,7 @@
 import { Checkbox as UICheckbox } from '@faststore/ui'
 import type { CheckboxProps as UICheckboxProps } from '@faststore/ui'
 
-type CheckboxProps = {
+export type CheckboxProps = {
   partial?: boolean
 } & UICheckboxProps
 
