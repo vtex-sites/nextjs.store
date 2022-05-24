@@ -19,6 +19,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Uses CSS Modules on `ProductGallery` section [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
+- Uses CSS Modules on `ProductCard` component [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
+- Uses CSS Modules on `ProductGrid` component [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
 - LCP images to be fetched with a higher priority and improve the score ([#49](https://github.com/vtex-sites/nextjs.store/pull/49)).
 - Uses `ProductCard` component from FSUI instead of `Card` ([#41](https://github.com/vtex-sites/nextjs.store/pull/41))
 - `EmptyState` component to be customized with a rounded `variant` prop (`default` | `rounded`) ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
