@@ -1,5 +1,6 @@
 import { useSearch } from '@faststore/sdk'
 import { gql } from '@vtex/graphql-utils'
+import { memo, useCallback } from 'react'
 
 import Button, { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
@@ -42,6 +43,10 @@ function Filter({
 
   const { onModalClose } = useModal()
   const { facets, selected, expanded, dispatch } = useFilter(allFacets)
+  const handleAccordionChange = useCallback(
+    (index) => dispatch({ type: 'toggleExpanded', payload: index }),
+    [dispatch]
+  )
 
   return (
     <>
@@ -51,67 +56,67 @@ function Filter({
           testId={`desktop-${testId}`}
           indicesExpanded={expanded}
           onFacetChange={toggleFacet}
-          onAccordionChange={(index) =>
-            dispatch({ type: 'toggleExpanded', payload: index })
-          }
+          onAccordionChange={handleAccordionChange}
         />
       </div>
 
-      <SlideOver
-        isOpen={isOpen}
-        onDismiss={onDismiss}
-        size="partial"
-        direction="rightSide"
-        className="filter-modal__content"
-      >
-        <div className="filter-modal__body">
-          <header className="filter-modal__header">
-            <h2 className="text__lead">Filters</h2>
-            <ButtonIcon
-              data-testid="filter-modal-button-close"
-              aria-label="Close Filters"
-              icon={<Icon name="X" width={32} height={32} />}
-              onClick={() => {
-                dispatch({
-                  type: 'selectFacets',
-                  payload: selectedFacets,
-                })
+      {isOpen && (
+        <SlideOver
+          isOpen={isOpen}
+          onDismiss={onDismiss}
+          size="partial"
+          direction="rightSide"
+          className="filter-modal__content"
+        >
+          <div className="filter-modal__body">
+            <header className="filter-modal__header">
+              <h2 className="text__lead">Filters</h2>
+              <ButtonIcon
+                data-testid="filter-modal-button-close"
+                aria-label="Close Filters"
+                icon={<Icon name="X" width={32} height={32} />}
+                onClick={() => {
+                  dispatch({
+                    type: 'selectFacets',
+                    payload: selectedFacets,
+                  })
 
+                  onModalClose()
+                }}
+              />
+            </header>
+            <Facets
+              facets={facets}
+              testId={`mobile-${testId}`}
+              indicesExpanded={expanded}
+              onFacetChange={(facet) =>
+                dispatch({ type: 'toggleFacet', payload: facet })
+              }
+              onAccordionChange={(index) =>
+                dispatch({ type: 'toggleExpanded', payload: index })
+              }
+            />
+          </div>
+          <footer className="filter-modal__footer">
+            <Button
+              variant="secondary"
+              onClick={() => dispatch({ type: 'selectFacets', payload: [] })}
+            >
+              Clear All
+            </Button>
+            <Button
+              variant="primary"
+              data-testid="filter-modal-button-apply"
+              onClick={() => {
+                setFacets(selected)
                 onModalClose()
               }}
-            />
-          </header>
-          <Facets
-            facets={facets}
-            testId={`mobile-${testId}`}
-            indicesExpanded={expanded}
-            onFacetChange={(facet) =>
-              dispatch({ type: 'toggleFacet', payload: facet })
-            }
-            onAccordionChange={(index) =>
-              dispatch({ type: 'toggleExpanded', payload: index })
-            }
-          />
-        </div>
-        <footer className="filter-modal__footer">
-          <Button
-            variant="secondary"
-            onClick={() => dispatch({ type: 'selectFacets', payload: [] })}
-          >
-            Clear All
-          </Button>
-          <Button
-            variant="primary"
-            data-testid="filter-modal-button-apply"
-            onClick={() => {
-              setFacets(selected)
-              onModalClose()
-            }}
-          >
-            Apply
-          </Button>
-        </footer>
-      </SlideOver>
+            >
+              Apply
+            </Button>
+          </footer>
+        </SlideOver>
+      )}
     </>
   )
 }
@@ -130,4 +135,4 @@ export const fragment = gql`
   }
 `
 
-export default Filter
+export default memo(Filter)

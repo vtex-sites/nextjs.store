@@ -1,4 +1,5 @@
 import { useSearch } from '@faststore/sdk'
+import { memo } from 'react'
 
 import ProductGrid from 'src/components/product/ProductGrid'
 import Sentinel from 'src/sdk/search/Sentinel'
@@ -33,4 +34,4 @@ function GalleryPage({ page, title }: Props) {
   )
 }
 
-export default GalleryPage
+export default memo(GalleryPage)

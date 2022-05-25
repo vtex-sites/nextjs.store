@@ -1,6 +1,6 @@
 import { useSearch } from '@faststore/sdk'
 import { NextSeo } from 'next-seo'
-import { Suspense, useState } from 'react'
+import { Suspense, useCallback, useState } from 'react'
 
 import Filter from 'src/components/search/Filter'
 import Sort from 'src/components/search/Sort'
@@ -32,6 +32,8 @@ function ProductGallery({ title, searchTerm }: Props) {
   const facets = useDelayedFacets(data)
   const totalCount = data?.search?.products.pageInfo.totalCount ?? 0
   const { next, prev } = useDelayedPagination(totalCount)
+
+  const handleDismiss = useCallback(() => setIsFilterOpen(false), [])
 
   useProductsPrefetch(prev ? prev.cursor : null)
   useProductsPrefetch(next ? next.cursor : null)
@@ -67,7 +69,7 @@ function ProductGallery({ title, searchTerm }: Props) {
             <Filter
               isOpen={isFilterOpen}
               facets={facets}
-              onDismiss={() => setIsFilterOpen(false)}
+              onDismiss={handleDismiss}
             />
           </FilterSkeleton>
         </div>
