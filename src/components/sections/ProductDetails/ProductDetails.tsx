@@ -285,6 +285,7 @@ export const fragment = gql`
     }
 
     additionalProperty {
+      propertyID
       name
       value
       valueReference
