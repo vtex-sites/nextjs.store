@@ -54,5 +54,8 @@ export const useGalleryQuery = () => {
     selectedFacets,
   })
 
-  return useQuery<Query, Variables>(query, localizedVariables)
+  return useQuery<Query, Variables>(query, localizedVariables, {
+    suspense: true,
+    fallbackData: { search: undefined },
+  })
 }

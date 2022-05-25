@@ -1,6 +1,6 @@
 import { useSearch } from '@faststore/sdk'
 import { NextSeo } from 'next-seo'
-import { lazy, Suspense, useState } from 'react'
+import { Suspense, useState } from 'react'
 
 import Filter from 'src/components/search/Filter'
 import Sort from 'src/components/search/Sort'
@@ -18,8 +18,7 @@ import { useDelayedFacets } from './useDelayedFacets'
 import { useDelayedPagination } from './useDelayedPagination'
 import { useGalleryQuery } from './useGalleryQuery'
 import { useProductsPrefetch } from './usePageProducts'
-
-const GalleryPage = lazy(() => import('./ProductGalleryPage'))
+import GalleryPage from './ProductGalleryPage'
 
 interface Props {
   title: string
@@ -31,13 +30,13 @@ function ProductGallery({ title, searchTerm }: Props) {
   const { pages, addNextPage, addPrevPage } = useSearch()
   const { data } = useGalleryQuery()
   const facets = useDelayedFacets(data)
-  const totalCount = data?.search.products.pageInfo.totalCount ?? 0
+  const totalCount = data?.search?.products.pageInfo.totalCount ?? 0
   const { next, prev } = useDelayedPagination(totalCount)
 
   useProductsPrefetch(prev ? prev.cursor : null)
   useProductsPrefetch(next ? next.cursor : null)
 
-  if (data && totalCount === 0) {
+  if (data?.search && totalCount === 0) {
     return (
       <Section
         data-testid="product-gallery"
@@ -125,12 +124,11 @@ function ProductGallery({ title, searchTerm }: Props) {
           )}
 
           {/* Render ALL products */}
-          {data ? (
+          {data?.search ? (
             <Suspense fallback={<ProductGridSkeleton loading />}>
               {pages.map((page) => (
                 <GalleryPage
                   key={`gallery-page-${page}`}
-                  showSponsoredProducts={false}
                   page={page}
                   title={title}
                 />

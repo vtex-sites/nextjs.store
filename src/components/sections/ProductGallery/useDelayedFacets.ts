@@ -9,7 +9,7 @@ export const useDelayedFacets = (data?: ProductGalleryQueryQuery) => {
   const facets = useRef<Filter_FacetsFragment[]>([])
 
   return useMemo(() => {
-    if (data) {
+    if (data?.search) {
       facets.current = data.search.facets
     }
 

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { gql } from '@vtex/graphql-utils'
 import { useSession } from '@faststore/sdk'
 
@@ -9,6 +9,8 @@ import type {
 
 import { useQuery } from '../graphql/useQuery'
 import type { QueryOptions } from '../graphql/useQuery'
+
+const { startTransition } = React as any
 
 export const query = gql`
   query PersonQuery {
@@ -42,10 +44,12 @@ const usePersonQuery = (options?: QueryOptions) => {
 
   useEffect(() => {
     if (!!person && person !== user) {
-      setSession({
-        ...session,
-        user: person,
-      })
+      startTransition(() =>
+        setSession({
+          ...session,
+          user: person,
+        })
+      )
     }
   }, [person, user, session, setSession])
 
