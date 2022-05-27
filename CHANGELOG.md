@@ -21,10 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ImageGallery` to PDP ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
 - `add_to_cart` and `remove_from_cart` analytics events to `CartItem` ([#35](https://github.com/vtex-sites/nextjs.store/pull/35))
 - `ButtonSignInFallback` component ([#45](https://github.com/vtex-sites/nextjs.store/pull/45))
-- `OutOfStock` component ([#72](https://github.com/vtex-sites/nextjs.store/pull/72))
 
 ### Changed
 
+- `OutOfStock` component ([#72](https://github.com/vtex-sites/nextjs.store/pull/72))
 - LCP images to be fetched with a higher priority and improve the score ([#49](https://github.com/vtex-sites/nextjs.store/pull/49)).
 - Uses `ProductCard` component from FSUI instead of `Card` ([#41](https://github.com/vtex-sites/nextjs.store/pull/41))
 - `EmptyState` component to be customized with a rounded `variant` prop (`default` | `rounded`) ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
