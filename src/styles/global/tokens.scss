@@ -19,11 +19,11 @@ body {
   --fs-color-main-3                    : #002c71;
   --fs-color-main-4                    : #001947;
 
-  --fs-color-accent-0                  : #ebdcff; // Lightest
+  --fs-color-accent-0                  : #ebdcff;
   --fs-color-accent-1                  : #8d50fd;
   --fs-color-accent-2                  : #732fe2;
   --fs-color-accent-3                  : #5900c8;
-  --fs-color-accent-4                  : darken(#5900c8, 5%); // Darkest
+  --fs-color-accent-4                  : #4700a0;
 
   --fs-color-neutral-0                 : #ffffff;
   --fs-color-neutral-1                 : #f1f2f3;
@@ -267,7 +267,7 @@ body {
   --fs-border-width-thickest           : 3px;
 
   // SHADOW
-  --fs-shadow                          : 0 1px 4px rgb(0 0 0 / 10%), 0 6px 8px rgb(0 0 0 / 10%);
+  --fs-shadow                          : none;
   --fs-shadow-darker                   : 0 0 10px rgb(0 0 0 / 20%);
-  --fs-shadow-hover                    : var(--fs-shadow);
+  --fs-shadow-hover                    : 0 1px 4px rgb(0 0 0 / 10%), 0 6px 8px rgb(0 0 0 / 10%);
 }

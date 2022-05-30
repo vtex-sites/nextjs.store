@@ -1,3 +1,4 @@
+import { useSession } from '@faststore/sdk'
 import { List as UIList } from '@faststore/ui'
 import { gql } from '@vtex/graphql-utils'
 import { useEffect, useState } from 'react'
@@ -14,10 +15,15 @@ import type {
 import SuggestionProductCard from '../SuggestionProductCard'
 
 const SearchSuggestionsQuery = gql`
-  query SearchSuggestionsQuery($term: String!) {
-    search(first: 10, term: $term) {
+  query SearchSuggestionsQuery(
+    $term: String!
+    $selectedFacets: [IStoreSelectedFacet!]
+  ) {
+    search(first: 5, term: $term, selectedFacets: $selectedFacets) {
       suggestions {
-        terms
+        terms {
+          value
+        }
         products {
           ...ProductSummary_product
         }
@@ -87,6 +93,7 @@ export interface SuggestionsProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 function useSuggestions(term: string) {
+  const { channel, locale } = useSession()
   const [suggestions, setSuggestions] =
     useState<SearchSuggestionsQueryQuery['search']['suggestions']>()
 
@@ -98,13 +105,19 @@ function useSuggestions(term: string) {
       request<
         SearchSuggestionsQueryQuery,
         SearchSuggestionsQueryQueryVariables
-      >(SearchSuggestionsQuery, { term })
+      >(SearchSuggestionsQuery, {
+        term,
+        selectedFacets: [
+          { key: 'channel', value: channel ?? '' },
+          { key: 'locale', value: locale },
+        ],
+      })
         .then((data) => {
           setSuggestions(data.search.suggestions)
         })
         .finally(() => setLoading(false))
     }
-  }, [term])
+  }, [term, channel, locale])
 
   const terms = suggestions?.terms ?? []
   const products = suggestions?.products ?? []
@@ -137,7 +150,7 @@ function Suggestions({
     >
       {terms.length > 0 && (
         <UIList data-fs-search-suggestion-section>
-          {terms?.map((suggestion) => (
+          {terms?.map(({ value: suggestion }) => (
             <li key={suggestion} data-fs-search-suggestion-item>
               <Button onClick={() => onSearch(suggestion)}>
                 {handleSuggestions(suggestion, term)}
