@@ -511,12 +511,20 @@ export type StoreSort =
 /** Status used to indicate type of message. For instance, in shopping cart messages. */
 export type StoreStatus = 'ERROR' | 'INFO' | 'WARNING'
 
+/** Suggestion term. */
+export type StoreSuggestionTerm = {
+  /** Its occurrences count. */
+  count: Scalars['Int']
+  /** The term. */
+  value: Scalars['String']
+}
+
 /** Suggestions information. */
 export type StoreSuggestions = {
   /** Array with suggestion products' information. */
-  products: Maybe<Array<StoreProduct>>
+  products: Array<StoreProduct>
   /** Array with suggestion terms. */
-  terms: Maybe<Array<Scalars['String']>>
+  terms: Array<StoreSuggestionTerm>
 }
 
 export type ProductSummary_ProductFragment = {
@@ -562,12 +570,13 @@ export type Filter_FacetsFragment = {
 
 export type SearchSuggestionsQueryQueryVariables = Exact<{
   term: Scalars['String']
+  selectedFacets: InputMaybe<Array<IStoreSelectedFacet> | IStoreSelectedFacet>
 }>
 
 export type SearchSuggestionsQueryQuery = {
   search: {
     suggestions: {
-      terms: Array<string> | null
+      terms: Array<{ value: string }>
       products: Array<{
         slug: string
         sku: string
@@ -587,7 +596,7 @@ export type SearchSuggestionsQueryQuery = {
             seller: { identifier: string }
           }>
         }
-      }> | null
+      }>
     }
   }
 }
