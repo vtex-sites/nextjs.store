@@ -26,6 +26,28 @@ module.exports = {
       }),
     ]
 
+    // SCSS import and camelCase support for CSS modules
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        {
+          loader: 'style-loader',
+        },
+        {
+          loader: 'css-loader',
+          options: {
+            modules: {
+              exportLocalsConvention: 'camelCase',
+            },
+          },
+        },
+        {
+          loader: 'sass-loader',
+        },
+      ],
+      include: resolve(__dirname, '../'),
+    })
+
     return config
   },
 }
