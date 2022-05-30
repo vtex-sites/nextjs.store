@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies new local tokens to `Incentives` ([#56](https://github.com/vtex-sites/nextjs.store/pull/56))
 - Adds tests for analytics events on `CartItem` ([#66](https://github.com/vtex-sites/nextjs.store/pull/66))
 - additionalProperty to CartItem id ([#47](https://github.com/vtex-sites/nextjs.store/pull/47))
 - Applies new local tokens to `Link` ([#17](https://github.com/vtex-sites/nextjs.store/pull/17))
@@ -26,6 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Uses CSS Modules on `ProductCard` component [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
 - Uses CSS Modules on `ProductGrid` component [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
+- Added base files (`Getting Started`, `Theming`, `Colors`, `Typography` and `Icons`) to Storybook ([#67](https://github.com/vtex-sites/nextjs.store/pull/67))
+- Updated tokens' naming scheme ([#67](https://github.com/vtex-sites/nextjs.store/pull/67))
 - `OutOfStock` component ([#72](https://github.com/vtex-sites/nextjs.store/pull/72))
 - Displays 5 products on product suggestion for better mobile experience ([#74](https://github.com/vtex-sites/nextjs.store/pull/74))
 - LCP images to be fetched with a higher priority and improve the score ([#49](https://github.com/vtex-sites/nextjs.store/pull/49)).
@@ -41,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The `default` nomenclature from global tokens ([#51](https://github.com/vtex-sites/nextjs.store/pull/51))
 
 ### Fixed
+
 - Search suggestions missing locale info ([#71](https://github.com/vtex-sites/nextjs.store/pull/71))
 - Limit custom props only for `img` and `link` tags ([#60](https://github.com/vtex-sites/nextjs.store/pull/60))
 - Warning related to `fetchPriority` prop not being recognized as `img` and `link`'s prop ([#54](https://github.com/vtex-sites/nextjs.store/pull/54))
