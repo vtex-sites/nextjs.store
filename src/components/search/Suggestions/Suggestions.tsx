@@ -4,7 +4,6 @@ import { gql } from '@vtex/graphql-utils'
 import { useEffect, useState } from 'react'
 import type { HTMLAttributes } from 'react'
 
-import styles from 'src/components/search/Suggestions/suggestions.module.scss'
 import Button from 'src/components/ui/Button'
 import { request } from 'src/sdk/graphql/request'
 import type {
@@ -142,12 +141,7 @@ function Suggestions({
   }
 
   return (
-    <section
-      data-testid={testId}
-      className={styles['fs-search-suggestions']}
-      data-fs-search-suggestions
-      {...otherProps}
-    >
+    <section data-testid={testId} data-fs-search-suggestions {...otherProps}>
       {terms.length > 0 && (
         <UIList data-fs-search-suggestion-section>
           {terms?.map(({ value: suggestion }) => (
