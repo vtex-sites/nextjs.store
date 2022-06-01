@@ -3,7 +3,36 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import QuantitySelector from '.'
 import { TokenTable, TokenRow } from './../../../../.storybook/components'
 
-<Meta title="Organisms/QuantitySelector" component={QuantitySelector} />
+<Meta
+  title="Organisms/QuantitySelector"
+  component={QuantitySelector}
+  argTypes={{
+    max: {
+      type: {
+        name: 'number',
+      },
+      defaultValue: 10
+    },
+    min: {
+      type: {
+        name: 'number',
+      },
+      defaultValue: 1
+    },
+    initial: {
+      type: {
+        name: 'number',
+      },
+      defaultValue: 5
+    },
+    disabled: {
+      type: {
+        name: 'boolean'
+      },
+      defaultValue: false
+    }
+  }}
+/>
 
 export const Template = (args) => <QuantitySelector {...args} />
 
@@ -104,7 +133,22 @@ It's a component that displays a "QuantitySelector" component.
   <TokenRow token="--fs-qty-selector-button-border-radius"   value="var(--fs-qty-selector-border-radius)"/>
 </TokenTable>
 
+---
+
+## Variations
+
 ### Disabled
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{
+      disabled: true
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
 <TokenTable>
   <TokenRow token="--fs-qty-selector-disabled-bkg-color" value="var(--fs-color-disabled-bkg)" isColor />
