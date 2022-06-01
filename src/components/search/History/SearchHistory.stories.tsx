@@ -1,7 +1,7 @@
 import { SearchHistory } from '.'
 import type { SearchHistoryProps } from '.'
 
-export default {
+const meta = {
   component: SearchHistory,
   title: 'Organisms/Search/History',
 }
@@ -28,3 +28,5 @@ Default.args = {
 Default.parameters = {
   backgrounds: { default: 'dark' },
 }
+
+export default meta

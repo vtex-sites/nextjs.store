@@ -34,7 +34,7 @@ const product = ({ id = '1', name = 'Handmade Steel Towels Practical' }) => ({
   },
 })
 
-export default {
+const meta = {
   component: Suggestions,
   title: 'Organisms/Search/Suggestions',
 }
@@ -69,3 +69,5 @@ Default.args = {
 Default.parameters = {
   backgrounds: { default: 'dark' },
 }
+
+export default meta

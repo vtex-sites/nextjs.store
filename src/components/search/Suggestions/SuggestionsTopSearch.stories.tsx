@@ -1,7 +1,7 @@
 import { SuggestionsTopSearch } from '.'
 import type { SuggestionsTopSearchProps } from '.'
 
-export default {
+const meta = {
   component: SuggestionsTopSearch,
   title: 'Organisms/Search/TopSearch',
 }
@@ -34,3 +34,5 @@ Default.args = {
 Default.parameters = {
   backgrounds: { default: 'dark' },
 }
+
+export default meta
