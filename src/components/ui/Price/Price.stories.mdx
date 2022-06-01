@@ -11,6 +11,10 @@ import Price from '.'
         name: 'number',
       },
       description: '`number`',
+      defaultValue: 100,
+    },
+    SRText: {
+      defaultValue: 'Price:',
     },
     variant: {
       description: 'The current variant for prices.',
@@ -42,8 +46,6 @@ Prices are used to display the price of a given product, discount and total valu
     name="default"
     args={{
       variant: '',
-      value: 100,
-      SRText: 'Price:',
     }}
   >
     {Template.bind({})}
@@ -65,8 +67,6 @@ Prices are used to display the price of a given product, discount and total valu
     name="installment"
     args={{
       variant: 'installment',
-      value: 100,
-      SRText: 'Price:',
     }}
   >
     {Template.bind({})}
@@ -82,7 +82,6 @@ Prices are used to display the price of a given product, discount and total valu
     name="listing"
     args={{
       variant: 'listing',
-      value: 100,
       SRText: 'Original price:',
     }}
   >
@@ -104,8 +103,6 @@ Prices are used to display the price of a given product, discount and total valu
     name="savings"
     args={{
       variant: 'savings',
-      value: 100,
-      SRText: 'Price:',
     }}
   >
     {Template.bind({})}
@@ -121,8 +118,6 @@ Prices are used to display the price of a given product, discount and total valu
     name="selling"
     args={{
       variant: 'selling',
-      value: 100,
-      SRText: 'Price:',
     }}
   >
     {Template.bind({})}
@@ -138,8 +133,6 @@ Prices are used to display the price of a given product, discount and total valu
     name="spot"
     args={{
       variant: 'spot',
-      value: 100,
-      SRText: 'Price:',
     }}
   >
     {Template.bind({})}
