@@ -37,6 +37,56 @@ Prices are used to display the price of a given product, discount and total valu
 
 </header>
 
+## Overview
+
+The `Price` component uses [FastStore UI Price](https://www.faststore.dev/reference/ui/atoms/Price) as base.
+
+<Canvas>
+  <Story name="overview-default">{Template.bind({})}</Story>
+  <Story
+    name="overview-installment"
+    args={{
+      variant: 'installment',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-listing"
+    args={{
+      variant: 'listing',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-savings"
+    args={{
+      variant: 'savings',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-selling"
+    args={{
+      variant: 'selling',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-spot"
+    args={{
+      variant: 'spot',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+---
+
 ## Usage
 
 `import Price from '../components/ui/Price'`
@@ -56,9 +106,9 @@ Prices are used to display the price of a given product, discount and total valu
 
 <ArgsTable story="default" />
 
-## Variations
+---
 
-<br />
+## Variations
 
 ### Installment
 
