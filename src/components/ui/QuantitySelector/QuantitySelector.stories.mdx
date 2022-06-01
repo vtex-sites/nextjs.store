@@ -1,0 +1,115 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+
+import QuantitySelector from '.'
+import { TokenTable, TokenRow } from './../../../../.storybook/components'
+
+<Meta title="Organisms/QuantitySelector" component={QuantitySelector} />
+
+export const Template = (args) => <QuantitySelector {...args} />
+
+<header>
+
+# QuantitySelector
+
+It's a component that displays a "QuantitySelector" component.
+
+</header>
+
+### Import
+
+`import QuantitySelector from '../components/sections/QuantitySelector'`
+
+### Usage
+
+<Canvas>
+  <Story
+    name="QuantitySelector"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Props
+
+<ArgsTable story="QuantitySelector" />
+
+<TokenTable>
+  <TokenRow
+    token="--fs-qty-selector-width"
+    value="calc(var(--fs-control-tap-size) * 2.7)"/>
+  <TokenRow
+    token="--fs-qty-selector-height"
+    value="calc(var(--fs-control-tap-size) + (var(--fs-qty-selector-border-width) * 2))"/>
+  <TokenRow
+    token="--fs-qty-selector-shadow"
+    value="none"/>
+  <TokenRow
+    token="--fs-qty-selector-shadow-hover"
+    value="0 0 0 var(--fs-border-width) var(--fs-border-color-active)"/>
+  <TokenRow
+    token="--fs-qty-selector-bkg-color"
+    value="var(--fs-color-body-bkg)"
+    isColor/>
+  <TokenRow
+    token="--fs-qty-selector-bkg-color-hover"
+    value="var(--fs-qty-selector-bkg-color)"
+    isColor/>
+</TokenTable>
+
+### Border
+
+<TokenTable>
+  <TokenRow token="--fs-qty-selector-border-radius"      value="var(--fs-border-radius)"/>
+  <TokenRow token="--fs-qty-selector-border-width"       value="var(--fs-border-width)"/>
+  <TokenRow token="--fs-qty-selector-border-width-hover" value="var(--fs-border-width)"/>
+  <TokenRow token="--fs-qty-selector-border-color"       value="var(--fs-border-color)" isColor/>
+  <TokenRow token="--fs-qty-selector-border-color-hover" value="var(--fs-border-color-active)" isColor/>
+</TokenTable>
+
+### Transition
+
+<TokenTable>
+  <TokenRow token="--fs-qty-selector-transition-function" value="var(--fs-transition-function)"/>
+  <TokenRow token="--fs-qty-selector-transition-property" value="var(--fs-transition-property)"/>
+  <TokenRow token="--fs-qty-selector-transition-timing  " value="var(--fs-transition-timing)"/>
+</TokenTable>
+
+<br />
+
+## Nested Elements
+
+### Text
+
+<TokenTable>
+  <TokenRow token="--fs-qty-selector-text-size" value="var(--fs-text-size-base)" />
+  <TokenRow token="--fs-qty-selector-text-color" value="var(--fs-color-text)" isColor />
+  <TokenRow token="--fs-qty-selector-text-color-hover" value="var(--fs-qty-selector-text-color)" isColor />
+</TokenTable>
+
+### Icon
+
+<TokenTable>
+  <TokenRow token="--fs-qty-selector-icon-color" value="var(--fs-color-link)" isColor />
+  <TokenRow token="--fs-qty-selector-icon-color-hover" value="var(--fs-border-color-active)" isColor />
+</TokenTable>
+
+### Button
+
+<TokenTable>
+  <TokenRow token="--fs-qty-selector-button-shadow" value="none"/>
+  <TokenRow token="--fs-qty-selector-button-shadow-hover" value="none"/>
+  <TokenRow token="--fs-qty-selector-button-bkg-color" value="transparent"/>
+  <TokenRow token="--fs-qty-selector-button-bkg-color-hover" value="var(--fs-color-primary-bkg-light)" isColor  />
+  <TokenRow token="--fs-qty-selector-button-bkg-color-focus" value="var(--fs-qty-selector-button-bkg-color-hover)" isColor/>
+  <TokenRow token="--fs-qty-selector-button-border-radius"   value="var(--fs-qty-selector-border-radius)"/>
+</TokenTable>
+
+### Disabled
+
+<TokenTable>
+  <TokenRow token="--fs-qty-selector-disabled-bkg-color" value="var(--fs-color-disabled-bkg)" isColor />
+  <TokenRow token="--fs-qty-selector-disabled-text-color" value="var(--fs-color-disabled-text)" isColor />
+  <TokenRow token="--fs-qty-selector-disabled-icon-color" value="var(--fs-border-color-light-disabled)" isColor />
+  <TokenRow token="--fs-qty-selector-disabled-border-color" value="var(--fs-qty-selector-disabled-bkg-color)" isColor />
+  <TokenRow token="--fs-qty-selector-disabled-button-bkg-color" value="var(--fs-qty-selector-button-bkg-color-hover)" isColor />
+</TokenTable>
