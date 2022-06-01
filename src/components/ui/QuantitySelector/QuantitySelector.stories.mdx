@@ -1,10 +1,10 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 
 import QuantitySelector from '.'
-import { TokenTable, TokenRow } from './../../../../.storybook/components'
+import { TokenTable, TokenRow, TokenDivider } from './../../../../.storybook/components'
 
 <Meta
-  title="Organisms/QuantitySelector"
+  title="Molecules/QuantitySelector"
   component={QuantitySelector}
   argTypes={{
     max: {
@@ -44,11 +44,29 @@ It's a component that displays a "QuantitySelector" component.
 
 </header>
 
-### Import
+## Overview
+
+The `QuantitySelector` component uses [FastStore UI QuantitySelector](https://www.faststore.dev/reference/ui/molecules/QuantitySelector) as base.
+
+<Canvas>
+  <Story
+    name="Overview-QuantitySelector"
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Overview-Disabled"
+    args={{
+      disabled: true
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Usage
 
 `import QuantitySelector from '../components/sections/QuantitySelector'`
-
-### Usage
 
 <Canvas>
   <Story
@@ -57,8 +75,6 @@ It's a component that displays a "QuantitySelector" component.
     {Template.bind({})}
   </Story>
 </Canvas>
-
-### Props
 
 <ArgsTable story="QuantitySelector" />
 
@@ -69,12 +85,14 @@ It's a component that displays a "QuantitySelector" component.
   <TokenRow
     token="--fs-qty-selector-height"
     value="calc(var(--fs-control-tap-size) + (var(--fs-qty-selector-border-width) * 2))"/>
+  <TokenDivider/>
   <TokenRow
     token="--fs-qty-selector-shadow"
     value="none"/>
   <TokenRow
     token="--fs-qty-selector-shadow-hover"
     value="0 0 0 var(--fs-border-width) var(--fs-border-color-active)"/>
+  <TokenDivider/>
   <TokenRow
     token="--fs-qty-selector-bkg-color"
     value="var(--fs-color-body-bkg)"
@@ -83,27 +101,19 @@ It's a component that displays a "QuantitySelector" component.
     token="--fs-qty-selector-bkg-color-hover"
     value="var(--fs-qty-selector-bkg-color)"
     isColor/>
-</TokenTable>
-
-### Border
-
-<TokenTable>
+  <TokenDivider/>
   <TokenRow token="--fs-qty-selector-border-radius"      value="var(--fs-border-radius)"/>
   <TokenRow token="--fs-qty-selector-border-width"       value="var(--fs-border-width)"/>
   <TokenRow token="--fs-qty-selector-border-width-hover" value="var(--fs-border-width)"/>
   <TokenRow token="--fs-qty-selector-border-color"       value="var(--fs-border-color)" isColor/>
   <TokenRow token="--fs-qty-selector-border-color-hover" value="var(--fs-border-color-active)" isColor/>
-</TokenTable>
-
-### Transition
-
-<TokenTable>
+  <TokenDivider/>
   <TokenRow token="--fs-qty-selector-transition-function" value="var(--fs-transition-function)"/>
   <TokenRow token="--fs-qty-selector-transition-property" value="var(--fs-transition-property)"/>
   <TokenRow token="--fs-qty-selector-transition-timing  " value="var(--fs-transition-timing)"/>
 </TokenTable>
 
-<br />
+---
 
 ## Nested Elements
 
