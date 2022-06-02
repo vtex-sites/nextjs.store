@@ -16,7 +16,7 @@ export interface RadioProps {
    */
   value?: string
   /**
-   * Iditify radio on the same group.
+   * Identify radio in the same group.
    */
   name?: string
 }
