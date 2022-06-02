@@ -14,7 +14,7 @@ function Toast() {
 
   useEffect(() => {
     if (!toast) {
-      return
+      return undefined
     }
 
     const timeout = setTimeout(() => setVisible(true), 10)
