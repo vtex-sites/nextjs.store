@@ -120,8 +120,8 @@ The `Checkbox` component uses [FastStore UI Checkbox](https://www.faststore.dev/
         <code>--fs-checkbox-border-color-hover</code>
       </td>
       <td>
-        <div style={{ backgroundColor: 'var(--fs-color-text)' }} />
-        <code>var(--fs-color-text)</code>
+        <div style={{ backgroundColor: 'var(--fs-border-color-hover)' }} />
+        <code>var(--fs-border-color-hover)</code>
       </td>
     </tr>
     <tr>
@@ -218,11 +218,22 @@ The `Checkbox` component uses [FastStore UI Checkbox](https://www.faststore.dev/
     </tr>
     <tr>
       <td>
-        <code>--fs-checkbox-checked-border-color</code>
+        <code>--fs-checkbox-checked-border-color-hover</code>
       </td>
       <td>
-        <div style={{ backgroundColor: 'var(--fs-border-color-active)' }} />
-        <code>var(--fs-border-color-active)</code>
+        <div style={{ backgroundColor: 'var((--fs-border-color-hover)' }} />
+        <code>var((--fs-border-color-hover)</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--fs-checkbox-checked-shadow-hover</code>
+      </td>
+      <td>
+        <code>
+          0 0 0 var(--fs-checkbox-border-width)
+          var(--fs-checkbox-checked-border-color-hover)
+        </code>
       </td>
     </tr>
   </tbody>
@@ -320,7 +331,7 @@ The `Checkbox` component uses [FastStore UI Checkbox](https://www.faststore.dev/
       </td>
       <td>
         <div style={{ backgroundColor: 'var(--fs-color-neutral-0)' }} />
-        <code>var(--fs-color-neutral-0)</code>
+        <code>var(--fs-color-body-bkg)</code>
       </td>
     </tr>
     <tr>
@@ -342,7 +353,7 @@ The `Checkbox` component uses [FastStore UI Checkbox](https://www.faststore.dev/
     </tr>
     <tr>
       <td>
-        <code>--fs-checkbox-partial-hover</code>
+        <code>--fs-checkbox-partial-bkg-color-hover</code>
       </td>
       <td>
         <div style={{ backgroundColor: 'var(--fs-color-primary-bkg-light)' }} />
