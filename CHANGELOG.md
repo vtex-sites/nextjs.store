@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add Storybook documentation for `QuantitySelector` component ([#81](https://github.com/vtex-sites/nextjs.store/pull/81))
 - Applies new local tokens to `Checkbox` ([#59](https://github.com/vtex-sites/nextjs.store/pull/59))
 - Applies new local tokens to `Incentives` ([#56](https://github.com/vtex-sites/nextjs.store/pull/56))
 - Adds tests for analytics events on `CartItem` ([#66](https://github.com/vtex-sites/nextjs.store/pull/66))
@@ -26,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Applied styles to `Toast` using CSS Modules ([#82](https://github.com/vtex-sites/nextjs.store/pull/82))
 - Tweaks CSS Modules pattern on `Checkbox` component [#79](https://github.com/vtex-sites/nextjs.store/pull/79)
 - Uses CSS Modules on `ProductCard` component [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
 - Uses CSS Modules on `ProductGrid` component [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
