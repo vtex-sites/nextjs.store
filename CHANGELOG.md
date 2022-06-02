@@ -58,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A missing gap between the Sign In link and Cart button on desktop ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - A bugged vertical gap with the `EmptyState` component inside the cart ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - Fixes Storybook build removing unused imports ([#40](https://github.com/vtex-sites/nextjs.store/pull/40))
-- Lighthouse complaining about missing robots.txt
+- Lighthouse complaining about missing robots.txt ([#89](https://github.com/vtex-sites/nextjs.store/pull/89))
 
 ### Security
 
