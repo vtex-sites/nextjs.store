@@ -13,11 +13,17 @@ function Toast() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    toast && setVisible(true)
+    if (!toast) {
+      return
+    }
+
+    const timeout = setTimeout(() => setVisible(true), 10)
+
+    return () => clearTimeout(timeout)
   }, [toast])
 
   useEffect(() => {
-    timeoutRef.current = setTimeout(() => setVisible(false), 2e3)
+    timeoutRef.current = setTimeout(() => setVisible(false), 6e3)
 
     return () => timeoutRef.current && clearTimeout(timeoutRef.current)
   }, [toast])
