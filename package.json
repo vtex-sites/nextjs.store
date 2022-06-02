@@ -32,7 +32,7 @@
     "@envelop/validation-cache": "^2.2.0",
     "@faststore/api": "^1.8.49",
     "@faststore/sdk": "^1.8.49",
-    "@faststore/ui": "^1.8.49",
+    "@faststore/ui": "https://pkg.csb.dev/vtex/faststore/commit/ebfa9e0a/@faststore/ui/_pkg.tgz",
     "@vtex/graphql-utils": "^1.8.42",
     "graphql": "^15.0.0",
     "include-media": "^1.4.10",
