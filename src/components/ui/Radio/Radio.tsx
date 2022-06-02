@@ -1,5 +1,7 @@
 import { Radio as UIRadio, Label as UILabel } from '@faststore/ui'
 
+import styles from './radio.module.scss'
+
 export interface RadioProps {
   /**
    * ID to identify input and corresponding label.
