@@ -12,7 +12,7 @@
   --fs-radio-border-width                 : var(--fs-border-width);
   --fs-radio-border-radius                : var(--fs-border-radius-circle);
   --fs-radio-border-color                 : var(--fs-border-color);
-  --fs-radio-border-color-hover           : var(--fs-color-text);
+  --fs-radio-border-color-hover           : var(--fs-border-color-hover);
 
   --fs-radio-transition                   : border var(--fs-transition-timing) var(--fs-transition-function), background-color var(--fs-transition-timing) var(--fs-transition-function), box-shadow var(--fs-transition-timing) var(--fs-transition-function);
 
@@ -28,7 +28,6 @@
   // Checked
   --fs-radio-checked-bkg-color            : var(--fs-color-primary-bkg);
   --fs-radio-checked-bkg-color-hover      : var(--fs-color-primary-bkg-hover);
-  --fs-radio-checked-border-color         : var(--fs-border-color-active);
 
   // Disabled
   --fs-radio-disabled-bkg-color           : var(--fs-color-disabled-bkg);
@@ -84,8 +83,7 @@
 
     &:checked {
       background-color: var(--fs-radio-checked-bkg-color);
-      border-color: var(--fs-radio-checked-border-color);
-      border-width: 0;
+      border: none;
 
       &::before {
         opacity: 1;
