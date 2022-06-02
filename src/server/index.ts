@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import {
   envelop,
+  useAsyncSchema,
   useExtendContext,
   useMaskedErrors,
-  useAsyncSchema,
 } from '@envelop/core'
 import type { FormatErrorHandler } from '@envelop/core'
 import { useGraphQlJit } from '@envelop/graphql-jit'
