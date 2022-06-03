@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Applies new local tokens to `Price` ([#80](https://github.com/vtex-sites/nextjs.store/pull/80))
+- Creates `Radio` component ([#87](https://github.com/vtex-sites/nextjs.store/pull/87))
 - Add Storybook documentation for `QuantitySelector` component ([#81](https://github.com/vtex-sites/nextjs.store/pull/81))
 - Applies new local tokens to `Checkbox` ([#59](https://github.com/vtex-sites/nextjs.store/pull/59))
 - Applies new local tokens to `Incentives` ([#56](https://github.com/vtex-sites/nextjs.store/pull/56))
@@ -28,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Change Storybook prop descriptions for `QuantitySelector` component ([#92](https://github.com/vtex-sites/nextjs.store/pull/92))
 - Applied styles to `Toast` using CSS Modules ([#82](https://github.com/vtex-sites/nextjs.store/pull/82))
 - Tweaks CSS Modules pattern on `Checkbox` component [#79](https://github.com/vtex-sites/nextjs.store/pull/79)
 - Uses CSS Modules on `ProductCard` component [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
