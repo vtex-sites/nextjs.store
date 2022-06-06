@@ -7,6 +7,10 @@ import Icon from 'src/components/ui/Icon'
 
 interface Props {
   icon: string
+  /**
+   * For CMS integration purposes, should be used to pass content through it
+   * instead pass through children
+   */
   content?: ReactNode
   link?: {
     to: string
