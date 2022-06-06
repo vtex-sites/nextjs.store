@@ -14,11 +14,6 @@ import styles from 'src/components/product/OutOfStock/out-of-stock.module.scss'
 
 export interface OutOfStockProps {
   /**
-   * ID to find this component in testing tools (e.g.: cypress,
-   * testing-library, and jest).
-   */
-  testId?: string
-  /**
    * The Out of Stock Section's title.
    */
   title?: string
@@ -28,20 +23,25 @@ export interface OutOfStockProps {
   buttonText?: string
   /**
    * Icon displayed inside the button.
-   * @default <Icon name="BellRinging" />
-   */
-  buttonIcon?: ReactElement
-  /**
-   * Message describing when the user will be notified.
    */
   notificationMsg?: string
   /**
    * Icon displayed inside the message.
    * @default <Icon name="BellRinging" />
    */
+  buttonIcon?: ReactElement
+  /**
+   * Message describing when the user will be notified.
+   * @default <Icon name="BellRinging" />
+   */
   notificationMsgIcon?: ReactElement
   /**
-   *
+   * ID to find this component in testing tools (e.g.: cypress,
+   * testing-library, and jest).
+   */
+  testId?: string
+  /**
+   * Event emitted when form is submitted.
    */
   onSubmit: (value: string) => void
 }

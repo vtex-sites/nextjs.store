@@ -5,9 +5,6 @@
   // Design Tokens for Out of Stock
   // --------------------------------------------------------
 
-  // Default properties
-  --fs-out-of-stock-margin-top            : var(--fs-spacing-4);
-
   // Title
   --fs-out-of-stock-title-margin-bottom   : var(--fs-spacing-0);
   --fs-out-of-stock-title-line-height     : 1.15;
@@ -19,10 +16,11 @@
   --fs-out-of-stock-message-margin-bottom : var(--fs-spacing-3);
   --fs-out-of-stock-message-line-height   : 1.15;
   --fs-out-of-stock-message-size          : var(--fs-text-size-base);
-  --fs-out-of-stock-message-weight        :
-    var(--fs-text-weight-regular)
-     
-  --fs-out    f-stock-button-width          : 100%;
+  --fs-out-of-stock-message-weight        : var(--fs-text-weight-regular);
+
+  // Button
+  --fs-out-of-stock-button-width          : 100%;
+  --fs-out-of-stock-button-margin-top     : var(--fs-spacing-3);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -30,7 +28,6 @@
 
   display: flex;
   flex-direction: column;
-  margin-top: var(--fs-out-of-stock-margin-top);
 
   [data-fs-out-of-stock-title] {
     margin-bottom: var(--fs-out-of-stock-title-margin-bottom);
@@ -51,5 +48,6 @@
 
   [data-store-button] {
     width: var(--fs-out-of-stock-button-width);
+    margin-top: var(--fs-out-of-stock-button-margin-top);
   }
 }
