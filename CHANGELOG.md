@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies new local tokens to `ProductTitle` ([#84](https://github.com/vtex-sites/nextjs.store/pull/84))
+- Applies new local tokens to `Alert` ([#94](https://github.com/vtex-sites/nextjs.store/pull/94))
+- Applies new local tokens to `Price` ([#80](https://github.com/vtex-sites/nextjs.store/pull/80))
+- Creates `Radio` component ([#87](https://github.com/vtex-sites/nextjs.store/pull/87))
 - Add Storybook documentation for `QuantitySelector` component ([#81](https://github.com/vtex-sites/nextjs.store/pull/81))
 - Applies new local tokens to `Checkbox` ([#59](https://github.com/vtex-sites/nextjs.store/pull/59))
 - Applies new local tokens to `Incentives` ([#56](https://github.com/vtex-sites/nextjs.store/pull/56))
@@ -27,6 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Refactors `Button` component and adds Storybook doc ([#99](https://github.com/vtex-sites/nextjs.store/pull/99))
+- Uses `Hero` component from FSUI ([#98](https://github.com/vtex-sites/nextjs.store/pull/98))
+- Change Storybook prop descriptions for `QuantitySelector` component ([#92](https://github.com/vtex-sites/nextjs.store/pull/92))
 - Applied styles to `Toast` using CSS Modules ([#82](https://github.com/vtex-sites/nextjs.store/pull/82))
 - Tweaks CSS Modules pattern on `Checkbox` component [#79](https://github.com/vtex-sites/nextjs.store/pull/79)
 - Uses CSS Modules on `ProductCard` component [#61](https://github.com/vtex-sites/nextjs.store/pull/61)
@@ -46,11 +53,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- `Hero` component from `components/ui` ([#98](https://github.com/vtex-sites/nextjs.store/pull/98))
 - Unused `-default` at css variables ([#78](https://github.com/vtex-sites/nextjs.store/pull/78))
 - The `default` nomenclature from global tokens ([#51](https://github.com/vtex-sites/nextjs.store/pull/51))
 
 ### Fixed
 
+- Lighthouse complaining about missing robots.txt ([#89](https://github.com/vtex-sites/nextjs.store/pull/89))
+- Fix 404 being returned for existing pages when the server fails to fetch data ([#88](https://github.com/vtex-sites/nextjs.store/pull/88))
 - Search suggestions missing locale info ([#71](https://github.com/vtex-sites/nextjs.store/pull/71))
 - Limit custom props only for `img` and `link` tags ([#60](https://github.com/vtex-sites/nextjs.store/pull/60))
 - Warning related to `fetchPriority` prop not being recognized as `img` and `link`'s prop ([#54](https://github.com/vtex-sites/nextjs.store/pull/54))
