@@ -97,9 +97,9 @@ function OutOfStock(props: OutOfStockProps) {
 
   return (
     <UIOutOfStock
+      data-fs-out-of-stock
       className={styles.fsOutOfStock}
       onSubmit={handleSubmit}
-      data-fs-out-of-stock
     >
       <UIOutOfStockTitle data-fs-out-of-stock-title>{title}</UIOutOfStockTitle>
       <UIOutOfStockMessage data-fs-out-of-stock-message>
