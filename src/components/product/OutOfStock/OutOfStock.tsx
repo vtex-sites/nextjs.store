@@ -10,6 +10,7 @@ import type { ReactElement, FormEvent } from 'react'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import InputText from 'src/components/ui/InputText'
+import styles from 'src/components/product/OutOfStock/out-of-stock.module.scss'
 
 export interface OutOfStockProps {
   /**
@@ -95,9 +96,13 @@ function OutOfStock(props: OutOfStockProps) {
   }
 
   return (
-    <UIOutOfStock onSubmit={handleSubmit}>
-      <UIOutOfStockTitle>{title}</UIOutOfStockTitle>
-      <UIOutOfStockMessage>
+    <UIOutOfStock
+      className={styles.fsOutOfStock}
+      onSubmit={handleSubmit}
+      data-fs-out-of-stock
+    >
+      <UIOutOfStockTitle data-fs-out-of-stock-title>{title}</UIOutOfStockTitle>
+      <UIOutOfStockMessage data-fs-out-of-stock-message>
         {notificationMsgIcon} {notificationMsg}
       </UIOutOfStockMessage>
       <InputText
