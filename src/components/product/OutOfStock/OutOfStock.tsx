@@ -31,7 +31,7 @@ export interface OutOfStockProps {
    */
   buttonIcon?: ReactElement
   /**
-   * Message describing when the user will be notified.
+   * Icon displayed inside the notification message.
    * @default <Icon name="BellRinging" />
    */
   notificationMsgIcon?: ReactElement
