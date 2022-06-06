@@ -6,6 +6,8 @@ import {
   TokenTable,
   TokenRow,
   TokenDivider,
+  BestPractices,
+  BestPracticesRule,
 } from 'src/../.storybook/components'
 
 <Meta
@@ -18,15 +20,6 @@ import {
 
 export const Template = (args) => (
   <Alert {...args}>Free shipping starts at $300</Alert>
-)
-
-export const TemplateBig = (args) => (
-  <Alert {...args}>
-    Alert with a veeeery long description lorem ipsum dolor sit amet,
-    consectetur adipiscing elit. Donec sollicitudin erat non felis feugiat
-    porta. Nam vitae turpis metus. Maecenas feugiat justo tristique libero
-    ultricies
-  </Alert>
 )
 
 <header>
@@ -53,16 +46,6 @@ The `Alert` component uses [FastStore UI Alert](https://www.faststore.dev/refere
     {Template.bind({})}
   </Story>
   <Story name="overview-clean">{Template.bind({})}</Story>
-  <Story
-    name="overview-big"
-    args={{
-      icon: <Icon name="ShieldCheck" width={24} height={24} />,
-      link: { text: 'Really long link to add here', to: '/' },
-      dismissible: true,
-    }}
-  >
-    {TemplateBig.bind({})}
-  </Story>
 </Canvas>
 
 ---
@@ -150,3 +133,34 @@ The `Alert` component uses [FastStore UI Alert](https://www.faststore.dev/refere
   />
 </TokenTable>
 
+---
+
+## Do's and Don'ts
+
+<BestPractices>
+  <BestPracticesRule
+    componentGood={
+      <Alert
+        icon={<Icon name="ShieldCheck" width={24} height={24} />}
+        link={{ text: 'Buy Now', to: '/' }}
+        dismissible
+      >
+        Free shipping starts at $300
+      </Alert>
+    }
+    descriptionGood="Prefer short messages to inform about a behavior of a system, feature or page."
+    componentBad={
+      <Alert
+        icon={<Icon name="ShieldCheck" width={24} height={24} />}
+        link={{ text: 'Really long link to add here', to: '/' }}
+        dismissible
+      >
+        Alert with a veeeery long description lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Donec sollicitudin erat non felis feugiat
+        porta. Nam vitae turpis metus. Maecenas feugiat justo tristique libero
+        ultricies.
+      </Alert>
+    }
+    descriptionBad="Don't use really long texts. Some important information can be lost."
+  />
+</BestPractices>
