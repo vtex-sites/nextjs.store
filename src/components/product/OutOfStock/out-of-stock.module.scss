@@ -1,29 +1,55 @@
 @import "src/styles/scaffold";
 
-// Title
---fs-incentives-title-size              : var(--fs-text-size-1);
---fs-incentives-title-weight            : var(--fs-text-weight-bold);
---fs-incentives-title-line-height       : 1.42;
---fs-incentives-title-color             : var(--fs-color-neutral-7);
-
 .fs-out-of-stock[data-fs-out-of-stock] {
+  // --------------------------------------------------------
+  // Design Tokens for Out of Stock
+  // --------------------------------------------------------
+
+  // Default properties
+  --fs-out-of-stock-margin-top            : var(--fs-spacing-4);
+
+  // Title
+  --fs-out-of-stock-title-margin-bottom   : var(--fs-spacing-0);
+  --fs-out-of-stock-title-line-height     : 1.15;
+  --fs-out-of-stock-title-size            : var(--fs-text-size-3);
+  --fs-out-of-stock-title-weight          : var(--fs-text-weight-bold);
+
+  // Message
+  --fs-out-of-stock-message-column-gap    : var(--fs-spacing-0);
+  --fs-out-of-stock-message-margin-bottom : var(--fs-spacing-3);
+  --fs-out-of-stock-message-line-height   : 1.15;
+  --fs-out-of-stock-message-size          : var(--fs-text-size-base);
+  --fs-out-of-stock-message-weight        :
+    var(--fs-text-weight-regular)
+     
+  --fs-out    f-stock-button-width          : 100%;
+
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
+
   display: flex;
   flex-direction: column;
-  margin-top: var(--fs-spacing-4);
+  margin-top: var(--fs-out-of-stock-margin-top);
 
   [data-fs-out-of-stock-title] {
-    margin-bottom: var(--fs-spacing-0);
+    margin-bottom: var(--fs-out-of-stock-title-margin-bottom);
+    font-size: var(--fs-out-of-stock-title-size);
+    font-weight: var(--fs-out-of-stock-title-weight);
+    line-height: var(--fs-out-of-stock-title-line-height);
   }
 
   [data-fs-out-of-stock-message] {
     display: flex;
-    column-gap: var(--fs-spacing-0);
+    column-gap: var(--fs-out-of-stock-message-column-gap);
     align-items: center;
-    margin-bottom: var(--fs-spacing-3);
+    margin-bottom: var(--fs-out-of-stock-message-margin-bottom);
+    font-size: var(--fs-out-of-stock-message-font-size);
+    font-weight: var(--fs-out-of-stock-message-weight);
+    line-height: var(--fs-out-of-stock-message-line-height);
   }
 
   [data-store-button] {
-    width: 100%;
-    margin-top: var(--fs-spacing-3);
+    width: var(--fs-out-of-stock-button-width);
   }
 }
