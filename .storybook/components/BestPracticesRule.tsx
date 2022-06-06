@@ -19,7 +19,10 @@ const BestPracticesRule = ({
         <div>{componentGood}</div>
         <article className="sbdocs-best-practices-text">
           <h3 className="sbdocs sbdocs-h3">
-            <span aria-label="Check Mark Emoji">&#9989;</span> Do
+            <span role="img" aria-label="Check Mark">
+              &#9989;
+            </span>{' '}
+            Do
           </h3>
           <p>{descriptionGood}</p>
         </article>
@@ -28,7 +31,7 @@ const BestPracticesRule = ({
         <div>{componentBad}</div>
         <article className="sbdocs-best-practices-text">
           <h3 className="sbdocs sbdocs-h3">
-            <span aria-label="Cross Mark Emoji">&#10060;</span> Don't
+            <span aria-label="Cross Mark">&#10060;</span> Don't
           </h3>
           <p>{descriptionBad}</p>
         </article>
