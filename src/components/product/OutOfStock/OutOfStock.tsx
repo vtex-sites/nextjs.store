@@ -22,7 +22,7 @@ export interface OutOfStockProps {
    */
   buttonText?: string
   /**
-   * Icon displayed inside the button.
+   * Message describing when the user will be notified.
    */
   notificationMsg?: string
   /**
