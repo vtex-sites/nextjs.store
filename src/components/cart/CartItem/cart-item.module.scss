@@ -21,7 +21,6 @@
   --fs-cart-item-title-line-height     : 1.2;
   --fs-cart-item-title-color           : inherit;
   --fs-cart-item-title-text-decoration : none;
-  --fs-cart-item-title-outline         : none;
 
   // Actions
   --fs-cart-item-actions-margin-top    : var(--fs-spacing-3);
@@ -52,7 +51,7 @@
     line-height: var(--fs-cart-item-title-line-height);
     color: var(--fs-cart-item-title-color);
     text-decoration: var(--fs-cart-item-title-text-decoration);
-    outline: var(--fs-cart-item-title-outline);
+    outline: none;
 
     @include truncate-title;
   }
