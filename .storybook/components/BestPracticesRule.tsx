@@ -2,16 +2,16 @@ import React, { ReactNode } from 'react'
 
 type BestPracticesRuleProps = {
   recommendedUsage: ReactNode
-  discourageUsage: ReactNode
+  discouragedUsage: ReactNode
   recommendedDescription: string
-  discourageDescription: string
+  discouragedDescription: string
 }
 
 const BestPracticesRule = ({
   recommendedUsage,
-  discourageUsage,
+  discouragedUsage,
   recommendedDescription,
-  discourageDescription,
+  discouragedDescription,
 }: BestPracticesRuleProps) => {
   return (
     <section className="sbdocs-best-practices-rule">
@@ -28,12 +28,12 @@ const BestPracticesRule = ({
         </article>
       </article>
       <article>
-        <div>{discourageUsage}</div>
+        <div>{discouragedUsage}</div>
         <article className="sbdocs-best-practices-text">
           <h3 className="sbdocs sbdocs-h3">
             <span aria-label="Cross Mark">&#10060;</span> Don't
           </h3>
-          <p>{discourageDescription}</p>
+          <p>{discouragedDescription}</p>
         </article>
       </article>
     </section>
