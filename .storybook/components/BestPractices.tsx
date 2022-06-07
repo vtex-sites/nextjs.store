@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
+import type { PropsWithChildren } from 'react'
 
 type BestPracticesProps = {
   title?: string
   description?: string
-  children: ReactNode
 }
 
-const BestPractices = ({ children }: BestPracticesProps) => {
+const BestPractices = ({ children }: PropsWithChildren<BestPracticesProps>) => {
   return <section className="sbdocs sbdocs-best-practices">{children}</section>
 }
 
