@@ -19,7 +19,7 @@
   // Title
   --fs-cart-item-title-margin-bottom   : var(--fs-spacing-0);
   --fs-cart-item-title-line-height     : 1.2;
-  --fs-cart-item-title-color           : inherit;
+  --fs-cart-item-title-color           : var(--fs-color-text);
   --fs-cart-item-title-text-decoration : none;
 
   // Actions
