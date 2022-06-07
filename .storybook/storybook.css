@@ -128,10 +128,6 @@ h3.sbdocs.sbdocs-h3 {
   margin-top: var(--fs-spacing-4);
 }
 
-/* .sbdocs-section-rule:not(:first-of-type) {
-  margin-top: var(--fs-spacing-6);
-} */
-
 .sbdocs-section > article {
   flex-basis: 100%;
   width: 0;
