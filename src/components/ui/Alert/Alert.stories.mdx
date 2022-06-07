@@ -139,7 +139,7 @@ The `Alert` component uses [FastStore UI Alert](https://www.faststore.dev/refere
 
 <BestPractices>
   <BestPracticesRule
-    componentGood={
+    recommendedUsage={
       <Alert
         icon={<Icon name="ShieldCheck" width={24} height={24} />}
         link={{ text: 'Buy Now', to: '/' }}
@@ -148,8 +148,8 @@ The `Alert` component uses [FastStore UI Alert](https://www.faststore.dev/refere
         Free shipping starts at $300
       </Alert>
     }
-    descriptionGood="Prefer short messages to inform about a behavior of a system, feature or page."
-    componentBad={
+    recommendedDescription="Prefer short messages to inform about a behavior of a system, feature or page."
+    discourageUsage={
       <Alert
         icon={<Icon name="ShieldCheck" width={24} height={24} />}
         link={{ text: 'Really long link to add here', to: '/' }}
@@ -161,6 +161,6 @@ The `Alert` component uses [FastStore UI Alert](https://www.faststore.dev/refere
         ultricies.
       </Alert>
     }
-    descriptionBad="Don't use really long texts. Some important information can be lost."
+    discourageDescription="Don't use really long texts. Some important information can be lost."
   />
 </BestPractices>
