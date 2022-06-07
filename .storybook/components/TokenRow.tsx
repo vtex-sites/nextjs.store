@@ -5,13 +5,13 @@ type TokenRowProps = {
   token: string
   value: string
   isColor?: boolean
-  valueGlobal?: string
+  globalValue?: string
 }
 
 const TokenRow = ({
   token,
   value,
-  valueGlobal,
+  globalValue,
   isColor = false,
 }: TokenRowProps) => {
   return (
@@ -21,7 +21,7 @@ const TokenRow = ({
       </td>
       <td>
         {isColor && (
-          <div style={{ backgroundColor: valueGlobal ? valueGlobal : value }} />
+          <div style={{ backgroundColor: globalValue ? globalValue : value }} />
         )}
         <Code>{value}</Code>
       </td>
