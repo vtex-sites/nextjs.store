@@ -19,13 +19,13 @@
   --fs-regionalization-bar-edit-message-margin-left     : auto;
   --fs-regionalization-bar-edit-message-text-decoration : underline;
 
-  // Postal Code
-  --fs-regionalization-bar-postal-code-margin-right     : auto;
-  --fs-regionalization-bar-postal-code-font-weight      : var(--fs-text-weight-regular);
-
   // Input Message
   --fs-regionalization-bar-input-message-margin-right   : auto;
   --fs-regionalization-bar-input-message-font-weight    : var(--fs-text-weight-regular);
+
+  // Postal Code
+  --fs-regionalization-bar-postal-code-margin-right     : auto;
+  --fs-regionalization-bar-postal-code-font-weight      : var(--fs-text-weight-regular);
 
   // --------------------------------------------------------
   // Structural Styles
