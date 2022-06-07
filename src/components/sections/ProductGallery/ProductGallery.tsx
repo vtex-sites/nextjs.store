@@ -20,6 +20,7 @@ import { useGalleryQuery } from './useGalleryQuery'
 import { useProductsPrefetch } from './usePageProducts'
 
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
+const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
 interface Props {
   title: string
@@ -29,6 +30,7 @@ interface Props {
 function ProductGallery({ title, searchTerm }: Props) {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage } = useSearch()
+
   const { data } = useGalleryQuery()
   const facets = useDelayedFacets(data)
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
@@ -126,7 +128,7 @@ function ProductGallery({ title, searchTerm }: Props) {
 
           {/* Render ALL products */}
           {data ? (
-            <Suspense fallback={<ProductGridSkeleton loading />}>
+            <Suspense fallback={GalleryPageSkeleton}>
               {pages.map((page) => (
                 <GalleryPage
                   key={`gallery-page-${page}`}
@@ -137,7 +139,7 @@ function ProductGallery({ title, searchTerm }: Props) {
               ))}
             </Suspense>
           ) : (
-            <ProductGridSkeleton loading />
+            GalleryPageSkeleton
           )}
 
           {/* Add link to next page. This helps on SEO */}
