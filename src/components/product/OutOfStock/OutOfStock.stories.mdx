@@ -21,7 +21,11 @@ import OutOfStock from '.'
     buttonText: {
       defaultValue: 'Notify me'
     },
-    testId: { control: false }
+    testId: {
+      table: {
+        disable: true,
+      },
+    },
   }}
   component={OutOfStock}
 />
