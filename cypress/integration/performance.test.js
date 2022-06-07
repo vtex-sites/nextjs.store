@@ -60,6 +60,17 @@ describe('React rendering performance', () => {
   it('Renders ProductGallery component once on PLP', () => {
     const mark = 'ProductGallery'
 
-    testMark(pages.collection, mark)
+    /*
+     * The ProductGallery Renders twice:
+     * 1. When the useGalleryQuery query is finished
+     * 2. When the channel changes due to usePersonQuery, that triggers useProductsQuery that's used by useGalleryQuery
+     *
+     */
+    cy.visit(pages.collection, options)
+    cy.waitForHydration()
+
+    cy.window().should((win) => {
+      expect(win.performance.getEntriesByName(mark)).to.have.length.lessThan(2)
+    })
   })
 })

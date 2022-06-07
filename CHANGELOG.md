@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Applies new local tokens to `Incentives` ([#56](https://github.com/vtex-sites/nextjs.store/pull/56))
 - Adds tests for analytics events on `CartItem` ([#66](https://github.com/vtex-sites/nextjs.store/pull/66))
 - additionalProperty to CartItem id ([#47](https://github.com/vtex-sites/nextjs.store/pull/47))
+- Suspend `ProductShelf` and `ProductGallery` at PLP ([...slug]) ([#55](https://github.com/vtex-sites/nextjs.store/pull/55))
 - Applies new local tokens to `Link` ([#17](https://github.com/vtex-sites/nextjs.store/pull/17))
 - Applies new local tokens to `Select` ([#16](https://github.com/vtex-sites/nextjs.store/pull/16))
 - `Toggle` component ([#15](https://github.com/vtex-sites/nextjs.store/pull/15))

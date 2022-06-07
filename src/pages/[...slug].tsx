@@ -6,7 +6,7 @@ import {
 import { gql } from '@vtex/graphql-utils'
 import { BreadcrumbJsonLd, NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import type { SearchState } from '@faststore/sdk'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 
@@ -122,14 +122,19 @@ function Page(props: Props) {
         icon={<Icon name="Headphones" width={48} height={48} weight="thin" />}
       />
 
-      <ProductGallery title={title} />
+      <Suspense fallback={null}>
+        <ProductGallery title={title} />
+      </Suspense>
 
-      <ProductShelf
-        first={ITEMS_PER_SECTION}
-        sort="score_desc"
-        title="You might also like"
-        withDivisor
-      />
+      <Suspense fallback={null}>
+        <ProductShelf
+          first={ITEMS_PER_SECTION}
+          sort="score_desc"
+          title="You might also like"
+          withDivisor
+          suspense
+        />
+      </Suspense>
 
       <ScrollToTopButton />
     </SearchProvider>
