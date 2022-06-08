@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Creates new Storybook section `BestPractices` ([#101](https://github.com/vtex-sites/nextjs.store/pull/101))
 - Applies new local tokens to `OutOfStock` ([#97](https://github.com/vtex-sites/nextjs.store/pull/97))
 - Applies new local tokens to `CartItem` ([#102](https://github.com/vtex-sites/nextjs.store/pull/102))
 - Applies new local tokens to `ProductTitle` ([#84](https://github.com/vtex-sites/nextjs.store/pull/84))
@@ -33,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Merges UIProvider and ModalProvider into a single context provider ([#100](https://github.com/vtex-sites/nextjs.store/pull/100))
 - Synchronizes the components' code of both starters ([#103](https://github.com/vtex-sites/nextjs.store/pull/103))
 - Uses `--docs` option on storybook script ([#107](https://github.com/vtex-sites/nextjs.store/pull/107))
 - Improves storybook doc's table rows ([#106](https://github.com/vtex-sites/nextjs.store/pull/106))
