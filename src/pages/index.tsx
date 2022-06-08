@@ -55,7 +55,7 @@ function Page() {
         title="New Offers"
         subtitle="At BaseStore you can shop the best tech of 2022. Enjoy and get 10% off on your first purchase."
         linkText="See all"
-        link="/"
+        link="/technology"
         imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
         imageAlt="Quest 2 Controller on a table"
       />
@@ -67,7 +67,6 @@ function Page() {
           first={ITEMS_PER_SECTION}
           selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
           title="Most Wanted"
-          suspense
         />
       </Suspense>
 
@@ -76,7 +75,6 @@ function Page() {
           first={3}
           selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
           title="Just Arrived"
-          suspense
         />
       </Suspense>
 
@@ -91,7 +89,6 @@ function Page() {
           first={ITEMS_PER_SECTION}
           selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
           title="Deals & Promotions"
-          suspense
         />
       </Suspense>
     </>

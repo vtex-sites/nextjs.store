@@ -6,11 +6,13 @@ import Footer from 'src/components/common/Footer'
 import Navbar from 'src/components/common/Navbar'
 import Toast from 'src/components/common/Toast'
 import RegionalizationBar from 'src/components/regionalization/RegionalizationBar'
-import RegionalizationModal from 'src/components/regionalization/RegionalizationModal'
 import { useUI } from 'src/sdk/ui'
 import { useModal } from 'src/sdk/ui/modal/Provider'
 
 const CartSidebar = lazy(() => import('src/components/cart/CartSidebar'))
+const RegionalizationModal = lazy(
+  () => import('src/components/regionalization/RegionalizationModal')
+)
 
 function Layout({ children }: PropsWithChildren<unknown>) {
   const { displayMinicart } = useUI()
@@ -20,11 +22,17 @@ function Layout({ children }: PropsWithChildren<unknown>) {
   return (
     <>
       <div id="layout">
-        <Alert>
+        <Alert
+          icon="Bell"
+          link={{ text: 'Buy now', to: '/office' }}
+          dismissible
+        >
           Get 10% off today:&nbsp;<span>NEW10</span>
         </Alert>
 
         <Navbar />
+
+        <Toast />
 
         <main>
           <RegionalizationBar classes="display-mobile" />
@@ -33,18 +41,20 @@ function Layout({ children }: PropsWithChildren<unknown>) {
 
         <Footer />
 
-        <Toast />
-
         {displayMinicart && (
           <Suspense fallback={null}>
             <CartSidebar />
           </Suspense>
         )}
       </div>
-      <RegionalizationModal
-        isOpen={isRegionalizationModalOpen}
-        onDismiss={() => setIsRegionalizationModalOpen(false)}
-      />
+      {isRegionalizationModalOpen && (
+        <Suspense fallback={null}>
+          <RegionalizationModal
+            isOpen={isRegionalizationModalOpen}
+            onDismiss={() => setIsRegionalizationModalOpen(false)}
+          />
+        </Suspense>
+      )}
     </>
   )
 }
