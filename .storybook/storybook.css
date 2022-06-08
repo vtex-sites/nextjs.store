@@ -59,6 +59,19 @@ h3.sbdocs.sbdocs-h3 {
 
 .sbdocs-table td {
   width: 50%;
+  background-color: white;
+}
+
+.sbdocs-table .token-divider td {
+  background-color: var(--fs-color-neutral-1);
+}
+
+.sbdocs-table .token-divider td:first-child {
+  border-right: none;
+}
+
+.sbdocs-table .token-divider td:last-child {
+  border-left: none;
 }
 
 .sbdocs-table td code {
