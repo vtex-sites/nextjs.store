@@ -1,6 +1,6 @@
 import { useSearch } from '@faststore/sdk'
 import { NextSeo } from 'next-seo'
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense } from 'react'
 
 import Filter from 'src/components/search/Filter'
 import Sort from 'src/components/search/Sort'
@@ -10,16 +10,18 @@ import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import Button, { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
-import styles from 'src/components/sections/ProductGallery/product-gallery.module.scss'
+import { useUI } from 'src/sdk/ui/Provider'
 
 import Section from '../Section'
 import EmptyGallery from './EmptyGallery'
+import styles from './product-gallery.module.scss'
 import { useDelayedFacets } from './useDelayedFacets'
 import { useDelayedPagination } from './useDelayedPagination'
 import { useGalleryQuery } from './useGalleryQuery'
 import { useProductsPrefetch } from './usePageProducts'
 
 const GalleryPage = lazy(() => import('./ProductGalleryPage'))
+const GalleryPageSkeleton = <ProductGridSkeleton loading />
 
 interface Props {
   title: string
@@ -27,8 +29,9 @@ interface Props {
 }
 
 function ProductGallery({ title, searchTerm }: Props) {
-  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
+  const { openFilter } = useUI()
   const { pages, addNextPage, addPrevPage } = useSearch()
+
   const { data } = useGalleryQuery()
   const facets = useDelayedFacets(data)
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
@@ -65,11 +68,7 @@ function ProductGallery({ title, searchTerm }: Props) {
       <div data-fs-product-listing-content-grid className="layout__content">
         <div data-fs-product-listing-filters>
           <FilterSkeleton loading={facets?.length === 0}>
-            <Filter
-              isOpen={isFilterOpen}
-              facets={facets}
-              onDismiss={() => setIsFilterOpen(false)}
-            />
+            <Filter facets={facets} />
           </FilterSkeleton>
         </div>
 
@@ -91,7 +90,7 @@ function ProductGallery({ title, searchTerm }: Props) {
               icon={<Icon name="FadersHorizontal" width={16} height={16} />}
               iconPosition="left"
               aria-label="Open Filters"
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              onClick={openFilter}
             >
               Filters
             </Button>
@@ -126,7 +125,7 @@ function ProductGallery({ title, searchTerm }: Props) {
 
           {/* Render ALL products */}
           {data ? (
-            <Suspense fallback={<ProductGridSkeleton loading />}>
+            <Suspense fallback={GalleryPageSkeleton}>
               {pages.map((page) => (
                 <GalleryPage
                   key={`gallery-page-${page}`}
@@ -137,7 +136,7 @@ function ProductGallery({ title, searchTerm }: Props) {
               ))}
             </Suspense>
           ) : (
-            <ProductGridSkeleton loading />
+            GalleryPageSkeleton
           )}
 
           {/* Add link to next page. This helps on SEO */}

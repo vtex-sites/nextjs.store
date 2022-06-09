@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Creates new Storybook section `BestPractices` ([#101](https://github.com/vtex-sites/nextjs.store/pull/101))
+- Applies new local tokens to `OutOfStock` ([#97](https://github.com/vtex-sites/nextjs.store/pull/97))
+- Applies new local tokens to `CartItem` ([#102](https://github.com/vtex-sites/nextjs.store/pull/102))
+- Applies new local tokens to `ProductTitle` ([#84](https://github.com/vtex-sites/nextjs.store/pull/84))
 - Applies new local tokens to `Alert` ([#94](https://github.com/vtex-sites/nextjs.store/pull/94))
 - Applies new local tokens to `Price` ([#80](https://github.com/vtex-sites/nextjs.store/pull/80))
 - Creates `Radio` component ([#87](https://github.com/vtex-sites/nextjs.store/pull/87))
@@ -30,6 +34,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Merges UIProvider and ModalProvider into a single context provider ([#100](https://github.com/vtex-sites/nextjs.store/pull/100))
+- Synchronizes the components' code of both starters ([#103](https://github.com/vtex-sites/nextjs.store/pull/103))
+- Uses `--docs` option on storybook script ([#107](https://github.com/vtex-sites/nextjs.store/pull/107))
+- Improves storybook doc's table rows ([#106](https://github.com/vtex-sites/nextjs.store/pull/106))
+- Changes weird if logic in suspense hooks ([#96](https://github.com/vtex-sites/nextjs.store/pull/96))
+- Adjust `Alert` component for `CMS` ([#31](https://github.com/vtex-sites/nextjs.store/pull/31))
+- Refactors `Button` component and adds Storybook doc ([#99](https://github.com/vtex-sites/nextjs.store/pull/99))
 - Uses `Hero` component from FSUI ([#98](https://github.com/vtex-sites/nextjs.store/pull/98))
 - Change Storybook prop descriptions for `QuantitySelector` component ([#92](https://github.com/vtex-sites/nextjs.store/pull/92))
 - Applied styles to `Toast` using CSS Modules ([#82](https://github.com/vtex-sites/nextjs.store/pull/82))
@@ -51,12 +62,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Removes unnecessary logic in suspense hooks ([#96](https://github.com/vtex-sites/nextjs.store/pull/96))
 - `Hero` component from `components/ui` ([#98](https://github.com/vtex-sites/nextjs.store/pull/98))
 - Unused `-default` at css variables ([#78](https://github.com/vtex-sites/nextjs.store/pull/78))
 - The `default` nomenclature from global tokens ([#51](https://github.com/vtex-sites/nextjs.store/pull/51))
 
 ### Fixed
-
+- Fix Region Input's behavior when setting zipCode ([#108](https://github.com/vtex-sites/nextjs.store/pull/108))
 - Lighthouse complaining about missing robots.txt ([#89](https://github.com/vtex-sites/nextjs.store/pull/89))
 - Fix 404 being returned for existing pages when the server fails to fetch data ([#88](https://github.com/vtex-sites/nextjs.store/pull/88))
 - Search suggestions missing locale info ([#71](https://github.com/vtex-sites/nextjs.store/pull/71))
