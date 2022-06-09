@@ -30,6 +30,7 @@ export const parameters = {
         'Atoms',
         'Molecules',
         'Organisms',
+        'Features',
         'Releases',
       ],
     },

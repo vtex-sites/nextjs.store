@@ -1,0 +1,157 @@
+import UIProvider, { useUI } from 'src/sdk/ui/Provider'
+import { SessionProvider } from '@faststore/sdk'
+
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+
+import RegionalizationButton from './RegionalizationButton'
+import RegionalizationInput from './RegionalizationInput'
+import RegionalizationBar from './RegionalizationBar'
+import RegionalizationModal from './RegionalizationModal'
+
+<Meta title="Features/Regionalization" />
+
+export const Template = () => {
+  const { modal: displayModal } = useUI()
+  return <>{displayModal && <RegionalizationModal />}</>
+}
+
+export const TemplateButtonWithProvider = () => {
+  return (
+    <UIProvider>
+      <SessionProvider initialState={{}}>
+        <div
+          style={{ display: 'flex', alignItems: 'center', columnGap: '20px' }}
+        >
+          <p style={{ whiteSpace: 'nowrap' }}>Try me:</p>
+          <RegionalizationButton />
+          <Template />
+        </div>
+      </SessionProvider>
+    </UIProvider>
+  )
+}
+
+export const TemplateBarWithProvider = () => {
+  return (
+    <UIProvider>
+      <SessionProvider initialState={{}}>
+        <div
+          style={{ display: 'flex', alignItems: 'center', columnGap: '20px' }}
+        >
+          <p style={{ whiteSpace: 'nowrap' }}>Try me:</p>
+          <RegionalizationBar />
+          <Template />
+        </div>
+      </SessionProvider>
+    </UIProvider>
+  )
+}
+
+<header>
+
+# Regionalization
+
+This feature enables customers to Set a location using a valid Postal Code.
+assim
+
+</header>
+
+## Overview
+
+1. Intentionally, a user Sets its location using a Postal Code
+2. Updates Product Catalog
+3. Gets notified if there's product conflict at minicart
+
+---
+
+## Usage
+
+Import RegionalizationComponents `from '../components/regionalization/...'`
+
+<Canvas>
+  <Story name="default-button">{TemplateButtonWithProvider.bind({})}</Story>
+</Canvas>
+
+<Canvas style={{ backgroundColor: 'var(--fs-color-neutral-1)' }}>
+  <Story name="default-bar">{TemplateBarWithProvider.bind({})}</Story>
+</Canvas>
+
+---
+
+## Components
+
+<section className="sbdocs-list">
+  <ul>
+    <li>
+      <div>
+        <SessionProvider>
+          <UIProvider>
+            <RegionalizationButton />
+          </UIProvider>
+        </SessionProvider>
+      </div>
+      <article className="sbdocs-list-text">
+        <h3>RegionalizationButton</h3>
+        <p>
+          Using a{' '}
+          <a href="../?path=/docs/atoms-button--button#tertiary">
+            tertiary button
+          </a>{' '}
+          as base, this component is usually placed on the <code>Navbar</code>{' '}
+          and triggers
+          <code>RegionalizationModal</code>.
+        </p>
+      </article>
+    </li>
+    <li>
+      <div>
+        <SessionProvider>
+          <UIProvider>
+            <RegionalizationBar />
+          </UIProvider>
+        </SessionProvider>
+      </div>
+      <article className="sbdocs-list-text">
+        <h3>RegionalizationBar</h3>
+        <p>
+          The Bar is a similar proposal for the button, usually used on mobile
+          devices only. It also triggers <code>RegionalizationModal</code>.
+        </p>
+      </article>
+    </li>
+    <li>
+      <div>
+        <SessionProvider>
+          <UIProvider>
+            <RegionalizationInput />
+          </UIProvider>
+        </SessionProvider>
+      </div>
+      <article className="sbdocs-list-text">
+        <h3>RegionalizationInput</h3>
+        <p>
+          An actionable{' '}
+          <a href="../?path=/docs/atoms-inputtext--actionable">InputText</a>{' '}
+          able to check the Postal Code authenticity.
+        </p>
+      </article>
+    </li>
+    <li>
+      <div>
+        <img
+          src="https://user-images.githubusercontent.com/11613011/172647856-b7b733ec-870f-45df-b26f-476456179a7e.png"
+          align="right"
+        />
+      </div>
+      <article className="sbdocs-list-text">
+        <h3>RegionalizationModal</h3>
+        <p>
+          It's the modal that, trigged buy{' '}
+          <code>RegionalizationButton/RegionalizationBar</code>, shows the user
+          the <code>RegionalizationInput</code> search.
+        </p>
+      </article>
+    </li>
+
+  </ul>
+</section>
