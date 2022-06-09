@@ -1,0 +1,152 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { ModalProvider } from 'src/sdk/ui/modal'
+import { SessionProvider } from '@faststore/sdk'
+
+import RegionalizationBar from '.'
+import {
+  TokenTable,
+  TokenRow,
+  TokenDivider,
+} from 'src/../.storybook/components'
+
+<Meta
+  title="Molecules/RegionalizationBar"
+  component={RegionalizationBar}
+/>
+
+export const Template = ({ postalCode, args }) => (
+  <ModalProvider>
+    <SessionProvider initialState={{ postalCode }}>
+      <RegionalizationBar {...args} />
+    </SessionProvider>
+  </ModalProvider>
+)
+
+<header>
+
+# RegionalizationBar
+
+It's a component that shows a bar to input the zip code for regionalization.
+
+</header>
+
+## Overview
+
+<Canvas>
+  <Story name="Overview-RegionalizationBar">{Template.bind({})}</Story>
+  <Story
+    name="Overview-Postal-Code"
+    args={{
+      postalCode: 50761340,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+---
+
+## Usage
+
+`import RegionalizationBar from '../components/regionalization/RegionalizationBar'`
+
+<Canvas>
+  <Story name="RegionalizationBar">{Template.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="RegionalizationBar" />
+
+<TokenTable>
+  <TokenRow
+    token="--fs-regionalization-bar-width"
+    value="100%"
+  />
+</TokenTable>
+
+---
+
+## Nested Elements
+
+### Button
+
+<TokenTable>
+  <TokenRow
+    token="--fs-regionalization-bar-button-width"
+    value="100%"
+  />
+  <TokenRow
+    token="--fs-regionalization-bar-button-padding"
+    value="var(--fs-spacing-0) var(--fs-spacing-3)"
+  />
+  <TokenRow
+    token="--fs-regionalization-bar-button-color"
+    value="var(--fs-color-text-display)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-regionalization-bar-button-background-color"
+    value="var(--fs-color-neutral-0)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-regionalization-bar-button-border"
+    value="0"
+  />
+</TokenTable>
+
+### Input Message
+
+<TokenTable>
+  <TokenRow
+    token="--fs-regionalization-bar-input-message-margin-right"
+    value="auto"
+  />
+  <TokenRow
+    token="--fs-regionalization-bar-input-message-font-weight"
+    value="var(--fs-text-weight-regular)"
+  />
+</TokenTable>
+
+---
+
+## Variants
+
+### Postal Code setted in SessionProvider
+
+<Canvas>
+  <Story
+    name="With-Postal-Code"
+    args={{
+      postalCode: 50761340,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
+### Edit Message
+
+<TokenTable>
+  <TokenRow
+    token="--fs-regionalization-bar-edit-message-margin-left"
+    value="auto"
+  />
+  <TokenRow
+    token="--fs-regionalization-bar-edit-message-text-decoration"
+    value="underline"
+  />
+</TokenTable>
+
+### Postal Code
+
+<TokenTable>
+  <TokenRow
+    token="--fs-regionalization-bar-postal-code-margin-right"
+    value="auto"
+  />
+  <TokenRow
+    token="--fs-regionalization-bar-postal-code-font-weight"
+    value="var(--fs-text-weight-regular)"
+  />
+</TokenTable>

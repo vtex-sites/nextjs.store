@@ -1,0 +1,58 @@
+@import "src/styles/scaffold";
+
+.fs-regionalization-bar {
+  // --------------------------------------------------------
+  // Design Tokens for Incentives
+  // --------------------------------------------------------
+
+  // Default properties
+  --fs-regionalization-bar-width                        : 100%;
+
+  // Button
+  --fs-regionalization-bar-button-width                 : 100%;
+  --fs-regionalization-bar-button-padding               : var(--fs-spacing-0) var(--fs-spacing-3);
+  --fs-regionalization-bar-button-color                 : var(--fs-color-text-display);
+  --fs-regionalization-bar-button-background-color      : var(--fs-color-neutral-0);
+  --fs-regionalization-bar-button-border                : 0;
+
+  // Edit Message
+  --fs-regionalization-bar-edit-message-margin-left     : auto;
+  --fs-regionalization-bar-edit-message-text-decoration : underline;
+
+  // Input Message
+  --fs-regionalization-bar-input-message-margin-right   : auto;
+  --fs-regionalization-bar-input-message-font-weight    : var(--fs-text-weight-regular);
+
+  // Postal Code
+  --fs-regionalization-bar-postal-code-margin-right     : auto;
+  --fs-regionalization-bar-postal-code-font-weight      : var(--fs-text-weight-regular);
+
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
+
+  width: var(--fs-regionalization-bar-width);
+
+  [data-fs-button] {
+    width: var(--fs-regionalization-bar-button-width);
+    padding: var(--fs-regionalization-bar-button-padding);
+    color: var(--fs-regionalization-bar-button-color);
+    background-color: var(--fs-regionalization-bar-button-background-color);
+    border: var(--fs-regionalization-bar-button-border);
+  }
+
+  [data-fs-regionalization-bar-edit-message] {
+    margin-left: var(--fs-regionalization-bar-edit-message-margin-left);
+    text-decoration: var(--fs-regionalization-bar-edit-message-text-decoration);
+  }
+
+  [data-fs-regionalization-bar-postal-code] {
+    margin-right: var(--fs-regionalization-bar-postal-code-margin-right);
+    font-weight: var(--fs-text-weight-regular);
+  }
+
+  [data-fs-regionalization-bar-input-message] {
+    margin-right: var(--fs-regionalization-bar-input-message-margin-right);
+    font-weight: var(--fs-text-weight-regular);
+  }
+}
