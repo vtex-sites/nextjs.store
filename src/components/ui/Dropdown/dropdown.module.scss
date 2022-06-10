@@ -21,9 +21,11 @@
   --fs-dropdown-item-bkg-color             : var(--fs-color-tertiary-bkg-light);
   --fs-dropdown-item-bkg-color-hover       : var(--fs-color-primary-bkg-light);
 
-  // Icon (?)
-  --fs-dropdown-item-svg-min-width         : rem(24px);
-  --fs-dropdown-item-svg-color             : var(--fs-border-color-light);
+  // Icon
+  --fs-dropdown-item-icon-min-width         : rem(24px);
+  --fs-dropdown-item-icon-margin-right      : var(--fs-spacing-1);
+
+  // --fs-dropdown-item-icon-color             : var(--fs-border-color-light); // move to breadcrumb css
 
   // --------------------------------------------------------
   // Structural Styles
@@ -39,15 +41,19 @@
   border-radius: var(--fs-dropdown-menu-border-radius);
   box-shadow: var(--fs-dropdown-menu-box-shadow);
 
-  // Item
   [data-fs-dropdown-item] {
     display: flex;
     align-items: center;
     width: 100%;
+    width: 100%;
     padding: var(--fs-dropdown-item-padding);
+    overflow: hidden;
     font-size: var(--fs-dropdown-item-text-size);
     font-weight: var(--fs-dropdown-item-text-weight);
     color: var(--fs-dropdown-item-color);
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     cursor: pointer;
     background-color: var(--fs-dropdown-item-bkg-color);
     border-width: 0;
@@ -60,19 +66,9 @@
       }
     }
 
-    span {
-      width: 100%;
-      overflow: hidden;
-      text-align: left;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    // Icon?
-    svg {
-      min-width: var(--fs-dropdown-item-svg-min-width);
-      margin-right: var(--fs-spacing-1);
-      color: var(--fs-dropdown-item-svg-color);
+    [data-fs-dropdown-item-icon] {
+      min-width: var(--fs-dropdown-item-icon-min-width);
+      margin-right: var(--fs-dropdown-item-icon-margin-right);
     }
   }
 }
