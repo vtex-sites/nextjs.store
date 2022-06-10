@@ -1,0 +1,47 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+
+import Dropdown, { DropdownButton, DropdownMenu, DropdownItem } from '.'
+
+import {
+  TokenTable,
+  TokenRow,
+  TokenDivider,
+} from 'src/../.storybook/components'
+
+<Meta title="Molecules/Dropdown" component={DropdownMenu} />
+
+export const Template = ({ id, ...args }) => (
+  <div style={{ display: 'flex' }}>
+    <Dropdown>
+      <DropdownButton>
+        <span>Dropdown Button</span>
+      </DropdownButton>
+      <DropdownMenu>
+        <DropdownItem>Dropdown Item 1</DropdownItem>
+        <DropdownItem>Dropdown Item 2</DropdownItem>
+        <DropdownItem>Dropdown Item 3</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  </div>
+)
+
+<header>
+
+# Dropdown
+
+</header>
+
+## Overview
+
+The `Dropdown` component uses [FastStore UI Dropdown](https://www.faststore.dev/reference/ui/atoms/Checkbox) as base.
+
+<Canvas>
+  <Story
+    name="overview-default"
+    args={{
+      id: 'overview-dropdown-default',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
