@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- The search input now includes the last 4 previously searched terms (`SearchHistory`) ([#112](https://github.com/vtex-sites/nextjs.store/pull/112)).
+- The top 5 searches (`SuggestionsTopSearch`) are now integrated into the search input ([#112](https://github.com/vtex-sites/nextjs.store/pull/112)).
 - Support for the new type definitions from React 18 ([#113](https://github.com/vtex-sites/nextjs.store/pull/113)).
 
 ### Changed
@@ -18,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Fixed
+
+- The search input's dropdown not closing when a suggested product was selected ([#112](https://github.com/vtex-sites/nextjs.store/pull/112).
 
 ### Security
 
