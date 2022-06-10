@@ -1,7 +1,6 @@
 {
   "extends": "@vtex/tsconfig",
   "compilerOptions": {
-    "types": ["react/next"],
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "jsx": "preserve",
