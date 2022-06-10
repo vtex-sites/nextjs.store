@@ -12,6 +12,7 @@
   --fs-dropdown-menu-box-shadow            : var(--fs-shadow-hover);
 
   // Item
+  --fs-dropdown-item-min-height            : #{rem(38px)};
   --fs-dropdown-item-padding               : var(--fs-spacing-1) var(--fs-spacing-2) var(--fs-spacing-1) var(--fs-spacing-1);
 
   --fs-dropdown-item-text-size             : var(--fs-text-size-base);
@@ -28,7 +29,7 @@
   --fs-dropdown-item-icon-margin-right      : var(--fs-spacing-0);
 
   // Small
-  --fs-dropdown-item-small-min-height       : #{rem(30px)};
+  --fs-dropdown-item-small-min-height       : #{rem(28px)};
   --fs-dropdown-item-small-padding          : var(--fs-spacing-0) var(--fs-spacing-2) var(--fs-spacing-0) var(--fs-spacing-1);
   --fs-dropdown-item-small-text-size        : var(--fs-text-size-1);
 
@@ -50,7 +51,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    width: 100%;
+    min-height: var(--fs-dropdown-item-min-height);
     padding: var(--fs-dropdown-item-padding);
     overflow: hidden;
     font-size: var(--fs-dropdown-item-text-size);
