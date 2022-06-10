@@ -21,11 +21,14 @@
   --fs-dropdown-item-bkg-color             : var(--fs-color-tertiary-bkg-light);
   --fs-dropdown-item-bkg-color-hover       : var(--fs-color-primary-bkg-light);
 
+  --fs-dropdown-item-border-bottom-color   : var(--fs-border-color-light);
+
   // Icon
   --fs-dropdown-item-icon-min-width         : #{rem(18px)};
   --fs-dropdown-item-icon-margin-right      : var(--fs-spacing-0);
 
   // Small
+  --fs-dropdown-item-small-min-height       : #{rem(30px)};
   --fs-dropdown-item-small-padding          : var(--fs-spacing-0) var(--fs-spacing-2) var(--fs-spacing-0) var(--fs-spacing-1);
   --fs-dropdown-item-small-text-size        : var(--fs-text-size-1);
 
@@ -60,6 +63,10 @@
     background-color: var(--fs-dropdown-item-bkg-color);
     border-width: 0;
 
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--fs-dropdown-item-border-bottom-color);
+    }
+
     @include media(">=notebook") {
       &:focus, &:hover {
         text-decoration: underline;
@@ -80,6 +87,7 @@
 
   &[data-fs-dropdown-menu-size="small"] {
     [data-fs-dropdown-item] {
+      min-height: var(--fs-dropdown-item-small-min-height);
       padding: var(--fs-dropdown-item-small-padding);
       font-size: var(--fs-dropdown-item-small-text-size);
     }
