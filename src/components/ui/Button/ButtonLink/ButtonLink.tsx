@@ -9,9 +9,7 @@ import type { ButtonProps } from '../Button'
 import styles from '../button.module.scss'
 
 type ButtonLinkProps = ButtonProps &
-  Omit<LinkProps, 'variant'> & {
-    disabled?: boolean
-  }
+  Omit<LinkProps, 'variant'> & { disabled?: boolean }
 
 function ButtonLink({
   variant = 'primary',
