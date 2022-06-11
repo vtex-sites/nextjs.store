@@ -36,10 +36,8 @@ export const TemplateWithIcon = ({ id, ...args }) => (
       <DropdownItem icon={<Icon name="Calendar" width={24} height={24} />}>
         My Orders
       </DropdownItem>
-      <DropdownItem
-        icon={<Icon name="ArrowElbowDownRight" width={24} height={24} />}
-      >
-        Item 3
+      <DropdownItem icon={<Icon name="Gift" width={24} height={24} />}>
+        Gifts
       </DropdownItem>
     </DropdownMenu>
   </Dropdown>
@@ -115,3 +113,95 @@ The `Dropdown` component uses [FastStore UI Dropdown](https://www.faststore.dev/
 </Canvas>
 
 <ArgsTable story="default" />
+
+<TokenTable>
+  <TokenRow
+    token="--fs-dropdown-menu-bkg-color"
+    value="var(--fs-color-tertiary-bkg)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-dropdown-menu-border-radius"
+    value="var(--fs-border-radius)"
+  />
+  <TokenRow
+    token="--fs-dropdown-menu-box-shadow"
+    value="var(--fs-shadow-hover)"
+  />
+</TokenTable>
+
+---
+
+## Nested Elements
+
+### Dropdown Item
+
+<TokenTable>
+  <TokenRow token="--fs-dropdown-item-min-height" value="2.375rem" />
+  <TokenRow
+    token="--fs-dropdown-item-padding"
+    value="var(--fs-spacing-1) var(--fs-spacing-2) var(--fs-spacing-1) var(--fs-spacing-1)"
+  />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-dropdown-item-text-size"
+    value="var(--fs-text-size-base)"
+  />
+  <TokenRow
+    token="--fs-dropdown-item-text-weight"
+    value="var(--fs-text-weight-regular)"
+  />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-dropdown-item-color"
+    value="var(--fs-color-link)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-dropdown-item-bkg-color"
+    value="var(--fs-color-tertiary-bkg-light)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-dropdown-item-bkg-color-hover"
+    value="var(--fs-color-primary-bkg-light)"
+    isColor
+  />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-dropdown-item-border-bottom-color"
+    value="var(--fs-border-color-light)"
+  />
+</TokenTable>
+
+### Dropdown Item Icon
+
+<TokenTable>
+  <TokenRow token="--fs-dropdown-item-icon-min-width" value="1.125rem" />
+  <TokenRow
+    token="--fs-dropdown-item-icon-margin-right"
+    value="var(--fs-spacing-0)"
+  />
+</TokenTable>
+
+---
+
+## Variants
+
+### Small
+
+<Canvas>
+  <Story name="dropdown-menu-small">{TemplateSmall.bind({})}</Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-dropdown-item-small-min-height" value="1.75rem" />
+  <TokenRow
+    token="--fs-dropdown-item-small-padding"
+    value="var(--fs-spacing-0) var(--fs-spacing-2) var(--fs-spacing-0) var(--fs-spacing-1)"
+  />
+  <TokenRow
+    token="--fs-dropdown-item-small-text-size"
+    value="var(--fs-text-size-1)"
+  />
+</TokenTable>
