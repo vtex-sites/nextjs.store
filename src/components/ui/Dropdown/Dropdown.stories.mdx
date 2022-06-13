@@ -3,17 +3,23 @@ import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
 import Dropdown, { DropdownButton, DropdownMenu, DropdownItem } from '.'
 import Icon from '../Icon'
 
+import style from 'src/components/ui/Button/button.module.scss'
+
 import {
   TokenTable,
   TokenRow,
   TokenDivider,
 } from 'src/../.storybook/components'
 
-<Meta title="Molecules/Dropdown" component={DropdownMenu} />
+<Meta title="Molecules/Dropdown/Default" />
 
 export const Template = ({ id, ...args }) => (
   <Dropdown>
-    <DropdownButton style={{ padding: '.5rem' }}>
+    <DropdownButton
+      className={style.fsButton}
+      data-fs-button-variant="tertiary"
+    >
+      <Icon name="CaretDown" width="18" height="18" weight="bold" />
       <span>Dropdown</span>
     </DropdownButton>
     <DropdownMenu {...args}>
@@ -26,7 +32,11 @@ export const Template = ({ id, ...args }) => (
 
 export const TemplateWithIcon = ({ id, ...args }) => (
   <Dropdown>
-    <DropdownButton style={{ padding: '.5rem' }}>
+    <DropdownButton
+      className={style.fsButton}
+      data-fs-button-variant="tertiary"
+    >
+      <Icon name="CaretDown" width="18" height="18" weight="bold" />
       <span>Dropdown Item w/ Icon</span>
     </DropdownButton>
     <DropdownMenu {...args}>
@@ -45,7 +55,11 @@ export const TemplateWithIcon = ({ id, ...args }) => (
 
 export const TemplateSmall = ({ id, ...args }) => (
   <Dropdown>
-    <DropdownButton style={{ padding: '.25rem' }}>
+    <DropdownButton
+      className={style.fsButton}
+      data-fs-button-variant="tertiary"
+    >
+      <Icon name="CaretDown" width="18" height="18" weight="bold" />
       <span>Dropdown Small</span>
     </DropdownButton>
     <DropdownMenu size="small">
@@ -58,7 +72,11 @@ export const TemplateSmall = ({ id, ...args }) => (
 
 export const TemplateWithIconSmall = ({ id, ...args }) => (
   <Dropdown>
-    <DropdownButton style={{ padding: '.25rem' }}>
+    <DropdownButton
+      className={style.fsButton}
+      data-fs-button-variant="tertiary"
+    >
+      <Icon name="CaretDown" width="18" height="18" weight="bold" />
       <span>Dropdown Small Item w/ Icon</span>
     </DropdownButton>
     <DropdownMenu size="small">
@@ -112,99 +130,29 @@ The `Dropdown` component uses [FastStore UI Dropdown](https://www.faststore.dev/
   <Story name="default">{Template.bind({})}</Story>
 </Canvas>
 
-<ArgsTable story="default" />
-
-<TokenTable>
-  <TokenRow
-    token="--fs-dropdown-menu-bkg-color"
-    value="var(--fs-color-tertiary-bkg)"
-    isColor
-  />
-  <TokenRow
-    token="--fs-dropdown-menu-border-radius"
-    value="var(--fs-border-radius)"
-  />
-  <TokenRow
-    token="--fs-dropdown-menu-box-shadow"
-    value="var(--fs-shadow-hover)"
-  />
-</TokenTable>
-
 ---
 
-## Nested Elements
+## Related Components
 
-### Dropdown Item
-
-<TokenTable>
-  <TokenRow token="--fs-dropdown-item-min-height" value="2.375rem" />
-  <TokenRow
-    token="--fs-dropdown-item-padding"
-    value="var(--fs-spacing-1) var(--fs-spacing-2) var(--fs-spacing-1) var(--fs-spacing-1)"
-  />
-  <TokenDivider />
-  <TokenRow
-    token="--fs-dropdown-item-text-size"
-    value="var(--fs-text-size-base)"
-  />
-  <TokenRow
-    token="--fs-dropdown-item-text-weight"
-    value="var(--fs-text-weight-regular)"
-  />
-  <TokenDivider />
-  <TokenRow
-    token="--fs-dropdown-item-color"
-    value="var(--fs-color-link)"
-    isColor
-  />
-  <TokenRow
-    token="--fs-dropdown-item-bkg-color"
-    value="var(--fs-color-tertiary-bkg-light)"
-    isColor
-  />
-  <TokenRow
-    token="--fs-dropdown-item-bkg-color-hover"
-    value="var(--fs-color-primary-bkg-light)"
-    isColor
-  />
-  <TokenDivider />
-  <TokenRow
-    token="--fs-dropdown-item-border-bottom-color"
-    value="var(--fs-border-color-light)"
-  />
-</TokenTable>
-
-### Dropdown Item Icon
-
-<TokenTable>
-  <TokenRow token="--fs-dropdown-item-icon-min-width" value="1.125rem" />
-  <TokenRow
-    token="--fs-dropdown-item-icon-margin-right"
-    value="var(--fs-spacing-0)"
-  />
-</TokenTable>
-
----
-
-## Variants
-
-### Small
-
-<Canvas>
-  <Story name="dropdown-menu-small">{TemplateSmall.bind({})}</Story>
-</Canvas>
-
-<TokenTable>
-  <TokenRow token="--fs-dropdown-item-small-min-height" value="1.75rem" />
-  <TokenRow
-    token="--fs-dropdown-item-small-padding"
-    value="var(--fs-spacing-0) var(--fs-spacing-2) var(--fs-spacing-0) var(--fs-spacing-1)"
-  />
-  <TokenRow
-    token="--fs-dropdown-item-small-text-size"
-    value="var(--fs-text-size-1)"
-  />
-</TokenTable>
+<section className="sbdocs-section">
+  <article>
+    <div>{/* <ButtonBuy>Button Buy</ButtonBuy> */}</div>
+    <article className="sbdocs-section-text">
+      <h3>Dropdown Menu</h3>
+      <p>
+        A button with the intent of directly sending the user to the
+        checkout/cart step.
+      </p>
+    </article>
+  </article>
+  <article>
+    <div>{/* <ButtonLink href="/">Button Link</ButtonLink> */}</div>
+    <article className="sbdocs-section-text">
+      <h3>Dropdown Item</h3>
+      <p>A button that acts as a link to navigate users between pages.</p>
+    </article>
+  </article>
+</section>
 
 ---
 
