@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Applies new local tokens to `Dropdown` ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
+- Creates and styles `Dropdown` component ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
 - 301 redirects when visiting old VTEX product routes ([#93](https://github.com/vtex-sites/nextjs.store/pull/93))
 
 - Support for the new type definitions from React 18 ([#113](https://github.com/vtex-sites/nextjs.store/pull/113)).
