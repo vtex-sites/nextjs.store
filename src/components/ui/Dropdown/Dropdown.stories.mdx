@@ -136,20 +136,58 @@ The `Dropdown` component uses [FastStore UI Dropdown](https://www.faststore.dev/
 
 <section className="sbdocs-section">
   <article>
-    <div>{/* <ButtonBuy>Button Buy</ButtonBuy> */}</div>
+    <div style={{ alignItems: 'flex-start', paddingTop: '2rem', height: '225px'}}>
+      <Dropdown>
+        <DropdownButton
+          className={style.fsButton}
+          data-fs-button-variant="tertiary"
+          aria-label="Click to see the options"
+        >
+          <Icon name="CaretDown" width="18" height="18" weight="bold"/>
+        </DropdownButton>
+        <DropdownMenu >
+          <DropdownItem icon={<Icon name="User" width={24} height={24} />}>
+            My Account
+          </DropdownItem>
+          <DropdownItem icon={<Icon name="Calendar" width={24} height={24} />}>
+            My Orders
+          </DropdownItem>
+          <DropdownItem icon={<Icon name="Gift" width={24} height={24} />}>
+            Gifts
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    </div>
     <article className="sbdocs-section-text">
       <h3>Dropdown Menu</h3>
       <p>
-        A button with the intent of directly sending the user to the
-        checkout/cart step.
+        Displays a set of actions/items to the user, usually used to show a menu of options.
       </p>
     </article>
+
   </article>
   <article>
-    <div>{/* <ButtonLink href="/">Button Link</ButtonLink> */}</div>
+    <div>
+      <Dropdown>
+        <DropdownButton
+          className={style.fsButton}
+          data-fs-button-variant="tertiary"
+        >
+          <Icon name="CaretDown" width="18" height="18" weight="bold" />
+          <span>Dropdown Item</span>
+        </DropdownButton>
+        <DropdownMenu>
+          <DropdownItem
+            icon={<Icon name="ArrowElbowDownRight" width={18} height={18} />}
+          >
+            Dropdwon Item
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    </div>
     <article className="sbdocs-section-text">
       <h3>Dropdown Item</h3>
-      <p>A button that acts as a link to navigate users between pages.</p>
+      <p>An item of a set of items on <code>DropdownMenu</code>.</p>
     </article>
   </article>
 </section>
