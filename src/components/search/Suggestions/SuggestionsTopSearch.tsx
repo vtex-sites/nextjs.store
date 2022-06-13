@@ -34,6 +34,10 @@ const SuggestionsTopSearch = forwardRef<
     return <p data-fs-search-input-loading-text>Loading...</p>
   }
 
+  if (terms.length === 0) {
+    return null
+  }
+
   return (
     <section
       ref={ref}
