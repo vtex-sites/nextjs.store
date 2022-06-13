@@ -31,22 +31,6 @@ export const TemplateButtonWithProvider = () => {
   )
 }
 
-export const TemplateBarWithProvider = () => {
-  return (
-    <UIProvider>
-      <SessionProvider initialState={{}}>
-        <div
-          style={{ display: 'flex', alignItems: 'center', columnGap: '20px' }}
-        >
-          <p style={{ whiteSpace: 'nowrap' }}>Try me:</p>
-          <RegionalizationBar />
-          <Template />
-        </div>
-      </SessionProvider>
-    </UIProvider>
-  )
-}
-
 <header>
 
 # Regionalization
@@ -57,23 +41,19 @@ This feature enables customers to set a location using a valid Postal Code.
 
 ## Overview
 
+Regionalization is a feature of [VTEX Intelligent Search](https://help.vtex.com/en/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/3qgT47zY08biLP3d5os3DG) that allows for the optimization of search results according to the availability of sellers in the customer's region.
+
+Regionalization uses a behavior from VTEX Intelligent Search called [Availability](https://help.vtex.com/en/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/7LMQbWK5nElIkXo0NK8Kux). It searches for products available in the inventory of sellers that serve a particular region.
+
+Stores that have more than one registered white label seller usually have specific inventories for each region. This is the case for supermarkets, for example.
+
+With the Regionalization feature enabled, if a customer enters their ZIP code while browsing the store (before checkout), only products available in the corresponding region will be displayed in the search results.
+
+### Steps
+
 1. Intentionally, a user Sets its location using a Postal Code
 2. Updates Product Catalog
 3. Gets notified if there's product conflict at minicart
-
----
-
-## Usage
-
-`Import Regionalization{Component} from '../components/regionalization/{Component}'`
-
-<Canvas>
-  <Story name="default-button">{TemplateButtonWithProvider.bind({})}</Story>
-</Canvas>
-
-<Canvas style={{ backgroundColor: 'var(--fs-color-neutral-1)' }}>
-  <Story name="default-bar">{TemplateBarWithProvider.bind({})}</Story>
-</Canvas>
 
 ---
 
@@ -145,11 +125,21 @@ This feature enables customers to set a location using a valid Postal Code.
       <article className="sbdocs-list-text">
         <h3>RegionalizationModal</h3>
         <p>
-          It's the modal that, trigged by <code>RegionalizationButton/RegionalizationBar</code>, shows the user
-          the <code>RegionalizationInput</code> search.
+          It's the modal that, trigged by <code>RegionalizationButton</code> or{' '}
+          <code>RegionalizationBar</code>, shows the user the{' '}
+          <code>RegionalizationInput</code> search.
         </p>
       </article>
     </li>
-
   </ul>
 </section>
+
+---
+
+## Usage
+
+`Import Regionalization{Component} from '../components/regionalization/{Component}'`
+
+<Canvas>
+  <Story name="default-button">{TemplateButtonWithProvider.bind({})}</Story>
+</Canvas>

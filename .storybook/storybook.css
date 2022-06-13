@@ -9,6 +9,10 @@
   font-size: var(--fs-text-size-legend);
 }
 
+.sbdocs.sbdocs-p a {
+  text-decoration: underline;
+}
+
 .sbdocs-content > header .sbdocs-p {
   margin: var(--fs-spacing-1) 0 0;
 }
@@ -38,7 +42,7 @@ h3.sbdocs.sbdocs-h3 {
 
 .sbdocs-content > header {
   padding: var(--fs-spacing-4) var(--fs-spacing-5);
-  margin-bottom: var(--fs-spacing-4);
+  margin-bottom: var(--fs-spacing-6);
   color: var(--fs-color-text-inverse);
   background-color: var(--fs-color-main-0);
   border-radius: var(--fs-border-radius);
@@ -243,5 +247,5 @@ h3.sbdocs.sbdocs-h3 {
 .sbdocs-list-text p {
   padding-right: var(--fs-spacing-4);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.6;
 }
