@@ -7,14 +7,6 @@ import type { LinkProps as UILinkProps } from '@faststore/ui'
 
 import styles from './link.module.scss'
 
-function externalLinkChecker(href: string) {
-  return (
-    href.startsWith('//') ||
-    href.startsWith('http://') ||
-    href.startsWith('https://')
-  )
-}
-
 type Variant = 'default' | 'display' | 'footer' | 'inline'
 
 export type LinkProps<T extends ElementType = 'a'> = UILinkProps<T> &
@@ -22,53 +14,48 @@ export type LinkProps<T extends ElementType = 'a'> = UILinkProps<T> &
   AnchorHTMLAttributes<HTMLAnchorElement> & {
     variant?: Variant
     inverse?: boolean
-    externalLink?: boolean
   }
 
 const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link<
   T extends ElementType = 'a'
 >(
-  {
-    href,
-    inverse,
-    children,
-    externalLink,
-    variant = 'default',
-    ...otherProps
-  }: LinkProps<T>,
+  { href, inverse, children, variant = 'default', ...otherProps }: LinkProps<T>,
   ref: Ref<HTMLAnchorElement> | undefined
 ) {
-  const isExternalLink = useMemo(() => externalLinkChecker(href), [href])
+  const isInternalLink = useMemo(
+    () => href[0] === '/' && href[1] !== '/',
+    [href]
+  )
 
-  if (externalLink || isExternalLink) {
+  if (isInternalLink) {
     return (
-      <UILink
-        ref={ref}
-        href={href}
-        data-fs-link
-        data-fs-link-variant={variant}
-        data-fs-link-inverse={inverse}
-        className={styles.fsLink}
-        {...otherProps}
-      >
-        {children}
-      </UILink>
+      <NextLink passHref href={href}>
+        <UILink
+          ref={ref}
+          data-fs-link
+          data-fs-link-variant={variant}
+          data-fs-link-inverse={inverse}
+          className={styles.fsLink}
+          {...otherProps}
+        >
+          {children}
+        </UILink>
+      </NextLink>
     )
   }
 
   return (
-    <NextLink passHref href={href}>
-      <UILink
-        ref={ref}
-        data-fs-link
-        data-fs-link-variant={variant}
-        data-fs-link-inverse={inverse}
-        className={styles.fsLink}
-        {...otherProps}
-      >
-        {children}
-      </UILink>
-    </NextLink>
+    <UILink
+      ref={ref}
+      href={href}
+      data-fs-link
+      data-fs-link-variant={variant}
+      data-fs-link-inverse={inverse}
+      className={styles.fsLink}
+      {...otherProps}
+    >
+      {children}
+    </UILink>
   )
 })
 
