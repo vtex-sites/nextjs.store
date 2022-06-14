@@ -65,7 +65,7 @@
   height: 100%;
   padding: var(--fs-product-card-padding);
   background-color: var(--fs-product-card-bkg-color);
-  border: var(--fs-product-card-border-width) solid var(--fs-product-card-border-color);
+  border: var(--fs-product-card-border-width) solid transparent;
   border-radius: var(--fs-product-card-border-radius);
   box-shadow: var(--fs-product-card-shadow);
   transition: var(--fs-product-card-transition-property) var(--fs-product-card-transition-timing) var(--fs-product-card-transition-function);
