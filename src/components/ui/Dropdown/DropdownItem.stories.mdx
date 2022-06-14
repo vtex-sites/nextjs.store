@@ -13,7 +13,7 @@ import {
 
 <Meta title="Molecules/Dropdown/DropdownItem" component={DropdownItem} />
 
-export const Template = ({ id, ...args }) => (
+export const Template = (args) => (
   <Dropdown>
     <DropdownButton
       className={style.fsButton}
@@ -30,7 +30,7 @@ export const Template = ({ id, ...args }) => (
   </Dropdown>
 )
 
-export const TemplateWithIcon = ({ id, ...args }) => (
+export const TemplateWithIcon = (args) => (
   <Dropdown>
     <DropdownButton
       className={style.fsButton}
