@@ -26,12 +26,10 @@ function RegionBar({ classes, ...otherProps }: Props) {
         {postalCode ? (
           <>
             <span data-fs-regionalization-bar-postal-code>{postalCode}</span>
-            <span data-fs-regionalization-bar-edit-message>Edit</span>
+            <span data-fs-regionalization-bar-cta>Edit</span>
           </>
         ) : (
-          <span data-fs-regionalization-bar-input-message>
-            Set your location
-          </span>
+          <span data-fs-regionalization-bar-message>Set your location</span>
         )}
         <Icon name="CaretRight" width={24} height={24} />
       </Button>
