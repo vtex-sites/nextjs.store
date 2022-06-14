@@ -189,7 +189,7 @@
     align-items: center;
   }
 
-  a {
+  [data-fs-link] {
     display: block;
     width: 100%;
   }
@@ -218,7 +218,7 @@
       border-left: var(--fs-border-width) solid var(--fs-border-color-light);
     }
 
-    li [data-fs-link] {
+    [data-fs-link] {
       padding: 0 var(--fs-spacing-0);
     }
   }

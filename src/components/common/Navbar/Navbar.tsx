@@ -4,7 +4,6 @@ import type { AnchorHTMLAttributes } from 'react'
 import type { SearchInputRef } from '@faststore/ui'
 
 import CartToggle from 'src/components/cart/CartToggle'
-import LinkFramework from 'src/components/common/Link'
 import SearchInput from 'src/components/common/SearchInput'
 import RegionalizationButton from 'src/components/regionalization/RegionalizationButton'
 import {
@@ -76,7 +75,7 @@ function NavbarSlider() {
     >
       <div className="navbar__modal-body">
         <header className="navbar__modal-header">
-          <LinkFramework
+          <Link
             href="/"
             onClick={fadeOut}
             aria-label="Go to FastStore home"
@@ -84,7 +83,7 @@ function NavbarSlider() {
             className="navbar__logo"
           >
             <Logo />
-          </LinkFramework>
+          </Link>
 
           <ButtonIcon
             aria-label="Close Menu"
@@ -127,14 +126,14 @@ function Navbar() {
                 icon={<Icon name="List" width={32} height={32} />}
                 onClick={openNavbar}
               />
-              <LinkFramework
+              <Link
                 href="/"
                 aria-label="Go to Faststore home"
                 title="Go to Faststore home"
                 className="navbar__logo"
               >
                 <Logo />
-              </LinkFramework>
+              </Link>
             </>
           )}
           <SearchInput />
