@@ -6,7 +6,7 @@ function Document() {
   return (
     <Html>
       <Head>{!process.env.DISABLE_3P_SCRIPTS && <ThirdPartyScripts />}</Head>
-      <body>
+      <body className="">
         <Main />
         <NextScript />
       </body>

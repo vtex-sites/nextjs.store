@@ -5,6 +5,9 @@ import '../styles/global/typography.scss'
 import '../styles/global/layout.scss'
 import '../styles/global/components.scss'
 
+import '../styles/global/theme-soft-blue.scss'
+import '../styles/global/theme-code.scss'
+
 import { CartProvider, SessionProvider } from '@faststore/sdk'
 import NextNProgress from 'nextjs-progressbar'
 import type { AppProps } from 'next/app'

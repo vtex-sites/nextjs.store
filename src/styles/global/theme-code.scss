@@ -1,0 +1,85 @@
+// ----------------------------------------------------------
+// GLOBAL TOKENS
+// Base Store Theme
+// ----------------------------------------------------------
+
+@import "../vendors/include-media";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap");
+
+.theme-code {
+  // --------------------------------------------------------
+  // Colors (Branding Core)
+  // --------------------------------------------------------
+
+  // PALETTE
+  --fs-color-main-0                    : #f7f1ff;
+  --fs-color-main-1                    : #8d50fd;
+  --fs-color-main-2                    : #732fe2;
+  --fs-color-main-3                    : #5900c8;
+  --fs-color-main-4                    : #370079;
+
+  --fs-color-accent-0                  : #ecf0ff;
+  --fs-color-accent-1                  : #d8e2ff;
+  --fs-color-accent-2                  : #00419e;
+  --fs-color-accent-3                  : #002c71;
+  --fs-color-accent-4                  : #001947;
+
+  --fs-color-neutral-1                 : #ecf0ff;
+  --fs-color-neutral-2                 : #d8e2ff;
+
+  // HIERARCHY
+  --fs-color-primary-bkg               : var(--fs-color-main-4);
+  --fs-color-primary-bkg-active        : var(--fs-color-main-2);
+  --fs-color-primary-bkg-light         : var(--fs-color-main-0);
+  --fs-color-primary-bkg-light-active  : var(--fs-color-main-1);
+
+  // COMPONENTS & STATES
+  --fs-color-text                      : var(--fs-color-main-4);
+  --fs-color-text-display              : var(--fs-color-main-4);
+
+  --fs-color-link                      : var(--fs-color-main-3);
+
+  // --------------------------------------------------------
+  // Typography (Branding Core)
+  // --------------------------------------------------------
+
+  // FACE
+  --fs-text-face-body                  : "IBM Plex Mono", monospace;
+
+  // NUMERIC SCALE
+  --fs-text-size-base                  : 15px; // 1rem
+  --fs-text-size-0                     : 13px; // Smallest
+  --fs-text-size-1                     : 14px; // Smaller
+
+  // --------------------------------------------------------
+  // Refinements
+  // --------------------------------------------------------
+
+  // BORDERS
+  --fs-border-radius-small             : .125rem;
+  --fs-border-radius                   : var(--fs-border-radius-small);
+
+  --fs-border-color                    : var(--fs-border-color-light);
+  --fs-border-color-hover              : var(--fs-color-main-3);
+
+  // SHADOW
+  --fs-shadow-hover                    : 0 0 10px rgb(40 21 132 / 30%), 0 0 0 2px var(--fs-color-main-4);
+
+  // --------------------------------------------------------
+  // Components
+  // --------------------------------------------------------
+
+  [data-fs-button] {
+    --fs-button-border-radius            : var(--fs-border-radius-pill);
+  }
+
+  [data-fs-product-card] {
+    --fs-product-card-bkg-color-hover    : var(--fs-color-accent-0);
+    --fs-product-card-border-color-hover : var(--fs-color-main-4);
+    --fs-product-card-img-scale-hover    : 1.05;
+
+    &[data-fs-product-card-variant="wide"] {
+      --fs-product-card-bkg-color        : var(--fs-color-accent-0);
+    }
+  }
+}
