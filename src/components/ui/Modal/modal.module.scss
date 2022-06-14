@@ -1,0 +1,52 @@
+@import "src/styles/scaffold";
+
+.fs-modal {
+  position: fixed;
+  top: 30vh;
+  right: rem(24px);
+  left: rem(24px);
+  max-width: calc(var(--fs-grid-breakpoint-desktop) / 3);
+  min-height: 30px;
+  margin: auto;
+  background-color: var(--fs-color-body-bkg);
+  border-radius: var(--fs-spacing-0);
+
+  @include media(">=tablet") {
+    width: calc(100vw / 3);
+    min-width: calc(var(--fs-grid-breakpoint-desktop) / 3);
+  }
+
+  &[data-modal-state="in"] {
+    transition: transform .2s ease-in;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &[data-modal-state="out"] {
+    transition: transform .2s ease-out;
+    transform: translate3d(0, 50%, 0);
+  }
+}
+
+@keyframes motion-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes motion-out {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+}
