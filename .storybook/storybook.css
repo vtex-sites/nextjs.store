@@ -169,6 +169,10 @@ h3.sbdocs.sbdocs-h3 {
   width: 0;
 }
 
+.no-code .docblock-code-toggle {
+  display: none;
+}
+
 .sbdocs-section-text {
   margin-top: var(--fs-spacing-3);
 }
@@ -228,7 +232,8 @@ h3.sbdocs.sbdocs-h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
+  height: 100%;
+  min-height: 140px;
   padding: var(--fs-spacing-3);
   background-color: var(--fs-color-neutral-1);
   border-radius: var(--fs-border-radius);
@@ -248,4 +253,9 @@ h3.sbdocs.sbdocs-h3 {
   padding-right: var(--fs-spacing-4);
   margin: 0;
   line-height: 1.6;
+}
+
+.sbdocs-list .sbdocs-list-text [data-fs-button] {
+  margin-top: var(--fs-spacing-1);
+  margin-left: calc(-1 * var(--fs-spacing-1));
 }

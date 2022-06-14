@@ -4,13 +4,15 @@ import { SessionProvider } from '@faststore/sdk'
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
 
 import RegionalizationButton from './RegionalizationButton'
+import ButtonLink from '../ui/Button/ButtonLink'
 import RegionalizationInput from './RegionalizationInput'
 import RegionalizationBar from './RegionalizationBar'
 import RegionalizationModal from './RegionalizationModal'
+import Icon from '../ui/Icon'
 
-<Meta title="Features/Regionalization" />
+<Meta title="Features/Regionalization/Default" />
 
-export const Template = () => {
+export const TemplateRegionalizationModal = () => {
   const { modal: displayModal } = useUI()
   return <>{displayModal && <RegionalizationModal />}</>
 }
@@ -24,7 +26,7 @@ export const TemplateButtonWithProvider = () => {
         >
           <p style={{ whiteSpace: 'nowrap' }}>Try me:</p>
           <RegionalizationButton />
-          <Template />
+          <TemplateRegionalizationModal />
         </div>
       </SessionProvider>
     </UIProvider>
@@ -66,6 +68,7 @@ With the Regionalization feature enabled, if a customer enters their ZIP code wh
         <SessionProvider>
           <UIProvider>
             <RegionalizationButton />
+            <TemplateRegionalizationModal />
           </UIProvider>
         </SessionProvider>
       </div>
@@ -74,7 +77,7 @@ With the Regionalization feature enabled, if a customer enters their ZIP code wh
         <p>
           Using a{' '}
           <a href="../?path=/docs/atoms-button--button#tertiary">
-            tertiary button
+            Tertiary Button
           </a>{' '}
           as base, this component is usually placed on the <code>Navbar</code>{' '}
           and triggers
@@ -87,6 +90,7 @@ With the Regionalization feature enabled, if a customer enters their ZIP code wh
         <SessionProvider>
           <UIProvider>
             <RegionalizationBar />
+            <TemplateRegionalizationModal />
           </UIProvider>
         </SessionProvider>
       </div>
@@ -96,6 +100,14 @@ With the Regionalization feature enabled, if a customer enters their ZIP code wh
           The Bar is a similar proposal for the button, usually used on mobile
           devices only. It also triggers <code>RegionalizationModal</code>.
         </p>
+        <ButtonLink
+          variant="tertiary"
+          href="?path=/docs/features-regionalization-regionalizationbar--bar"
+          data-fs-button-size="small"
+        >
+          See more
+          <Icon name="ArrowRight" width="18" height="18" weight="bold" />
+        </ButtonLink>
       </article>
     </li>
     <li>
@@ -129,6 +141,14 @@ With the Regionalization feature enabled, if a customer enters their ZIP code wh
           <code>RegionalizationBar</code>, shows the user the{' '}
           <code>RegionalizationInput</code> search.
         </p>
+        <ButtonLink
+          variant="tertiary"
+          href="?path=/docs/features-regionalization-regionalizationbar--bar"
+          data-fs-button-size="small"
+        >
+          See more
+          <Icon name="ArrowRight" width="18" height="18" weight="bold" />
+        </ButtonLink>
       </article>
     </li>
   </ul>
@@ -138,8 +158,33 @@ With the Regionalization feature enabled, if a customer enters their ZIP code wh
 
 ## Usage
 
-`Import Regionalization{Component} from '../components/regionalization/{Component}'`
+On your `Layout.txt` file:
 
-<Canvas>
+```jsx
+import RegionalizationModal from '../components/regionalization/RegionalizationModal'
+import { useUI } from 'src/sdk/ui/Provider'
+```
+
+and inside your `Layout` component:
+
+```jsx
+const { modal: displayModal } = useUI()
+
+return (
+  <>
+    {OtherLayoutComponents}
+    {displayModal && <RegionalizationModal />}
+  </>
+)
+```
+
+Then, you can add your `<RegionalizationButton />` or `<RegionalizationBar />` whenever it's needed.
+
+It's suggested to add it on `Navbar`.
+
+<Canvas
+  className="no-code"
+  style={{ display: 'flex', justifyContent: 'center' }}
+>
   <Story name="default-button">{TemplateButtonWithProvider.bind({})}</Story>
 </Canvas>
