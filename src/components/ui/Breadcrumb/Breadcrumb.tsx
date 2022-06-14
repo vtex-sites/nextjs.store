@@ -64,7 +64,7 @@ function BaseBreadcrumb({
 
       {collapseBreadcrumb && (
         <Dropdown>
-          <DropdownButton data-store-dropdown-button>
+          <DropdownButton>
             <span>...</span>
           </DropdownButton>
           <DropdownMenu>
