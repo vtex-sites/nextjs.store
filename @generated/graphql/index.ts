@@ -300,23 +300,34 @@ export type StoreCurrency = {
   symbol: Scalars['String']
 }
 
-/** Search facet information. */
-export type StoreFacet = {
+export type StoreFacet = StoreFacetBoolean | StoreFacetRange
+
+/** Search facet boolean information. */
+export type StoreFacetBoolean = {
   /** Facet key. */
   key: Scalars['String']
   /** Facet label. */
   label: Scalars['String']
-  /** Facet type. Possible values are `BOOLEAN` and `RANGE`. */
-  type: StoreFacetType
   /** Array with information on each facet value. */
-  values: Array<StoreFacetValue>
+  values: Array<StoreFacetValueBoolean>
+}
+
+/** Search facet range information. */
+export type StoreFacetRange = {
+  /** Facet key. */
+  key: Scalars['String']
+  /** Facet label. */
+  label: Scalars['String']
+  max: StoreFacetValueRange
+  /** Array with information on each facet value. */
+  min: StoreFacetValueRange
 }
 
 /** Search facet type. */
 export type StoreFacetType = 'BOOLEAN' | 'RANGE'
 
 /** Information of a specific facet value. */
-export type StoreFacetValue = {
+export type StoreFacetValueBoolean = {
   /** Facet value label. */
   label: Scalars['String']
   /** Number of items with this facet. */
@@ -325,6 +336,11 @@ export type StoreFacetValue = {
   selected: Scalars['Boolean']
   /** Facet value. */
   value: Scalars['String']
+}
+
+export type StoreFacetValueRange = {
+  absolute: Scalars['Float']
+  selected: Scalars['Float']
 }
 
 /** Image. */
@@ -588,10 +604,10 @@ export type ProductSummary_ProductFragment = {
   }
 }
 
-export type Filter_FacetsFragment = {
+export type Filter_Facets_StoreFacetBoolean_Fragment = {
+  __typename: 'StoreFacetBoolean'
   key: string
   label: string
-  type: StoreFacetType
   values: Array<{
     label: string
     value: string
@@ -599,6 +615,18 @@ export type Filter_FacetsFragment = {
     quantity: number
   }>
 }
+
+export type Filter_Facets_StoreFacetRange_Fragment = {
+  __typename: 'StoreFacetRange'
+  key: string
+  label: string
+  min: { selected: number; absolute: number }
+  max: { selected: number; absolute: number }
+}
+
+export type Filter_FacetsFragment =
+  | Filter_Facets_StoreFacetBoolean_Fragment
+  | Filter_Facets_StoreFacetRange_Fragment
 
 export type SearchSuggestionsQueryQueryVariables = Exact<{
   term: Scalars['String']
@@ -673,17 +701,26 @@ export type ProductGalleryQueryQueryVariables = Exact<{
 export type ProductGalleryQueryQuery = {
   search: {
     products: { pageInfo: { totalCount: number } }
-    facets: Array<{
-      key: string
-      label: string
-      type: StoreFacetType
-      values: Array<{
-        label: string
-        value: string
-        selected: boolean
-        quantity: number
-      }>
-    }>
+    facets: Array<
+      | {
+          __typename: 'StoreFacetBoolean'
+          key: string
+          label: string
+          values: Array<{
+            label: string
+            value: string
+            selected: boolean
+            quantity: number
+          }>
+        }
+      | {
+          __typename: 'StoreFacetRange'
+          key: string
+          label: string
+          min: { selected: number; absolute: number }
+          max: { selected: number; absolute: number }
+        }
+    >
   }
 }
 

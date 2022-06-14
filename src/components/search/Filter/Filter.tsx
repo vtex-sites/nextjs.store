@@ -66,8 +66,10 @@ function FilterSlider({
           facets={facets}
           testId={`mobile-${testId}`}
           indicesExpanded={expanded}
-          onFacetChange={(facet) =>
-            dispatch({ type: 'toggleFacet', payload: facet })
+          onFacetChange={(facet, type) =>
+            type === 'BOOLEAN'
+              ? dispatch({ type: 'toggleFacet', payload: facet })
+              : dispatch({ type: 'setFacet', payload: { facet, unique: true } })
           }
           onAccordionChange={(index) =>
             dispatch({ type: 'toggleExpanded', payload: index })
@@ -98,7 +100,7 @@ function FilterSlider({
 
 function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
   const filter = useFilter(allFacets)
-  const { toggleFacet } = useSearch()
+  const { toggleFacet, setFacet } = useSearch()
   const { filter: displayFilter } = useUI()
   const { facets, expanded, dispatch } = filter
 
@@ -109,7 +111,9 @@ function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
           facets={facets}
           testId={`desktop-${testId}`}
           indicesExpanded={expanded}
-          onFacetChange={toggleFacet}
+          onFacetChange={(facet, type) =>
+            type === 'BOOLEAN' ? toggleFacet(facet) : setFacet(facet, true)
+          }
           onAccordionChange={(index) =>
             dispatch({ type: 'toggleExpanded', payload: index })
           }
@@ -123,14 +127,33 @@ function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
 
 export const fragment = gql`
   fragment Filter_facets on StoreFacet {
-    key
-    label
-    type
-    values {
+    ... on StoreFacetRange {
+      key
       label
-      value
-      selected
-      quantity
+
+      min {
+        selected
+        absolute
+      }
+
+      max {
+        selected
+        absolute
+      }
+
+      __typename
+    }
+    ... on StoreFacetBoolean {
+      key
+      label
+      values {
+        label
+        value
+        selected
+        quantity
+      }
+
+      __typename
     }
   }
 `
