@@ -1,4 +1,4 @@
-import { useSearch } from '@faststore/sdk'
+import { setFacet, toggleFacet, useSearch } from '@faststore/sdk'
 import { useEffect, useMemo, useReducer } from 'react'
 import type { IStoreSelectedFacet } from '@faststore/api'
 
@@ -57,41 +57,16 @@ const reducer = (state: State, action: Action) => {
     }
 
     case 'toggleFacet': {
-      const index = state.selected.findIndex(
-        (facet) => facet.key === payload.key && facet.value === payload.value
-      )
-
-      if (index > -1) {
-        return {
-          ...state,
-          selected: state.selected.filter((_, idx) => idx !== index),
-        }
-      }
-
       return {
         ...state,
-        selected: [...state.selected, payload],
+        selected: toggleFacet(state.selected, payload),
       }
     }
 
     case 'setFacet': {
-      const { facet, unique } = payload
-      const index = state.selected.findIndex((f) =>
-        unique
-          ? f.key === facet.key
-          : f.key === facet.key && f.value === facet.value
-      )
-
-      if (index > -1) {
-        return {
-          ...state,
-          selected: state.selected.map((f, idx) => (idx !== index ? f : facet)),
-        }
-      }
-
       return {
         ...state,
-        selected: [...state.selected, facet],
+        selected: setFacet(state.selected, payload.facet, payload.unique),
       }
     }
 
