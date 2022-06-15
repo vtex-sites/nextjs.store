@@ -1,7 +1,7 @@
 import type { BreadcrumbProps } from '.'
 import Breadcrumb from '.'
 
-const story = {
+export default {
   component: Breadcrumb,
   title: 'Molecules/Breadcrumb',
 }
@@ -47,5 +47,3 @@ export const Default = Template.bind({})
 Default.args = {
   breadcrumbList,
 }
-
-export default story
