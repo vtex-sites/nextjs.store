@@ -1481,10 +1481,9 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faststore/api@^1.9.7":
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/api":
   version "1.9.7"
-  resolved "https://registry.yarnpkg.com/@faststore/api/-/api-1.9.7.tgz#00c2ecad235a273860035c87e4be3b9c3dea4115"
-  integrity sha512-khpdJ7J4W2P9SZdF9cesfceEjrK0E0Z6xLd6hZmZEJXba2vhuvNHP1zgUYpFVkEawT1IBN7y0akLp7EygqPp5w==
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/api#028786b335286b856eca89f0a9e1b5067f3cd709"
   dependencies:
     "@graphql-tools/schema" "^8.2.0"
     "@rollup/plugin-graphql" "^1.0.0"
@@ -1504,10 +1503,9 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/sdk@^1.9.4":
+"@faststore/sdk@https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/sdk":
   version "1.9.4"
-  resolved "https://registry.yarnpkg.com/@faststore/sdk/-/sdk-1.9.4.tgz#fa041160e6f90d789866ee9176da2ff4336b9d8b"
-  integrity sha512-emdCI738A3IBY0hrsR+Gs63eg2/ZDSllHObdbJnMemodTTY3rEYKA00KvBz7zTkkFydkWYXs3tKO0NfM+kO8WA==
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/sdk#768ca0dc7b284bb4bcbabec16f691f7d9a9226ff"
   dependencies:
     idb-keyval "^5.1.3"
 
@@ -1517,10 +1515,10 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@^1.9.4":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/ui":
   version "1.9.4"
-  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-1.9.4.tgz#fb76491f476fc3a1dac0a5dbf7da013a8e9bd69b"
-  integrity sha512-IC8CzxiZU91UDV5FGdMrBD/HiMXS8JLZt0cJ2iCbJWHzpU0p40ja7GGP6DIxKCuauW++T5zeHg5rB4VF3T7/nQ==
+  uid e08b32b31990a2350c4a486a9d9dae73844ca8d2
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/ui#e08b32b31990a2350c4a486a9d9dae73844ca8d2"
   dependencies:
     "@reach/popover" "^0.16.0"
     "@storybook/addon-a11y" "^6.4.4"
