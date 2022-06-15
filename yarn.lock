@@ -1492,9 +1492,10 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/3bb38e53/@faststore/api":
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/api":
   version "1.9.7"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/3bb38e53/@faststore/api#8d9b88b5df18a059f70aa24f915c8b76010d0ba0"
+  uid "028786b335286b856eca89f0a9e1b5067f3cd709"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/api#028786b335286b856eca89f0a9e1b5067f3cd709"
   dependencies:
     "@graphql-tools/schema" "^8.2.0"
     "@rollup/plugin-graphql" "^1.0.0"
@@ -1509,15 +1510,15 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/sdk@https://pkg.csb.dev/vtex/faststore/commit/3bb38e53/@faststore/sdk":
+"@faststore/sdk@https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/sdk":
   version "1.9.4"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/3bb38e53/@faststore/sdk#6b0d8092ced423f9f3861ba1be827dfb28d654b0"
+  uid "768ca0dc7b284bb4bcbabec16f691f7d9a9226ff"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/sdk#768ca0dc7b284bb4bcbabec16f691f7d9a9226ff"
   dependencies:
     idb-keyval "^5.1.3"
 
 "@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/ui":
   version "1.9.4"
-  uid e08b32b31990a2350c4a486a9d9dae73844ca8d2
   resolved "https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/ui#e08b32b31990a2350c4a486a9d9dae73844ca8d2"
   dependencies:
     "@reach/popover" "^0.16.0"
@@ -1525,9 +1526,9 @@
     react-swipeable "^6.1.2"
     tabbable "^5.2.1"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/3bb38e53/@faststore/ui":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/ui":
   version "1.9.4"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/3bb38e53/@faststore/ui#e08b32b31990a2350c4a486a9d9dae73844ca8d2"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/ui#d55fdef9055f64d631b4184a765014f50ebc725e"
   dependencies:
     "@reach/popover" "^0.16.0"
     "@storybook/addon-a11y" "^6.4.4"
