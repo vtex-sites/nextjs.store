@@ -45,11 +45,11 @@
 
   [data-fs-regionalization-bar-postal-code] {
     margin-right: var(--fs-regionalization-bar-postal-code-margin-right);
-    font-weight: var(--fs-text-weight-regular);
+    font-weight: var(--fs-regionalization-bar-postal-code-font-weight);
   }
 
   [data-fs-regionalization-bar-message] {
     margin-right: var(--fs-regionalization-bar-message-margin-right);
-    font-weight: var(--fs-text-weight-regular);
+    font-weight: var(--fs-regionalization-bar-message-font-weight);
   }
 }
