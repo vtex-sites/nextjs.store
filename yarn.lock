@@ -1576,6 +1576,15 @@
     react-swipeable "^6.1.2"
     tabbable "^5.2.1"
 
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/ui":
+  version "1.9.4"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/ui#d55fdef9055f64d631b4184a765014f50ebc725e"
+  dependencies:
+    "@reach/popover" "^0.16.0"
+    "@storybook/addon-a11y" "^6.4.4"
+    react-swipeable "^6.1.2"
+    tabbable "^5.2.1"
+
 "@gar/promisify@^1.0.1":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
