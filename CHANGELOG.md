@@ -9,15 +9,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies new local tokens to `EmptyState` ([#122](https://github.com/vtex-sites/nextjs.store/pull/122))
+- Applies new local tokens to `Dropdown` ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
+- Creates and styles `Dropdown` component ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
+- 301 redirects when visiting old VTEX product routes ([#93](https://github.com/vtex-sites/nextjs.store/pull/93))
+
 - Support for the new type definitions from React 18 ([#113](https://github.com/vtex-sites/nextjs.store/pull/113)).
 
 ### Changed
+
+- Tweaks `EmptyState` token name ([#125](https://github.com/vtex-sites/nextjs.store/pull/125))
+- Storybook's version from 6.4.20 to 6.5.9 ([#120](https://github.com/vtex-sites/nextjs.store/pull/120))
+- Unifies `Link` component usage by adding support for both external and client-side links ([#117](https://github.com/vtex-sites/nextjs.store/pull/117))
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- Status code when error occurs (404/500) ([#116](https://github.com/vtex-sites/nextjs.store/pull/116))
 
 ### Security
 
