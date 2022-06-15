@@ -11,7 +11,11 @@ function PriceRange(props: Props) {
   const formatter = usePriceFormatter()
 
   return (
-    <UIPriceRange className={styles.root} formatter={formatter} {...props} />
+    <UIPriceRange
+      className={styles['fs-price-range']}
+      formatter={formatter}
+      {...props}
+    />
   )
 }
 
