@@ -27,7 +27,7 @@
   }
 }
 
-// Temporarily increased CSS specificity because the normal link blue color
+// TODO: Temporarily increased CSS specificity because the normal link blue color
 // was winning. Hoping this will be fixed when using CSS modules.
 [data-fs-search-suggestions] [data-fs-search-suggestion-section="terms"] {
   [data-fs-link] {
