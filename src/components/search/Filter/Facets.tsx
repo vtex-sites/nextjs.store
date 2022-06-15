@@ -47,6 +47,7 @@ function Facets({
               testId={`${testId}-accordion`}
               isExpanded={isExpanded}
               buttonLabel={label}
+              data-type={type}
             >
               {type === 'StoreFacetBoolean' && isExpanded && (
                 <UIList>
