@@ -1,48 +1,86 @@
 @import "src/styles/scaffold";
 
 .fs-regionalization-modal-content {
-  [data-regionalization-modal-header] {
-    padding: var(--fs-spacing-4) var(--fs-spacing-7) var(--fs-spacing-4) var(--fs-spacing-4);
+  // --------------------------------------------------------
+  // Design Tokens for Modal
+  // --------------------------------------------------------
 
-    [data-regionalization-modal-title] {
-      margin-bottom: rem(10px);
-      font-size: var(--fs-text-size-3);
-      font-weight: var(--fs-text-weight-bold);
-      line-height: 1.2;
+  // Default properties
+  --fs-regionalization-modal-background-color               : var(--fs-color-body-bkg);
+  --fs-regionalization-border-radius                        : var(--fs-spacing-0);
+
+  // Header
+  --fs-regionalization-modal-header-padding                 : var(--fs-spacing-4) var(--fs-spacing-7) var(--fs-spacing-4) var(--fs-spacing-4);
+
+  // Title
+  --fs-regionalization-modal-title-margin-bottom            : rem(10px);
+  --fs-regionalization-modal-title-size                     : var(--fs-text-size-3);
+  --fs-regionalization-modal-title-weight                   : var(--fs-text-weight-bold);
+  --fs-regionalization-modal-title-line-height              : 1.2;
+
+  // Description
+  --fs-regionalization-modal-description-size               : var(--fs-text-size-2);
+  --fs-regionalization-modal-description-line-height        : 1.5;
+  --fs-regionalization-modal-description-color              : var(--fs-color-text-light);
+
+  // Buttons
+  --fs-regionalization-modal-button-position-top            : 0;
+  --fs-regionalization-modal-button-position-right          : 0;
+
+  // Body
+  --fs-regionalization-modal-body-padding                   : var(--fs-spacing-1) var(--fs-spacing-4) var(--fs-spacing-5);
+
+  // Input
+  --fs-regionalization-modal-input-margin-bottom            : var(--fs-spacing-6);
+
+  // Link
+  --fs-regionalization-modal-link-padding                   : 0;
+  --fs-regionalization-modal-link-color                     : var(--fs-color-link);
+  --fs-regionalization-modal-link-margin-right              : var(--fs-spacing-0);
+
+  position: relative;
+  background-color: var(--fs-regionalization-modal-background-color);
+  border-radius: var(--fs-regionalization-border-radius);
+
+  [data-fs-regionalization-modal-header] {
+    padding: var(--fs-regionalization-modal-header-padding);
+
+    [data-fs-regionalization-modal-title] {
+      margin-bottom: var(--fs-regionalization-modal-title-margin-bottom);
+      font-size: var(--fs-regionalization-modal-title-size);
+      font-weight: var(--fs-regionalization-modal-title-weight);
+      line-height: var(--fs-regionalization-modal-title-line-height);
     }
 
-    [data-regionalization-modal-description] {
-      font-size: var(--fs-text-size-2);
-      line-height: 1.5;
-      color: var(--fs-color-text-light);
+    [data-fs-regionalization-modal-description] {
+      font-size: var(--fs-regionalization-modal-description-size);
+      line-height: var(--fs-regionalization-modal-description-line-height);
+      color: var(--fs-regionalization-modal-description-color);
     }
 
     [data-fs-regionalization-modal-button] {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: var(--fs-regionalization-modal-button-position-top);
+      right: var(--fs-regionalization-modal-button-position-right);
     }
   }
 
   [data-fs-regionalization-modal-body] {
-    padding: var(--fs-spacing-1) var(--fs-spacing-4) var(--fs-spacing-5);
+    padding: var(--fs-regionalization-modal-body-padding);
 
-    [data-regionalization-modal-input] {
-      margin-bottom: var(--fs-spacing-6);
+    [data-fs-regionalization-modal-input] {
+      margin-bottom: var(--fs-regionalization-modal-input-margin-bottom);
     }
 
-    [data-store-link] {
+    [data-fs-regionalization-modal-link] {
       display: flex;
       flex-direction: row;
       align-content: flex-start;
       align-items: center;
       justify-content: flex-start;
-      padding: 0;
-      color: var(--fs-color-link);
-
-      [data-regionalization-modal-link] {
-        margin-right: var(--fs-spacing-0);
-      }
+      padding: var(--fs-regionalization-modal-link-padding);
+      margin-right: var(--fs-regionalization-modal-link-margin-right);
+      color: var(--fs-regionalization-modal-link-color);
     }
   }
 }
