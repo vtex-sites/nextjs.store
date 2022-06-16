@@ -1,10 +1,9 @@
 import '!style-loader!css-loader!sass-loader!../src/styles/fonts.css'
-import '!style-loader!css-loader!sass-loader!../src/styles/global/tokens.scss'
-import '!style-loader!css-loader!sass-loader!../src/styles/global/resets.scss'
-import '!style-loader!css-loader!sass-loader!../src/styles/global/typography.scss'
 import '!style-loader!css-loader!sass-loader!../src/styles/global/layout.scss'
+import '!style-loader!css-loader!sass-loader!../src/styles/global/resets.scss'
 import '!style-loader!css-loader!sass-loader!../src/styles/global/storybook-components.scss'
-
+import '!style-loader!css-loader!sass-loader!../src/styles/global/tokens.scss'
+import '!style-loader!css-loader!sass-loader!../src/styles/global/typography.scss'
 import SBTheme from './theme'
 
 // Viewports from src/styles/vendors/include-media_overwrite.scss
@@ -55,6 +54,10 @@ export const parameters = {
     theme: SBTheme,
   },
   viewMode: 'docs',
+  previewTabs: {
+    'storybook/docs/panel': { index: -1 },
+    canvas: { title: 'Sandbox' },
+  },
   viewport: {
     viewports: customViewports,
   },
