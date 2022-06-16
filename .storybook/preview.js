@@ -7,8 +7,8 @@ import '!style-loader!css-loader!sass-loader!../src/styles/global/storybook-comp
 
 import SBTheme from './theme'
 
+// Viewports from src/styles/vendors/include-media_overwrite.scss
 const customViewports = {
-  // src/styles/vendors/include-media_overwrite.scss
   phone: {
     name: 'Phone',
     styles: {
