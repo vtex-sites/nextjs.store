@@ -59,6 +59,7 @@ export const parameters = {
     viewports: customViewports,
   },
   options: {
+    showToolbar: true,
     storySort: {
       method: 'alphabetical',
       order: [
