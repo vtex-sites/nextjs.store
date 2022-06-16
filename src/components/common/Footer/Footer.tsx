@@ -26,46 +26,37 @@ function Footer() {
             <li>
               <Link
                 as="a"
+                variant="footer"
                 href="https://www.facebook.com/"
                 title="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Facebook" />
-                  }
-                />
+                <Icon width="24px" height="24px" name="Facebook" />
               </Link>
             </li>
             <li>
               <Link
                 as="a"
+                variant="footer"
                 href="https://www.instagram.com/"
                 title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Instagram" />
-                  }
-                />
+                <Icon width="24px" height="24px" name="Instagram" />
               </Link>
             </li>
             <li>
               <Link
                 as="a"
+                variant="footer"
                 href="https://www.pinterest.com/"
                 title="Pinterest"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Pinterest" />
-                  }
-                />
+                <Icon width="24px" height="24px" name="Pinterest" />
               </Link>
             </li>
             <li>
