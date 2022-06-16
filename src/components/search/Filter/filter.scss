@@ -22,7 +22,7 @@
     }
 
     @include media(">=notebook") {
-      border: 1px solid var(--fs-border-color-light);
+      border: var(--fs-border-width) solid var(--fs-border-color-light);
       border-radius: var(--fs-border-radius);
     }
   }

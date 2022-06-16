@@ -30,6 +30,7 @@
     width: 100%;
     content: "";
     border-top: 1px solid var(--fs-border-color-light);
+    border-top: var(--fs-border-width) solid var(--fs-border-color-light);
 
     @include media(">=notebook") {
       grid-column: span 12;
