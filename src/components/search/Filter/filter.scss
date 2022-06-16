@@ -12,7 +12,7 @@
     }
   }
 
-  [data-store-accordion] {
+  [data-fs-accordion] {
     [data-store-list] {
       padding-bottom: var(--fs-spacing-3);
 
@@ -27,7 +27,7 @@
     }
   }
 
-  [data-accordion-item] [data-store-button] {
+  [data-fs-accordion-item] [data-store-button] {
     font-size: var(--fs-text-size-3);
     font-weight: var(--fs-text-weight-regular);
     line-height: 1.5;
