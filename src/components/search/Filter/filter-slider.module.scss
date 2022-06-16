@@ -1,0 +1,44 @@
+@import "src/styles/scaffold";
+
+.fs-filter-slider {
+  [data-fs-filter-slider-body] {
+    --filter-footer-height: 80px;
+
+    height: calc(100vh - var(--filter-footer-height));
+    padding: var(--fs-spacing-3) var(--fs-spacing-3) calc(var(--filter-footer-height) + var(--fs-spacing-3));
+    overflow-y: auto;
+  }
+
+  [data-fs-filter-slider-header] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    [data-fs-button-icon] {
+      margin-right: calc(-1 * var(--fs-spacing-1));
+    }
+  }
+
+  [data-fs-filter-slider-footer] {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--fs-spacing-3);
+    background-color: var(--fs-color-neutral-0);
+    box-shadow: 0 0 6px rgb(0 0 0 / 20%);
+
+    [data-fs-button] {
+      &[data-fs-button-variant="secondary"] {
+        width: 40%;
+        margin-right: var(--fs-spacing-3);
+      }
+
+      &[data-fs-button-variant="primary"] {
+        width: 60%;
+      }
+    }
+  }
+}

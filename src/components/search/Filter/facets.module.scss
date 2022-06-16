@@ -1,11 +1,27 @@
 @import "src/styles/scaffold";
 
-.filter[data-store-filter] {
-  > .text__title-mini-alt {
+.fs-facets {
+  // --------------------------------------------------------
+  // Design Tokens for Facets
+  // --------------------------------------------------------
+
+  // Title
+  --fs-facets-title-height: var(--product-listing-row-height);
+  --fs-facets-title-margin-bottom: var(--fs-spacing-0);
+
+  // Accordion
+  // Accordion Item
+  // Accordion Item Button
+  // Item
+  // Item checkbox
+  // Item label
+  // Item badge
+
+  [data-fs-facets-title] {
     display: flex;
     align-items: center;
-    height: var(--product-listing-row-height);
-    margin-bottom: var(--fs-spacing-0);
+    height: var(--fs-facets-title-height);
+    margin-bottom: var(--fs-facets-title-margin-bottom);
 
     @include media("<notebook") {
       display: none;
@@ -49,67 +65,26 @@
       display: initial;
     }
   }
-}
 
-.filter__item {
-  display: flex;
-  align-items: center;
+  [data-fs-facet-item] {
+    display: flex;
+    align-items: center;
+  }
 
-  [data-store-checkbox] {
+  [data-fs-facet-item-checkbox] {
     flex-shrink: 0;
     width: rem(20px);
     height: rem(20px);
   }
 
-  [data-store-label] {
+  [data-fs-facet-item-label] {
     display: flex;
     align-items: center;
     width: 100%;
     margin-left: var(--fs-spacing-1);
   }
 
-  [data-store-badge] {
+  [data-fs-facet-item-badge] {
     margin-left: var(--fs-spacing-1);
-  }
-}
-
-.filter-modal__header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  [data-fs-button-icon] {
-    margin-right: calc(-1 * var(--fs-spacing-1));
-  }
-}
-
-.filter-modal__body {
-  --filter-footer-height: 80px;
-
-  height: calc(100vh - var(--filter-footer-height));
-  padding: var(--fs-spacing-3) var(--fs-spacing-3) calc(var(--filter-footer-height) + var(--fs-spacing-3));
-  overflow-y: auto;
-}
-
-.filter-modal__footer {
-  position: sticky;
-  bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: var(--fs-spacing-3);
-  background-color: var(--fs-color-neutral-0);
-  box-shadow: 0 0 6px rgb(0 0 0 / 20%);
-
-  [data-fs-button] {
-    &[data-fs-button-variant="secondary"] {
-      width: 40%;
-      margin-right: var(--fs-spacing-3);
-    }
-
-    &[data-fs-button-variant="primary"] {
-      width: 60%;
-    }
   }
 }
