@@ -1,5 +1,7 @@
 import { Modal as UIModal } from '@faststore/ui'
-import type { ReactNode, HTMLAttributes } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
+
+import styles from './slide-over.module.scss'
 
 type Direction = 'leftSide' | 'rightSide'
 type WidthSize = 'full' | 'partial'
@@ -23,15 +25,17 @@ function SlideOver({
   size = 'full',
   fade = 'out',
   children,
+  className,
   ...otherProps
 }: SlideOverProps) {
   return (
     <UIModal
+      className={`${styles.fsSlideOver} ${className}`}
       isOpen={isOpen}
-      data-slide-over
-      data-slide-over-direction={direction}
-      data-slide-over-size={size}
-      data-slide-over-state={fade}
+      data-fs-slide-over
+      data-fs-slide-over-direction={direction}
+      data-fs-slide-over-size={size}
+      data-fs-slide-over-state={fade}
       {...otherProps}
     >
       {children}
