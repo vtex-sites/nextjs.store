@@ -4,6 +4,7 @@ import {
   PaymentMethods as UIPaymentMethods,
 } from '@faststore/ui'
 
+import Logo from 'src/components/ui/Logo'
 import IncentivesFooter from 'src/components/sections/Incentives/IncentivesFooter'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
@@ -62,14 +63,13 @@ function Footer() {
             <li>
               <Link
                 as="a"
+                variant="footer"
                 href="https://twitter.com/"
                 title="Twitter"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <UIIcon
-                  component={<Icon width="24px" height="24px" name="Twitter" />}
-                />
+                <Icon width="24px" height="24px" name="Twitter" />
               </Link>
             </li>
           </UIList>
@@ -77,19 +77,7 @@ function Footer() {
       </div>
 
       <div className="footer__note layout__content">
-        <UIIcon
-          component={
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src="/BaseStore.svg"
-              alt="BaseStore logo"
-              width="124px"
-              height="32px"
-              loading="lazy"
-            />
-          }
-        />
-
+        <Logo />
         <UIPaymentMethods>
           <p className="text__title-mini">Payment Methods</p>
           <UIList>

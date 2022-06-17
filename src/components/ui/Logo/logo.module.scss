@@ -1,0 +1,9 @@
+@import "src/styles/scaffold";
+
+.fs-logo {
+  display: block;
+  width: 176px;
+  height: 38px;
+  background: var(--fs-logo-img) no-repeat;
+  background-size: auto 100%;
+}
