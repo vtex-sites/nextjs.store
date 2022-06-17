@@ -1,8 +1,11 @@
 @import "src/styles/scaffold";
 
 .navbar {
+  --fs-navbar-bkg-color    : var(--fs-color-body-bkg);
+
   padding: 0;
-  border-bottom: var(--fs-border-width) solid var(--fs-color-neutral-2);
+  background-color: var(--fs-navbar-bkg-color);
+  border-bottom: var(--fs-border-width) solid var(--fs-border-color-light);
   box-shadow: 0 var(--fs-spacing-0) var(--fs-spacing-3) rgb(0 0 0 / 5%);
 
   [data-store-search-input-wrapper] {

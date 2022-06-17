@@ -1,8 +1,10 @@
 @import "src/styles/scaffold";
 
 .footer {
+  --fs-footer-bkg-color: var(--fs-color-neutral-bkg);
+
   padding-top: 0;
-  background-color: var(--fs-color-neutral-bkg);
+  background-color: var(--fs-footer-bkg-color);
   content-visibility: auto;
   contain-intrinsic-size: rem(860px);
 
@@ -29,7 +31,6 @@
   &::before {
     width: 100%;
     content: "";
-    border-top: 1px solid var(--fs-border-color-light);
     border-top: var(--fs-border-width) solid var(--fs-border-color-light);
 
     @include media(">=notebook") {
