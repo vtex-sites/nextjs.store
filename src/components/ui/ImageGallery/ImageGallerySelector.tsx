@@ -16,10 +16,19 @@ interface Props {
 
 const moveScroll = (container: HTMLDivElement | null, value: number) => {
   if (container) {
+    // Workaround for safari (scroll-behavior not working on Safari 15.4) https://developer.apple.com/forums/thread/703294
     if (container.scrollHeight > container.clientHeight) {
-      container.scrollTop += value
+      container.style.overflow = 'auto'
+      window.requestAnimationFrame(() =>
+        container.scrollTo({ top: value, behavior: 'smooth' })
+      )
+      setTimeout(() => (container.style.overflow = 'hidden'), 2000)
     } else {
-      container.scrollLeft += value
+      container.style.overflow = 'auto'
+      window.requestAnimationFrame(() =>
+        container.scrollTo({ left: value, behavior: 'smooth' })
+      )
+      setTimeout(() => (container.style.overflow = 'hidden'), 2000)
     }
   }
 }
@@ -57,7 +66,7 @@ function ImageGallerySelector({ images, onSelect, currentImageIdx }: Props) {
         <IconButton
           aria-label="backward slide image selector"
           icon={<Icon name="ArrowLeft" width={24} height={24} />}
-          onClick={() => moveScroll(elementsRef.current, -200)}
+          onClick={() => moveScroll(elementsRef.current, -400)}
         />
       )}
       <div data-fs-image-gallery-selector-elements ref={elementsRef}>
@@ -97,7 +106,7 @@ function ImageGallerySelector({ images, onSelect, currentImageIdx }: Props) {
         <IconButton
           aria-label="forward slide image selector"
           icon={<Icon name="ArrowLeft" width={24} height={24} />}
-          onClick={() => moveScroll(elementsRef.current, +200)}
+          onClick={() => moveScroll(elementsRef.current, +400)}
         />
       )}
     </section>
