@@ -17,14 +17,13 @@ interface Props {
 const moveScroll = (container: HTMLDivElement | null, value: number) => {
   if (container) {
     // Workaround for safari (scroll-behavior not working on Safari 15.4) https://developer.apple.com/forums/thread/703294
+    container.style.overflow = 'auto'
     if (container.scrollHeight > container.clientHeight) {
-      container.style.overflow = 'auto'
       window.requestAnimationFrame(() =>
         container.scrollTo({ top: value, behavior: 'smooth' })
       )
       setTimeout(() => (container.style.overflow = 'hidden'), 2000)
     } else {
-      container.style.overflow = 'auto'
       window.requestAnimationFrame(() =>
         container.scrollTo({ left: value, behavior: 'smooth' })
       )
