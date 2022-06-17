@@ -600,39 +600,6 @@ export type Filter_FacetsFragment = {
   }>
 }
 
-export type SearchSuggestionsQueryQueryVariables = Exact<{
-  term: Scalars['String']
-  selectedFacets: InputMaybe<Array<IStoreSelectedFacet> | IStoreSelectedFacet>
-}>
-
-export type SearchSuggestionsQueryQuery = {
-  search: {
-    suggestions: {
-      terms: Array<{ value: string }>
-      products: Array<{
-        slug: string
-        sku: string
-        name: string
-        gtin: string
-        id: string
-        brand: { name: string; brandName: string }
-        isVariantOf: { productGroupID: string; name: string }
-        image: Array<{ url: string; alternateName: string }>
-        offers: {
-          lowPrice: number
-          offers: Array<{
-            availability: string
-            price: number
-            listPrice: number
-            quantity: number
-            seller: { identifier: string }
-          }>
-        }
-      }>
-    }
-  }
-}
-
 export type ProductDetailsFragment_ProductFragment = {
   sku: string
   name: string
@@ -702,18 +669,17 @@ export type ServerCollectionPageQueryQuery = {
 }
 
 export type ServerProductPageQueryQueryVariables = Exact<{
-  id: Scalars['String']
+  slug: Scalars['String']
 }>
 
 export type ServerProductPageQueryQuery = {
   product: {
-    slug: string
     sku: string
     gtin: string
     name: string
     description: string
     id: string
-    seo: { title: string; description: string }
+    seo: { title: string; description: string; canonical: string }
     brand: { name: string }
     breadcrumbList: {
       itemListElement: Array<{ item: string; name: string; position: number }>
@@ -870,6 +836,48 @@ export type ProductsQueryQuery = {
       }>
     }
   }
+}
+
+export type SearchSuggestionsQueryQueryVariables = Exact<{
+  term: Scalars['String']
+  selectedFacets: InputMaybe<Array<IStoreSelectedFacet> | IStoreSelectedFacet>
+}>
+
+export type SearchSuggestionsQueryQuery = {
+  search: {
+    suggestions: {
+      terms: Array<{ value: string }>
+      products: Array<{
+        slug: string
+        sku: string
+        name: string
+        gtin: string
+        id: string
+        brand: { name: string; brandName: string }
+        isVariantOf: { productGroupID: string; name: string }
+        image: Array<{ url: string; alternateName: string }>
+        offers: {
+          lowPrice: number
+          offers: Array<{
+            availability: string
+            price: number
+            listPrice: number
+            quantity: number
+            seller: { identifier: string }
+          }>
+        }
+      }>
+    }
+  }
+}
+
+export type TopSearchSuggestionsQueryQueryVariables = Exact<{
+  term: Scalars['String']
+  selectedFacets: InputMaybe<Array<IStoreSelectedFacet> | IStoreSelectedFacet>
+}>
+
+export type TopSearchSuggestionsQueryQuery = {
+  search: { suggestions: { terms: Array<{ value: string }> } }
 }
 
 export type ValidateSessionMutationVariables = Exact<{

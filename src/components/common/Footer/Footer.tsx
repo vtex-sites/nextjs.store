@@ -25,7 +25,6 @@ function Footer() {
           <UIList variant="unordered">
             <li>
               <Link
-                as="a"
                 variant="footer"
                 href="https://www.facebook.com/"
                 title="Facebook"
@@ -37,7 +36,6 @@ function Footer() {
             </li>
             <li>
               <Link
-                as="a"
                 variant="footer"
                 href="https://www.instagram.com/"
                 title="Instagram"
@@ -49,7 +47,6 @@ function Footer() {
             </li>
             <li>
               <Link
-                as="a"
                 variant="footer"
                 href="https://www.pinterest.com/"
                 title="Pinterest"
@@ -61,7 +58,6 @@ function Footer() {
             </li>
             <li>
               <Link
-                as="a"
                 variant="footer"
                 href="https://twitter.com/"
                 title="Twitter"

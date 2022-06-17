@@ -79,7 +79,7 @@
       order: 0;
       width: min-content;
 
-      [data-store-input] {
+      &[data-store-search-input-dropdown-open="false"] [data-store-input] {
         width: 0;
         padding: 0;
         border-width: 0;
@@ -189,7 +189,7 @@
     align-items: center;
   }
 
-  a {
+  [data-fs-link] {
     display: block;
     width: 100%;
   }
@@ -201,7 +201,7 @@
       padding-top: var(--fs-spacing-1);
     }
 
-    a {
+    [data-fs-link] {
       width: auto;
       padding: var(--fs-spacing-0) 0;
     }
