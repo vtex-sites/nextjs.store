@@ -44,11 +44,9 @@
   --fs-color-tertiary-bkg-active       : var(--fs-color-main-3);
 
   // // COMPONENTS & STATES
-  --fs-color-body-bkg                  : transparent;
+  --fs-color-body-bkg                  : var(--fs-color-main-0);
 
   --fs-color-text-display              : var(--fs-color-neutral-7);
-
-  --fs-color-text-inverse              : var(--fs-color-neutral-7);
 
   --fs-color-link                      : var(--fs-color-neutral-7);
 
