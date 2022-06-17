@@ -9,6 +9,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Displays the `Sandbox` tab on the storybook along with `Viewport` toolbar and `Accessibility` checks ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
+- The search input now includes the last 4 previously searched terms (`SearchHistory`) ([#112](https://github.com/vtex-sites/nextjs.store/pull/112)).
+- The top 5 searches (`SuggestionsTopSearch`) are now integrated into the search input ([#112](https://github.com/vtex-sites/nextjs.store/pull/112)).
+- Applies new local tokens to `EmptyState` ([#122](https://github.com/vtex-sites/nextjs.store/pull/122))
+- Applies new local tokens to `Dropdown` ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
+- Creates and styles `Dropdown` component ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
+- 301 redirects when visiting old VTEX product routes ([#93](https://github.com/vtex-sites/nextjs.store/pull/93))
+- Support for the new type definitions from React 18 ([#113](https://github.com/vtex-sites/nextjs.store/pull/113)).
+
+### Changed
+
+- Upgrade dependencies ([#131](https://github.com/vtex-sites/nextjs.store/pull/131))
+- Uses `[data-fs-dropdown-button]` instead of `[data-store-dropdown-button]` to select `DropdownButton` on breadcrumb stylesheet ([#123](https://github.com/vtex-sites/nextjs.store/pull/123))
+- Replaces `EmptyState` Related Components with Use Cases section on storybook ([#126](https://github.com/vtex-sites/nextjs.store/pull/126))
+- Tweaks `EmptyState` token name ([#125](https://github.com/vtex-sites/nextjs.store/pull/125))
+- Storybook's version from 6.4.20 to 6.5.9 ([#120](https://github.com/vtex-sites/nextjs.store/pull/120))
+- Unifies `Link` component usage by adding support for both external and client-side links ([#117](https://github.com/vtex-sites/nextjs.store/pull/117))
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+- Some console errors when running the storybook ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
+- The search input's dropdown not closing when a suggested product was selected ([#112](https://github.com/vtex-sites/nextjs.store/pull/112).
+- Status code when error occurs (404/500) ([#116](https://github.com/vtex-sites/nextjs.store/pull/116))
+
+### Security
+
+## [22.23.0.beta] - 2022-06-10
+
+### Added
+
 - Creates new Storybook section `BestPractices` ([#101](https://github.com/vtex-sites/nextjs.store/pull/101))
 - Applies new local tokens to `OutOfStock` ([#97](https://github.com/vtex-sites/nextjs.store/pull/97))
 - Applies new local tokens to `CartItem` ([#102](https://github.com/vtex-sites/nextjs.store/pull/102))
@@ -34,6 +68,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `SearchHistory`, `Suggestions`, and `SuggestionsTopSearch` components to reuse shared markup and styles ([#86](https://github.com/vtex-sites/nextjs.store/pull/86)).
+- Removed CSS Modules for the components `SuggestionProductCard` and `Suggestions` for now so they match what's currently on the Gatsby starter. It will be added again later ([#86](https://github.com/vtex-sites/nextjs.store/pull/86)).
 - Merges UIProvider and ModalProvider into a single context provider ([#100](https://github.com/vtex-sites/nextjs.store/pull/100))
 - Synchronizes the components' code of both starters ([#103](https://github.com/vtex-sites/nextjs.store/pull/103))
 - Uses `--docs` option on storybook script ([#107](https://github.com/vtex-sites/nextjs.store/pull/107))
@@ -58,8 +94,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Uses camelCase classes when using CSS Modules ([#42](https://github.com/vtex-sites/nextjs.store/pull/42))
 - `ImageGallery` now uses native scroll instead of `useSlider` ([#6](https://github.com/vtex-sites/nextjs.store/pull/6))
 
-### Deprecated
-
 ### Removed
 
 - Removes unnecessary logic in suspense hooks ([#96](https://github.com/vtex-sites/nextjs.store/pull/96))
@@ -68,6 +102,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The `default` nomenclature from global tokens ([#51](https://github.com/vtex-sites/nextjs.store/pull/51))
 
 ### Fixed
+
 - Use `SpotPrice` for low/high price on `aggretateOffer` ([#111](https://github.com/vtex-sites/nextjs.store/pull/111))
 - Fix Region Input's behavior when setting zipCode ([#108](https://github.com/vtex-sites/nextjs.store/pull/108))
 - Lighthouse complaining about missing robots.txt ([#89](https://github.com/vtex-sites/nextjs.store/pull/89))
@@ -79,8 +114,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A missing gap between the Sign In link and Cart button on desktop ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - A bugged vertical gap with the `EmptyState` component inside the cart ([#11](https://github.com/vtex-sites/nextjs.store/pull/11)).
 - Fixes Storybook build removing unused imports ([#40](https://github.com/vtex-sites/nextjs.store/pull/40))
-
-### Security
 
 ## [22.19.0.beta] - 2022-05-06
 
