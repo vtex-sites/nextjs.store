@@ -215,7 +215,8 @@
     }
 
     [data-product-card-image] {
-      border-radius: var(--fs-product-card-border-radius) var(--fs-product-card-border-radius) 0 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
     [data-store-badge] {
