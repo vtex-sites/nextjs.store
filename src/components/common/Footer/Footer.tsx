@@ -1,5 +1,4 @@
 import {
-  Icon as UIIcon,
   List as UIList,
   PaymentMethods as UIPaymentMethods,
 } from '@faststore/ui'
