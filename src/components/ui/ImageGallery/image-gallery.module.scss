@@ -15,13 +15,13 @@
     width: 100%;
     margin-bottom: var(--fs-spacing-7);
 
-    > [data-store-image] {
+    > [data-fs-image] {
       grid-column: 2 / span 7;
       border-radius: var(--fs-border-radius);
     }
 
     &[data-fs-image-gallery="without-selector"] {
-      > [data-store-image] {
+      > [data-fs-image] {
         grid-column: 1 / span 8;
       }
     }
