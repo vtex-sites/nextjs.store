@@ -1524,9 +1524,21 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/api":
+"@faststore/api@^1.9.7":
+  version "1.9.8"
+  resolved "https://registry.yarnpkg.com/@faststore/api/-/api-1.9.8.tgz#ae63d21173fd2a99ed72dec31affa1fbc5d28f8c"
+  integrity sha512-0dCeddsvqLxXn1cxsyR1pSoFoohrzSFAgyL9Nc7SMp0u4UCQFQ9CS7PeArCXkbgjD9np/MUpxnq6u0XlPyeTBA==
+  dependencies:
+    "@graphql-tools/schema" "^8.2.0"
+    "@rollup/plugin-graphql" "^1.0.0"
+    dataloader "^2.1.0"
+    fast-deep-equal "^3.1.3"
+    isomorphic-unfetch "^3.1.0"
+    p-limit "^3.1.0"
+
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/77cac243/@faststore/api":
   version "1.9.7"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/1f51cb0b/@faststore/api#028786b335286b856eca89f0a9e1b5067f3cd709"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/77cac243/@faststore/api#a3f6882c650650a72b8b81163bf1f6953705ed7b"
   dependencies:
     "@graphql-tools/schema" "^8.2.0"
     "@rollup/plugin-graphql" "^1.0.0"
@@ -1576,9 +1588,9 @@
     react-swipeable "^6.1.2"
     tabbable "^5.2.1"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/ui":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/77cac243/@faststore/ui":
   version "1.9.4"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/3d9c0250/@faststore/ui#d55fdef9055f64d631b4184a765014f50ebc725e"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/77cac243/@faststore/ui#a6d4eee598387542edcdd1c460b56ac1c02672bc"
   dependencies:
     "@reach/popover" "^0.16.0"
     "@storybook/addon-a11y" "^6.4.4"
