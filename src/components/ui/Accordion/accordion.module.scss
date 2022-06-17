@@ -55,6 +55,14 @@
 
   [data-fs-accordion-item-button-icon] {
     display: flex;
+
+    [data-icon] {
+      display: none;
+    }
+
+    [data-icon="expanded"], [data-icon="collapsed"] {
+      display: initial;
+    }
   }
 
   [data-fs-accordion-item-panel] {

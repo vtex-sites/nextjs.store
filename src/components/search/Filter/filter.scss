@@ -36,18 +36,6 @@
       font-size: var(--fs-text-size-2);
       line-height: 1.25;
     }
-
-    [data-fs-accordion-item-button-icon] [data-icon] {
-      display: none;
-    }
-
-    [data-fs-accordion-item-button-icon] [data-icon="expanded"] {
-      display: initial;
-    }
-
-    [data-fs-accordion-item-button-icon] [data-icon="collapsed"] {
-      display: initial;
-    }
   }
 }
 
