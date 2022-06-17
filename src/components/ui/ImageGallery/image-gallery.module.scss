@@ -1,6 +1,6 @@
 @import "src/styles/scaffold";
 
-.fs-image-gallery[data-fs-image-gallery] {
+.fs-image-gallery {
   position: relative;
   left: calc(-1 * var(--fs-grid-padding));
   display: flex;
