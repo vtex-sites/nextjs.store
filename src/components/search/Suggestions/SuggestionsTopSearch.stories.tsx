@@ -1,5 +1,3 @@
-import { SessionProvider } from '@faststore/sdk'
-
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
 
 import { SuggestionsTopSearch } from '.'
@@ -19,11 +17,9 @@ const Template = (props: SuggestionsTopSearchProps) => (
       background: 'white',
     }}
   >
-    <SessionProvider initialState={{}}>
-      <SearchInputProvider>
-        <SuggestionsTopSearch {...props} />
-      </SearchInputProvider>
-    </SessionProvider>
+    <SearchInputProvider>
+      <SuggestionsTopSearch {...props} />
+    </SearchInputProvider>
   </div>
 )
 

@@ -20,7 +20,8 @@ function CartSidebar() {
   const { cart: displayCart, closeCart } = useUI()
   const { fade, fadeOut } = useFadeEffect()
 
-  const { items, totalItems, isValidating, subTotal, total } = cart
+  const { items, totalItems, subTotal, total } = cart
+  const isValidating = false // TODO make it work
 
   const isEmpty = items.length === 0
 
