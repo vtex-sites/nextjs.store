@@ -1,11 +1,31 @@
 import { gql } from '@faststore/graphql-utils'
+import {
+  createSessionStore,
+  optimistic,
+  useSession as useSessionSDK,
+} from '@faststore/sdk'
 import type { Session } from '@faststore/sdk'
 
+import storeConfig from '../../../store.config'
+import { request } from '../graphql/request'
 import type {
   ValidateSessionMutation,
   ValidateSessionMutationVariables,
 } from '../../../@generated/graphql/index'
-import { request } from '../graphql/request'
+
+const store = createSessionStore<Session>({
+  initialValue: {
+    currency: {
+      code: 'USD',
+      symbol: '$',
+    },
+    country: 'USA',
+    locale: storeConfig.locale,
+    channel: storeConfig.channel,
+    postalCode: null,
+    person: null,
+  },
+})
 
 export const mutation = gql`
   mutation ValidateSession($session: IStoreSession!, $search: String!) {
@@ -36,3 +56,7 @@ export const validateSession = async (session: Session) => {
 
   return data.validateSession
 }
+
+optimistic(store, validateSession)
+
+export const useSession = () => useSessionSDK(store)

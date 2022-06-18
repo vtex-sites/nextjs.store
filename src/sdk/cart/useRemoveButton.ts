@@ -1,9 +1,10 @@
-import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
+import { sendAnalyticsEvent } from '@faststore/sdk'
 import { useCallback } from 'react'
 import type { CurrencyCode, RemoveFromCartEvent } from '@faststore/sdk'
 
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
+import { useSession } from '../session/validate'
 import { useCart } from './useCart'
 import type { CartItem } from './validate'
 

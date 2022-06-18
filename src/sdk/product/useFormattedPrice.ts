@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
-import { useSession } from '@faststore/sdk'
+
+import { useSession } from '../session/validate'
 
 export const useFormattedPrice = (price: number) => {
   const { currency, locale } = useSession()

@@ -1,11 +1,25 @@
-import { useCart as useSDKCart } from '@faststore/sdk'
+import {
+  createCartStore,
+  optimistic,
+  useCart as useCartSDK,
+} from '@faststore/sdk'
 import { useCallback, useMemo } from 'react'
 
-import { getItemId, isGift } from './validate'
+import { getItemId, isGift, validateCart } from './validate'
 import type { Cart, CartItem } from './validate'
 
+const cartStore = createCartStore<CartItem, Cart>({
+  initialValue: {
+    id: '',
+    items: [],
+    messages: [],
+  },
+})
+
+optimistic(cartStore, validateCart)
+
 export const useCart = () => {
-  const { addItem: addItemToCart, ...cart } = useSDKCart<CartItem>()
+  const { addItem: addItemToCart, ...cart } = useCartSDK(cartStore)
 
   const addItem = useCallback(
     (item: Omit<CartItem, 'id'>) => {

@@ -1,8 +1,8 @@
-import { useSession } from '@faststore/sdk'
 import type { HTMLAttributes } from 'react'
 
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
+import { useSession } from 'src/sdk/session/validate'
 import { useUI } from 'src/sdk/ui/Provider'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

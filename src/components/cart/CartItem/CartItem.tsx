@@ -1,11 +1,11 @@
+import { sendAnalyticsEvent } from '@faststore/sdk'
 import { Card, CardActions, CardContent, CardImage } from '@faststore/ui'
+import { useCallback, useMemo } from 'react'
 import type {
   AddToCartEvent,
   CurrencyCode,
   RemoveFromCartEvent,
 } from '@faststore/sdk'
-import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
-import { useCallback, useMemo } from 'react'
 
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
@@ -15,6 +15,7 @@ import QuantitySelector from 'src/components/ui/QuantitySelector'
 import { useCart } from 'src/sdk/cart/useCart'
 import { useRemoveButton } from 'src/sdk/cart/useRemoveButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
+import { useSession } from 'src/sdk/session/validate'
 import type { CartItem as ICartItem } from 'src/sdk/cart/validate'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 

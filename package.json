@@ -32,8 +32,9 @@
     "@envelop/validation-cache": "^2.2.0",
     "@faststore/api": "^1.9.7",
     "@faststore/graphql-utils": "^1.9.4",
-    "@faststore/sdk": "^1.9.4",
+    "@faststore/sdk": "https://pkg.csb.dev/vtex/faststore/commit/e5de02d0/@faststore/sdk",
     "@faststore/ui": "^1.9.4",
+    "add": "^2.0.6",
     "graphql": "^15.0.0",
     "include-media": "^1.4.10",
     "next": "^12.1.6",
@@ -43,7 +44,8 @@
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^8.32.5",
     "sass": "^1.44.0",
-    "swr": "^1.3.0"
+    "swr": "^1.3.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.9.10",
