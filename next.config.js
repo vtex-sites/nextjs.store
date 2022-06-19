@@ -22,6 +22,8 @@ const nextConfig = {
         }
       })
 
+    // Reduce the number of chunks so we ship a smaller first bundle.
+    // This should help reducing TBT
     if (!isServer && !dev && config.optimization?.splitChunks) {
       config.optimization.splitChunks.maxInitialRequests = 1
     }
