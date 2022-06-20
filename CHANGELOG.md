@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies new local tokens to `Accordion` ([#130](https://github.com/vtex-sites/nextjs.store/pull/130))
 - Applies new local tokens to `EmptyState` ([#122](https://github.com/vtex-sites/nextjs.store/pull/122))
 - Applies new local tokens to `Dropdown` ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
 - Creates and styles `Dropdown` component ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
@@ -30,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Sonarqube warning about unnecessary parameter ([#127](https://github.com/vtex-sites/nextjs.store/pull/127))
 - Status code when error occurs (404/500) ([#116](https://github.com/vtex-sites/nextjs.store/pull/116))
 
 ### Security
