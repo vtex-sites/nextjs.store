@@ -30,7 +30,11 @@ function Facets({
       <h2 className="text__title-mini-alt" data-fs-facets-title>
         Filters
       </h2>
-      <Accordion expandedIndices={indicesExpanded} onChange={onAccordionChange}>
+      <Accordion
+        expandedIndices={indicesExpanded}
+        onChange={onAccordionChange}
+        data-fs-facets-accordion
+      >
         {facets.map(({ label, values, key }, index) => (
           <AccordionItem
             key={`${label}-${index}`}
@@ -38,18 +42,19 @@ function Facets({
             testId={`${testId}-accordion`}
             isExpanded={indicesExpanded.has(index)}
             buttonLabel={label}
+            data-fs-facets-accordion-item
           >
-            <UIList>
+            <UIList data-fs-facets-list>
               {values.map((item) => {
                 const id = `${testId}-${label}-${item.label}`
 
                 return (
-                  <li key={id} data-fs-facet-item>
+                  <li key={id} data-fs-facets-list-item>
                     <Checkbox
                       id={id}
                       checked={item.selected}
                       onChange={() => onFacetChange({ key, value: item.value })}
-                      data-fs-facet-item-checkbox
+                      data-fs-facets-list-item-checkbox
                       data-testid={`${testId}-accordion-panel-checkbox`}
                       data-value={item.value}
                       data-quantity={item.quantity}
@@ -57,10 +62,12 @@ function Facets({
                     <UILabel
                       htmlFor={id}
                       className="text__title-mini-alt"
-                      data-fs-facet-item-label
+                      data-fs-facets-list-item-label
                     >
                       {item.label}{' '}
-                      <Badge data-fs-facet-item-badge>{item.quantity}</Badge>
+                      <Badge data-fs-facets-list-item-badge>
+                        {item.quantity}
+                      </Badge>
                     </UILabel>
                   </li>
                 )
