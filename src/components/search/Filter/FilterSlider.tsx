@@ -45,10 +45,11 @@ function FilterSlider({
       className={styles.fsFilterSlider}
       onTransitionEnd={() => fade === 'out' && closeFilter()}
     >
-      <div data-fs-filter-slider-body>
+      <div data-fs-filter-slider-content>
         <header data-fs-filter-slider-header>
           <h2 className="text__lead">Filters</h2>
           <ButtonIcon
+            data-fs-filter-slider-header-icon
             aria-label="Close Filters"
             icon={<Icon name="X" width={32} height={32} />}
             onClick={() => {
@@ -75,12 +76,14 @@ function FilterSlider({
       </div>
       <footer data-fs-filter-slider-footer>
         <Button
+          data-fs-filter-slider-footer-button-clear
           variant="secondary"
           onClick={() => dispatch({ type: 'selectFacets', payload: [] })}
         >
           Clear All
         </Button>
         <Button
+          data-fs-filter-slider-footer-button-apply
           variant="primary"
           data-testid="filter-slider-button-apply"
           onClick={() => {
