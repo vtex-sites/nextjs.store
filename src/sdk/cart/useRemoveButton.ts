@@ -4,12 +4,11 @@ import type { CurrencyCode, RemoveFromCartEvent } from '@faststore/sdk'
 
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
-import { useSession } from '../session/validate'
-import { useCart } from './useCart'
-import type { CartItem } from './validate'
+import { useSession } from '../session/useSession'
+import { cartStore } from './store'
+import type { CartItem } from './store'
 
 export const useRemoveButton = (item: CartItem | null) => {
-  const { removeItem } = useCart()
   const {
     currency: { code },
   } = useSession()
@@ -44,9 +43,9 @@ export const useRemoveButton = (item: CartItem | null) => {
         },
       })
 
-      removeItem(item.id)
+      cartStore.removeItem(item.id)
     },
-    [code, item, removeItem]
+    [code, item]
   )
 
   return {

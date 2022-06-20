@@ -1,16 +1,15 @@
-import { useCallback } from 'react'
 import { sendAnalyticsEvent } from '@faststore/sdk'
+import { useCallback } from 'react'
 import type { CurrencyCode, AddToCartEvent } from '@faststore/sdk'
 
+import { cartStore } from 'src/sdk/cart/store'
+import type { CartItem } from 'src/sdk/cart/store'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
-import type { CartItem } from 'src/sdk/cart/validate'
 
+import { useSession } from '../session/useSession'
 import { useUI } from '../ui/Provider'
-import { useCart } from './useCart'
-import { useSession } from '../session/validate'
 
 export const useBuyButton = (item: CartItem | null) => {
-  const { addItem } = useCart()
   const { openCart } = useUI()
   const {
     currency: { code },
@@ -48,10 +47,10 @@ export const useBuyButton = (item: CartItem | null) => {
         },
       })
 
-      addItem(item)
+      cartStore.addItem(item)
       openCart()
     },
-    [addItem, code, item, openCart]
+    [code, item, openCart]
   )
 
   return {

@@ -1,43 +1,17 @@
-import {
-  createCartStore,
-  optimistic,
-  useCart as useCartSDK,
-} from '@faststore/sdk'
-import { useCallback, useMemo } from 'react'
+import { useStore } from '@faststore/sdk'
+import { useMemo } from 'react'
 
-import { getItemId, isGift, validateCart } from './validate'
-import type { Cart, CartItem } from './validate'
+import { cartStore } from './store'
+import type { CartItem } from './store'
 
-const cartStore = createCartStore<CartItem, Cart>({
-  initialValue: {
-    id: '',
-    items: [],
-    messages: [],
-  },
-})
-
-optimistic(cartStore, validateCart)
+const isGift = (item: CartItem) => item.price === 0
 
 export const useCart = () => {
-  const { addItem: addItemToCart, ...cart } = useCartSDK(cartStore)
-
-  const addItem = useCallback(
-    (item: Omit<CartItem, 'id'>) => {
-      const cartItem = {
-        ...item,
-        id: getItemId(item),
-      }
-
-      addItemToCart(cartItem)
-    },
-    [addItemToCart]
-  )
+  const cart = useStore(cartStore)
 
   return useMemo(
     () => ({
       ...cart,
-      addItem,
-      messages: (cart as Cart).messages,
       gifts: cart.items.filter((item) => isGift(item)),
       items: cart.items.filter((item) => !isGift(item)),
       totalUniqueItems: cart.items.length,
@@ -54,6 +28,6 @@ export const useCart = () => {
         0
       ),
     }),
-    [addItem, cart]
+    [cart]
   )
 }

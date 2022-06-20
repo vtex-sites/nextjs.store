@@ -6,7 +6,7 @@ import type {
   SearchSuggestionsQueryQueryVariables as Variables,
 } from '@generated/graphql'
 
-import { useSession } from '../session/validate'
+import { useSession } from '../session/useSession'
 
 const MAX_SUGGESTIONS = 5
 

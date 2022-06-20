@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react'
 
 import InputText from 'src/components/ui/InputText'
-import { useSession, validateSession } from 'src/sdk/session/validate'
+import { sessionStore, validateSession } from 'src/sdk/session/store'
+import { useSession } from 'src/sdk/session/useSession'
 
 interface Props {
   closeModal: () => void
@@ -9,7 +10,7 @@ interface Props {
 
 function RegionInput({ closeModal }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
-  const { setSession, ...session } = useSession()
+  const session = useSession()
   const [errorMessage, setErrorMessage] = useState<string>('')
 
   const handleSubmit = async () => {
@@ -28,7 +29,7 @@ function RegionInput({ closeModal }: Props) {
       })
 
       if (newSession) {
-        setSession(newSession)
+        sessionStore.set(newSession)
       }
 
       closeModal()

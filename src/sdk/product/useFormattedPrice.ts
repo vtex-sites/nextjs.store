@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { useSession } from '../session/validate'
+import { useSession } from '../session/useSession'
 
 export const useFormattedPrice = (price: number) => {
   const { currency, locale } = useSession()

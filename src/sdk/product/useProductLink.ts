@@ -4,7 +4,7 @@ import type { CurrencyCode, SelectItemEvent } from '@faststore/sdk'
 
 import type { ProductSummary_ProductFragment } from '@generated/graphql'
 
-import { useSession } from '../session/validate'
+import { useSession } from '../session/useSession'
 import type { AnalyticsItem, SearchSelectItemEvent } from '../analytics/types'
 
 export type ProductLinkOptions = {

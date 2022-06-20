@@ -1,12 +1,13 @@
 import { gql } from '@faststore/graphql-utils'
-import type { CartItem as SDKCartItem, Cart as SDKCart } from '@faststore/sdk'
+import { createCartStore } from '@faststore/sdk'
+import type { Cart as SDKCart, CartItem as SDKCartItem } from '@faststore/sdk'
 
 import type {
-  ValidateCartMutationMutation,
-  ValidateCartMutationMutationVariables,
   CartItemFragment,
   CartMessageFragment,
   IStoreOffer,
+  ValidateCartMutationMutation,
+  ValidateCartMutationMutationVariables,
 } from '@generated/graphql'
 
 import { request } from '../graphql/request'
@@ -69,11 +70,7 @@ export const ValidateCartMutation = gql`
   }
 `
 
-export const isGift = (item: CartItem) => item.price === 0
-
-export const getItemId = (
-  item: Pick<CartItem, 'itemOffered' | 'seller' | 'price'>
-) =>
+const getItemId = (item: Pick<CartItem, 'itemOffered' | 'seller' | 'price'>) =>
   [
     item.itemOffered.sku,
     item.seller.identifier,
@@ -85,15 +82,15 @@ export const getItemId = (
     .filter(Boolean)
     .join('::')
 
-export const validateCart = async (cart: Cart): Promise<Cart | null> => {
+const validateCart = async (c: Cart): Promise<Cart | null> => {
   const { validateCart: validated = null } = await request<
     ValidateCartMutationMutation,
     ValidateCartMutationMutationVariables
   >(ValidateCartMutation, {
     cart: {
       order: {
-        orderNumber: cart.id,
-        acceptedOffer: cart.items.map(
+        orderNumber: c.id,
+        acceptedOffer: c.items.map(
           ({
             price,
             listPrice,
@@ -127,4 +124,25 @@ export const validateCart = async (cart: Cart): Promise<Cart | null> => {
       messages: validated.messages,
     }
   )
+}
+
+const store = createCartStore<Cart>(
+  {
+    id: '',
+    items: [],
+    messages: [],
+  },
+  validateCart
+)
+
+export const cartStore = {
+  ...store,
+  addItem: (item: Omit<CartItem, 'id'>) => {
+    const cartItem = {
+      ...item,
+      id: getItemId(item),
+    }
+
+    store.addItem(cartItem)
+  },
 }

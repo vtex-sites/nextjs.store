@@ -10,7 +10,7 @@ import styles from 'src/components/product/OutOfStock/out-of-stock.module.scss'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import InputText from 'src/components/ui/InputText'
-import { useSession } from 'src/sdk/session/validate'
+import { useSession } from 'src/sdk/session/useSession'
 
 export interface OutOfStockProps {
   /**

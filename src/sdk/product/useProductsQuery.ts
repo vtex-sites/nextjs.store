@@ -9,7 +9,7 @@ import type {
 
 import { prefetchQuery } from '../graphql/prefetchQuery'
 import { useQuery } from '../graphql/useQuery'
-import { useSession } from '../session/validate'
+import { useSession } from '../session/useSession'
 import type { QueryOptions } from '../graphql/useQuery'
 
 export const query = gql`

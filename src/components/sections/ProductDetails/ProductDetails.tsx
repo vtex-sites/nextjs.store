@@ -14,7 +14,7 @@ import QuantitySelector from 'src/components/ui/QuantitySelector'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProduct } from 'src/sdk/product/useProduct'
-import { useSession } from 'src/sdk/session/validate'
+import { useSession } from 'src/sdk/session/useSession'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 

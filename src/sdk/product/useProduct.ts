@@ -7,7 +7,7 @@ import type {
 } from '@generated/graphql'
 
 import { useQuery } from '../graphql/useQuery'
-import { useSession } from '../session/validate'
+import { useSession } from '../session/useSession'
 
 const query = gql`
   query BrowserProductQuery($locator: [IStoreSelectedFacet!]!) {
