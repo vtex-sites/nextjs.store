@@ -11,10 +11,26 @@ import Checkbox from 'src/components/ui/Checkbox'
 import styles from './facets.module.scss'
 
 interface FacetsProps {
+  /**
+   * ID to find this component in testing tools (e.g.: cypress,
+   * testing-library, and jest).
+   */
   testId: string
+  /**
+   * The array that represents the details of every facet.
+   */
   facets: Filter_FacetsFragment[]
+  /**
+   * The expanded items from the `Accordion`.
+   */
   indicesExpanded: Set<number>
+  /**
+   * This function is called when `Checkbox` from the facet changes.
+   */
   onFacetChange: (item: IStoreSelectedFacet) => void
+  /**
+   * This function is called when `Accordion` is expanded or collapsed.
+   */
   onAccordionChange: (index: number) => void
 }
 
