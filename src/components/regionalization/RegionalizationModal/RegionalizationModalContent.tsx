@@ -5,24 +5,28 @@ import Link from 'src/components/ui/Link'
 
 import styles from './regionalization-modal-content.module.scss'
 
-export type RegionModalContentProps = {
+export type RegionalizationModalContentProps = {
   onClose?: () => void
 }
 
-function RegionModalContent({ onClose }: RegionModalContentProps) {
+function RegionalizationModalContent({
+  onClose,
+}: RegionalizationModalContentProps) {
   return (
     <div
       data-fs-regionalization-modal-content
       className={styles.fsRegionalizationModalContent}
     >
       <header data-fs-regionalization-modal-header>
-        <ButtonIcon
-          onClick={() => onClose?.()}
-          data-fs-regionalization-modal-button
-          aria-label="Close Regionalization Modal"
-          data-testid="regionalization-modal-button-close"
-          icon={<Icon name="X" width={30} height={30} />}
-        />
+        {onClose && (
+          <ButtonIcon
+            onClick={() => onClose?.()}
+            data-fs-regionalization-modal-button
+            aria-label="Close Regionalization Modal"
+            data-testid="regionalization-modal-button-close"
+            icon={<Icon name="X" width={30} height={30} />}
+          />
+        )}
         <p data-fs-regionalization-modal-title>Set your location</p>
         <p data-fs-regionalization-modal-description>
           Prices, offers and availability may vary according to your location.
@@ -41,4 +45,4 @@ function RegionModalContent({ onClose }: RegionModalContentProps) {
   )
 }
 
-export default RegionModalContent
+export default RegionalizationModalContent

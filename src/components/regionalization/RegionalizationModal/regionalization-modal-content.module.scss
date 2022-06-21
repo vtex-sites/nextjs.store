@@ -2,30 +2,30 @@
 
 .fs-regionalization-modal-content {
   // --------------------------------------------------------
-  // Design Tokens for Modal
+  // Design Tokens for Regionalization Modal
   // --------------------------------------------------------
 
   // Default properties
   --fs-regionalization-modal-background-color               : var(--fs-color-body-bkg);
-  --fs-regionalization-border-radius                        : var(--fs-spacing-0);
+  --fs-regionalization-modal-border-radius                  : var(--fs-border-radius);
 
   // Header
   --fs-regionalization-modal-header-padding                 : var(--fs-spacing-4) var(--fs-spacing-7) var(--fs-spacing-4) var(--fs-spacing-4);
 
   // Title
-  --fs-regionalization-modal-title-margin-bottom            : rem(10px);
-  --fs-regionalization-modal-title-size                     : var(--fs-text-size-3);
+  --fs-regionalization-modal-title-margin-bottom            : #{rem(10px)};
+  --fs-regionalization-modal-title-size                     : var(--fs-text-size-lead);
   --fs-regionalization-modal-title-weight                   : var(--fs-text-weight-bold);
   --fs-regionalization-modal-title-line-height              : 1.2;
 
   // Description
-  --fs-regionalization-modal-description-size               : var(--fs-text-size-2);
+  --fs-regionalization-modal-description-size               : var(--fs-text-size-body);
   --fs-regionalization-modal-description-line-height        : 1.5;
   --fs-regionalization-modal-description-color              : var(--fs-color-text-light);
 
-  // Buttons
-  --fs-regionalization-modal-button-position-top            : 0;
-  --fs-regionalization-modal-button-position-right          : 0;
+  // Close Button
+  --fs-regionalization-modal-close-button-position-top      : 0;
+  --fs-regionalization-modal-close-button-position-right    : 0;
 
   // Body
   --fs-regionalization-modal-body-padding                   : var(--fs-spacing-1) var(--fs-spacing-4) var(--fs-spacing-5);
@@ -40,7 +40,7 @@
 
   position: relative;
   background-color: var(--fs-regionalization-modal-background-color);
-  border-radius: var(--fs-regionalization-border-radius);
+  border-radius: var(--fs-regionalization-modal-border-radius);
 
   [data-fs-regionalization-modal-header] {
     padding: var(--fs-regionalization-modal-header-padding);
@@ -60,8 +60,8 @@
 
     [data-fs-regionalization-modal-button] {
       position: absolute;
-      top: var(--fs-regionalization-modal-button-position-top);
-      right: var(--fs-regionalization-modal-button-position-right);
+      top: var(--fs-regionalization-modal-close-button-position-top);
+      right: var(--fs-regionalization-modal-close-button-position-right);
     }
   }
 

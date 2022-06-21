@@ -18,11 +18,9 @@
   --fs-modal-min-width-tablet                      : calc(var(--fs-grid-breakpoint-desktop) / 3);
 
   // Transition properties
-  --fs-modal-transition-state-in-timing            : 0.2s;
-  --fs-modal-transition-state-in-property          : transform;
+  --fs-modal-transition-state-timing               : 0.2s;
+  --fs-modal-transition-state-property             : transform;
   --fs-modal-transition-state-in-function          : ease-in;
-  --fs-modal-transition-state-out-timing           : 0.2s;
-  --fs-modal-transition-state-out-property         : transform;
   --fs-modal-transition-state-out-function         : ease-in;
 
   position: fixed;
@@ -39,12 +37,12 @@
   }
 
   &[data-fs-modal-state="in"] {
-    transition: var(--fs-modal-transition-state-in-property) var(--fs-modal-transition-state-in-timing) var(--fs-modal-transition-state-in-function);
+    transition: var(--fs-modal-transition-state-property) var(--fs-modal-transition-state-timing) var(--fs-modal-transition-state-in-function);
     transform: translate3d(0, 0, 0);
   }
 
   &[data-fs-modal-state="out"] {
-    transition: var(--fs-modal-transition-state-in-property) var(--fs-modal-transition-state-in-timing) var(--fs-modal-transition-state-in-function);
+    transition: var(--fs-modal-transition-state-property) var(--fs-modal-transition-state-timing) var(--fs-modal-transition-state-in-function);
     transform: translate3d(0, 50%, 0);
   }
 }

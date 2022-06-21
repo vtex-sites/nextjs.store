@@ -44,7 +44,7 @@ export const RegionalizationModalContentTemplate = (args) => {
   return (
     <SessionProvider>
       <UIProvider>
-        <RegionalizationModalContent />
+        <RegionalizationModalContent onClose={() => {}} />
       </UIProvider>
     </SessionProvider>
   )
@@ -60,7 +60,9 @@ This component calls a modal with some regionalization configurations.
 
 ## Overview
 
-<Canvas>
+This component uses [Modal](/docs/molecules-modal--overview) as a base.
+
+<Canvas  style={{ backgroundColor: 'var(--fs-color-neutral-1)' }}>
   <Story
     name="Overview"
   >
@@ -91,8 +93,8 @@ This component calls a modal with some regionalization configurations.
     isColor
   />
   <TokenRow
-    token="--fs-regionalization-border-radius"
-    value="var(--fs-spacing-0)"
+    token="--fs-regionalization-modal-border-radius"
+    value="var(--fs-spacing-border-radius)"
   />
 </TokenTable>
 
@@ -110,7 +112,7 @@ This component calls a modal with some regionalization configurations.
 <TokenTable>
   <TokenRow
     token="--fs-regionalization-modal-title-margin-bottom"
-    value="rem(10px)"
+    value=".625rem"
   />
   <TokenRow
     token="--fs-regionalization-modal-title-size"
@@ -131,7 +133,7 @@ This component calls a modal with some regionalization configurations.
 <TokenTable>
   <TokenRow
     token="--fs-regionalization-modal-description-size"
-    value="var(---fs-text-size-2)"
+    value="var(---fs-text-size-body)"
   />
   <TokenRow
     token="--fs-regionalization-modal-description-line-height"
@@ -148,11 +150,11 @@ This component calls a modal with some regionalization configurations.
 
 <TokenTable>
   <TokenRow
-    token="--fs-regionalization-modal-button-position-top"
+    token="--fs-regionalization-modal-close-button-position-top"
     value="0"
   />
   <TokenRow
-    token="--fs-regionalization-modal-button-position-right"
+    token="--fs-regionalization-modal-close-button-position-right"
     value="0"
   />
 </TokenTable>

@@ -2,7 +2,7 @@ import Modal from 'src/components/ui/Modal'
 
 import { RegionalizationModalContent } from '.'
 
-function RegionModal() {
+function RegionalizationModal() {
   return (
     <Modal>
       {({ fadeOut }) => <RegionalizationModalContent onClose={fadeOut} />}
@@ -10,4 +10,4 @@ function RegionModal() {
   )
 }
 
-export default RegionModal
+export default RegionalizationModal
