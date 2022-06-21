@@ -12,6 +12,9 @@ import styles from './filter-slider.module.scss'
 import type { useFilter } from './useFilter'
 
 interface Props {
+  /**
+   * The array that represents the details of every facet.
+   */
   facets: Filter_FacetsFragment[]
   /**
    * ID to find this component in testing tools (e.g.: cypress,
