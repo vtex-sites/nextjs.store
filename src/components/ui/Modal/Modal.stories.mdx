@@ -64,10 +64,6 @@ Modals are dialog windows that sit on top of an application's main view. Once a 
 
 </header>
 
-- [Overview](#overview)
-- [Usage](#usage)
-- [Related Components](#related-components)
-
 ## Overview
 
 The `Modal` component uses [FastStore UI Modal](https://www.faststore.dev/reference/ui/molecules/Modal) as base.
@@ -117,12 +113,8 @@ The `Modal` component uses [FastStore UI Modal](https://www.faststore.dev/refere
     token="--fs-modal-border-radius"
     value="var(--fs-spacing-0)"
   />
-</TokenTable>
-
-### Tablet
-
-<TokenTable>
-    <TokenRow
+  <TokenDivider />
+  <TokenRow
     token="--fs-modal-width-tablet"
     value="calc(100vw / 3)"
     isColor
@@ -131,28 +123,23 @@ The `Modal` component uses [FastStore UI Modal](https://www.faststore.dev/refere
     token="--fs-modal-min-width-tablet"
     value="calc(var(--fs-grid-breakpoint-desktop) / 3)"
   />
-</TokenTable>
-
-
-## Transition
-
-<TokenTable>
-    <TokenRow
-      token="--fs-modal-transition-state-timing"
-      value="0.2s"
-    />
-    <TokenRow
-      token="--fs-modal-transition-state-property"
-      value="transform"
-    />
-    <TokenRow
-      token="--fs-modal-transition-state-in-function"
-      value="ease-in"
-    />
-    <TokenRow
-      token="--fs-modal-transition-state-out-function"
-      value="ease-out"
-    />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-modal-transition-timing"
+    value="0.2s"
+  />
+  <TokenRow
+    token="--fs-modal-transition-property"
+    value="transform"
+  />
+  <TokenRow
+    token="--fs-modal-transition-in-function"
+    value="ease-in"
+  />
+  <TokenRow
+    token="--fs-modal-transition-out-function"
+    value="ease-out"
+  />
 </TokenTable>
 
 ---
