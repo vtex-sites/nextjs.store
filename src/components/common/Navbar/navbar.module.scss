@@ -1,9 +1,74 @@
 @import "src/styles/scaffold";
 
 .fs-navbar {
-  padding: 0;
-  border-bottom: var(--fs-border-width) solid var(--fs-color-neutral-2);
-  box-shadow: 0 var(--fs-spacing-0) var(--fs-spacing-3) rgb(0 0 0 / 5%);
+  // --------------------------------------------------------
+  // Design Tokens for Navbar
+  // --------------------------------------------------------
+
+  // Default properties
+
+  --fs-navbar-padding: 0;
+
+  --fs-navbar-border-bottom-width                             : var(--fs-border-width);
+  --fs-navbar-border-bottom-color                             : var(--fs-color-neutral-2);
+
+  --fs-navbar-box-shadow                                      : 0 var(--fs-spacing-0) var(--fs-spacing-3) rgb(0 0 0 / 5%);
+
+  // Row
+  --fs-navbar-row-width                                       : 100%;
+
+  // Button Collapse (Search)
+  --fs-navbar-button-collapse-margin-left                     : calc(-1 * var(--fs-spacing-3));
+
+  // Button Cart
+  --fs-navbar-button-cart-notebook-margin-left                : var(--fs-spacing-3);
+
+  // Search Input Wrapper
+  --fs-navbar-search-input-wrapper-transition-property        : flex;
+  --fs-navbar-search-input-wrapper-transition-timing          : 0.3s;
+  --fs-navbar-search-input-wrapper-transition-function        : ease-in;
+
+  // Search
+  --fs-navbar-search-button-icon-mobile-width                 : var(--fs-spacing-5);
+  --fs-navbar-search-button-icon-mobile-height                : var(--fs-navbar-search-button-icon-mobile-width);
+
+  // Search variation - Expanded
+  --fs-navbar-search-expanded-width                           : 100%;
+
+  --fs-navbar-search-input-wrapper-expanded-margin-right      : 0.625rem;
+  --fs-navbar-search-input-wrapper-expanded-margin-left       : var(--fs-spacing-9);
+
+  --fs-navbar-search-input-expanded-width                     : calc(100% - var(--fs-spacing-7));
+  --fs-navbar-search-icon-expanded-margin-right               : 0;
+
+  --fs-navbar-search-button-icon-expanded-margin-right        : -4.063rem;
+
+  --fs-navbar-search-button-icon-expanded-transition-property : margin;
+  --fs-navbar-search-button-icon-expanded-transition-timing   : 0.3s;
+  --fs-navbar-search-button-icon-expanded-transition-function : ease-in;
+
+  // Header
+  --fs-navbar-header-padding-top                              : var(--fs-spacing-1);
+  --fs-navbar-header-padding-bottom                           : var(--fs-spacing-2);
+  --fs-navbar-header-overflow-x                               : clip;
+
+  --fs-navbar-header-notebook-padding-top                     : var(--fs-spacing-1);
+  --fs-navbar-header-notebook-padding-bottom                  : var(--fs-spacing-1);
+
+  // Logo
+  --fs-navbar-logo-width                                      : 11rem;
+  --fs-navbar-logo-height                                     : 2.375rem;
+  --fs-navbar-logo-min-height                                 : 2.375rem;
+  --fs-navbar-logo-padding                                    : 0;
+  --fs-navbar-logo-mobile-margin-right                        : var(--fs-spacing-5);
+
+  // Img
+  --fs-navbar-logo-img-width                                  : 100%;
+  --fs-navbar-logo-img-height                                 : 100%;
+
+  padding: var(--fs-navbar-padding);
+  border-bottom: var(--fs-navbar-border-bottom-width) solid var(--fs-navbar-border-bottom-color);
+  box-shadow: var(--fs-navbar-box-shadow);
 
   [data-store-search-input-wrapper] {
     flex: 1 0 100%;
@@ -19,7 +84,7 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: var(--fs-navbar-row-width);
 
     @include media(">=notebook") {
       display: grid;
@@ -37,12 +102,12 @@
     justify-content: flex-end;
 
     [data-fs-button-collapse] {
-      margin-left: calc(-1 * var(--fs-spacing-3));
+      margin-left: var(--fs-navbar-button-collapse-margin-left);
     }
 
     [data-fs-button-signin-link] + [data-fs-button-cart] {
       @include media(">=notebook") {
-        margin-left: var(--fs-spacing-3);
+        margin-left: var(--fs-navbar-button-cart-notebook-margin-left);
       }
     }
 
@@ -60,7 +125,7 @@
 
     [data-store-search-input-wrapper] {
       display: none;
-      transition: flex 0.3s ease-in;
+      transition: var(--fs-navbar-search-input-wrapper-transition-property) var(--fs-navbar-search-input-wrapper-transition-timing) var(--fs-navbar-search-input-wrapper-transition-function);
 
       @include media("<notebook") {
         display: flex;
@@ -85,33 +150,33 @@
           line-height: 0;
 
           svg {
-            width: var(--fs-spacing-5);
-            height: var(--fs-spacing-5);
+            width: var(--fs-navbar-search-button-icon-mobile-width);
+            height: var(--fs-navbar-search-button-icon-mobile-height);
           }
         }
       }
     }
 
-    &[data-store-search-expanded="true"] {
-      width: 100%;
+    &[data-fs-navbar-search-expanded="true"] {
+      width: var(--fs-navbar-search-expanded-width);
 
       [data-store-search-input-wrapper] {
         flex: 1 1;
-        margin-right: 0.625rem;
-        margin-left: var(--fs-spacing-9);
+        margin-right: var(--fs-navbar-search-input-wrapper-expanded-margin-right);
+        margin-left: var(--fs-navbar-search-input-wrapper-expanded-margin-left);
 
         [data-store-input] {
-          width: calc(100% - var(--fs-spacing-7));
+          width: var(--fs-navbar-search-input-expanded-width);
         }
 
         [data-store-icon] {
-          margin-right: 0;
+          margin-right: var(--fs-navbar-search-icon-expanded-margin-right);
         }
       }
 
       [data-fs-button-icon] {
-        margin-right: -4.063rem;
-        transition: margin 0.3s ease-in;
+        margin-right: var(--fs-navbar-search-button-icon-expanded-margin-right);
+        transition: var(--fs-navbar-search-button-icon-expanded-transition-property) var(--fs-navbar-search-button-icon-expanded-transition-timing) var(--fs-navbar-search-button-icon-expanded-transition-function);
       }
     }
   }
@@ -128,18 +193,18 @@
   }
 
   [data-fs-navbar-logo] {
-    width: 11rem;
-    height: 2.375rem;
-    min-height: 2.375rem;
-    padding: 0;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
+    width: var(--fs-navbar-logo-width);
+    height: var(--fs-navbar-logo-height);
+    min-height: var(--fs-navbar-logo-min-height);
+    padding: var(--fs-navbar-logo-padding);
 
     @include media("<tablet") {
-      margin-right: var(--fs-spacing-5);
+      margin-right: var(--fs-navbar-logo-mobile-margin-right);
+    }
+
+    img {
+      width: var(--fs-navbar-logo-img-width);
+      height: var(--fs-navbar-logo-img-height);
     }
   }
 }

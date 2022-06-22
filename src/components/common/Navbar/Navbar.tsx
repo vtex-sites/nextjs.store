@@ -53,7 +53,7 @@ function Navbar() {
           <SearchInput />
           <div
             data-fs-navbar-buttons
-            data-store-search-expanded={searchExpanded}
+            data-fs-navbar-search-expanded={searchExpanded}
           >
             {searchExpanded && (
               <ButtonIcon
