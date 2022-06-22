@@ -1,0 +1,228 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { TokenTable, TokenRow } from 'src/../.storybook/components'
+
+import { SessionProvider } from '@faststore/sdk'
+import ProductCard from 'src/components/product/ProductCard'
+
+import Tiles, { Tile } from '.'
+
+export const getRatio = (products, idx) => {
+  const expandsFirstTile = products === 3 && idx === 0
+  const expandsFirstTwoTile = products === 2 && (idx === 0 || idx === 1)
+  return expandsFirstTile || expandsFirstTwoTile ? 4 / 3 : 3 / 4
+}
+
+export const MDXProductCard = ({ index, product, productsNumber }) => (
+  <ProductCard
+    index={index + 1}
+    variant="wide"
+    product={product}
+    aspectRatio={getRatio(productsNumber, index)}
+  />
+)
+
+<Meta component={Tiles} title="Molecules/Tiles" />
+
+<header>
+
+# Tiles
+
+This component works like layout boxes/cards, which can be arranged in different ways next to each other.
+
+</header>
+
+## Overview
+
+According to the quantity of Tiles to be displayed (minimum of 2 and maximum of 4), Tiles will be arranged differently.
+
+---
+
+## Usage
+
+`import Tiles, { Tile } from 'src/components/ui/Tiles'`
+
+### 2 items
+
+<Canvas>
+  <Story
+    name="Usage"
+    args={{
+      products: Array(2).fill({
+        id: '15503951',
+        slug: 'handmade-steel-towels-practical-15503951',
+        sku: '15503951',
+        brand: { brandName: 'Brand', name: 'Brand' },
+        name: 'red',
+        gtin: '5595633577807',
+        isVariantOf: {
+          productGroupID: '130742',
+          name: 'Handmade Steel Towels Practical',
+        },
+        image: [
+          {
+            url: 'http://storeframework.vtexassets.com/arquivos/ids/190191/numquam.jpg?v=637755599170100000',
+            alternateName: 'est',
+          },
+        ],
+        offers: {
+          lowPrice: 181.71,
+          offers: [
+            {
+              availability: 'https://schema.org/InStock',
+              price: 181.71,
+              listPrice: 208.72,
+              quantity: 1,
+              seller: { identifier: '1' },
+            },
+          ],
+        },
+      }),
+    }}
+  >
+    {({ products }) => (
+      <SessionProvider initialState={{}}>
+        <Tiles>
+          {products.map((product, index) => (
+            <Tile key={String(index)}>
+              <MDXProductCard
+                index={index}
+                product={product}
+                productsNumber={products.length}
+              />
+            </Tile>
+          ))}
+        </Tiles>
+      </SessionProvider>
+    )}
+  </Story>
+</Canvas>
+
+### 3 items
+
+<Canvas>
+  <Story
+    name="Usage-2"
+    args={{
+      products: Array(3).fill({
+        id: '15503951',
+        slug: 'handmade-steel-towels-practical-15503951',
+        sku: '15503951',
+        brand: { brandName: 'Brand', name: 'Brand' },
+        name: 'red',
+        gtin: '5595633577807',
+        isVariantOf: {
+          productGroupID: '130742',
+          name: 'Handmade Steel Towels Practical',
+        },
+        image: [
+          {
+            url: 'http://storeframework.vtexassets.com/arquivos/ids/190191/numquam.jpg?v=637755599170100000',
+            alternateName: 'est',
+          },
+        ],
+        offers: {
+          lowPrice: 181.71,
+          offers: [
+            {
+              availability: 'https://schema.org/InStock',
+              price: 181.71,
+              listPrice: 208.72,
+              quantity: 1,
+              seller: { identifier: '1' },
+            },
+          ],
+        },
+      }),
+    }}
+  >
+    {({ products }) => (
+      <SessionProvider initialState={{}}>
+        <Tiles>
+          {products.map((product, index) => (
+            <Tile key={String(index)}>
+              <MDXProductCard
+                index={index}
+                product={product}
+                productsNumber={products.length}
+              />
+            </Tile>
+          ))}
+        </Tiles>
+      </SessionProvider>
+    )}
+  </Story>
+</Canvas>
+
+### 4 items
+
+<Canvas>
+  <Story
+    name="Usage-3"
+    args={{
+      products: Array(4).fill({
+        id: '15503951',
+        slug: 'handmade-steel-towels-practical-15503951',
+        sku: '15503951',
+        brand: { brandName: 'Brand', name: 'Brand' },
+        name: 'red',
+        gtin: '5595633577807',
+        isVariantOf: {
+          productGroupID: '130742',
+          name: 'Handmade Steel Towels Practical',
+        },
+        image: [
+          {
+            url: 'http://storeframework.vtexassets.com/arquivos/ids/190191/numquam.jpg?v=637755599170100000',
+            alternateName: 'est',
+          },
+        ],
+        offers: {
+          lowPrice: 181.71,
+          offers: [
+            {
+              availability: 'https://schema.org/InStock',
+              price: 181.71,
+              listPrice: 208.72,
+              quantity: 1,
+              seller: { identifier: '1' },
+            },
+          ],
+        },
+      }),
+    }}
+  >
+    {({ products }) => (
+      <SessionProvider initialState={{}}>
+        <Tiles>
+          {products.map((product, index) => (
+            <Tile key={String(index)}>
+              <MDXProductCard
+                index={index}
+                product={product}
+                productsNumber={products.length}
+              />
+            </Tile>
+          ))}
+        </Tiles>
+      </SessionProvider>
+    )}
+  </Story>
+</Canvas>
+
+---
+
+## Components
+
+### Tile
+
+<TokenTable>
+  <TokenRow token="--fs-tiles-tile-min-width" value="9rem" />
+  <TokenRow token="--fs-tiles-tile-height" value="24rem" />
+  <TokenRow token="--fs-tiles-tile-height-desktop" value="28rem" />
+  <TokenRow
+    token="--fs-tiles-tile-border-radius"
+    value="var(--fs-border-radius)"
+  />
+</TokenTable>
+
+---
