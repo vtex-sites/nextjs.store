@@ -42,6 +42,7 @@ function NavbarSlider() {
         </Link>
 
         <ButtonIcon
+          data-fs-navbar-slider-button
           aria-label="Close Menu"
           icon={<Icon name="X" width={32} height={32} />}
           onClick={fadeOut}
