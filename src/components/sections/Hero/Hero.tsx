@@ -55,10 +55,10 @@ const Hero = ({
             sizes="(max-width: 768px) 70vw, 50vw"
           />
         </UIHeroImage>
-        <UIHeroHeading data-fs-hero-heading aria-labelledby="hero-heading">
+        <UIHeroHeading data-fs-hero-heading>
           <div data-fs-hero-wrapper className="layout__content">
             <div data-fs-hero-info>
-              <h1 id="hero-heading">{title}</h1>
+              <h1>{title}</h1>
               <p data-fs-hero-text-body>{subtitle}</p>
               {!!link && (
                 <ButtonLink href={link} inverse={colorVariant === 'main'}>
