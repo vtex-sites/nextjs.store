@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- PriceRange component ([#124](https://github.com/vtex-sites/nextjs.store/pull/124))
+- PriceRange component to PLP and StoryBook ([#121](https://github.com/vtex-sites/nextjs.store/pull/121))
 - Displays the `Sandbox` tab on the storybook along with `Viewport` toolbar and `Accessibility` checks ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
 - The search input now includes the last 4 previously searched terms (`SearchHistory`) ([#112](https://github.com/vtex-sites/nextjs.store/pull/112)).
 - The top 5 searches (`SuggestionsTopSearch`) are now integrated into the search input ([#112](https://github.com/vtex-sites/nextjs.store/pull/112)).
@@ -19,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for the new type definitions from React 18 ([#113](https://github.com/vtex-sites/nextjs.store/pull/113)).
 
 ### Changed
-
+- Move logo's svg code from JS into static asset ([#135](https://github.com/vtex-sites/nextjs.store/pull/135))
 - Upgrade dependencies ([#131](https://github.com/vtex-sites/nextjs.store/pull/131))
 - Uses `[data-fs-dropdown-button]` instead of `[data-store-dropdown-button]` to select `DropdownButton` on breadcrumb stylesheet ([#123](https://github.com/vtex-sites/nextjs.store/pull/123))
 - Replaces `EmptyState` Related Components with Use Cases section on storybook ([#126](https://github.com/vtex-sites/nextjs.store/pull/126))
