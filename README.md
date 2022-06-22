@@ -85,6 +85,7 @@ As of Dec, 22, 2021, this starter is still far from covering most basic cases fo
 
 ## 🧐 What's inside?
 
+
 A quick look at the top-level files and directories you'll see in a NextJS project.
 
     ./
