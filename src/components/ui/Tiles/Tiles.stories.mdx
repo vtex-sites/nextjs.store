@@ -15,7 +15,6 @@ export const getRatio = (products, idx) => {
 export const MDXProductCard = ({ index, product, productsNumber }) => (
   <ProductCard
     index={index + 1}
-    variant="wide"
     product={product}
     aspectRatio={getRatio(productsNumber, index)}
   />
