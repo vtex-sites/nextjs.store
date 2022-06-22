@@ -1,5 +1,5 @@
-import { useSearch } from '@faststore/sdk'
-import { gql } from '@vtex/graphql-utils'
+import { gql } from '@faststore/graphql-utils'
+import { setFacet, toggleFacet, useSearch } from '@faststore/sdk'
 
 import type { Filter_FacetsFragment } from '@generated/graphql'
 import { useUI } from 'src/sdk/ui/Provider'
@@ -22,7 +22,7 @@ interface Props {
 
 function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
   const filter = useFilter(allFacets)
-  const { toggleFacet } = useSearch()
+  const { resetInfiniteScroll, state, setState } = useSearch()
   const { filter: displayFilter } = useUI()
   const { facets, expanded, dispatch } = filter
 
@@ -33,7 +33,17 @@ function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
           facets={facets}
           testId={`desktop-${testId}`}
           indicesExpanded={expanded}
-          onFacetChange={toggleFacet}
+          onFacetChange={(facet, type) => {
+            setState({
+              ...state,
+              selectedFacets:
+                type === 'BOOLEAN'
+                  ? toggleFacet(state.selectedFacets, facet)
+                  : setFacet(state.selectedFacets, facet, true),
+              page: 0,
+            })
+            resetInfiniteScroll(0)
+          }}
           onAccordionChange={(index) =>
             dispatch({ type: 'toggleExpanded', payload: index })
           }
@@ -47,14 +57,33 @@ function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
 
 export const fragment = gql`
   fragment Filter_facets on StoreFacet {
-    key
-    label
-    type
-    values {
+    ... on StoreFacetRange {
+      key
       label
-      value
-      selected
-      quantity
+
+      min {
+        selected
+        absolute
+      }
+
+      max {
+        selected
+        absolute
+      }
+
+      __typename
+    }
+    ... on StoreFacetBoolean {
+      key
+      label
+      values {
+        label
+        value
+        selected
+        quantity
+      }
+
+      __typename
     }
   }
 `

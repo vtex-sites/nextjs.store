@@ -11,15 +11,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Applies new local tokens to `Filter` ([#139](https://github.com/vtex-sites/nextjs.store/pull/139))
 - Applies new local tokens to `Accordion` ([#130](https://github.com/vtex-sites/nextjs.store/pull/130))
+- PriceRange component ([#124](https://github.com/vtex-sites/nextjs.store/pull/124))
+- PriceRange component to PLP and StoryBook ([#121](https://github.com/vtex-sites/nextjs.store/pull/121))
+- Displays the `Sandbox` tab on the storybook along with `Viewport` toolbar and `Accessibility` checks ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
+- The search input now includes the last 4 previously searched terms (`SearchHistory`) ([#112](https://github.com/vtex-sites/nextjs.store/pull/112)).
+- The top 5 searches (`SuggestionsTopSearch`) are now integrated into the search input ([#112](https://github.com/vtex-sites/nextjs.store/pull/112)).
 - Applies new local tokens to `EmptyState` ([#122](https://github.com/vtex-sites/nextjs.store/pull/122))
 - Applies new local tokens to `Dropdown` ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
 - Creates and styles `Dropdown` component ([#118](https://github.com/vtex-sites/nextjs.store/pull/118))
 - 301 redirects when visiting old VTEX product routes ([#93](https://github.com/vtex-sites/nextjs.store/pull/93))
-
 - Support for the new type definitions from React 18 ([#113](https://github.com/vtex-sites/nextjs.store/pull/113)).
 
 ### Changed
 
+- Move logo's svg code from JS into static asset ([#135](https://github.com/vtex-sites/nextjs.store/pull/135))
+- Upgrade dependencies ([#131](https://github.com/vtex-sites/nextjs.store/pull/131))
 - Uses `[data-fs-dropdown-button]` instead of `[data-store-dropdown-button]` to select `DropdownButton` on breadcrumb stylesheet ([#123](https://github.com/vtex-sites/nextjs.store/pull/123))
 - Replaces `EmptyState` Related Components with Use Cases section on storybook ([#126](https://github.com/vtex-sites/nextjs.store/pull/126))
 - Tweaks `EmptyState` token name ([#125](https://github.com/vtex-sites/nextjs.store/pull/125))
@@ -32,7 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Sonarqube warning about unnecessary parameter ([#127](https://github.com/vtex-sites/nextjs.store/pull/127))
+- Some console errors when running the storybook ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
+- The search input's dropdown not closing when a suggested product was selected ([#112](https://github.com/vtex-sites/nextjs.store/pull/112).
 - Status code when error occurs (404/500) ([#116](https://github.com/vtex-sites/nextjs.store/pull/116))
 
 ### Security

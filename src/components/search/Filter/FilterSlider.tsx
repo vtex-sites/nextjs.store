@@ -33,10 +33,7 @@ function FilterSlider({
   const { closeFilter } = useUI()
   const { fade, fadeOut } = useFadeEffect()
 
-  const {
-    setFacets,
-    state: { selectedFacets },
-  } = useSearch()
+  const { resetInfiniteScroll, setState, state } = useSearch()
 
   return (
     <SlideOver
@@ -58,7 +55,7 @@ function FilterSlider({
             onClick={() => {
               dispatch({
                 type: 'selectFacets',
-                payload: selectedFacets,
+                payload: state.selectedFacets,
               })
 
               fadeOut()
@@ -69,8 +66,10 @@ function FilterSlider({
           facets={facets}
           testId={`mobile-${testId}`}
           indicesExpanded={expanded}
-          onFacetChange={(facet) =>
-            dispatch({ type: 'toggleFacet', payload: facet })
+          onFacetChange={(facet, type) =>
+            type === 'BOOLEAN'
+              ? dispatch({ type: 'toggleFacet', payload: facet })
+              : dispatch({ type: 'setFacet', payload: { facet, unique: true } })
           }
           onAccordionChange={(index) =>
             dispatch({ type: 'toggleExpanded', payload: index })
@@ -90,7 +89,13 @@ function FilterSlider({
           variant="primary"
           data-testid="filter-slider-button-apply"
           onClick={() => {
-            setFacets(selected)
+            resetInfiniteScroll(0)
+
+            setState({
+              ...state,
+              selectedFacets: selected,
+              page: 0,
+            })
             fadeOut()
           }}
         >
