@@ -1,6 +1,10 @@
-import { SearchProvider } from '@faststore/sdk'
-import UIProvider, { useUI } from 'src/sdk/ui/Provider'
+import { SearchProvider, SessionProvider } from '@faststore/sdk'
 import { useSearch } from '@faststore/sdk'
+
+import storeConfig from 'store.config'
+
+import UIProvider, { useUI } from 'src/sdk/ui/Provider'
+import { validateSession } from 'src/sdk/session/validate'
 import { useFilter } from './useFilter'
 
 import Button from 'src/components/ui/Button'
@@ -38,53 +42,67 @@ import {
 
 export const facets = [
   {
+    key: 'price',
+    label: 'Preço',
+    min: {
+      selected: 1.67,
+      absolute: 1.67,
+    },
+    max: {
+      selected: 889.53,
+      absolute: 889.53,
+    },
+    __typename: 'StoreFacetRange',
+  },
+  {
     key: 'category-2',
     label: 'Categoria',
-    type: 'BOOLEAN',
     values: [
       {
         label: 'Chairs',
         value: 'chairs',
-        selected: false,
-        quantity: 951,
+        selected: true,
+        quantity: 138,
       },
       {
         label: 'Desks',
         value: 'desks',
         selected: false,
-        quantity: 874,
+        quantity: 125,
       },
     ],
+    __typename: 'StoreFacetBoolean',
   },
   {
     key: 'brand',
     label: 'Marca',
-    type: 'BOOLEAN',
     values: [
       {
         label: 'Acer',
         value: 'acer',
-        selected: false,
-        quantity: 263,
+        selected: true,
+        quantity: 138,
       },
       {
         label: 'Adidas',
         value: 'adidas',
         selected: false,
-        quantity: 231,
+        quantity: 121,
       },
       {
         label: 'Nike',
         value: 'nike',
         selected: false,
-        quantity: 285,
+        quantity: 150,
       },
     ],
+    __typename: 'StoreFacetBoolean',
   },
 ]
 
 export const FilterTemplate = (args) => {
   const filter = useFilter(args.facets)
+  const { state, setState } = useSearch()
   const { filter: displayFilter, openFilter } = useUI()
   const { facets, expanded, dispatch } = filter
   return (
@@ -105,11 +123,17 @@ export const FilterTemplate = (args) => {
 
 export const TemplateWithProvider = (args) => {
   return (
-    <UIProvider>
-      <SearchProvider onChange={() => ({})}>
-        <FilterTemplate {...args} />
-      </SearchProvider>
-    </UIProvider>
+    <SessionProvider
+      initialstate={{
+        channel: storeConfig.channel,
+      }}
+    >
+      <UIProvider>
+        <SearchProvider onChange={() => ({})}>
+          <FilterTemplate {...args} />
+        </SearchProvider>
+      </UIProvider>
+    </SessionProvider>
   )
 }
 
