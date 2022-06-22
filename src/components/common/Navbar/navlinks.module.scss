@@ -20,6 +20,10 @@
   // List
   --fs-navlinks-list-notebook-padding-top  : var(--fs-spacing-1);
 
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
+
   [data-fs-navlinks-list-item] {
     display: flex;
     align-items: center;
