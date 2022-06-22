@@ -8,9 +8,13 @@ import { useUI } from 'src/sdk/ui/Provider'
 import { useFadeEffect } from 'src/sdk/ui/useFadeEffect'
 
 import Facets from './Facets'
+import styles from './filter-slider.module.scss'
 import type { useFilter } from './useFilter'
 
 interface Props {
+  /**
+   * The array that represents the details of every facet.
+   */
   facets: Filter_FacetsFragment[]
   /**
    * ID to find this component in testing tools (e.g.: cypress,
@@ -29,10 +33,7 @@ function FilterSlider({
   const { closeFilter } = useUI()
   const { fade, fadeOut } = useFadeEffect()
 
-  const {
-    setFacets,
-    state: { selectedFacets },
-  } = useSearch()
+  const { resetInfiniteScroll, setState, state } = useSearch()
 
   return (
     <SlideOver
@@ -41,20 +42,20 @@ function FilterSlider({
       onDismiss={fadeOut}
       size="partial"
       direction="rightSide"
-      className="filter-modal__content"
+      className={styles.fsFilterSlider}
       onTransitionEnd={() => fade === 'out' && closeFilter()}
     >
-      <div className="filter-modal__body">
-        <header className="filter-modal__header">
+      <div data-fs-filter-slider-content>
+        <header data-fs-filter-slider-header>
           <h2 className="text__lead">Filters</h2>
           <ButtonIcon
-            data-testid="filter-modal-button-close"
+            data-fs-filter-slider-header-icon
             aria-label="Close Filters"
             icon={<Icon name="X" width={32} height={32} />}
             onClick={() => {
               dispatch({
                 type: 'selectFacets',
-                payload: selectedFacets,
+                payload: state.selectedFacets,
               })
 
               fadeOut()
@@ -65,26 +66,36 @@ function FilterSlider({
           facets={facets}
           testId={`mobile-${testId}`}
           indicesExpanded={expanded}
-          onFacetChange={(facet) =>
-            dispatch({ type: 'toggleFacet', payload: facet })
+          onFacetChange={(facet, type) =>
+            type === 'BOOLEAN'
+              ? dispatch({ type: 'toggleFacet', payload: facet })
+              : dispatch({ type: 'setFacet', payload: { facet, unique: true } })
           }
           onAccordionChange={(index) =>
             dispatch({ type: 'toggleExpanded', payload: index })
           }
         />
       </div>
-      <footer className="filter-modal__footer">
+      <footer data-fs-filter-slider-footer>
         <Button
+          data-fs-filter-slider-footer-button-clear
           variant="secondary"
           onClick={() => dispatch({ type: 'selectFacets', payload: [] })}
         >
           Clear All
         </Button>
         <Button
+          data-fs-filter-slider-footer-button-apply
           variant="primary"
-          data-testid="filter-modal-button-apply"
+          data-testid="filter-slider-button-apply"
           onClick={() => {
-            setFacets(selected)
+            resetInfiniteScroll(0)
+
+            setState({
+              ...state,
+              selectedFacets: selected,
+              page: 0,
+            })
             fadeOut()
           }}
         >

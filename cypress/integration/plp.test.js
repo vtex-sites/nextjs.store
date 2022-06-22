@@ -22,7 +22,9 @@ describe('Search page Filters and Sorting options', () => {
     // Apply filters
     cy.getById('open-filter-button')
       .click()
-      .getById('mobile-store-filter-accordion-button')
+      .get(
+        `[data-testid=mobile-store-filter-accordion-item][data-type=StoreFacetBoolean]>[data-testid=mobile-store-filter-accordion-button]`
+      )
       .first()
       .click()
       .getById('mobile-store-filter-accordion-panel-checkbox')
@@ -33,7 +35,7 @@ describe('Search page Filters and Sorting options', () => {
         const value = $checkbox.attr('data-value')
         // const quantity = $checkbox.attr('data-quantity')
 
-        cy.getById('filter-modal-button-apply')
+        cy.getById('filter-slider-button-apply')
           .click()
 
           .then(() => {
