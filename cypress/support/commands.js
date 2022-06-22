@@ -37,6 +37,15 @@ function logToTerminal(violations) {
       nodes: nodes.length,
     }))
   )
+  for (const violation of violations) {
+    cy.task(
+      'table',
+      violation.nodes.map(({ html }) => ({
+        id: violation.id,
+        html,
+      }))
+    )
+  }
 }
 
 Cypress.Commands.overwrite(
