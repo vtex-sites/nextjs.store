@@ -6,6 +6,7 @@ import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 
 const links = [
   {
+    id: 'footer-our-company',
     title: 'Our company',
     items: [
       {
@@ -27,6 +28,7 @@ const links = [
     ],
   },
   {
+    id: 'footer-orders-and-purchases',
     title: 'Orders & Purchases',
     items: [
       {
@@ -48,6 +50,7 @@ const links = [
     ],
   },
   {
+    id: 'footer-support-and-services',
     title: 'Support & Services',
     items: [
       {
@@ -65,6 +68,7 @@ const links = [
     ],
   },
   {
+    id: 'footer-partnership',
     title: 'Partnerships',
     items: [
       {
@@ -139,8 +143,10 @@ function FooterLinks() {
       <div className="hidden-mobile">
         <div className="footer__links-columns">
           {links.map((section) => (
-            <nav key={section.title}>
-              <p className="text__title-mini">{section.title}</p>
+            <nav key={section.title} aria-labelledby={section.id}>
+              <p className="text__title-mini" id={section.id}>
+                {section.title}
+              </p>
               <LinksList items={section.items} />
             </nav>
           ))}
