@@ -28,10 +28,7 @@
   --fs-regionalization-modal-close-button-position-right    : 0;
 
   // Body
-  --fs-regionalization-modal-body-padding                   : var(--fs-spacing-1) var(--fs-spacing-4) var(--fs-spacing-5);
-
-  // Input
-  --fs-regionalization-modal-input-margin-bottom            : var(--fs-spacing-6);
+  --fs-regionalization-modal-padding                   : var(--fs-spacing-1) var(--fs-spacing-4) var(--fs-spacing-5);
 
   // Link
   --fs-regionalization-modal-link-padding                   : 0;
@@ -66,10 +63,10 @@
   }
 
   [data-fs-regionalization-modal-body] {
-    padding: var(--fs-regionalization-modal-body-padding);
+    padding: var(--fs-regionalization-modal-padding);
 
     [data-fs-regionalization-modal-input] {
-      margin-bottom: var(--fs-regionalization-modal-input-margin-bottom);
+      margin-bottom: var(--fs-spacing-6);
     }
 
     [data-fs-regionalization-modal-link] {
