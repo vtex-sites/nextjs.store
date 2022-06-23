@@ -6,7 +6,7 @@
   // --------------------------------------------------------
 
   // Item
-  --fs-accordion-item-border-bottom-width: 1px;
+  --fs-accordion-item-border-bottom-width: var(--fs-border-width);
   --fs-accordion-item-border-bottom-color: var(--fs-border-color-light);
 
   // Item Button
