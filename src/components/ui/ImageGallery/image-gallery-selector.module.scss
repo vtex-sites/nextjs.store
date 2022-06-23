@@ -6,16 +6,18 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-image-gallery-selector-max-height                : #{rem(530px)};
+  --fs-image-gallery-selector-max-height                        : #{rem(530px)};
 
   // Elements
-  --fs-image-gallery-selector-elements-gap              : var(--fs-spacing-1);
-  --fs-image-gallery-selector-elements-gap-notebook     : var(--fs-spacing-2);
-  --fs-image-gallery-selector-elements-padding          : var(--fs-spacing-0);
+  --fs-image-gallery-selector-elements-gap                      : var(--fs-spacing-1);
+  --fs-image-gallery-selector-elements-gap-notebook             : var(--fs-spacing-2);
+  --fs-image-gallery-selector-elements-padding                  : var(--fs-spacing-0);
 
   // Thumbnail
-
-  // Control Button
+  --fs-image-gallery-selector-thumbnail-width                   : #{rem(56px)};
+  --fs-image-gallery-selector-thumbnail-width-notebook          : #{rem(72px)};
+  --fs-image-gallery-selector-thumbnail-border-radius           : var(--fs-border-radius);
+  --fs-image-gallery-selector-thumbnail-border-color-selected   : var(--fs-border-color-active);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -48,32 +50,32 @@
 
   [data-fs-image-gallery-selector-thumbnail] {
     flex-shrink: 0;
-    width: rem(56px);
+    width: var(--fs-image-gallery-selector-thumbnail-width);
     padding: 0;
     overflow: hidden;
     background-color: transparent;
     border: var(--fs-border-width-thick) solid transparent;
-    border-radius: var(--fs-border-radius);
+    border-radius: var(--fs-image-gallery-selector-thumbnail-border-radius);
     transition: all var(--fs-transition-timing) var(--fs-transition-function);
 
     &:hover:not([data-fs-image-gallery-selector-thumbnail="selected"]) {
-      border-color: var(--fs-border-color-active);
+      border-color: var(--fs-image-gallery-selector-thumbnail-border-color-selected);
     }
 
     &[data-fs-image-gallery-selector-thumbnail="selected"] {
-      border-color: var(--fs-border-color-active);
+      border-color: var(--fs-image-gallery-selector-thumbnail-border-color-selected);
       box-shadow: 0 0 0 var(--fs-border-width-thickest) var(--fs-color-focus-ring-outline);
     }
 
     [data-fs-image] {
       border: var(--fs-border-width-thick) solid var(--fs-color-body-bkg);
-      border-radius: var(--fs-border-radius);
+      border-radius: var(--fs-image-gallery-selector-thumbnail-border-radius);
     }
 
     @include focus-ring-visible;
 
     @include media(">=notebook") {
-      width: rem(72px);
+      width: var(--fs-image-gallery-selector-thumbnail-width-notebook);
     }
   }
 
