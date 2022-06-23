@@ -1,11 +1,21 @@
 @import "src/styles/scaffold";
 
-.fs-image-gallery-selector[data-fs-image-gallery-selector] {
+.fs-image-gallery-selector {
+  // --------------------------------------------------------
+  // Design Tokens for Image Gallery Selector
+  // --------------------------------------------------------
+
+  // Default properties
+  --fs-image-gallery-selector-max-height       : #{rem(530px)};
+
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: rem(530px);
+  max-height: var(--fs-image-gallery-selector-max-height);
 
   > [data-store-button] {
     position: absolute;
@@ -66,7 +76,7 @@
     overflow-x: auto;
     scroll-behavior: smooth;
 
-    > [data-store-button] {
+    [data-fs-image-gallery-selector-thumbnail] {
       flex-shrink: 0;
       width: rem(56px);
       padding: 0;
@@ -76,11 +86,11 @@
       border-radius: var(--fs-border-radius);
       transition: all var(--fs-transition-timing) var(--fs-transition-function);
 
-      &:hover:not([data-thumbnail-button="selected"]) {
+      &:hover:not([data-fs-image-gallery-selector-thumbnail="selected"]) {
         border-color: var(--fs-border-color-active);
       }
 
-      &[data-thumbnail-button="selected"] {
+      &[data-fs-image-gallery-selector-thumbnail="selected"] {
         border-color: var(--fs-border-color-active);
         box-shadow: 0 0 0 var(--fs-border-width-thickest) var(--fs-color-focus-ring-outline);
       }
