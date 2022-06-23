@@ -25,8 +25,8 @@ export const defaultArgs = {
     selected: 10,
   },
   max: {
-    selected: 90,
     absolute: 100,
+    selected: 90,
   },
 }
 
@@ -53,6 +53,7 @@ The `PriceRange` component uses [FastStore UI PriceRange](https://www.faststore.
 ---
 
 ## Usage
+
 `import PriceRange from '../components/ui/PriceRange'`
 
 <Canvas isColumn>
@@ -64,41 +65,77 @@ The `PriceRange` component uses [FastStore UI PriceRange](https://www.faststore.
 <ArgsTable story="overview-default" />
 
 <TokenTable>
-  <TokenRow token="--fs-price-range-height" value=".5rem" />
+  <TokenRow token="--fs-price-range-height" value="var(--fs-spacing-2)" />
   <TokenRow
     token="--fs-price-range-border-radius"
     value="var(--fs-border-radius)"
   />
   <TokenDivider />
   <TokenRow
-    token="--fs-price-range-bkg-color"
+    token="--fs-price-range-transition-function"
+    value="var(--fs-transition-function)"
+  />
+  <TokenRow
+    token="--fs-price-range-transition-property"
+    value="varvar(--fs-transition-property)"
+  />
+  <TokenRow
+    token="--fs-price-range-transition-timing"
+    value="var(--fs-transition-timing)"
+  />
+</TokenTable>
+
+---
+
+## Nested Elements
+
+### Slider
+
+<TokenTable>
+  <TokenRow
+    token="--fs-price-range-slider-bkg-color"
+    value="var(--fs-color-neutral-bkg)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-price-range-selection-bkg-color"
     value="var(--fs-color-primary-bkg-light)"
     isColor
   />
-  <TokenRow
-    token="--fs-price-range-range-bkg-color"
-    value="var(--fs-color-primary-bkg)"
-    isColor
-  />
-  <TokenDivider />
+</TokenTable>
+
+### Thumb
+
+<TokenTable>
   <TokenRow
     token="--fs-price-range-thumb-bkg-color"
-    value="var(--fs-color-tertiary-bkg-light)"
+    value="var(--fs-color-primary-bkg-active)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-price-range-thumb-bkg-color-hover"
+    value="var(--fs-color-primary-bkg-hover)"
     isColor
   />
   <TokenRow
     token="--fs-price-range-thumb-radius"
     value="var(--fs-border-radius-circle)"
   />
-  <TokenRow token="--fs-price-range-thumb-size" value="1rem" />
+  <TokenRow token="--fs-price-range-thumb-size" value="var(--fs-spacing-4)" />
   <TokenRow
     token="--fs-price-range-thumb-border-color"
-    value="var(--fs-border-color)"
+    value="var(--fs-price-range-thumb-bkg-color)"
+    globalValue="var(--fs-color-primary-bkg-active)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-price-range-thumb-border-color-hover"
+    value="var(--fs-price-range-thumb-bkg-color-hover)"
+    globalValue="var(--fs-color-primary-bkg-hover)"
     isColor
   />
   <TokenRow
     token="--fs-price-range-thumb-border-width"
     value="var(--fs-border-width)"
-    isColor
   />
 </TokenTable>

@@ -76,6 +76,10 @@ const InputText = ({
     errorMessage && setHasError(true)
   }, [errorMessage])
 
+  useEffect(() => {
+    setInputValue(value)
+  }, [value])
+
   const onClear = () => {
     setInputValue('')
     inputRef?.current?.focus()
