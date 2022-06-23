@@ -10,7 +10,7 @@ import {
 
 <Meta title="Organisms/ImageGallery" />
 
-export const Template = (args) => {
+export const Template = () => {
   const productImages = [
     {
       url: 'https://storeframework.vtexassets.com/arquivos/ids/190902/unsplash-magic-mouse.jpg?v=637800136963870000',
@@ -49,17 +49,17 @@ export const Template = (args) => {
       alternateName: 'magicscale',
     },
   ]
-  return <ImageGallery {...args} images={productImages} />
+  return <ImageGallery images={productImages} />
 }
 
-export const TemplateWithoutSelector = (args) => {
+export const TemplateWithoutSelector = () => {
   const productImages = [
     {
       url: 'https://storeframework.vtexassets.com/arquivos/ids/190902/unsplash-magic-mouse.jpg?v=637800136963870000',
       alternateName: 'Magicwhite',
     },
   ]
-  return <ImageGallery {...args} images={productImages} />
+  return <ImageGallery images={productImages} />
 }
 
 <header>
