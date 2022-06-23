@@ -13,9 +13,10 @@ generates:
       skipTypename: true
       allowEnumStringTypes: false
       namingConvention: 'change-case-all#pascalCase'
+      exportFragmentSpreadSubTypes: true
     plugins:
       - typescript
       - typescript-operations
   ./@generated/graphql/persisted.json:
     plugins:
-      - '@vtex/graphql-utils/codegen'
+      - '@faststore/graphql-utils/codegen'
