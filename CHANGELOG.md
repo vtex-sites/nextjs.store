@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies new local tokens to `SlideOver` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
+- Applies new local tokens to `CartSidebar` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
 - Applies new local tokens to `Filter` ([#139](https://github.com/vtex-sites/nextjs.store/pull/139))
 - Applies new local tokens to `Accordion` ([#130](https://github.com/vtex-sites/nextjs.store/pull/130))
 - Applies new local tokens to `Navbar` ([#142](https://github.com/vtex-sites/nextjs.store/pull/142))
