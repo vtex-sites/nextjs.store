@@ -52,18 +52,36 @@ export const Template = (args) => {
   return <ImageGallery {...args} images={productImages} />
 }
 
+export const TemplateWithoutSelector = (args) => {
+  const productImages = [
+    {
+      url: 'https://storeframework.vtexassets.com/arquivos/ids/190902/unsplash-magic-mouse.jpg?v=637800136963870000',
+      alternateName: 'Magicwhite',
+    },
+  ]
+  return <ImageGallery {...args} images={productImages} />
+}
+
 <header>
 
 # ImageGallery
 
-Displays a set of actions/items to the user, usually used to show a menu of options.
+An `ImageGallery` is used when you want to display a series of photos in a gallery on a post or page.
 
 </header>
 
 ## Overview
 
+### With Selector (More than 1 Image)
+
 <Canvas>
   <Story name="overview-default">{Template.bind({})}</Story>
+</Canvas>
+
+### Without Selector
+
+<Canvas>
+  <Story name="overview-default-2">{TemplateWithoutSelector.bind({})}</Story>
 </Canvas>
 
 ---
@@ -75,3 +93,72 @@ Displays a set of actions/items to the user, usually used to show a menu of opti
 <Canvas>
   <Story name="default">{Template.bind({})}</Story>
 </Canvas>
+
+<TokenTable>
+  <TokenRow
+    token="--fs-image-gallery-width"
+    value="calc(100% + (2 * var(--fs-grid-padding)))"
+  />
+  <TokenRow
+    token="--fs-image-gallery-image-border-radius"
+    value="var(--fs-border-radius)"
+  />
+  <TokenDivider />
+  <TokenRow token="--fs-image-gallery-gap-mobile" value="var(--fs-spacing-2)" />
+  <TokenRow
+    token="--fs-image-gallery-gap-notebook"
+    value="var(--fs-spacing-3)"
+  />
+</TokenTable>
+
+---
+
+## Nested Elements
+
+### Selector
+
+<TokenTable>
+  <TokenRow
+    token="--fs-image-gallery-selector-max-height"
+    value="#{rem(530px)}"
+  />
+</TokenTable>
+
+### Selector Elements
+
+<TokenTable>
+  <TokenRow
+    token="--fs-image-gallery-selector-elements-gap"
+    value="var(--fs-spacing-1)"
+  />
+  <TokenRow
+    token="--fs-image-gallery-selector-elements-gap-notebook"
+    value="var(--fs-spacing-2)"
+  />
+  <TokenRow
+    token="--fs-image-gallery-selector-elements-padding"
+    value="var(--fs-spacing-0)"
+  />
+</TokenTable>
+
+### Selector Thumbnail
+
+<TokenTable>
+  <TokenRow
+    token="--fs-image-gallery-selector-thumbnail-width"
+    value="#{rem(56px)}"
+  />
+  <TokenRow
+    token="--fs-image-gallery-selector-thumbnail-width-notebook"
+    value="#{rem(72px)}"
+  />
+  <TokenRow
+    token="--fs-image-gallery-selector-thumbnail-border-radius"
+    value="var(--fs-border-radius)"
+  />
+  <TokenRow
+    token="--fs-image-gallery-selector-thumbnail-border-color-selected"
+    value="var(--fs-border-color-active)"
+    isColor
+  />
+</TokenTable>
