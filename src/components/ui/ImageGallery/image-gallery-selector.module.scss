@@ -6,7 +6,7 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-image-gallery-selector-max-height                        : #{rem(530px)};
+  --fs-image-gallery-selector-max-height                        : 33.125rem;   // 530px
 
   // Elements
   --fs-image-gallery-selector-elements-gap                      : var(--fs-spacing-1);
@@ -14,8 +14,8 @@
   --fs-image-gallery-selector-elements-padding                  : var(--fs-spacing-0);
 
   // Thumbnail
-  --fs-image-gallery-selector-thumbnail-width                   : #{rem(56px)};
-  --fs-image-gallery-selector-thumbnail-width-notebook          : #{rem(72px)};
+  --fs-image-gallery-selector-thumbnail-width                   : 3.5rem;   // 56px
+  --fs-image-gallery-selector-thumbnail-width-notebook          : 4.5rem;   // 72px
   --fs-image-gallery-selector-thumbnail-border-radius           : var(--fs-border-radius);
   --fs-image-gallery-selector-thumbnail-border-color-selected   : var(--fs-border-color-active);
 
