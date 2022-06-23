@@ -19,8 +19,10 @@
   --fs-accordion-item-button-notebook-padding-left  : var(--fs-accordion-item-button-notebook-padding-right);
 
   // Item Panel
-  --fs-accordion-item-panel-notebook-padding-right  : var(--fs-spacing-4);
-  --fs-accordion-item-panel-notebook-padding-left   : var(--fs-accordion-item-panel-notebook-padding-right);
+  --fs-accordion-item-panel-padding-bottom          : var(--fs-spacing-4);
+
+  --fs-accordion-item-panel-notebook-padding-right  : var(--fs-accordion-item-panel-padding-bottom);
+  --fs-accordion-item-panel-notebook-padding-left   : var(--fs-accordion-item-panel-padding-bottom);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -70,6 +72,8 @@
   }
 
   [data-fs-accordion-item-panel] {
+    padding-bottom: var(--fs-accordion-item-panel-padding-bottom);
+
     @include media(">=notebook") {
       padding-right: var(--fs-accordion-item-panel-notebook-padding-right);
       padding-left: var(--fs-accordion-item-panel-notebook-padding-left);
