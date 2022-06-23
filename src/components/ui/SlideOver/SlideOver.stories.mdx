@@ -1,0 +1,233 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+
+import {
+  CartProvider,
+  SessionProvider,
+  SearchProvider,
+  useSearch,
+} from '@faststore/sdk'
+import UIProvider, { useUI } from 'src/sdk/ui/Provider'
+import { useCart } from 'src/sdk/cart/useCart'
+
+import { NavbarSlider } from 'src/components/common/Navbar'
+
+import { ButtonIcon } from 'src/components/ui/Button'
+import Icon from 'src/components/ui/Icon'
+import CartToggle from 'src/components/cart/CartToggle'
+import CartSidebar from 'src/components/cart/CartSidebar'
+
+import { ButtonBuy } from 'src/components/ui/Button'
+
+import { cartItem } from 'src/../.storybook/mocks/cart-sidebar'
+import { facets as facetsMock } from 'src/../.storybook/mocks/filter-slider'
+
+import storeConfig from 'store.config'
+
+import { validateSession } from 'src/sdk/session/validate'
+import { useFilter } from 'src/components/search/Filter/useFilter'
+
+import Button from 'src/components/ui/Button'
+import { FilterSlider } from 'src/components/search/Filter'
+
+import SlideOver from '.'
+
+import {
+  TokenTable,
+  TokenRow,
+  TokenDivider,
+} from 'src/../.storybook/components'
+
+<Meta component={SlideOver} title="Organisms/SlideOver" />
+
+export const TemplateNavbarSlider = () => {
+  const { openNavbar, navbar: displayNavbar } = useUI()
+  return (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <ButtonIcon
+        data-fs-navbar-button-menu
+        aria-label="Open Menu"
+        icon={<Icon name="List" width={32} height={32} />}
+        onClick={openNavbar}
+      />
+      <p style={{ marginLeft: '12px' }}>Open Menu</p>
+      {displayNavbar && <NavbarSlider />}
+    </div>
+  )
+}
+
+export const TemplateCartSidebar = () => {
+  const { cart: displayCart } = useUI()
+  const { addItem } = useCart()
+  return (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <CartToggle />
+      <ButtonBuy
+        style={{ marginLeft: '12px' }}
+        onClick={() => addItem(cartItem)}
+      >
+        Add item to Cart
+      </ButtonBuy>
+      {displayCart && <CartSidebar />}
+    </div>
+  )
+}
+
+export const TemplateFilter = () => {
+  const filter = useFilter(facetsMock)
+  const { state, setState } = useSearch()
+  const { filter: displayFilter, openFilter } = useUI()
+  const { facets, expanded, dispatch } = filter
+  return (
+    <>
+      <Button
+        variant="tertiary"
+        icon={<Icon name="FadersHorizontal" width={16} height={16} />}
+        iconPosition="left"
+        aria-label="Open Filters"
+        onClick={openFilter}
+      >
+        Open Filters
+      </Button>
+      {displayFilter && <FilterSlider {...filter} />}
+    </>
+  )
+}
+
+export const TemplateProvider = ({ children }) => {
+  return (
+    <SessionProvider
+      initialstate={{
+        channel: storeConfig.channel,
+      }}
+    >
+      <CartProvider>
+        <UIProvider>
+          <SearchProvider onChange={() => ({})}>{children}</SearchProvider>
+        </UIProvider>
+      </CartProvider>
+    </SessionProvider>
+  )
+}
+
+<header>
+
+# Slide Over
+
+This component represents an aditional session that complements the screen's information. Usually used on `NavbarSlider`, `FilterSlider`, and `CartSidebar` components.
+
+</header>
+
+## Usage
+
+`import SlideOver from 'src/components/ui/SlideOver'`
+
+<Canvas>
+  <Story name="overview-navbar-slider">
+    <TemplateProvider>
+      <TemplateNavbarSlider />
+    </TemplateProvider>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="overview-cart-sidebar">
+    <TemplateProvider>
+      <TemplateCartSidebar />
+    </TemplateProvider>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="overview-filter-slider">
+    <TemplateProvider>
+      <TemplateFilter />
+    </TemplateProvider>
+  </Story>
+</Canvas>
+
+<ArgsTable story="overview-navbar-slider" />
+
+<TokenTable>
+  <TokenRow token="--fs-slide-over-height" value="100vh" />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-slide-over-bkg-color"
+    value="var(--fs-color-neutral-0)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-slide-over-transition-timing"
+    value="var(--fs-transition-timing)"
+  />
+</TokenTable>
+
+---
+
+## Variants
+
+### Full
+
+<TokenTable>
+  <TokenRow token="--fs-slide-over-full-width" value="100vh" />
+</TokenTable>
+
+### Partial
+
+<TokenTable>
+  <TokenRow
+    token="--fs-slide-over-partial-gap"
+    value="calc(2 * var(--fs-grid-padding))"
+  />
+  <TokenRow
+    token="--fs-slide-over-partial-mobile-width"
+    value="calc(100vw - var(--fs-slide-over-partial-gap))"
+  />
+  <TokenRow
+    token="--fs-slide-over-partial-notebook-width"
+    value="calc(100% / 3)"
+  />
+  <TokenRow
+    token="--fs-slide-over-partial-notebook-max-width"
+    value="calc(var(--fs-grid-breakpoint-notebook) / 3)"
+  />
+</TokenTable>
+
+---
+
+## Use Cases
+
+### Navbar Slider
+
+An implementation of the `SlideOver` that represents the menu.
+
+<Canvas>
+  <Story name="use-cases-navbar-slider">
+    <TemplateProvider>
+      <TemplateNavbarSlider />
+    </TemplateProvider>
+  </Story>
+</Canvas>
+
+### Cart Sidebar
+
+An implementation of the `SlideOver` that represents the summary of items added to the cart along with detailed information, and checkout option.
+
+<Canvas>
+  <Story name="use-cases-cart-sidebar">
+    <TemplateProvider>
+      <TemplateCartSidebar />
+    </TemplateProvider>
+  </Story>
+</Canvas>
+
+### Filter Slider
+
+An implementation of the `SlideOver` that represents the mobile `Filter` view.
+
+<Canvas>
+  <Story name="use-cases-filter-slider">
+    <TemplateProvider>
+      <TemplateFilter />
+    </TemplateProvider>
+  </Story>
+</Canvas>
