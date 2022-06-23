@@ -14,7 +14,7 @@
   --fs-image-gallery-selector-elements-padding                  : var(--fs-spacing-0);
 
   // Thumbnail
-  --fs-image-gallery-selector-thumbnail-width                   : 3.5rem;   // 56px
+  --fs-image-gallery-selector-thumbnail-width-mobile            : 3.5rem;   // 56px
   --fs-image-gallery-selector-thumbnail-width-notebook          : 4.5rem;   // 72px
   --fs-image-gallery-selector-thumbnail-border-radius           : var(--fs-border-radius);
   --fs-image-gallery-selector-thumbnail-border-color-selected   : var(--fs-border-color-active);
@@ -50,7 +50,7 @@
 
   [data-fs-image-gallery-selector-thumbnail] {
     flex-shrink: 0;
-    width: var(--fs-image-gallery-selector-thumbnail-width);
+    width: var(--fs-image-gallery-selector-thumbnail-width-mobile);
     padding: 0;
     overflow: hidden;
     background-color: transparent;
