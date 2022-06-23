@@ -17,7 +17,13 @@
   justify-content: center;
   max-height: var(--fs-image-gallery-selector-max-height);
 
-  > [data-store-button] {
+  @include media(">=notebook") {
+    flex-direction: column;
+    grid-row: 1;
+    justify-content: space-between;
+  }
+
+  [data-fs-image-gallery-selector-control-button] {
     position: absolute;
     z-index: 1;
     background: linear-gradient(90deg, var(--fs-color-body-bkg) 55%, transparent);
@@ -61,12 +67,6 @@
         transform: scaleY(-1);
       }
     }
-  }
-
-  @include media(">=notebook") {
-    flex-direction: column;
-    grid-row: 1;
-    justify-content: space-between;
   }
 
   [data-fs-image-gallery-selector-elements] {

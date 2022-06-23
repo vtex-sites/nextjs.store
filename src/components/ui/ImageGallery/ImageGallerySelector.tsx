@@ -55,6 +55,7 @@ function ImageGallerySelector({ images, onSelect, currentImageIdx }: Props) {
     >
       {elementHasScroll && !firstImageInView && (
         <IconButton
+          data-fs-image-gallery-selector-control-button
           aria-label="backward slide image selector"
           icon={<Icon name="ArrowLeft" width={24} height={24} />}
           onClick={() => moveScroll(elementsRef.current, -200)}
@@ -95,6 +96,7 @@ function ImageGallerySelector({ images, onSelect, currentImageIdx }: Props) {
       </div>
       {elementHasScroll && !lastImageInView && (
         <IconButton
+          data-fs-image-gallery-selector-control-button
           aria-label="forward slide image selector"
           icon={<Icon name="ArrowLeft" width={24} height={24} />}
           onClick={() => moveScroll(elementsRef.current, +200)}
