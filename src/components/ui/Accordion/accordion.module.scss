@@ -6,21 +6,21 @@
   // --------------------------------------------------------
 
   // Item
-  --fs-accordion-item-border-bottom-width: var(--fs-border-width);
-  --fs-accordion-item-border-bottom-color: var(--fs-border-color-light);
+  --fs-accordion-item-border-bottom-width           : var(--fs-border-width);
+  --fs-accordion-item-border-bottom-color           : var(--fs-border-color-light);
 
   // Item Button
-  --fs-accordion-item-button-width: 100%;
-  --fs-accordion-item-button-padding: var(--fs-spacing-3) 0;
-  --fs-accordion-item-button-color: var(--fs-color-text);
-  --fs-accordion-item-button-bkg-color: transparent;
+  --fs-accordion-item-button-width                  : 100%;
+  --fs-accordion-item-button-padding                : var(--fs-spacing-3) 0;
+  --fs-accordion-item-button-color                  : var(--fs-color-text);
+  --fs-accordion-item-button-bkg-color              : transparent;
 
-  --fs-accordion-item-button-notebook-padding-right: var(--fs-spacing-4);
-  --fs-accordion-item-button-notebook-padding-left: var(--fs-accordion-item-button-notebook-padding-right);
+  --fs-accordion-item-button-notebook-padding-right : var(--fs-spacing-4);
+  --fs-accordion-item-button-notebook-padding-left  : var(--fs-accordion-item-button-notebook-padding-right);
 
   // Item Panel
-  --fs-accordion-item-panel-notebook-padding-right: var(--fs-spacing-4);
-  --fs-accordion-item-panel-notebook-padding-left: var(--fs-accordion-item-panel-notebook-padding-right);
+  --fs-accordion-item-panel-notebook-padding-right  : var(--fs-spacing-4);
+  --fs-accordion-item-panel-notebook-padding-left   : var(--fs-accordion-item-panel-notebook-padding-right);
 
   display: flex;
   flex-direction: column;
