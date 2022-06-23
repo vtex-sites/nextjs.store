@@ -6,6 +6,7 @@
   // --------------------------------------------------------
 
   // Default properties
+  --fs-regionalization-modal-padding                        : var(--fs-spacing-1) var(--fs-spacing-4) var(--fs-spacing-5);
   --fs-regionalization-modal-background-color               : var(--fs-color-body-bkg);
   --fs-regionalization-modal-border-radius                  : var(--fs-border-radius);
 
@@ -26,9 +27,6 @@
   // Close Button
   --fs-regionalization-modal-close-button-position-top      : 0;
   --fs-regionalization-modal-close-button-position-right    : 0;
-
-  // Body
-  --fs-regionalization-modal-padding                   : var(--fs-spacing-1) var(--fs-spacing-4) var(--fs-spacing-5);
 
   // Link
   --fs-regionalization-modal-link-padding                   : 0;
