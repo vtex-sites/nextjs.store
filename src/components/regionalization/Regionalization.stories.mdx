@@ -7,14 +7,16 @@ import RegionalizationButton from './RegionalizationButton'
 import ButtonLink from '../ui/Button/ButtonLink'
 import RegionalizationInput from './RegionalizationInput'
 import RegionalizationBar from './RegionalizationBar'
-import RegionalizationModal from './RegionalizationModal'
+import RegionalizationModal, {
+  RegionalizationModalContent,
+} from './RegionalizationModal'
 import Icon from '../ui/Icon'
 
-<Meta title="Features/Regionalization/Default" />
+<Meta title="Features/Regionalization/Overview" />
 
 export const TemplateRegionalizationModal = () => {
-  const { modal: displayModal } = useUI()
-  return <>{displayModal && <RegionalizationModal />}</>
+  const { modal, openModal } = useUI()
+  return <>{modal && <RegionalizationModal />}</>
 }
 
 export const TemplateButtonWithProvider = () => {
@@ -129,10 +131,11 @@ With the Regionalization feature enabled, if a customer enters their ZIP code wh
     </li>
     <li>
       <div>
-        <img
-          src="https://user-images.githubusercontent.com/11613011/172647856-b7b733ec-870f-45df-b26f-476456179a7e.png"
-          align="right"
-        />
+        <SessionProvider>
+          <UIProvider>
+            <RegionalizationModalContent onClose={() => {}} />
+          </UIProvider>
+        </SessionProvider>
       </div>
       <article className="sbdocs-list-text">
         <h3>RegionalizationModal</h3>
@@ -141,7 +144,11 @@ With the Regionalization feature enabled, if a customer enters their ZIP code wh
           <code>RegionalizationBar</code>, shows the user the{' '}
           <code>RegionalizationInput</code> search.
         </p>
-        <ButtonLink variant="tertiary" href="/" data-fs-button-size="small">
+        <ButtonLink
+          variant="tertiary"
+          href="../?path=/docs/features-regionalization-regionalizationmodal--overview"
+          data-fs-button-size="small"
+        >
           See more
           <Icon name="ArrowRight" width="18" height="18" weight="bold" />
         </ButtonLink>
