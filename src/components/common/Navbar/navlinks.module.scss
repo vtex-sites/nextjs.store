@@ -1,0 +1,54 @@
+@import "src/styles/scaffold";
+
+.fs-navlinks {
+  // --------------------------------------------------------
+  // Design Tokens for Navlinks
+  // --------------------------------------------------------
+
+  --fs-navlinks-mobile-border-top-width    : var(--fs-border-width);
+  --fs-navlinks-mobile-border-top-color    : var(--fs-color-neutral-2);
+
+  --fs-navlinks-mobile-border-bottom-width : var(--fs-border-width);
+  --fs-navlinks-mobile-border-bottom-color : var(--fs-color-neutral-2);
+
+  // Link
+  --fs-navlinks-link-mobile-width          : 100%;
+
+  --fs-navlinks-link-notebook-width        : auto;
+  --fs-navlinks-link-notebook-padding      : var(--fs-spacing-0) 0;
+
+  // List
+  --fs-navlinks-list-notebook-padding-top  : var(--fs-spacing-1);
+
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
+
+  [data-fs-navlinks-list-item] {
+    display: flex;
+    align-items: center;
+  }
+
+  [data-fs-navlinks-link] {
+    display: block;
+    width: var(--fs-navlinks-link-mobile-width);
+  }
+
+  @include media(">=notebook") {
+    [data-fs-navlinks-list] {
+      display: flex;
+      column-gap: var(--fs-spacing-3);
+      padding-top: var(--fs-navlinks-list-notebook-padding-top);
+    }
+
+    [data-fs-navlinks-link] {
+      width: var(--fs-navlinks-link-notebook-width);
+      padding: var(--fs-navlinks-link-notebook-padding);
+    }
+  }
+
+  @include media("<notebook") {
+    border-top: var(--fs-navlinks-mobile-border-top-width) solid var(--fs-navlinks-mobile-border-top-color);
+    border-bottom: var(--fs-navlinks-mobile-border-bottom-width) solid var(--fs-navlinks-mobile-border-bottom-color);
+  }
+}

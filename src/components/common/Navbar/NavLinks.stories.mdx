@@ -1,0 +1,89 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+
+import { CartProvider, SessionProvider } from '@faststore/sdk'
+import UIProvider from 'src/sdk/ui/Provider'
+
+import { NavLinks } from '.'
+
+import {
+  TokenTable,
+  TokenRow,
+  TokenDivider,
+} from 'src/../.storybook/components'
+
+<Meta component={NavLinks} title="Organisms/Navbar/NavLinks" />
+
+export const TemplateProvider = () => {
+  return (
+    <SessionProvider initialState={{}}>
+      <CartProvider>
+        <UIProvider>
+          <NavLinks />
+        </UIProvider>
+      </CartProvider>
+    </SessionProvider>
+  )
+}
+
+<header>
+
+# NavLinks
+
+Displays a set navigation links and self adapts on mobile <code>NavbarSlider</code> or desktop screens.
+
+</header>
+
+## Usage
+
+`import { NavLinks } from 'src/components/common/Navbar'`
+
+<Canvas>
+  <Story name="overview-default">{TemplateProvider.bind({})}</Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow
+    token="--fs-navlinks-mobile-border-top-width"
+    value="var(--fs-border-width)"
+  />
+  <TokenRow
+    token="--fs-navlinks-mobile-border-top-color"
+    value="var(--fs-color-neutral-2)"
+    isColor
+  />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-navlinks-mobile-border-bottom-width"
+    value="var(--fs-border-width)"
+  />
+  <TokenRow
+    token="--fs-navlinks-mobile-border-bottom-color"
+    value="var(--fs-color-neutral-2)"
+    isColor
+  />
+</TokenTable>
+
+---
+
+## Nested Elements
+
+### Link
+
+<TokenTable>
+  <TokenRow token="--fs-navlinks-link-mobile-width" value="100%" />
+  <TokenDivider />
+  <TokenRow token="--fs-navlinks-link-notebook-width" value="auto" />
+  <TokenRow
+    token="--fs-navlinks-link-notebook-padding"
+    value="var(--fs-spacing-0) 0"
+  />
+</TokenTable>
+
+### List
+
+<TokenTable>
+  <TokenRow
+    token="--fs-navlinks-list-notebook-padding-top"
+    value="var(--fs-spacing-1)"
+  />
+</TokenTable>
