@@ -64,7 +64,6 @@ export const parameters = {
   options: {
     showToolbar: true,
     storySort: {
-      method: 'alphabetical',
       order: [
         'Getting Started',
         'Theming',
