@@ -13,8 +13,26 @@ function PriceRange({ min, max, ...otherProps }: Props) {
   const formatter = usePriceFormatter()
   const inputMinRef = useRef<HTMLInputElement>(null)
   const inputMaxRef = useRef<HTMLInputElement>(null)
-  const [minValue, setMinValue] = useState<string | number>(min.selected)
-  const [maxValue, setMaxValue] = useState<string | number>(max.selected)
+
+  const [priceRange, setPriceRange] = useState<{ min: string; max: string }>({
+    min: String(min.selected),
+    max: String(max.selected),
+  })
+
+  function onChangePriceRange(value: {
+    min: string | number
+    max: string | number
+  }) {
+    setPriceRange({ min: String(value.min), max: String(value.max) })
+
+    if (inputMinRef.current?.value) {
+      inputMinRef.current.value = String(value.min)
+    }
+
+    if (inputMaxRef.current?.value) {
+      inputMaxRef.current.value = String(value.max)
+    }
+  }
 
   return (
     <>
@@ -26,34 +44,29 @@ function PriceRange({ min, max, ...otherProps }: Props) {
         min={min}
         max={max}
         data-fs-price-range
-        className={styles.fsPriceRange}
         formatter={formatter}
-        onChange={(value) => {
-          setMinValue(value.min)
-          if (inputMinRef?.current?.value) {
-            inputMinRef.current.value = String(value.min)
-          }
-
-          setMaxValue(value.max)
-        }}
+        className={styles.fsPriceRange}
+        onChange={(value) => onChangePriceRange(value)}
         {...otherProps}
       />
       <div className={styles.fsPriceRange} data-fs-price-range-inputs>
         <InputText
           id="price-range-min"
-          value={minValue}
+          value={priceRange.min}
           label="Min"
           inputRef={inputMinRef}
-          onChange={(e) => {
-            setMinValue(e.target.value)
-          }}
+          onChange={(e) =>
+            setPriceRange({ ...priceRange, min: e.target.value })
+          }
         />
         <InputText
           id="price-range-max"
-          value={maxValue}
+          value={priceRange.max}
           label="Max"
           inputRef={inputMaxRef}
-          // onChange={(e) => setMaxValue(e.target.value)}
+          onChange={(e) =>
+            setPriceRange({ ...priceRange, max: e.target.value })
+          }
         />
       </div>
     </>

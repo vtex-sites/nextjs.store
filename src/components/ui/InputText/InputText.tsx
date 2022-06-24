@@ -77,7 +77,7 @@ const InputText = ({
   }, [errorMessage])
 
   useEffect(() => {
-    setInputValue(value)
+    value && setInputValue(value as string)
   }, [value])
 
   const onClear = () => {
