@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies new local tokens to `ImageGallery` ([#143](https://github.com/vtex-sites/nextjs.store/pull/143))
 - Applies new local tokens to `Modal` and `RegionalizationModal` ([#128](https://github.com/vtex-sites/nextjs.store/pull/128))
 - PriceRange component ([#124](https://github.com/vtex-sites/nextjs.store/pull/124))
 - PriceRange component to PLP and StoryBook ([#121](https://github.com/vtex-sites/nextjs.store/pull/121))
