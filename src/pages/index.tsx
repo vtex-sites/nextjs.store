@@ -15,6 +15,8 @@ import { mark } from 'src/sdk/tests/mark'
 import storeConfig from '../../store.config'
 
 function Page() {
+  throw new Error('something went wrong')
+
   return (
     <>
       {/* SEO */}
