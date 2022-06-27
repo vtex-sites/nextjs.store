@@ -106,6 +106,7 @@
     [data-fs-input-text] {
       width: 100%;
 
+      input:hover,
       input:focus-visible,
       input:focus {
         z-index: 1;
