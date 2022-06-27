@@ -87,7 +87,7 @@ export const TemplateMultiple = () => {
 }
 
 export const TemplateOneItem = () => {
-  const [indexes, setIndexes] = useState(new Set([]))
+  const [indexes, setIndexes] = useState(new Set([0]))
   const onChange = (index) => {
     if (indexes.has(index)) {
       indexes.delete(index)
@@ -155,7 +155,7 @@ The `Accordion` component uses [FastStore UI Accordion](https://www.faststore.de
   <ul>
     <li>
       <div>
-        <div style={{ width: '50%', height: '180px', paddingTop: '30px' }}>
+        <div style={{ width: '50%', height: '180px', paddingTop: '20px' }}>
           <TemplateOneItem />
         </div>
       </div>
