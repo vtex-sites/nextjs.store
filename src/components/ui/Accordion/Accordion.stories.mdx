@@ -12,7 +12,7 @@ import Accordion, { AccordionItem } from '.'
   }}
 />
 
-export const values = Array.from({ length: 5 }).map((_, i) => `Item ${i + 1}`)
+export const values = Array.from({ length: 3 }).map((_, i) => `Item ${i + 1}`)
 
 export const items = [
   {
@@ -151,19 +151,24 @@ The `Accordion` component uses [FastStore UI Accordion](https://www.faststore.de
 
 ## Compound Components
 
-<Canvas>
-  <Story style={{ width: '50%' }} name="related-accordion-item">
-    {TemplateOneItem.bind({})}
-  </Story>
-</Canvas>
-
-<article className="sbdocs-section-text">
-  <h3>Accordion Item</h3>
-  <p>
-    An item of a set of items on{' '}
-    <a href="?path=/docs/molecules-accordion-accordionitem--default-story">
-      Accordion
-    </a>
-    .
-  </p>
-</article>
+<section className="sbdocs-list">
+  <ul>
+    <li>
+      <div>
+        <div style={{ width: '50%', height: '180px', paddingTop: '30px' }}>
+          <TemplateOneItem />
+        </div>
+      </div>
+      <article className="sbdocs-list-text">
+        <h3>Accordion Item</h3>
+        <p>
+          An item of a set of items on{' '}
+          <a href="?path=/docs/molecules-accordion-accordionitem--default-story">
+            Accordion
+          </a>
+          .
+        </p>
+      </article>
+    </li>
+  </ul>
+</section>
