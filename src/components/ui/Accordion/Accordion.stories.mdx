@@ -3,6 +3,8 @@ import { List as UIList } from '@faststore/ui'
 import { useState } from 'react'
 
 import Accordion, { AccordionItem } from '.'
+import ButtonLink from '../Button/ButtonLink'
+import Icon from '../Icon'
 
 <Meta
   component={Accordion}
@@ -168,6 +170,14 @@ The `Accordion` component uses [FastStore UI Accordion](https://www.faststore.de
           </a>
           .
         </p>
+        <ButtonLink
+          variant="tertiary"
+          href="../?path=/docs/molecules-accordion-accordionitem--default-story"
+          data-fs-button-size="small"
+        >
+          See more
+          <Icon name="ArrowRight" width="18" height="18" weight="bold" />
+        </ButtonLink>
       </article>
     </li>
   </ul>
