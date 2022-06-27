@@ -74,18 +74,6 @@ An `ImageGallery` is used when you want to display a series of photos in a galle
 
 According to the quantity of `Image` to be displayed, the `ImageGallerySelector` will be displayed.
 
-### With Selector (More than 1 Image)
-
-<Canvas>
-  <Story name="overview-default">{Template.bind({})}</Story>
-</Canvas>
-
-### Without Selector
-
-<Canvas>
-  <Story name="overview-default-2">{TemplateWithoutSelector.bind({})}</Story>
-</Canvas>
-
 ---
 
 ## Usage
@@ -112,6 +100,22 @@ According to the quantity of `Image` to be displayed, the `ImageGallerySelector`
     value="var(--fs-spacing-3)"
   />
 </TokenTable>
+
+---
+
+## Variants
+
+### With Selector (More than 1 Image)
+
+<Canvas>
+  <Story name="overview-default">{Template.bind({})}</Story>
+</Canvas>
+
+### Without Selector
+
+<Canvas>
+  <Story name="overview-default-2">{TemplateWithoutSelector.bind({})}</Story>
+</Canvas>
 
 ---
 
