@@ -39,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `ImageGallerySelector` scroll that isn't working on Safari ([##132](https://github.com/vtex-sites/nextjs.store/pull/#132))
 - Some console errors when running the storybook ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
 - The search input's dropdown not closing when a suggested product was selected ([#112](https://github.com/vtex-sites/nextjs.store/pull/112).
 - Status code when error occurs (404/500) ([#116](https://github.com/vtex-sites/nextjs.store/pull/116))
