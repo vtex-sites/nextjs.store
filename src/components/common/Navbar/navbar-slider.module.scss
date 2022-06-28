@@ -16,8 +16,6 @@
   --fs-navbar-slider-logo-height                     : 2.375rem;
   --fs-navbar-slider-logo-padding                    : 0;
   --fs-navbar-slider-logo-margin-right               : var(--fs-spacing-5);
-  --fs-navbar-slider-logo-img-width                  : 100%;
-  --fs-navbar-slider-logo-img-height                 : 100%;
 
   // Footer
   --fs-navbar-slider-footer-padding-top              : var(--fs-spacing-2);
@@ -50,8 +48,8 @@
     margin-right: var(--fs-navbar-slider-logo-margin-right);
 
     img {
-      width: var(--fs-navbar-slider-logo-img-width);
-      height: var(--fs-navbar-slider-logo-img-height);
+      width: 100%;
+      height: 100%;
     }
   }
 
