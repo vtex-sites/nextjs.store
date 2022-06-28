@@ -21,7 +21,7 @@
   --fs-navbar-button-collapse-margin-left                     : calc(-1 * var(--fs-spacing-3));
 
   // Button Cart
-  --fs-navbar-button-cart-notebook-margin-left                : var(--fs-spacing-3);
+  --fs-navbar-button-cart-margin-left-notebook                : var(--fs-spacing-3);
 
   // Search Input Wrapper
   --fs-navbar-search-input-wrapper-transition-property        : flex;
@@ -111,7 +111,7 @@
 
     [data-fs-button-signin-link] + [data-fs-button-cart] {
       @include media(">=notebook") {
-        margin-left: var(--fs-navbar-button-cart-notebook-margin-left);
+        margin-left: var(--fs-navbar-button-cart-margin-left-notebook);
       }
     }
 
