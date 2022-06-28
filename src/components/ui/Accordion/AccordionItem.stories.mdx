@@ -53,11 +53,17 @@ export const Template = (args) => {
 
 <header>
 
-# AccordionItem
+# Accordion Item
 
 An item of a set of items on `Accordion`.
 
 </header>
+
+## Overview
+
+The `AccordionItem` is part of [Accordion](?path=/docs/molecules-accordion-overview--default-story) component.
+
+---
 
 ## Usage
 
@@ -70,7 +76,10 @@ An item of a set of items on `Accordion`.
 <ArgsTable story="default" />
 
 <TokenTable>
-  <TokenRow token="--fs-accordion-item-border-bottom-width" value="1px" />
+  <TokenRow
+    token="--fs-accordion-item-border-bottom-width"
+    value="var(--fs-border-width)"
+  />
   <TokenRow
     token="--fs-accordion-item-border-bottom-color"
     value="var(--fs-border-color-light)"
@@ -85,7 +94,6 @@ An item of a set of items on `Accordion`.
 ### Button
 
 <TokenTable>
-  <TokenRow token="--fs-accordion-item-button-width" value="100%" />
   <TokenRow
     token="--fs-accordion-item-button-padding"
     value="var(--fs-spacing-3) 0"
@@ -97,12 +105,12 @@ An item of a set of items on `Accordion`.
   />
   <TokenRow token="--fs-accordion-item-button-bkg-color" value="transparent" />
   <TokenRow
-    token="--fs-accordion-item-button-notebook-padding-right"
+    token="--fs-accordion-item-button-padding-right-notebook"
     value="var(--fs-spacing-4)"
   />
   <TokenRow
-    token="--fs-accordion-item-button-notebook-padding-left"
-    value="--fs-accordion-item-button-notebook-padding-right"
+    token="--fs-accordion-item-button-padding-left-notebook"
+    value="var(--fs-accordion-item-button-padding-right-notebook)"
   />
 </TokenTable>
 
@@ -110,11 +118,16 @@ An item of a set of items on `Accordion`.
 
 <TokenTable>
   <TokenRow
-    token="--fs-accordion-item-panel-notebook-padding-right"
+    token="--fs-accordion-item-panel-padding-bottom"
     value="var(--fs-spacing-4)"
   />
+  <TokenDivider />
   <TokenRow
-    token="--fs-accordion-item-panel-notebook-padding-left"
-    value="var(--fs-accordion-item-panel-notebook-padding-right)"
+    token="--fs-accordion-item-panel-padding-right-notebook"
+    value="var(--fs-accordion-item-panel-padding-bottom)"
+  />
+  <TokenRow
+    token="--fs-accordion-item-panel-padding-left-notebook"
+    value="var(--fs-accordion-item-panel-padding-bottom)"
   />
 </TokenTable>

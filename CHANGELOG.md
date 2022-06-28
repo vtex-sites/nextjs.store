@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Applies new local tokens to `Filter` ([#139](https://github.com/vtex-sites/nextjs.store/pull/139))
 - Applies new local tokens to `Accordion` ([#130](https://github.com/vtex-sites/nextjs.store/pull/130))
+- Applies new local tokens to `ImageGallery` ([#143](https://github.com/vtex-sites/nextjs.store/pull/143))
+- Creates Doc page for `Regionalization` Feature ([#110](https://github.com/vtex-sites/nextjs.store/pull/110))
+- Applies new local tokens to `RegionalizationBar` ([#104](https://github.com/vtex-sites/nextjs.store/pull/104))
+- Applies new local tokens to `Modal` and `RegionalizationModal` ([#128](https://github.com/vtex-sites/nextjs.store/pull/128))
 - PriceRange component ([#124](https://github.com/vtex-sites/nextjs.store/pull/124))
 - PriceRange component to PLP and StoryBook ([#121](https://github.com/vtex-sites/nextjs.store/pull/121))
 - Displays the `Sandbox` tab on the storybook along with `Viewport` toolbar and `Accessibility` checks ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
@@ -38,6 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `ImageGallerySelector` scroll that isn't working on Safari ([##132](https://github.com/vtex-sites/nextjs.store/pull/#132))
 - Some console errors when running the storybook ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
 - The search input's dropdown not closing when a suggested product was selected ([#112](https://github.com/vtex-sites/nextjs.store/pull/112).
 - Status code when error occurs (404/500) ([#116](https://github.com/vtex-sites/nextjs.store/pull/116))
