@@ -3,8 +3,8 @@ import React, { ReactNode } from 'react'
 type BestPracticesRuleProps = {
   recommendedUsage?: ReactNode
   discouragedUsage?: ReactNode
-  recommendedDescription: string
-  discouragedDescription: string
+  recommendedDescription: string | ReactNode
+  discouragedDescription: string | ReactNode
 }
 
 const BestPracticesRule = ({

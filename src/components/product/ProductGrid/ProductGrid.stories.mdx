@@ -87,7 +87,17 @@ It's a section generally used on PLP pages to list the products available in the
 
 <BestPractices>
   <BestPracticesRule
-    recommendedDescription="Respect ProductCard content's width considering the space available on the page."
-    discouragedDescription="Avoid using a lot of ProductCards on the same row, this could lead to unwanted horizontal scroll."
+    recommendedDescription={
+      <>
+        Respect <code>ProductCard</code> content's width considering the space
+        available on the page.
+      </>
+    }
+    discouragedDescription={
+      <>
+        Avoid using a lot of <code>ProductCards</code> on the same row, this
+        could lead to unwanted horizontal scroll.
+      </>
+    }
   />
 </BestPractices>
