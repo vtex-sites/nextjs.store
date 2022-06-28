@@ -43,7 +43,7 @@ import {
 export const facets = [
   {
     key: 'price',
-    label: 'Preço',
+    label: 'Price',
     min: {
       selected: 1.67,
       absolute: 1.67,
@@ -56,7 +56,7 @@ export const facets = [
   },
   {
     key: 'category-2',
-    label: 'Categoria',
+    label: 'Category',
     values: [
       {
         label: 'Chairs',
@@ -75,7 +75,7 @@ export const facets = [
   },
   {
     key: 'brand',
-    label: 'Marca',
+    label: 'Brand',
     values: [
       {
         label: 'Acer',
@@ -148,17 +148,6 @@ The mobile `Filter` view that is rendered inside a `SlideOver` component.
 ## Overview
 
 The `FilterSlider` component uses the `SlideOver`, and `Facets` components.
-
-<Canvas>
-  <Story
-    name="overview-default"
-    args={{
-      facets: facets,
-    }}
-  >
-    {TemplateWithProvider.bind({})}
-  </Story>
-</Canvas>
 
 ---
 

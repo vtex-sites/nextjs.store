@@ -32,7 +32,7 @@ import {
 export const facets = [
   {
     key: 'price',
-    label: 'Preço',
+    label: 'Price',
     min: {
       selected: 1.67,
       absolute: 1.67,
@@ -45,7 +45,7 @@ export const facets = [
   },
   {
     key: 'category-2',
-    label: 'Categoria',
+    label: 'Category',
     values: [
       {
         label: 'Chairs',
@@ -64,7 +64,7 @@ export const facets = [
   },
   {
     key: 'brand',
-    label: 'Marca',
+    label: 'Brand',
     values: [
       {
         label: 'Acer',
@@ -137,17 +137,6 @@ Facets represent the <code>Filter</code> details and allow users to refine their
 ## Overview
 
 The `Facets` component uses the `Accordion`, `Checkbox`, `PriceRange`, and `Badge` components.
-
-<Canvas>
-  <Story
-    name="overview-default"
-    args={{
-      facets: facets,
-    }}
-  >
-    {TemplateWithProvider.bind({})}
-  </Story>
-</Canvas>
 
 ---
 
