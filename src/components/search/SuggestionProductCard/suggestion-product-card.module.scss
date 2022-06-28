@@ -1,6 +1,6 @@
 @import "src/styles/scaffold";
 
-[data-fs-suggestion-product-card] {
+.fs-suggestion-product-card[data-fs-suggestion-product-card] {
   [data-card-image] {
     display: flex;
   }
