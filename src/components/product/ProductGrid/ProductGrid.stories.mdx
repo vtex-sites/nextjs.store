@@ -15,7 +15,23 @@ import {
   BestPracticesRule,
 } from 'src/../.storybook/components'
 
-<Meta title="Organisms/ProductGrid" component={ProductGrid} />
+<Meta
+  title="Organisms/ProductGrid"
+  component={ProductGrid}
+  argTypes={{
+    /* TODO: Enable these after items per page is fixed */
+    page: {
+      table: {
+        disable: true,
+      },
+    },
+    pageSize: {
+      table: {
+        disable: true,
+      },
+    },
+  }}
+/>
 
 export const Template = (args) => {
   return (
