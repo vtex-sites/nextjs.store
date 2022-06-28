@@ -35,8 +35,8 @@ function NavLinks({ onClickLink, classes = '' }: NavLinksProps) {
   return (
     <nav className={`${styles.fsNavlinks} ${classes}`}>
       <UIList data-fs-navlinks-list>
-        <li data-fs-navlinks-list-item>
-          <RegionalizationButton classes="hidden-mobile" />
+        <li data-fs-navlinks-list-item className="hidden-mobile">
+          <RegionalizationButton />
         </li>
         {collections.map(({ href, name }) => (
           <li key={name} data-fs-navlinks-list-item>
