@@ -2,8 +2,10 @@
 
 .fs-logo {
   display: block;
-  width: 176px;
-  height: 38px;
+  width: 8rem;
+  height: 100%;
+  min-height: var(--fs-spacing-6);
   background: var(--fs-logo-img) no-repeat;
-  background-size: auto 100%;
+  background-position: center;
+  background-size: 100% auto;
 }
