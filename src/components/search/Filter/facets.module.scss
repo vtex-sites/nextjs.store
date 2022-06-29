@@ -10,7 +10,7 @@
   --fs-facets-title-margin-bottom                        : var(--fs-spacing-0);
 
   // Accordion
-  --fs-facets-accordion-notebook-border-width            : 1px;
+  --fs-facets-accordion-notebook-border-width            : var(--fs-border-width);
   --fs-facets-accordion-notebook-border-color            : var(--fs-border-color-light);
   --fs-facets-accordion-notebook-border-radius           : var(--fs-border-radius);
 
