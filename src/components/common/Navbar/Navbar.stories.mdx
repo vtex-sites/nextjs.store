@@ -1,5 +1,3 @@
-import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
-
 import { CartProvider, SessionProvider } from '@faststore/sdk'
 import UIProvider from 'src/sdk/ui/Provider'
 
@@ -10,6 +8,10 @@ import {
   TokenRow,
   TokenDivider,
 } from 'src/../.storybook/components'
+
+import { SectionList, SectionItem } from 'src/../.storybook/components'
+
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
 
 <Meta component={Navbar} title="Organisms/Navbar/Overview" />
 
@@ -168,39 +170,29 @@ The `Navbar` represents the `Header` and groups some features like: `Search`, `R
 
 ## Compound Components
 
-<section className="sbdocs-section">
-  <article>
-    <div style={{ height: '470px' }}>
-      <a href="?path=/docs/organisms-navbar-navbarslider--overview-default">
-        <img
-          width="245px"
-          src="https://vtexhelp.vtexassets.com/assets/docs/src/navlinks___52dff993e0e04dea5d02c1e1a5bbf4e3.png"
-        />
-      </a>
-    </div>
-    <article className="sbdocs-section-text">
-      <h3>Navbar Slider</h3>
-      <p>
+<SectionList grid="grid">
+  <SectionItem
+    title="Navbar Slider"
+    actionPath="../?path=/docs/organisms-navbar-navbarslider--overview-default"
+    description={
+      <>
         Displays the <code>NavLinks</code> and some features using{' '}
         <code>SlideOver</code> component.
-      </p>
-    </article>
-  </article>
-  <article>
-    <div style={{ height: '470px' }}>
-      <a href="?path=/docs/organisms-navbar-navlinks--overview-default">
-        <img
-          width="380px"
-          src="https://vtexhelp.vtexassets.com/assets/docs/src/navlinks___ad2d67dbdbac8ea8ccb4e5a7d453a997.png"
-        />
-      </a>
-    </div>
-    <article className="sbdocs-section-text">
-      <h3>NavLinks</h3>
-      <p>
+      </>
+    }
+  >
+    <img src="https://vtexhelp.vtexassets.com/assets/docs/src/navlinks___52dff993e0e04dea5d02c1e1a5bbf4e3.png" />
+  </SectionItem>
+  <SectionItem
+    title="NavLinks"
+    actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+    description={
+      <>
         Displays a set navigation links and self adapts on mobile{' '}
         <code>NavbarSlider</code> or desktop screens.
-      </p>
-    </article>
-  </article>
-</section>
+      </>
+    }
+  >
+    <img src="https://vtexhelp.vtexassets.com/assets/docs/src/navlinks___ad2d67dbdbac8ea8ccb4e5a7d453a997.png" />
+  </SectionItem>
+</SectionList>
