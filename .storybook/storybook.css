@@ -44,8 +44,8 @@ h3.sbdocs.sbdocs-h3 {
   padding: var(--fs-spacing-4) var(--fs-spacing-5);
   margin-bottom: var(--fs-spacing-6);
   color: var(--fs-color-text-inverse);
-  background-color: var(--fs-color-main-0);
-  border-radius: var(--fs-border-radius);
+  background-color: #ecf0ff;
+  border-radius: 4px;
 }
 
 /* Divisor */
