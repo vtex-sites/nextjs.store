@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies new local tokens to `Filter` ([#139](https://github.com/vtex-sites/nextjs.store/pull/139))
+- Applies new local tokens to `Tiles` ([#134](https://github.com/vtex-sites/nextjs.store/pull/134))
+- Applies new local tokens to `ProductGrid` ([#144](https://github.com/vtex-sites/nextjs.store/pull/144))
+- Applies new local tokens to `Accordion` ([#130](https://github.com/vtex-sites/nextjs.store/pull/130))
+- Applies new local tokens to `ImageGallery` ([#143](https://github.com/vtex-sites/nextjs.store/pull/143))
 - Creates Doc page for `Regionalization` Feature ([#110](https://github.com/vtex-sites/nextjs.store/pull/110))
 - Applies new local tokens to `RegionalizationBar` ([#104](https://github.com/vtex-sites/nextjs.store/pull/104))
 - Applies new local tokens to `Modal` and `RegionalizationModal` ([#128](https://github.com/vtex-sites/nextjs.store/pull/128))
