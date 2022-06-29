@@ -1,31 +1,46 @@
 @import "src/styles/scaffold";
 
 .fs-suggestion-product-card[data-fs-suggestion-product-card] {
-  [data-card-image] {
+  // --------------------------------------------------------
+  // Design Tokens for Select
+  // --------------------------------------------------------
+
+  // Card Content
+  --fs-card-content-grid-template-columns             : 3.5rem repeat(4, 1fr);
+  --fs-card-content-column-gap                        : var(--fs-grid-gap-2);
+
+  // Suggestion Product Card Summary
+  --fs-suggestion-product-card-summary-grid-column    : 2 / span 4;
+
+  // Suggestion Product Card Title
+  --fs-suggestion-product-card-title-margin-bottom    : var(--fs-spacing-0);
+  --fs-suggestion-product-card-title-line-height      : 1.2;
+  --fs-suggestion-product-card-title-color            : inherit;
+
+  // Suggestion Link
+  --fs-suggestion-link-padding                         : var(--fs-spacing-1) var(--fs-spacing-3);
+  --fs-suggestion-link-color                           : inherit;
+
+  [data-fs-card-image] {
     display: flex;
   }
 
-  [data-card-content] {
+  [data-fs-card-content] {
     display: grid;
-    grid-template-columns: rem(56px) repeat(4, 1fr);
-    column-gap: var(--fs-grid-gap-2);
+    grid-template-columns: var(--fs-card-content-grid-template-columns);
+    column-gap: var(--fs-card-content-column-gap);
     align-items: center;
-  }
-
-  [data-gatsby-image-wrapper] {
-    flex-shrink: 0;
-    border-radius: var(--fs-border-radius);
   }
 
   [data-fs-suggestion-product-card-summary] {
     flex-direction: column;
-    grid-column: 2 / span 4;
+    grid-column: var(--fs-suggestion-product-card-summary-grid-column);
   }
 
   [data-fs-suggestion-product-card-title] {
-    margin-bottom: var(--fs-spacing-0);
-    line-height: 1.2;
-    color: inherit;
+    margin-bottom: var(--fs-suggestion-product-card-title-margin-bottom);
+    line-height: var(--fs-suggestion-product-card-title-line-height);
+    color: var(--fs-suggestion-product-card-title-color);
     text-decoration: none;
     outline: none;
 
@@ -37,9 +52,9 @@
     align-items: baseline;
   }
 
-  [data-store-link] {
-    padding: var(--fs-spacing-1) var(--fs-spacing-3);
-    color: inherit;
+  [data-fs-link] {
+    padding: var(--fs-suggestion-link-padding);
+    color: var(--fs-suggestion-link-color);
     text-decoration: none;
   }
 }
