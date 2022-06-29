@@ -5,25 +5,24 @@
   // Design Tokens for Navlinks
   // --------------------------------------------------------
 
-  --fs-navlinks-notebook-padding-top             : var(--fs-spacing-1);
+  --fs-navlinks-padding-top-notebook             : var(--fs-spacing-1);
 
-  --fs-navlinks-mobile-border-top-width          : var(--fs-border-width);
-  --fs-navlinks-mobile-border-top-color          : var(--fs-color-neutral-2);
-
-  --fs-navlinks-mobile-border-bottom-width       : var(--fs-border-width);
-  --fs-navlinks-mobile-border-bottom-color       : var(--fs-color-neutral-2);
+  --fs-navlinks-border-top-width-mobile          : var(--fs-border-width);
+  --fs-navlinks-border-top-color-mobile          : var(--fs-color-neutral-2);
+  --fs-navlinks-border-bottom-width-mobile       : var(--fs-navlinks-border-top-width-mobile);
+  --fs-navlinks-border-bottom-color-mobile       : var(--fs-navlinks-border-top-color-mobile);
 
   // Link
-  --fs-navlinks-link-mobile-width                : 100%;
+  --fs-navlinks-link-width-mobile                : 100%;
 
-  --fs-navlinks-link-notebook-width              : auto;
-  --fs-navlinks-link-notebook-padding            : 0 var(--fs-spacing-0);
+  --fs-navlinks-link-width-notebook              : auto;
+  --fs-navlinks-link-padding-notebook            : 0 var(--fs-spacing-0);
 
   // List
-  --fs-navlinks-list-notebook-padding-left       : var(--fs-spacing-3);
-  --fs-navlinks-list-notebook-margin-left        : var(--fs-spacing-2);
-  --fs-navlinks-list-notebook-border-left-width  : var(--fs-border-width);
-  --fs-navlinks-list-notebook-border-left-color  : var(--fs-border-color-light);
+  --fs-navlinks-list-padding-left-notebook       : var(--fs-spacing-3);
+  --fs-navlinks-list-margin-left-notebook        : var(--fs-spacing-2);
+  --fs-navlinks-list-border-left-width-notebook  : var(--fs-border-width);
+  --fs-navlinks-list-border-left-color-notebook  : var(--fs-border-color-light);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -54,28 +53,28 @@
 
   [data-fs-navlinks-link] {
     display: block;
-    width: var(--fs-navlinks-link-mobile-width);
+    width: var(--fs-navlinks-link-width-mobile);
   }
 
   @include media(">=notebook") {
-    padding-top: var(--fs-navlinks-notebook-padding-top);
+    padding-top: var(--fs-navlinks-padding-top-notebook);
 
     [data-fs-navlinks-list] {
       display: flex;
       column-gap: var(--fs-spacing-3);
-      padding-left: var(--fs-navlinks-list-notebook-padding-left);
-      margin-left: var(--fs-navlinks-list-notebook-margin-left);
-      border-left: var(--fs-navlinks-list-notebook-border-left-width) solid var(--fs-navlinks-list-notebook-border-left-color);
+      padding-left: var(--fs-navlinks-list-padding-left-notebook);
+      margin-left: var(--fs-navlinks-list-margin-left-notebook);
+      border-left: var(--fs-navlinks-list-border-left-width-notebook) solid var(--fs-navlinks-list-border-left-color-notebook);
     }
 
     [data-fs-navlinks-link] {
-      width: var(--fs-navlinks-link-notebook-width);
-      padding: var(--fs-navlinks-link-notebook-padding);
+      width: var(--fs-navlinks-link-width-notebook);
+      padding: var(--fs-navlinks-link-padding-notebook);
     }
   }
 
   @include media("<notebook") {
-    border-top: var(--fs-navlinks-mobile-border-top-width) solid var(--fs-navlinks-mobile-border-top-color);
-    border-bottom: var(--fs-navlinks-mobile-border-bottom-width) solid var(--fs-navlinks-mobile-border-bottom-color);
+    border-top: var(--fs-navlinks-border-top-width-mobile) solid var(--fs-navlinks-border-top-color-mobile);
+    border-bottom: var(--fs-navlinks-border-bottom-width-mobile) solid var(--fs-navlinks-border-bottom-color-mobile);
   }
 }
