@@ -13,8 +13,6 @@
   --fs-navlinks-border-bottom-color-mobile       : var(--fs-navlinks-border-top-color-mobile);
 
   // Link
-  --fs-navlinks-link-width-mobile                : 100%;
-
   --fs-navlinks-link-width-notebook              : auto;
   --fs-navlinks-link-padding-notebook            : 0 var(--fs-spacing-0);
 
@@ -53,7 +51,7 @@
 
   [data-fs-navlinks-link] {
     display: block;
-    width: var(--fs-navlinks-link-width-mobile);
+    width: 100%;
   }
 
   @include media(">=notebook") {
