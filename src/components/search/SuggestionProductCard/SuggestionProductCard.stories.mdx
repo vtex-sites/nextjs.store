@@ -1,0 +1,89 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
+import { SessionProvider } from '@faststore/sdk'
+import storeConfig from 'store.config'
+import {
+  TokenTable,
+  TokenRow,
+  TokenDivider,
+} from 'src/../.storybook/components'
+import { product } from 'src/../.storybook/mock'
+
+import SuggestionProductCard from '.'
+
+<Meta
+  title="Features/Search/SuggestionProductCard"
+  component={SuggestionProductCard}
+  args={{
+    product,
+    index: 1
+  }}
+/>
+
+export const Template = (args) => (
+    <SessionProvider initialState={{ channel: storeConfig.channel }}>
+      <SearchInputProvider>
+        <SuggestionProductCard {...args} />
+      </SearchInputProvider>
+    </SessionProvider>
+)
+
+<header>
+
+# Suggestion Product Card
+
+Card to show details of product and suggest in search dropdown.
+
+</header>
+
+## Overview
+
+---
+
+## Usage
+
+`import SuggestionProductCard from '../components/search/SuggestionProductCard'`
+
+<Canvas>
+  <Story name="SuggestionProductCard">{Template.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="SuggestionProductCard" />
+
+<TokenTable>
+  <TokenRow
+    token="--fs-card-content-grid-template-columns"
+    value="3.5rem repeat(4, 1fr)"
+  />
+  <TokenRow
+    token="--fs-card-content-column-gap"
+    value="var(--fs-grid-gap-2)"
+  />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-suggestion-product-card-summary-grid-column"
+    value="2 / span 4"
+  />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-suggestion-product-card-title-margin-bottom"
+    value="var(--fs-spacing-0)"
+  />
+  <TokenRow
+    token="--fs-suggestion-product-card-title-line-height"
+    value="1.2"
+  />
+  <TokenRow
+    token="--fs-suggestion-product-card-title-color"
+    value="inherit"
+  />
+  <TokenDivider />
+  <TokenRow
+    token="--fs-suggestion-link-padding"
+    value="var(--fs-spacing-1) var(--fs-spacing-3)"
+  />
+  <TokenRow
+    token="--fs-suggestion-link-color"
+    value="inherit"
+  />
+</TokenTable>
