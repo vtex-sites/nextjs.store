@@ -17,9 +17,6 @@
   --fs-navbar-transition-timing                          : var(--fs-transition-timing);
   --fs-navbar-transition-function                        : var(--fs-transition-function);
 
-  // Button Cart
-  --fs-navbar-button-cart-margin-left-notebook           : var(--fs-spacing-3);
-
   // Search
   --fs-navbar-search-button-icon-width-mobile            : var(--fs-spacing-5);
   --fs-navbar-search-button-icon-height-mobile           : var(--fs-navbar-search-button-icon-width-mobile);
@@ -91,7 +88,7 @@
 
     [data-fs-button-signin-link] + [data-fs-button-cart] {
       @include media(">=notebook") {
-        margin-left: var(--fs-navbar-button-cart-margin-left-notebook);
+        margin-left: var(--fs-spacing-3);
       }
     }
 
