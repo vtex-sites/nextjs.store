@@ -14,8 +14,6 @@
 
   --fs-navbar-box-shadow                                 : 0 var(--fs-spacing-0) var(--fs-spacing-3) rgb(0 0 0 / 5%);
 
-  --fs-navbar-row-width                                  : 100%;
-
   --fs-navbar-transition-timing                          : var(--fs-transition-timing);
   --fs-navbar-transition-function                        : var(--fs-transition-function);
 
@@ -73,7 +71,7 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
-    width: var(--fs-navbar-row-width);
+    width: 100%;
 
     @include media(">=notebook") {
       display: grid;
