@@ -17,9 +17,6 @@
   --fs-navbar-transition-timing                          : var(--fs-transition-timing);
   --fs-navbar-transition-function                        : var(--fs-transition-function);
 
-  // Button Collapse (Search)
-  --fs-navbar-button-collapse-margin-left                : calc(-1 * var(--fs-spacing-3));
-
   // Button Cart
   --fs-navbar-button-cart-margin-left-notebook           : var(--fs-spacing-3);
 
@@ -89,7 +86,7 @@
     justify-content: flex-end;
 
     [data-fs-button-collapse] {
-      margin-left: var(--fs-navbar-button-collapse-margin-left);
+      margin-left: calc(-1 * var(--fs-spacing-3));
     }
 
     [data-fs-button-signin-link] + [data-fs-button-cart] {
