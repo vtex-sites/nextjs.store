@@ -48,8 +48,8 @@ function SuggestionProductCard({ product, index }: SuggestionProductCardProps) {
           onSearchInputSelection?.(name, href)
         }}
       >
-        <CardContent data-fs-card-content>
-          <CardImage data-fs-card-image>
+        <CardContent data-fs-suggestion-product-card-content>
+          <CardImage data-fs-suggestion-product-card-image>
             <Image
               src={img.url}
               alt={img.alternateName}

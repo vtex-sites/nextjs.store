@@ -1,6 +1,6 @@
 @import "src/styles/scaffold";
 
-.fs-suggestion-product-card[data-fs-suggestion-product-card] {
+.fs-suggestion-product-card {
   // --------------------------------------------------------
   // Design Tokens for Suggestion Product Card
   // --------------------------------------------------------
@@ -21,11 +21,11 @@
   --fs-suggestion-link-padding                         : var(--fs-spacing-1) var(--fs-spacing-3);
   --fs-suggestion-link-color                           : inherit;
 
-  [data-fs-card-image] {
+  [data-fs-suggestion-product-card-image] {
     display: flex;
   }
 
-  [data-fs-card-content] {
+  [data-fs-suggestion-product-card-content] {
     display: grid;
     grid-template-columns: var(--fs-card-content-grid-template-columns);
     column-gap: var(--fs-card-content-column-gap);
