@@ -15,10 +15,10 @@
 
   // Partial
   --fs-slide-over-partial-gap                : calc(2 * var(--fs-grid-padding));
-  --fs-slide-over-partial-mobile-width       : calc(100vw - var(--fs-slide-over-partial-gap));
+  --fs-slide-over-partial-width-mobile       : calc(100vw - var(--fs-slide-over-partial-gap));
 
-  --fs-slide-over-partial-notebook-width     : calc(100% / 3);
-  --fs-slide-over-partial-notebook-max-width : calc(var(--fs-grid-breakpoint-notebook) / 3);
+  --fs-slide-over-partial-width-notebook     : calc(100% / 3);
+  --fs-slide-over-partial-max-width-notebook : calc(var(--fs-grid-breakpoint-notebook) / 3);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -32,11 +32,11 @@
   }
 
   &[data-fs-slide-over-size="partial"] {
-    width: var(--fs-slide-over-partial-mobile-width);
+    width: var(--fs-slide-over-partial-width-mobile);
 
     @include media(">=notebook") {
-      width: var(--fs-slide-over-partial-notebook-width);
-      max-width: var(--fs-slide-over-partial-notebook-max-width);
+      width: var(--fs-slide-over-partial-width-notebook);
+      max-width: var(--fs-slide-over-partial-max-width-notebook);
     }
   }
 
