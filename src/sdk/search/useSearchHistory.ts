@@ -1,5 +1,4 @@
-import { useSyncExternalStore } from 'react'
-import { createStore } from '@faststore/sdk'
+import { createStore, useStore } from '@faststore/sdk'
 
 const MAX_HISTORY_SIZE = 4
 
@@ -13,11 +12,7 @@ const historyStore = createStore<History[]>([], 'fs::searchHistory')
 export default function useSearchHistory(
   maxHistorySize: number = MAX_HISTORY_SIZE
 ) {
-  const searchHistory = useSyncExternalStore<History[]>(
-    historyStore.subscribe,
-    historyStore.read,
-    historyStore.readInitial
-  )
+  const searchHistory = useStore(historyStore)
 
   function addToSearchHistory(newHistory: History) {
     const set = new Set<string>()

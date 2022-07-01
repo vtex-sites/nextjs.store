@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Updates hooks to use the new Store from `@faststore/sdk` ([#153](https://github.com/vtex-sites/nextjs.store/pull/153))
 - Updates `facets` breakpoints tokens ([#150](https://github.com/vtex-sites/nextjs.store/pull/150))
 - Move logo's svg code from JS into static asset ([#135](https://github.com/vtex-sites/nextjs.store/pull/135))
 - Upgrade dependencies ([#131](https://github.com/vtex-sites/nextjs.store/pull/131))

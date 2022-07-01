@@ -1,6 +1,5 @@
 import { gql } from '@faststore/graphql-utils'
-import { createSessionStore } from '@faststore/sdk'
-import { useSyncExternalStore } from 'react'
+import { createSessionStore, useStore } from '@faststore/sdk'
 import type { Session } from '@faststore/sdk'
 
 import storeConfig from 'store.config'
@@ -57,9 +56,4 @@ export const sessionStore = createSessionStore(
   validateSession
 )
 
-export const useSession = () =>
-  useSyncExternalStore(
-    sessionStore.subscribe,
-    sessionStore.read,
-    sessionStore.readInitial
-  )
+export const useSession = () => useStore(sessionStore)

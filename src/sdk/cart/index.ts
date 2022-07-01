@@ -1,6 +1,6 @@
 import { gql } from '@faststore/graphql-utils'
-import { createCartStore } from '@faststore/sdk'
-import { useMemo, useSyncExternalStore } from 'react'
+import { createCartStore, useStore } from '@faststore/sdk'
+import { useMemo } from 'react'
 import type { Cart as SDKCart, CartItem as SDKCartItem } from '@faststore/sdk'
 
 import type {
@@ -152,11 +152,7 @@ export const cartStore = {
 const isGift = (item: CartItem) => item.price === 0
 
 export const useCart = () => {
-  const cart = useSyncExternalStore(
-    cartStore.subscribe,
-    cartStore.read,
-    cartStore.readInitial
-  )
+  const cart = useStore(cartStore)
 
   return useMemo(
     () => ({
