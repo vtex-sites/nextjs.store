@@ -1,6 +1,6 @@
+import { useCartToggleButton } from 'src/sdk/cart/useCartToggleButton'
 import { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
-import { useCartToggleButton } from 'src/sdk/cart/useCartToggleButton'
 
 function CartToggle() {
   const btnProps = useCartToggleButton()

@@ -1,10 +1,11 @@
-import { useCart } from './useCart'
+import { useCart } from './index'
 import * as storeConfig from '../../../store.config'
 
 const { checkoutUrl } = storeConfig
 
 export const useCheckoutButton = () => {
-  const { isValidating, id } = useCart()
+  const { id } = useCart()
+  const isValidating = false // TODO make it work
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()

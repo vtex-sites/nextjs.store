@@ -5,7 +5,7 @@ import { Badge } from 'src/components/ui/Badge'
 import Button, { ButtonIcon } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
-import { useCart } from 'src/sdk/cart/useCart'
+import { useCart } from 'src/sdk/cart'
 import { useCheckoutButton } from 'src/sdk/cart/useCheckoutButton'
 import { useUI } from 'src/sdk/ui/Provider'
 import { useFadeEffect } from 'src/sdk/ui/useFadeEffect'
@@ -20,7 +20,8 @@ function CartSidebar() {
   const { cart: displayCart, closeCart } = useUI()
   const { fade, fadeOut } = useFadeEffect()
 
-  const { items, totalItems, isValidating, subTotal, total } = cart
+  const { items, totalItems, subTotal, total } = cart
+  const isValidating = false // TODO make it work
 
   const isEmpty = items.length === 0
 

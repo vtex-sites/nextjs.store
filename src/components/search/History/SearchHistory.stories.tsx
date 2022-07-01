@@ -1,14 +1,13 @@
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
 
 import { SearchHistory } from '.'
-import type { SearchHistoryProps } from '.'
 
 const meta = {
   component: SearchHistory,
   title: 'Organisms/Search/History',
 }
 
-const Template = (props: SearchHistoryProps) => {
+const Template = () => {
   return (
     <div
       style={{
@@ -19,7 +18,7 @@ const Template = (props: SearchHistoryProps) => {
       }}
     >
       <SearchInputProvider>
-        <SearchHistory {...props} />
+        <SearchHistory />
       </SearchInputProvider>
     </div>
   )

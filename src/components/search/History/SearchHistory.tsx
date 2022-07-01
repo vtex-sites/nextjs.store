@@ -5,15 +5,10 @@ import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import useSearchHistory from 'src/sdk/search/useSearchHistory'
 import useSearchInput from 'src/sdk/search/useSearchInput'
-import type { History } from 'src/sdk/search/useSearchHistory'
 
-export interface SearchHistoryProps {
-  history?: History[]
-}
-
-const SearchHistory = ({ history = [] }: SearchHistoryProps) => {
+const SearchHistory = () => {
   const { onSearchInputSelection } = useSearchInput()
-  const { searchHistory, clearSearchHistory } = useSearchHistory(history)
+  const { searchHistory, clearSearchHistory } = useSearchHistory()
 
   if (!searchHistory.length) {
     return null
