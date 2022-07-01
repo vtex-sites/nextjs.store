@@ -52,21 +52,37 @@ The `SuggestionProductCard` differs from `ProductCard` because it is used in the
 
 <ArgsTable story="SuggestionProductCard" />
 
+## Nested Elements
+
+### Link
+
 <TokenTable>
   <TokenRow
-    token="--fs-card-content-grid-template-columns"
-    value="3.5rem repeat(4, 1fr)"
+    token="--fs-suggestion-product-card-link-padding"
+    value="var(--fs-spacing-1) var(--fs-spacing-3)"
+  />
+</TokenTable>
+
+### Image
+
+<TokenTable>
+  <TokenRow
+    token="--fs-suggestion-product-card-image-border-radius"
+    value="var(--fs-border-radius)"
   />
   <TokenRow
-    token="--fs-card-content-column-gap"
-    value="var(--fs-grid-gap-2)"
+    token="--fs-suggestion-product-card-image-margin-right"
+    value="var(--fs-spacing-3)"
   />
-  <TokenDivider />
   <TokenRow
-    token="--fs-suggestion-product-card-summary-grid-column"
-    value="2 / span 4"
+    token="--fs-suggestion-product-card-image-height"
+    value="3.5rem"
   />
-  <TokenDivider />
+</TokenTable>
+
+### Title
+
+<TokenTable>
   <TokenRow
     token="--fs-suggestion-product-card-title-margin-bottom"
     value="var(--fs-spacing-0)"
@@ -77,15 +93,7 @@ The `SuggestionProductCard` differs from `ProductCard` because it is used in the
   />
   <TokenRow
     token="--fs-suggestion-product-card-title-color"
-    value="inherit"
-  />
-  <TokenDivider />
-  <TokenRow
-    token="--fs-suggestion-link-padding"
-    value="var(--fs-spacing-1) var(--fs-spacing-3)"
-  />
-  <TokenRow
-    token="--fs-suggestion-link-color"
-    value="inherit"
+    value="var(--fs-color-text)"
+    isColor
   />
 </TokenTable>

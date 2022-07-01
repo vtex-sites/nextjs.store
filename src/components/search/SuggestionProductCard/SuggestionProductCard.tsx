@@ -11,7 +11,13 @@ import type { ProductSummary_ProductFragment } from '@generated/graphql'
 import styles from './suggestion-product-card.module.scss'
 
 type SuggestionProductCardProps = {
+  /**
+   * Product to be showed in `SuggestionProductCard`.
+   */
   product: ProductSummary_ProductFragment
+  /**
+   * Index to generate product link.
+   */
   index: number
 }
 
