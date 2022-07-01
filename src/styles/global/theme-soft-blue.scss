@@ -51,9 +51,6 @@
   // Refinements
   // --------------------------------------------------------
 
-  // Logo
-  --fs-logo-img                        : url("~/public/brandless-positive.png");
-
   // BORDERS
   --fs-border-radius                   : .25rem;
 
@@ -73,5 +70,10 @@
     &[data-fs-product-card-bordered="true"] {
       --fs-product-card-border-color     : var(--fs-border-color-light);
     }
+  }
+
+  [data-fs-logo] {
+    --fs-logo-img                        : url("~/public/brandless-positive.png");
+    --fs-logo-width                      : 8rem;
   }
 }
