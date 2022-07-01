@@ -13,10 +13,12 @@ import Facets from './Facets'
 import FilterSlider from './FilterSlider'
 import Filter from '.'
 
+import { SectionList, SectionItem } from 'src/../.storybook/components'
+
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
 
 <Meta
-  title="Organisms/Filter/Default"
+  title="Organisms/Filter/Overview"
   component={Filter}
   argTypes={{
     testId: {
@@ -30,7 +32,7 @@ import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
 export const facets = [
   {
     key: 'price',
-    label: 'Preço',
+    label: 'Price',
     min: {
       selected: 1.67,
       absolute: 1.67,
@@ -43,7 +45,7 @@ export const facets = [
   },
   {
     key: 'category-2',
-    label: 'Categoria',
+    label: 'Category',
     values: [
       {
         label: 'Chairs',
@@ -62,7 +64,7 @@ export const facets = [
   },
   {
     key: 'brand',
-    label: 'Marca',
+    label: 'Brand',
     values: [
       {
         label: 'Acer',
@@ -150,18 +152,7 @@ The Filter component is used to filter products inside the Product Listing Page 
 
 ## Overview
 
-The `Filter` component uses the `Facets` component or the `FilterSlider` depending on the screen dimension.
-
-<Canvas>
-  <Story
-    name="overview-default"
-    args={{
-      facets: facets,
-    }}
-  >
-    {TemplateWithProvider.bind({})}
-  </Story>
-</Canvas>
+The `Filter` component uses the [Facets](?path=/docs/organisms-filter-facets--default-story) component or the [FilterSlider](?path=/docs/organisms-filter-filterslider--default-story) depending on the screen dimension.
 
 ---
 
@@ -186,35 +177,39 @@ The `Filter` component uses the `Facets` component or the `FilterSlider` dependi
 
 ## Related Components
 
-<section className="sbdocs-section">
-  <article>
-    <div style={{ height: '525px' }}>
-      <a href="?path=/docs/organisms-filter-facets--overview-default"><img width="245px" src="https://vtexhelp.vtexassets.com/assets/docs/src/facets___fdf0046c69ce7cff6cd0425c30721715.png"/></a>
-    </div>
-    <article className="sbdocs-section-text">
-      <h3>Facets</h3>
-      <p>
-        Facets represents the <code>Filter</code> details and allow users to refine their searches.
-      </p>
-    </article>
-
-  </article>
-  <article>
-    <div style={{ height: '525px' }}>
-      <a href="?path=/docs/organisms-filter-filterslider--overview-default"><img width="245px" src="https://vtexhelp.vtexassets.com/assets/docs/src/filter-button___0c620a5ec7a882a10a5a664e213af40c.png"/></a>
-    </div>
-    <article className="sbdocs-section-text">
-      <h3>Open Filter Button</h3>
-      <p>The button that trigger the <code>FilterSlider</code> mobile view.</p>
-    </article>
-  </article>
-  <article>
-    <div style={{ height: '525px' }}>
-      <a href="?path=/docs/organisms-filter-filterslider--overview-default"><img width="245px" src="https://vtexhelp.vtexassets.com/assets/docs/src/filter-slider___0b494caafda8ca47a39a06a006a64849.png"/></a>
-    </div>
-    <article className="sbdocs-section-text">
-      <h3>FilterSlider</h3>
-      <p>The mobile <code>Filter</code> view that is rendered inside a <code>SlideOver</code> component.</p>
-    </article>
-  </article>
-</section>
+<SectionList grid="grid">
+  <SectionItem
+    title="Facets"
+    actionPath="../?path=/docs/organisms-filter-facets--default-story"
+    description={
+      <>
+        Facets represents the <code>Filter</code> details and allow users to
+        refine their searches.
+      </>
+    }
+  >
+    <img src="https://vtexhelp.vtexassets.com/assets/docs/src/facets___fdf0046c69ce7cff6cd0425c30721715.png" />
+  </SectionItem>
+  <SectionItem
+    title="Open Filter Button"
+    description={
+      <>
+        The button that trigger the <code>FilterSlider</code> mobile view.
+      </>
+    }
+  >
+    <img src="https://vtexhelp.vtexassets.com/assets/docs/src/filter-button___0c620a5ec7a882a10a5a664e213af40c.png" />
+  </SectionItem>
+  <SectionItem
+    title="FilterSlider"
+    actionPath="../?path=/docs/organisms-filter-filterslider--default-story"
+    description={
+      <>
+        The mobile <code>Filter</code> view that is rendered inside a{' '}
+        <code>SlideOver</code> component.
+      </>
+    }
+  >
+    <img src="https://vtexhelp.vtexassets.com/assets/docs/src/filter-slider___0b494caafda8ca47a39a06a006a64849.png" />
+  </SectionItem>
+</SectionList>

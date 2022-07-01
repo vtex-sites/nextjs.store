@@ -11,9 +11,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Applies new local tokens to `SlideOver` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
 - Applies new local tokens to `CartSidebar` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
-- Applies new local tokens to `Filter` ([#139](https://github.com/vtex-sites/nextjs.store/pull/139))
-- Applies new local tokens to `Accordion` ([#130](https://github.com/vtex-sites/nextjs.store/pull/130))
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [22.26.0.beta] - 2022-07-01
+
+### Added
+
 - Applies new local tokens to `Navbar` ([#142](https://github.com/vtex-sites/nextjs.store/pull/142))
+- Applies new local tokens to `Filter` ([#139](https://github.com/vtex-sites/nextjs.store/pull/139))
+- Applies new local tokens to `Tiles` ([#134](https://github.com/vtex-sites/nextjs.store/pull/134))
+- Applies new local tokens to `ProductGrid` ([#144](https://github.com/vtex-sites/nextjs.store/pull/144))
+- Applies new local tokens to `Accordion` ([#130](https://github.com/vtex-sites/nextjs.store/pull/130))
+- Applies new local tokens to `ImageGallery` ([#143](https://github.com/vtex-sites/nextjs.store/pull/143))
+- Creates Doc page for `Regionalization` Feature ([#110](https://github.com/vtex-sites/nextjs.store/pull/110))
+- Applies new local tokens to `RegionalizationBar` ([#104](https://github.com/vtex-sites/nextjs.store/pull/104))
 - Applies new local tokens to `Modal` and `RegionalizationModal` ([#128](https://github.com/vtex-sites/nextjs.store/pull/128))
 - PriceRange component ([#124](https://github.com/vtex-sites/nextjs.store/pull/124))
 - PriceRange component to PLP and StoryBook ([#121](https://github.com/vtex-sites/nextjs.store/pull/121))
@@ -28,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Updates `facets` breakpoints tokens ([#150](https://github.com/vtex-sites/nextjs.store/pull/150))
 - Move logo's svg code from JS into static asset ([#135](https://github.com/vtex-sites/nextjs.store/pull/135))
 - Upgrade dependencies ([#131](https://github.com/vtex-sites/nextjs.store/pull/131))
 - Uses `[data-fs-dropdown-button]` instead of `[data-store-dropdown-button]` to select `DropdownButton` on breadcrumb stylesheet ([#123](https://github.com/vtex-sites/nextjs.store/pull/123))
@@ -36,17 +55,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Storybook's version from 6.4.20 to 6.5.9 ([#120](https://github.com/vtex-sites/nextjs.store/pull/120))
 - Unifies `Link` component usage by adding support for both external and client-side links ([#117](https://github.com/vtex-sites/nextjs.store/pull/117))
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
+- `ImageGallerySelector` scroll that isn't working on Safari ([##132](https://github.com/vtex-sites/nextjs.store/pull/#132))
 - Some console errors when running the storybook ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
 - The search input's dropdown not closing when a suggested product was selected ([#112](https://github.com/vtex-sites/nextjs.store/pull/112).
 - Status code when error occurs (404/500) ([#116](https://github.com/vtex-sites/nextjs.store/pull/116))
-
-### Security
 
 ## [22.23.0.beta] - 2022-06-10
 

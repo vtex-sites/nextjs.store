@@ -5,8 +5,6 @@
 // Common
 @import "src/components/common/Footer/footer.scss";
 @import "src/components/common/SearchInput/search-input.scss";
-@import "src/components/regionalization/RegionalizationBar/regionalization-bar.scss";
-@import "src/components/regionalization/RegionalizationButton/regionalization-button.scss";
 
 // Search
 @import "src/components/search/Suggestions/suggestions.scss";
@@ -32,8 +30,6 @@
 // UI
 @import "src/components/ui/Badge/badge.scss";
 @import "src/components/ui/Breadcrumb/breadcrumb.scss";
-@import "src/components/ui/Image/image.scss";
 @import "src/components/ui/InputText/input-text.scss";
 @import "src/components/ui/SlideOver/overlay.scss";
 @import "src/components/ui/SROnly/sr-only.scss";
-@import "src/components/ui/Tiles/tiles.scss";

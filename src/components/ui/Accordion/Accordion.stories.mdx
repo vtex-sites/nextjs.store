@@ -3,16 +3,18 @@ import { List as UIList } from '@faststore/ui'
 import { useState } from 'react'
 
 import Accordion, { AccordionItem } from '.'
+import ButtonLink from '../Button/ButtonLink'
+import Icon from '../Icon'
 
 <Meta
   component={Accordion}
-  title="Molecules/Accordion/Default"
+  title="Molecules/Accordion/Overview"
   argTypes={{
     expandedIndices: { control: { disable: true } },
   }}
 />
 
-export const values = Array.from({ length: 5 }).map((_, i) => `Item ${i + 1}`)
+export const values = Array.from({ length: 3 }).map((_, i) => `Item ${i + 1}`)
 
 export const items = [
   {
@@ -87,7 +89,7 @@ export const TemplateMultiple = () => {
 }
 
 export const TemplateOneItem = () => {
-  const [indexes, setIndexes] = useState(new Set([]))
+  const [indexes, setIndexes] = useState(new Set([0]))
   const onChange = (index) => {
     if (indexes.has(index)) {
       indexes.delete(index)
@@ -113,25 +115,13 @@ export const TemplateOneItem = () => {
 
 # Accordion
 
-Accordion display an expandable/collapsible list of items. The final Accordion component is a compound of the following:
+Accordion displays an expandable/collapsible list of items.
 
 </header>
 
 ## Overview
 
 The `Accordion` component uses [FastStore UI Accordion](https://www.faststore.dev/reference/ui/molecules/Accordion) as base.
-
-### Accordion Single
-
-<Canvas>
-  <Story name="overview-default">{Template.bind({})}</Story>
-</Canvas>
-
-### Accordion Multiple
-
-<Canvas>
-  <Story name="overview-multiple-expanded">{TemplateMultiple.bind({})}</Story>
-</Canvas>
 
 ---
 
@@ -147,19 +137,44 @@ The `Accordion` component uses [FastStore UI Accordion](https://www.faststore.de
 
 ---
 
-## Related Components
+## Variants
+
+### Accordion Single Open
 
 <Canvas>
-  <Story style={{ width: '50%' }} name="related-accordion-item">
-    {TemplateOneItem.bind({})}
-  </Story>
+  <Story name="overview-default">{Template.bind({})}</Story>
 </Canvas>
 
-<article className="sbdocs-section-text">
-  <h3>Accordion Item</h3>
-  <a href="#">
-    <p>
-      An item of a set of items on <code>Accordion</code>.
-    </p>
-  </a>
-</article>
+### Accordion Multiple Open
+
+<Canvas>
+  <Story name="overview-multiple-expanded">{TemplateMultiple.bind({})}</Story>
+</Canvas>
+
+## Compound Components
+
+<section className="sbdocs-list">
+  <ul className="sbdocs-ul-row">
+    <li>
+      <div>
+        <div style={{ width: '50%', height: '180px', paddingTop: '20px' }}>
+          <TemplateOneItem />
+        </div>
+      </div>
+      <article className="sbdocs-list-text">
+        <h3>Accordion Item</h3>
+        <p>
+          An item of the <code>Accordion</code> component.
+        </p>
+        <ButtonLink
+          variant="tertiary"
+          href="../?path=/docs/molecules-accordion-accordionitem--default-story"
+          data-fs-button-size="small"
+        >
+          See more
+          <Icon name="ArrowRight" width="18" height="18" weight="bold" />
+        </ButtonLink>
+      </article>
+    </li>
+  </ul>
+</section>
