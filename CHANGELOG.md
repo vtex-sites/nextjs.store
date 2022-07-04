@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Replaces React state to global store state ([#157](https://github.com/vtex-sites/nextjs.store/pull/157))
+
 ### Deprecated
 
 ### Removed
