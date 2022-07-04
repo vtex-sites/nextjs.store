@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds [bun](https://bun.sh/) compatiblity ([#164](https://github.com/vtex-sites/nextjs.store/pull/164))
 - Uses new cross selling API on PDP ([#159](https://github.com/vtex-sites/nextjs.store/pull/159))
 - Applies new local tokens to `SuggestionProductCard` ([#151](https://github.com/vtex-sites/nextjs.store/pull/151))
+- Newsletter form and `useNewsletter` hook ([#154](https://github.com/vtex-sites/nextjs.store/pull/154))
 
 ### Changed
 
