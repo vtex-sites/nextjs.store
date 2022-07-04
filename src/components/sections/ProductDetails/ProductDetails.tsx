@@ -2,6 +2,8 @@ import { gql } from '@faststore/graphql-utils'
 import { sendAnalyticsEvent } from '@faststore/sdk'
 import { useEffect, useState } from 'react'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
+import { useRouter } from 'next/router'
+import type { NextRouter } from 'next/router'
 
 import OutOfStock from 'src/components/product/OutOfStock'
 import { DiscountBadge } from 'src/components/ui/Badge'
@@ -11,6 +13,7 @@ import { ImageGallery } from 'src/components/ui/ImageGallery'
 import Price from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
 import QuantitySelector from 'src/components/ui/QuantitySelector'
+import SkuSelector from 'src/components/ui/SkuSelector'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProduct } from 'src/sdk/product/useProduct'
@@ -19,14 +22,146 @@ import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
 import Section from '../Section'
+import { useSKUVariations } from './useSKUVariations'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
 }
 
+type SKUOptionsByType = Record<
+  string,
+  Array<
+    | {
+        label: string
+        value: string
+      }
+    | { alt: string; src: string; label: string; value: string }
+  >
+>
+
+const DOMINANT_SKU_SELECTOR_PROPERTY = 'Color'
+
+function getSkuSlug(
+  slugsMap: Record<string, string>,
+  selectedVariations: Record<string, string>,
+  dominantVariation: string
+) {
+  let slugsMapKey = ''
+
+  for (const key in selectedVariations) {
+    if (Object.prototype.hasOwnProperty.call(selectedVariations, key)) {
+      const variationValue = selectedVariations[key]
+
+      slugsMapKey += `${key}-${variationValue}-`
+    }
+  }
+
+  // Remove trailing '-'
+  slugsMapKey = slugsMapKey.slice(0, slugsMapKey.length - 1)
+
+  const variantExists = Boolean(slugsMap[slugsMapKey])
+
+  if (!variantExists) {
+    const possibleVariants = Object.keys(slugsMap)
+    const firstVariationForDominantValue = possibleVariants.find((slug) =>
+      slug.includes(
+        `${dominantVariation}-${selectedVariations[dominantVariation]}`
+      )
+    )
+
+    // This is an inconsistent state
+    if (!firstVariationForDominantValue) {
+      return slugsMap[possibleVariants[0]]
+    }
+
+    return slugsMap[firstVariationForDominantValue]
+  }
+
+  return slugsMap[slugsMapKey]
+}
+
+function getSelectedVariations(
+  productId: string,
+  variants: ProductDetailsFragment_ProductFragment['isVariantOf']['hasVariant']
+) {
+  const currentVariation = variants.find(
+    (variant) => variant.productID === productId
+  )
+
+  if (!currentVariation) {
+    throw new Error('Invalid SKU variations state reached.')
+  }
+
+  const selectedVariations: Record<string, string> = {}
+
+  currentVariation.additionalProperty.forEach((property) => {
+    selectedVariations[property.name] = property.value
+  })
+
+  return selectedVariations
+}
+
+function getAvailableVariationsForSelectedColor(
+  selectedColor: string,
+  options: SKUOptionsByType,
+  variationsByMainVariationValues: Record<string, Record<string, string[]>>
+): SKUOptionsByType {
+  const filteredOptions: SKUOptionsByType = {}
+
+  const { Color, ...otherProperties } = options
+
+  for (const propertyName in otherProperties) {
+    if (Object.prototype.hasOwnProperty.call(otherProperties, propertyName)) {
+      filteredOptions[propertyName] = otherProperties[propertyName].filter(
+        (formattedProperty) =>
+          variationsByMainVariationValues[selectedColor][propertyName].includes(
+            formattedProperty.value
+          )
+      )
+      otherProperties[propertyName]
+    }
+  }
+
+  return { Color, ...filteredOptions }
+}
+
+function navigateToSku({
+  selectedVariations,
+  updatedVariationName,
+  updatedVariationValue,
+  slugsMap,
+  router,
+  dominantSku,
+}: {
+  selectedVariations: Record<string, string>
+  updatedVariationName: string
+  updatedVariationValue: string
+  slugsMap: Record<string, string>
+  router: NextRouter
+  dominantSku: string
+}) {
+  const whereTo = `/${getSkuSlug(
+    slugsMap,
+    {
+      ...selectedVariations,
+      [updatedVariationName]: updatedVariationValue,
+    },
+    dominantSku
+  )}/p`
+
+  if (whereTo === window.location.pathname) {
+    return
+  }
+
+  router.push(whereTo)
+}
+
+// function handleSkuSelectorChange(event: ChangeEvent<HTMLInputElement>) {}
+
 function ProductDetails({ product: staleProduct }: Props) {
   const { currency } = useSession()
   const [addQuantity, setAddQuantity] = useState(1)
+  const router = useRouter()
 
   // Stale while revalidate the product for fetching the new price etc
   const { data, isValidating } = useProduct(staleProduct.id, {
@@ -46,7 +181,7 @@ function ProductDetails({ product: staleProduct }: Props) {
       name: variantName,
       brand,
       isVariantOf,
-      isVariantOf: { name, productGroupID: productId },
+      isVariantOf: { name, productGroupID: productId, hasVariant },
       image: productImages,
       offers: {
         offers: [{ availability, price, listPrice, seller }],
@@ -56,6 +191,22 @@ function ProductDetails({ product: staleProduct }: Props) {
       additionalProperty,
     },
   } = data
+
+  const selectedVariations = getSelectedVariations(sku, hasVariant)
+
+  const { optionsByType, slugsMap, variationsByMainVariationValues } =
+    useSKUVariations(hasVariant, DOMINANT_SKU_SELECTOR_PROPERTY)
+
+  const filteredOptionsByCurrentColor = getAvailableVariationsForSelectedColor(
+    selectedVariations.Color,
+    optionsByType,
+    variationsByMainVariationValues
+  )
+
+  // 'Color' variants are singled-out here because they will always be rendered
+  // as 'image' variants.
+  const { Color: colorVariants, ...otherSKUVariants } =
+    filteredOptionsByCurrentColor
 
   const buyDisabled = availability !== 'https://schema.org/InStock'
 
@@ -127,6 +278,48 @@ function ProductDetails({ product: staleProduct }: Props) {
         <ImageGallery images={productImages} />
 
         <section className="product-details__settings">
+          <section>
+            {colorVariants && (
+              <SkuSelector
+                variant="image"
+                defaultSku={selectedVariations.Color}
+                options={colorVariants}
+                onChange={(e) => {
+                  const newVariationValue = e.currentTarget.value
+
+                  navigateToSku({
+                    router,
+                    slugsMap,
+                    selectedVariations,
+                    updatedVariationName: 'Color',
+                    updatedVariationValue: newVariationValue,
+                    dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
+                  })
+                }}
+              />
+            )}
+            {otherSKUVariants &&
+              Object.keys(otherSKUVariants).map((skuVariant) => (
+                <SkuSelector
+                  key={skuVariant}
+                  variant="label"
+                  defaultSku={selectedVariations[skuVariant]}
+                  options={otherSKUVariants[skuVariant]}
+                  onChange={(e) => {
+                    const newVariationValue = e.currentTarget.value
+
+                    navigateToSku({
+                      router,
+                      slugsMap,
+                      selectedVariations,
+                      updatedVariationName: skuVariant,
+                      updatedVariationValue: newVariationValue,
+                      dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
+                    })
+                  }}
+                />
+              ))}
+          </section>
           <section className="product-details__values">
             <div className="product-details__prices">
               <Price
@@ -254,6 +447,24 @@ export const fragment = gql`
     isVariantOf {
       productGroupID
       name
+      hasVariant {
+        slug
+        name
+        productID
+        seo {
+          title
+        }
+        image {
+          url
+          alternateName
+        }
+        additionalProperty {
+          propertyID
+          value
+          name
+          valueReference
+        }
+      }
     }
 
     image {

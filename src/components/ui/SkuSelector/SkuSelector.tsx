@@ -97,7 +97,7 @@ function SkuSelector({
           setSelectedSku(e.currentTarget.value)
         }}
       >
-        {options.map((option, index) => {
+        {options?.map((option, index) => {
           return (
             <RadioOption
               key={String(index)}
@@ -107,24 +107,16 @@ function SkuSelector({
               checked={option.label === selectedSku}
             >
               {variant === 'label' && <span>{option.label}</span>}
-              {variant === 'color' && 'value' in option && (
-                <span>
-                  <div
-                    data-sku-selector-color
-                    style={{
-                      backgroundColor: option.value,
-                    }}
-                  />
-                </span>
-              )}
               {variant === 'image' && 'src' in option && (
-                <Image
-                  src={option.src}
-                  alt={option.alt}
-                  width={20}
-                  height={20}
-                  loading="lazy"
-                />
+                <div style={{ height: 40, width: 40 }}>
+                  <Image
+                    src={option.src}
+                    alt={option.alt}
+                    width={40}
+                    height={40}
+                    loading="lazy"
+                  />
+                </div>
               )}
             </RadioOption>
           )
