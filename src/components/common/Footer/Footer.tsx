@@ -12,6 +12,7 @@ import { mark } from 'src/sdk/tests/mark'
 
 import styles from './footer.module.scss'
 import FooterLinks from './FooterLinks'
+import { NewsletterForm } from './NewsletterForm'
 
 type FooterProps = {
   /**
@@ -42,6 +43,7 @@ export function Footer({
       className={`${styles.fsFooter} layout__content-full`}
     >
       {sectionIncentives && <IncentivesFooter />}
+      <NewsletterForm />
 
       <div data-fs-footer-nav className="layout__content">
         <FooterLinks />
