@@ -5,6 +5,7 @@ import {
 
 import Logo from 'src/components/ui/Logo'
 import IncentivesFooter from 'src/components/sections/Incentives/IncentivesFooter'
+import Newsletter from 'src/components/sections/Newsletter'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import SROnly from 'src/components/ui/SROnly'
@@ -12,7 +13,6 @@ import { mark } from 'src/sdk/tests/mark'
 
 import styles from './footer.module.scss'
 import FooterLinks from './FooterLinks'
-import { NewsletterForm } from './NewsletterForm'
 
 type FooterProps = {
   /**
@@ -43,7 +43,7 @@ export function Footer({
       className={`${styles.fsFooter} layout__content-full`}
     >
       {sectionIncentives && <IncentivesFooter />}
-      <NewsletterForm />
+      <Newsletter title="Newsletter" />
 
       <div data-fs-footer-nav className="layout__content">
         <FooterLinks />
