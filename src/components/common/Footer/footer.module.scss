@@ -1,13 +1,33 @@
 @import "src/styles/scaffold";
 
 .fs-footer {
+  // --------------------------------------------------------
+  // Design Tokens for Footer
+  // --------------------------------------------------------
+
+  // Default properties
+  --fs-footer-min-height-mobile           : rem(860px);
+  --fs-footer-min-height-notebook         : rem(546px);
+  --fs-footer-spacing-vertical-mobile     : var(--fs-spacing-4);
+  --fs-footer-spacing-horizontal-notebook : var(--fs-grid-gap-3);
+
+  --fs-footer-bkg-color                   : var(--fs-color-neutral-bkg);
+
+  // Divisor
+  --fs-footer-divisor-border-width        : var(--fs-border-width);
+  --fs-footer-divisor-border-color        : var(--fs-border-color-light);
+
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
+
   padding-top: 0;
-  background-color: var(--fs-color-neutral-bkg);
+  background-color: var(--fs-footer-bkg-color);
   content-visibility: auto;
-  contain-intrinsic-size: rem(860px);
+  contain-intrinsic-size: var(--fs-footer-min-height-mobile);
 
   @include media(">=notebook") {
-    contain-intrinsic-size: rem(546px);
+    contain-intrinsic-size: var(--fs-footer-min-height-notebook);
   }
 
   [data-fs-footer-note],
@@ -22,13 +42,13 @@
     @include media(">=notebook") {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      column-gap: var(--fs-grid-gap-3);
+      column-gap: var(--fs-footer-spacing-horizontal-notebook);
     }
 
     &::before {
       width: 100%;
       content: "";
-      border-top: 1px solid var(--fs-border-color-light);
+      border-top: var(--fs-footer-divisor-border-width) solid var(--fs-footer-divisor-border-color);
 
       @include media(">=notebook") {
         grid-column: span 12;
@@ -53,7 +73,7 @@
       text-align: center;
 
       &::before {
-        padding-bottom: var(--fs-spacing-4);
+        padding-bottom: var(--fs-footer-spacing-vertical-mobile);
       }
     }
 
@@ -63,12 +83,16 @@
     }
 
     [data-store-payment-methods] {
-      margin: var(--fs-spacing-4) auto;
+      margin: var(--fs-footer-spacing-vertical-mobile) auto;
 
       @include media(">=notebook") {
-        grid-column: 11 / span 2;
+        grid-column: 10 / span 3;
         order: 3;
         margin: 0;
+      }
+
+      @include media(">=desktop") {
+        grid-column: 11 / span 2;
       }
     }
 
@@ -79,7 +103,7 @@
     }
 
     [data-payment-methods-flags] {
-      .text__title-mini {
+      p {
         margin-bottom: var(--fs-spacing-3);
         text-align: center;
 
@@ -111,14 +135,18 @@
     flex-direction: column;
 
     @include media("<notebook") {
-      padding: var(--fs-spacing-4) 0 var(--fs-spacing-3);
+      padding: var(--fs-footer-spacing-vertical-mobile) 0 var(--fs-spacing-3);
     }
 
     @include media(">=notebook") {
+      grid-column: 10 / span 3;
+    }
+
+    @include media(">=desktop") {
       grid-column: 11 / span 2;
     }
 
-    .text__title-mini {
+    p {
       text-align: center;
 
       @include media(">=notebook") {
@@ -161,7 +189,7 @@
     }
   }
 
-  [data-fs-footer-links] {
+  &[data-fs-footer-links] {
     [data-store-list] {
       margin-bottom: var(--fs-spacing-2);
     }
@@ -172,6 +200,10 @@
     }
 
     @include media(">=notebook") {
+      grid-column: span 9;
+    }
+
+    @include media(">=desktop") {
       grid-column: span 8;
     }
   }
@@ -179,7 +211,7 @@
   [data-fs-footer-links-columns] {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: var(--fs-grid-gap-3);
+    grid-gap: var(--fs-footer-spacing-horizontal-notebook);
 
     .text__title-mini {
       margin-bottom: var(--fs-spacing-1);

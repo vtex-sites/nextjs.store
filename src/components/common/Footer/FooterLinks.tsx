@@ -4,6 +4,8 @@ import { List as UIList } from '@faststore/ui'
 import Link from 'src/components/ui/Link'
 import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 
+import styles from './footer.module.scss'
+
 const links = [
   {
     title: 'Our company',
@@ -121,7 +123,7 @@ function FooterLinks() {
   }
 
   return (
-    <section data-fs-footer-links>
+    <section className={styles.fsFooter} data-fs-footer-links>
       <div className="display-mobile">
         <Accordion expandedIndices={indicesExpanded} onChange={onChange}>
           {links.map((section, index) => (
