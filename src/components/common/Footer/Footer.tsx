@@ -10,17 +10,21 @@ import Link from 'src/components/ui/Link'
 import SROnly from 'src/components/ui/SROnly'
 import { mark } from 'src/sdk/tests/mark'
 
+import styles from './footer.module.scss'
 import FooterLinks from './FooterLinks'
 
 function Footer() {
   return (
-    <footer className="footer layout__content-full">
+    <footer
+      data-fs-footer
+      className={`${styles.fsFooter} layout__content-full`}
+    >
       <IncentivesFooter />
 
-      <div className="footer__section layout__content">
+      <div data-fs-footer-section className="layout__content">
         <FooterLinks />
 
-        <section className="footer__social">
+        <section data-fs-footer-social>
           <p className="text__title-mini">Follow us</p>
           <UIList variant="unordered">
             <li>
@@ -81,7 +85,7 @@ function Footer() {
         </section>
       </div>
 
-      <div className="footer__note layout__content">
+      <div data-fs-footer-note className="layout__content">
         <UIIcon
           component={
             // eslint-disable-next-line @next/next/no-img-element
@@ -133,7 +137,7 @@ function Footer() {
           </UIList>
         </UIPaymentMethods>
 
-        <div className="footer__copyright / text__legend">
+        <div data-fs-footer-copyright className="text__legend">
           <p>This website uses VTEX technology</p>
           <p>
             In-store price may vary. Prices and offers are subject to change.

@@ -121,7 +121,7 @@ function FooterLinks() {
   }
 
   return (
-    <section className="footer__links">
+    <section data-fs-footer-links>
       <div className="display-mobile">
         <Accordion expandedIndices={indicesExpanded} onChange={onChange}>
           {links.map((section, index) => (
@@ -137,7 +137,7 @@ function FooterLinks() {
       </div>
 
       <div className="hidden-mobile">
-        <div className="footer__links-columns">
+        <div data-fs-footer-links-columns>
           {links.map((section) => (
             <nav key={section.title}>
               <p className="text__title-mini">{section.title}</p>
