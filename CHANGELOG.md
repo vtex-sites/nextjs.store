@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Applies new local tokens to `SuggestionProductCard` ([#151](https://github.com/vtex-sites/nextjs.store/pull/151))
+- Applies new local tokens to `SuggestionProductCard` ([#156](https://github.com/vtex-sites/nextjs.store/pull/156))
 
 ### Changed
+
+- Fix storybook mock structure ([#151](https://github.com/vtex-sites/nextjs.store/pull/151))
 
 ### Deprecated
 
