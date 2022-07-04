@@ -1465,10 +1465,9 @@
   resolved "https://registry.yarnpkg.com/@faststore/lighthouse/-/lighthouse-1.9.10.tgz#91028bb43273325f388ea4c2754327b660d9b6a8"
   integrity sha512-fKpxX9VzZ0xRlyw/aoB19dGF6f1QYdh2rc5+P6CX7AibWsuQ4ij4h3hlTCPMXtHQpLbMmXK0rKiD60wGFC2Ikg==
 
-"@faststore/sdk@^1.9.11":
-  version "1.9.11"
-  resolved "https://registry.yarnpkg.com/@faststore/sdk/-/sdk-1.9.11.tgz#b7c1f9613b7b8ae1faab2a69301f5b28f7375187"
-  integrity sha512-9BEp3o9TxuuMS3+L12oFhxTS+wlhqlFCmJrTdV8nN2dj3Jyx8G1+q8iC95Cx/7dXp/Srl9+rILx+jmtsCnMN3Q==
+"@faststore/sdk@https://pkg.csb.dev/vtex/faststore/commit/8a75d429/@faststore/sdk":
+  version "1.9.14"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/8a75d429/@faststore/sdk#8e5a0faa5dad133ad6f507c0e34cbc3502d5bc50"
   dependencies:
     idb-keyval "^5.1.3"
 
