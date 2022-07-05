@@ -43,7 +43,7 @@ function Footer({
     >
       {sectionIncentives && <IncentivesFooter />}
 
-      <div data-fs-footer-section className="layout__content">
+      <div data-fs-footer-nav className="layout__content">
         <FooterLinks />
 
         {sectionSocial && (

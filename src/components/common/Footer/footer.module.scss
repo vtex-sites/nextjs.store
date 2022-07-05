@@ -34,7 +34,7 @@
   }
 
   [data-fs-footer-note],
-  [data-fs-footer-section] {
+  [data-fs-footer-nav] {
     position: relative;
     display: flex;
 
@@ -59,7 +59,7 @@
     }
   }
 
-  [data-fs-footer-section] {
+  [data-fs-footer-nav] {
     @include media(">=notebook") {
       row-gap: var(--fs-spacing-7);
       padding-bottom: var(--fs-spacing-5);
