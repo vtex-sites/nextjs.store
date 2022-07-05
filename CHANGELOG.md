@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies new local tokens to `Footer` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
+
 ### Changed
+
+- Updates `IncentivesFooter` content ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
 
 ### Deprecated
 
