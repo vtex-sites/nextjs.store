@@ -1,7 +1,10 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 
 import Incentives from '.'
-import IncentivesMock from './incentivesMock'
+import {
+  incentivesMockHeader as incentivesMockHeader,
+  incentivesMockFooter as incentivesMockFooter,
+} from './incentivesMock'
 
 <Meta title="Organisms/Incentives" component={Incentives} />
 
@@ -23,7 +26,7 @@ It's a component that displays a list of "incentives".
   <Story
     name="Incentives"
     args={{
-      incentives: IncentivesMock,
+      incentives: incentivesMockHeader,
     }}
   >
     {Template.bind({})}
@@ -78,7 +81,7 @@ It's a component that displays a list of "incentives".
   <Story
     name="Colored"
     args={{
-      incentives: IncentivesMock,
+      incentives: incentivesMockHeader,
       colored: true,
     }}
   >
@@ -90,13 +93,26 @@ It's a component that displays a list of "incentives".
 | -------------------------------------- | ---------------------------------------------- |
 | <code>--fs-incentives-bkg-color</code> | <code>var(--fs-color-primary-bkg-light)</code> |
 
+### Description Only
+
+<Canvas>
+  <Story
+    name="Description Only"
+    args={{
+      incentives: incentivesMockFooter,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ### Vertical
 
 <Canvas>
   <Story
     name="Vertical"
     args={{
-      incentives: IncentivesMock,
+      incentives: incentivesMockHeader,
       variant: 'vertical',
     }}
   >
