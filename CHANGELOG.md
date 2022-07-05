@@ -9,11 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Applies new local tokens to `SuggestionProductCard` ([#156](https://github.com/vtex-sites/nextjs.store/pull/156))
+- Uses new cross selling API on PDP ([#137](https://github.com/vtex-sites/gatsby.store/pull/137))
+- Applies new local tokens to `SuggestionProductCard` ([#151](https://github.com/vtex-sites/nextjs.store/pull/151))
 
 ### Changed
 
-- Fix storybook mock structure ([#151](https://github.com/vtex-sites/nextjs.store/pull/151))
+- Fix storybook mock structure ([#156](https://github.com/vtex-sites/nextjs.store/pull/156))
 
 ### Deprecated
 
