@@ -13,76 +13,102 @@ import { mark } from 'src/sdk/tests/mark'
 import styles from './footer.module.scss'
 import FooterLinks from './FooterLinks'
 
-function Footer() {
+type FooterProps = {
+  /**
+   * Enables Incentives Section
+   */
+  sectionIncentives?: boolean
+  /**
+   * Enables Social Section
+   */
+  sectionSocial?: boolean
+  /**
+   * Enables Payment Methods Section
+   */
+  sectionPaymentMethods?: boolean
+}
+
+function Footer({
+  sectionIncentives = true,
+  sectionSocial = true,
+  sectionPaymentMethods = true,
+}: FooterProps) {
   return (
     <footer
       data-fs-footer
+      data-fs-footer-incentives={sectionIncentives}
+      data-fs-footer-social={sectionSocial}
+      data-fs-footer-payment-methods={sectionPaymentMethods}
       className={`${styles.fsFooter} layout__content-full`}
     >
-      <IncentivesFooter />
+      {sectionIncentives && <IncentivesFooter />}
 
       <div data-fs-footer-section className="layout__content">
         <FooterLinks />
 
-        <section data-fs-footer-social>
-          <p className="text__title-mini">Follow us</p>
-          <UIList variant="unordered">
-            <li>
-              <Link
-                href="https://www.facebook.com/"
-                title="Facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Facebook" />
-                  }
-                />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://www.instagram.com/"
-                title="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Instagram" />
-                  }
-                />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://www.pinterest.com/"
-                title="Pinterest"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Pinterest" />
-                  }
-                />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://twitter.com/"
-                title="Twitter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <UIIcon
-                  component={<Icon width="24px" height="24px" name="Twitter" />}
-                />
-              </Link>
-            </li>
-          </UIList>
-        </section>
+        {sectionSocial && (
+          <section data-fs-footer-social>
+            <p className="text__title-mini">Follow us</p>
+            <UIList variant="unordered">
+              <li>
+                <Link
+                  href="https://www.facebook.com/"
+                  title="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UIIcon
+                    component={
+                      <Icon width="24px" height="24px" name="Facebook" />
+                    }
+                  />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.instagram.com/"
+                  title="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UIIcon
+                    component={
+                      <Icon width="24px" height="24px" name="Instagram" />
+                    }
+                  />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.pinterest.com/"
+                  title="Pinterest"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UIIcon
+                    component={
+                      <Icon width="24px" height="24px" name="Pinterest" />
+                    }
+                  />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://twitter.com/"
+                  title="Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <UIIcon
+                    component={
+                      <Icon width="24px" height="24px" name="Twitter" />
+                    }
+                  />
+                </Link>
+              </li>
+            </UIList>
+          </section>
+        )}
       </div>
 
       <div data-fs-footer-note className="layout__content">
@@ -99,43 +125,45 @@ function Footer() {
           }
         />
 
-        <UIPaymentMethods>
-          <p className="text__title-mini">Payment Methods</p>
-          <UIList>
-            <li>
-              <Icon width="34px" height="24px" name="Visa" />
-              <SROnly text="Visa" />
-            </li>
-            <li>
-              <Icon width="34px" height="24px" name="Diners" />
-              <SROnly text="Diners Club" />
-            </li>
-            <li>
-              <Icon width="34px" height="24px" name="Mastercard" />
-              <SROnly text="Mastercard" />
-            </li>
-            <li>
-              <Icon width="34px" height="24px" name="EloCard" />
-              <SROnly text="Elo Card" />
-            </li>
-            <li>
-              <Icon width="34px" height="24px" name="PayPal" />
-              <SROnly text="PayPal" />
-            </li>
-            <li>
-              <Icon width="34px" height="24px" name="Stripe" />
-              <SROnly text="Stripe" />
-            </li>
-            <li>
-              <Icon width="34px" height="24px" name="GooglePay" />
-              <SROnly text="Google Pay" />
-            </li>
-            <li>
-              <Icon width="34px" height="24px" name="ApplePay" />
-              <SROnly text="Apple Pay" />
-            </li>
-          </UIList>
-        </UIPaymentMethods>
+        {sectionPaymentMethods && (
+          <UIPaymentMethods>
+            <p className="text__title-mini">Payment Methods</p>
+            <UIList>
+              <li>
+                <Icon width="34px" height="24px" name="Visa" />
+                <SROnly text="Visa" />
+              </li>
+              <li>
+                <Icon width="34px" height="24px" name="Diners" />
+                <SROnly text="Diners Club" />
+              </li>
+              <li>
+                <Icon width="34px" height="24px" name="Mastercard" />
+                <SROnly text="Mastercard" />
+              </li>
+              <li>
+                <Icon width="34px" height="24px" name="EloCard" />
+                <SROnly text="Elo Card" />
+              </li>
+              <li>
+                <Icon width="34px" height="24px" name="PayPal" />
+                <SROnly text="PayPal" />
+              </li>
+              <li>
+                <Icon width="34px" height="24px" name="Stripe" />
+                <SROnly text="Stripe" />
+              </li>
+              <li>
+                <Icon width="34px" height="24px" name="GooglePay" />
+                <SROnly text="Google Pay" />
+              </li>
+              <li>
+                <Icon width="34px" height="24px" name="ApplePay" />
+                <SROnly text="Apple Pay" />
+              </li>
+            </UIList>
+          </UIPaymentMethods>
+        )}
 
         <div data-fs-footer-copyright className="text__legend">
           <p>This website uses VTEX technology</p>
@@ -152,5 +180,5 @@ function Footer() {
 }
 
 Footer.displayName = 'Footer'
-
-export default mark(Footer)
+mark(Footer)
+export default Footer

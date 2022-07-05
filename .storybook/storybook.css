@@ -239,6 +239,11 @@ h3.sbdocs.sbdocs-h3 {
   border-radius: var(--fs-border-radius);
 }
 
+.sbdocs-list .sbdocs-li > .sbdocs-div > [data-fs-footer-links] {
+  align-self: baseline;
+  width: 100%;
+}
+
 .sbdocs-list .sbdocs-div > img {
   width: auto;
   max-height: 100%;

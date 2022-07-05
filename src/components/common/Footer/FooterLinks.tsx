@@ -139,14 +139,14 @@ function FooterLinks() {
       </div>
 
       <div className="hidden-mobile">
-        <div data-fs-footer-links-columns>
+        <nav data-fs-footer-links-columns>
           {links.map((section) => (
-            <nav key={section.title}>
+            <div key={section.title}>
               <p className="text__title-mini">{section.title}</p>
               <LinksList items={section.items} />
-            </nav>
+            </div>
           ))}
-        </div>
+        </nav>
       </div>
     </section>
   )
