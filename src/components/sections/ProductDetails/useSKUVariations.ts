@@ -37,7 +37,6 @@ export function useSKUVariations(variants: SKUVariants, mainVariant: string) {
         return
       }
 
-      // let skuVariantKey = ''
       let skuVariantKey = `${mainVariant}-${
         variant.additionalProperty.find(
           (variationDetails) => variationDetails.name === mainVariant
@@ -45,14 +44,10 @@ export function useSKUVariations(variants: SKUVariants, mainVariant: string) {
       }-`
 
       variant.additionalProperty.forEach((property) => {
-        // skuVariantKey += `${property.name}-${property.value}-`
-
         skuVariantKey +=
           property.name === mainVariant
             ? ''
             : `${property.name}-${property.value}-`
-
-        // const isMainVariant = property.name === mainVariant
 
         if (previouslySeenPropertyIDs[property.propertyID]) {
           return
