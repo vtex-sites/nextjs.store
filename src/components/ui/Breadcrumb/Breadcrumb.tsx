@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router'
-import { memo } from 'react'
 import type { BreadcrumbProps as UIBreadcrumbProps } from '@faststore/ui'
 import { Breadcrumb as UIBreadcrumb } from '@faststore/ui'
+import { useRouter } from 'next/router'
+import { memo } from 'react'
 
 import Dropdown, {
   DropdownButton,
@@ -10,6 +10,8 @@ import Dropdown, {
 } from 'src/components/ui/Dropdown'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
+
+import styles from './breadcrumb.module.scss'
 
 type ItemElement = {
   item: string
@@ -41,9 +43,16 @@ function BaseBreadcrumb({
   return (
     <UIBreadcrumb
       divider=""
-      className={isDesktop ? 'hidden-mobile' : 'display-mobile'}
+      className={`${styles.fsBreadcrumb} ${
+        isDesktop ? 'hidden-mobile' : 'display-mobile'
+      }`}
     >
-      <Link aria-label="Go to homepage" href="/">
+      <Link
+        data-fs-breadcrumb-link
+        data-fs-breadcrumb-link-first
+        aria-label="Go to homepage"
+        href="/"
+      >
         <Icon name="House" width={18} height={18} weight="bold" />
       </Link>
 
@@ -52,25 +61,27 @@ function BaseBreadcrumb({
           return breadcrumbList.length === index + 1 ? (
             <span key={String(index)}>{name}</span>
           ) : (
-            <Link href={item} key={String(index)}>
+            <Link data-fs-breadcrumb-link href={item} key={String(index)}>
               {name}
             </Link>
           )
         })}
 
       {collapseBreadcrumb && firstItem && (
-        <Link href={firstItem.item}>{firstItem.name}</Link>
+        <Link data-fs-breadcrumb-link href={firstItem.item}>
+          {firstItem.name}
+        </Link>
       )}
 
       {collapseBreadcrumb && (
         <Dropdown>
-          <DropdownButton>
-            <span>...</span>
+          <DropdownButton data-fs-breadcrumb-dropdown-button>
+            <span data-fs-breadcrumb-dropdown-button-text>...</span>
           </DropdownButton>
-          <DropdownMenu>
+          <DropdownMenu data-fs-breadcrumb-dropdown-menu>
             {mediumItems.map(({ item, name }, index) => (
               <DropdownItem
-                data-breadcrumb-dropdown-item
+                data-fs-breadcrumb-dropdown-item
                 icon={
                   <Icon name="ArrowElbowDownRight" width={24} height={24} />
                 }
@@ -89,7 +100,7 @@ function BaseBreadcrumb({
           return lastItems.length === index + 1 ? (
             <span key={String(index)}>{name}</span>
           ) : (
-            <Link href={item} key={String(index)}>
+            <Link data-fs-breadcrumb-link href={item} key={String(index)}>
               {name}
             </Link>
           )

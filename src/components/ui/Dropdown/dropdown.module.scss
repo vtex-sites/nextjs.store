@@ -93,4 +93,8 @@
       font-size: var(--fs-dropdown-item-small-text-size);
     }
   }
+
+  [data-fs-breadcrumb-dropdown-item] [data-fs-dropdown-item-icon] {
+    margin-top: calc(-1 * var(--fs-spacing-1));
+  }
 }
