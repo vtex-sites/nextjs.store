@@ -46,6 +46,7 @@ function SuggestionProductCard({ product, index }: SuggestionProductCardProps) {
     >
       <Link
         {...linkProps}
+        data-fs-suggestion-product-card-link
         href={href}
         title={name}
         variant="display"
