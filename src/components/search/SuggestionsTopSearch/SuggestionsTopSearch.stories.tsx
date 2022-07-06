@@ -3,8 +3,8 @@ import { rest } from 'msw'
 
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
 
-import { SuggestionsTopSearch } from '.'
-import type { SuggestionsTopSearchProps } from '.'
+import type { SuggestionsTopSearchProps } from './SuggestionsTopSearch'
+import SuggestionsTopSearch from './SuggestionsTopSearch'
 
 const meta = {
   component: SuggestionsTopSearch,

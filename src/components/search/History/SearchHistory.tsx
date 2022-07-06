@@ -7,6 +7,8 @@ import useSearchHistory from 'src/sdk/search/useSearchHistory'
 import useSearchInput from 'src/sdk/search/useSearchInput'
 import type { History } from 'src/sdk/search/useSearchHistory'
 
+import styles from '../search-common.module.scss'
+
 export interface SearchHistoryProps {
   history?: History[]
 }
@@ -20,7 +22,7 @@ const SearchHistory = ({ history = [] }: SearchHistoryProps) => {
   }
 
   return (
-    <section data-fs-search-suggestion-section>
+    <section data-fs-search-suggestion-section className={styles.fsSearch}>
       <div data-fs-search-suggestion-header>
         <p data-fs-search-suggestion-title>History</p>
         <Button variant="tertiary" onClick={clearSearchHistory}>
