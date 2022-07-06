@@ -24,7 +24,7 @@ import {
 import type { SearchInputContextValue } from 'src/sdk/search/useSearchInput'
 import useOnClickOutside from 'src/sdk/ui/useOnClickOutside'
 
-const Suggestions = lazy(() => import('src/components/search/Suggestions'))
+const Suggestions = lazy(() => import('src/components/search/Search'))
 
 declare type SearchInputProps = {
   onSearchClick?: () => void
