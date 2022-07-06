@@ -55,6 +55,7 @@ const SuggestionsTopSearch = forwardRef<
             {terms.map((term, index) => (
               <li key={term.value} data-fs-search-suggestion-item>
                 <Link
+                  data-fs-search-suggestion-item-link
                   variant="display"
                   href={formatSearchPath(term.value)}
                   onClick={() =>
@@ -64,7 +65,9 @@ const SuggestionsTopSearch = forwardRef<
                     )
                   }
                 >
-                  <Badge variant="info">{index + 1}</Badge>
+                  <Badge data-fs-search-suggestion-badge variant="info">
+                    {index + 1}
+                  </Badge>
                   {term.value}
                 </Link>
               </li>

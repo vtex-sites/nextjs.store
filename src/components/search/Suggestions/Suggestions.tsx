@@ -87,6 +87,7 @@ function Suggestions({
           {terms?.map(({ value: suggestion }) => (
             <li key={suggestion} data-fs-search-suggestion-item>
               <Link
+                data-fs-search-suggestion-item-link
                 href={formatSearchPath(suggestion)}
                 onClick={() => {
                   onSearchInputSelection?.(

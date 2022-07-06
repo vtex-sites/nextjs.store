@@ -1,74 +1,115 @@
 @import "src/styles/scaffold";
 
 .fs-search {
+  // --------------------------------------------------------
+  // Design Tokens for Select
+  // --------------------------------------------------------
+  --fs-search-suggestion-min-height : var(--fs-spacing-7);
+
+  // Title
+  --fs-search-suggestion-title: var(--fs-text-size-3);
+  --fs-search-suggestion-title-line-height: 1.5;
+
+  // Title
+  --fs-search-suggestion-title-small-margin-bottom: var(--fs-spacing-1);
+  --fs-search-suggestion-title-small-font-size: var(--fs-text-size-2);
+  --fs-search-suggestion-title-small-color: var(--fs-color-neutral-6);
+
+  // Section
+  --fs-search-suggestion-section-padding: var(--fs-spacing-1) 0;
+  --fs-search-suggestion-section-background-color: var(--fs-color-neutral-0);
+  --fs-search-suggestion-section-border-bottom: var(--fs-border-width) solid var(--fs-border-color-light);
+
+  // Link
+  --fs-search-suggestion-item-link-color : var(--fs-color-text-light);
+  --fs-search-suggestion-item-link-width: 100%;
+  --fs-search-suggestion-item-link-padding-right: var(--fs-spacing-3);
+  --fs-search-suggestion-item-link-padding-left: var(--fs-spacing-3);
+
+  // Item
+  --fs-search-suggestion-item-margin-right: calc(-1 * var(--fs-spacing-3));
+  --fs-search-suggestion-item-margin-left: calc(-1 * var(--fs-spacing-3));
+  --fs-search-suggestion-item-font-size: var(--fs-text-size-2);
+  --fs-search-suggestion-item-line-height: 1.25;
+  --fs-search-suggestion-item-background-color-hover: var(--fs-color-main-0);
+
+  // Item Bold
+  --fs-search-suggestion-item-bold-font-weight: var(--fs-text-weight-bold);
+  --fs-search-suggestion-item-bold-color: var(--fs-text-weight-bold);
+
+  // Icon
+  --fs-search-suggestion-item-icon-color: var(--fs-color-neutral-4);
+  --fs-search-suggestion-item-icon-margin-right: var(--fs-spacing-1);
+
+  // Badge
+  --fs-search-suggestion-badge-margin-right: var(--fs-spacing-1);
+
+  // Default properties
   [data-fs-search-suggestion-header] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: var(--fs-spacing-7);
+    min-height: var(--fs-search-suggestion);
   }
 
   [data-fs-search-suggestion-title] {
-    font-size: var(--fs-text-size-3);
-    line-height: 1.5;
+    font-size: var(--fs-search-suggestion-title);
+    line-height: var(--fs-search-suggestion-title-line-height);
   }
 
   [data-fs-search-suggestion-title="small"] {
-    margin-bottom: var(--fs-spacing-1);
-    font-size: var(--fs-text-size-2);
-    color: var(--fs-color-neutral-6);
+    margin-bottom: var(--fs-search-suggestion-title-small-margin-bottom);
+    font-size: var(--fs-search-suggestion-title-small-font-size);
+    color: var(--fs-search-suggestion-title-small-color);
   }
 
   [data-fs-search-suggestion-section] {
-    padding: var(--fs-spacing-1) 0;
-    background-color: var(--fs-color-neutral-0);
+    padding: var(--fs-search-suggestion-section-padding);
+    background-color: var(--fs-search-suggestion-section-background-color);
+    border-bottom: var(--fs-search-suggestion-section-border-bottom);
 
-    &:not(:last-child) {
-      border-bottom: var(--fs-border-width) solid var(--fs-border-color-light);
+    &:last-child {
+      border-bottom-width: 0;
     }
   }
 
-  // TODO: Temporarily increased CSS specificity because the normal link blue color
-  // was winning. Hoping this will be fixed when using CSS modules.
-  [data-fs-search-suggestions] [data-fs-search-suggestion-section="terms"] {
-    [data-fs-link] {
-      color: var(--fs-color-text-light);
-    }
+  [data-fs-search-suggestion-item-link] {
+    color: var(--fs-search-suggestion-item-link-color);
   }
 
   [data-fs-search-suggestion-item] {
-    margin-right: calc(-1 * var(--fs-spacing-3));
-    margin-left: calc(-1 * var(--fs-spacing-3));
-    font-size: var(--fs-text-size-2);
-    line-height: 1.25;
+    margin-right: var(--fs-search-suggestion-item-margin-right);
+    margin-left: var(--fs-search-suggestion-item-margin-left);
+    font-size: var(--fs-search-suggestion-item-font-size);
+    line-height: var(--fs-search-suggestion-item-line-height);
 
     &:hover {
-      background-color: var(--fs-color-main-0);
+      background-color: var(--fs-search-suggestion-item-background-color-hover);
     }
 
-    [data-fs-link] {
+    [data-fs-suggestion-product-card-link], [data-fs-search-suggestion-item-link] {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      width: 100%;
-      padding-right: var(--fs-spacing-3);
-      padding-left: var(--fs-spacing-3);
+      width: var(--fs-search-suggestion-item-link-width);
+      padding-right: var(--fs-search-suggestion-item-link-padding-right);
+      padding-left: var(--fs-search-suggestion-item-link-padding-left);
     }
 
-    [data-store-badge],
-    [data-fs-search-suggestion-item-icon] {
-      margin-right: var(--fs-spacing-1);
+    [data-fs-search-suggestion-badge] {
+      margin-right: var(--fs-search-suggestion-badge-margin-right);
     }
 
     [data-fs-search-suggestion-item-icon] {
-      color: var(--fs-color-neutral-4);
+      margin-right: var(--fs-search-suggestion-item-icon-margin-right);
+      color: var(--fs-search-suggestion-item-icon-color);
     }
   }
 
   [data-fs-search-suggestions] {
     [data-fs-search-suggestion-item-bold] {
-      font-weight: var(--fs-text-weight-bold);
-      color: var(--fs-color-neutral-7);
+      font-weight: var(--fs-search-suggestion-item-bold-font-weight);
+      color: var(--fs-search-suggestion-item-bold-color);
     }
   }
 }

@@ -33,6 +33,7 @@ const SearchHistory = ({ history = [] }: SearchHistoryProps) => {
         {searchHistory.map((item) => (
           <li key={item.term} data-fs-search-suggestion-item>
             <Link
+              data-fs-search-suggestion-item-link
               variant="display"
               href={item.path}
               onClick={() => onSearchInputSelection?.(item.term, item.path)}
