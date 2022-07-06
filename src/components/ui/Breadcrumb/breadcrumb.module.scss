@@ -50,6 +50,7 @@
   // --------------------------------------------------------
   // Structural Styles
   // --------------------------------------------------------
+
   width: 100%;
 
   @include media(">=notebook") {
@@ -85,7 +86,7 @@
       border-radius: var(--fs-breadcrumb-link-first-border-radius);
 
       &:hover, &:focus {
-        background-color: var(--fs-breadcrumb-link-first-background-color);
+        background-color: var(--fs-breadcrumb-link-first-hover-background-color);
       }
     }
 
