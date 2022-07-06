@@ -19,6 +19,9 @@ type ItemElement = {
   position: number
 }
 export interface BreadcrumbProps extends UIBreadcrumbProps {
+  /**
+   * Array of ItemElement that represents each breadcrumb item.
+   */
   breadcrumbList: ItemElement[]
 }
 
