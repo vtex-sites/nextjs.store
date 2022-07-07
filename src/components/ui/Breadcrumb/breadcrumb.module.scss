@@ -42,7 +42,6 @@
   // Dropdown Button Text
   --fs-breadcrumb-dropdown-button-text-size           : var(--fs-text-size-3);
   --fs-breadcrumb-dropdown-button-text-weight         : var(--fs-text-weight-bold);
-  --fs-breadcrumb-dropdown-button-text-transform      : translate(rem(1px), rem(-6px));
 
   // Current
   --fs-breadcrumb-item-current-text-color             : var(--fs-color-text-light);
@@ -152,7 +151,6 @@
     display: inline-block;
     font-size: var(--fs-breadcrumb-dropdown-button-text-size);
     font-weight: var(--fs-breadcrumb-dropdown-button-text-weight);
-    transform: var(--fs-breadcrumb-dropdown-button-text-transform);
   }
 
   // --------------------------------------------------------
