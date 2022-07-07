@@ -23,6 +23,14 @@ interface Props {
   productId: string
 }
 
+/**
+ * Name of the property that's considered **dominant**. Which means that all
+ * other varying properties will be filtered according to the current value
+ * of this property.
+ *
+ * Ex: If `Red` is the current value for the 'Color' variation, we'll only
+ * render possible values for 'Size' that are available in `Red`.
+ */
 const DOMINANT_SKU_SELECTOR_PROPERTY = 'Color'
 
 function getSkuSlug(
@@ -33,7 +41,7 @@ function getSkuSlug(
   let slugsMapKey = ''
 
   for (const key in selectedVariations) {
-    if (Object.prototype.hasOwnProperty.call(selectedVariations, key)) {
+    if (key in selectedVariations) {
       const variationValue = selectedVariations[key]
 
       slugsMapKey += `${key}-${variationValue}-`
@@ -43,7 +51,7 @@ function getSkuSlug(
   // Remove trailing '-'
   slugsMapKey = slugsMapKey.slice(0, slugsMapKey.length - 1)
 
-  const variantExists = Boolean(slugsMap[slugsMapKey])
+  const variantExists = slugsMapKey in slugsMap
 
   if (!variantExists) {
     const possibleVariants = Object.keys(slugsMap)
@@ -156,7 +164,7 @@ function Selectors({ options, productId }: Props) {
   )
 
   // 'Color' variants are singled-out here because they will always be rendered
-  // as 'image' variants.
+  // as 'image' variants. And they're also the 'dominant' variants in our store.
   const { Color: colorVariants, ...otherSKUVariants } =
     filteredOptionsByCurrentColor
 
@@ -165,6 +173,7 @@ function Selectors({ options, productId }: Props) {
       <SelectorsStateContext.Provider value={selectedVariations}>
         {colorVariants && (
           <SkuSelector
+            skuPropertyName="Color"
             label="Color"
             variant="image"
             options={colorVariants}
@@ -186,6 +195,7 @@ function Selectors({ options, productId }: Props) {
           Object.keys(otherSKUVariants).map((skuVariant) => (
             <SkuSelector
               label={skuVariant}
+              skuPropertyName={skuVariant}
               key={skuVariant}
               variant="label"
               options={otherSKUVariants[skuVariant]}
