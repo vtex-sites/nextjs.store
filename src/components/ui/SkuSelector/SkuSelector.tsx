@@ -104,7 +104,7 @@ function SkuSelector({
           onChange?.(e)
         }}
       >
-        {options?.map((option, index) => {
+        {options.map((option, index) => {
           return (
             <RadioOption
               key={String(index)}
