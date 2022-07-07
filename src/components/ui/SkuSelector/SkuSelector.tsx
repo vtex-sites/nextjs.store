@@ -1,8 +1,9 @@
 import { Label, RadioGroup, RadioOption } from '@faststore/ui'
-import { useState } from 'react'
 import type { ChangeEventHandler } from 'react'
 
 import { Image } from 'src/components/ui/Image'
+
+import { useSelectorState } from './Selectors'
 
 interface DefaultSkuProps {
   /**
@@ -67,6 +68,12 @@ export interface SkuSelectorProps {
    */
   label?: string
   /**
+   * Name of the property the SKU Selector is showing options for.
+   * Notice that this name should match the property name as it is in the
+   * store's catalog.
+   */
+  skuPropertyName: string
+  /**
    * Function to be triggered when SKU option change.
    */
   onChange?: ChangeEventHandler<HTMLInputElement>
@@ -77,10 +84,11 @@ function SkuSelector({
   variant,
   options,
   onChange,
-  defaultSku,
   testId = 'store-sku-selector',
+  skuPropertyName,
 }: SkuSelectorProps) {
-  const [selectedSku, setSelectedSku] = useState<string>(defaultSku ?? '')
+  const selectorsState = useSelectorState()
+  const selectedSku = selectorsState[skuPropertyName]
 
   return (
     <div data-store-sku-selector data-testid={testId} data-variant={variant}>
@@ -94,7 +102,6 @@ function SkuSelector({
         name={`sku-selector-${variant}`}
         onChange={(e) => {
           onChange?.(e)
-          setSelectedSku(e.currentTarget.value)
         }}
       >
         {options?.map((option, index) => {
@@ -108,15 +115,16 @@ function SkuSelector({
             >
               {variant === 'label' && <span>{option.label}</span>}
               {variant === 'image' && 'src' in option && (
-                <div style={{ height: 40, width: 40 }}>
+                <span>
                   <Image
+                    data-sku-selector-image
                     src={option.src}
                     alt={option.alt}
-                    width={40}
-                    height={40}
+                    width={20}
+                    height={20}
                     loading="lazy"
                   />
-                </div>
+                </span>
               )}
             </RadioOption>
           )
