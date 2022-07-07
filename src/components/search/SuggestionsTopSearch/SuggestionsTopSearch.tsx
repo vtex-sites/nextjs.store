@@ -53,7 +53,7 @@ const SuggestionsTopSearch = forwardRef<
           </div>
           <UIList variant="ordered">
             {terms.map((term, index) => (
-              <li key={term.value} data-fs-search-suggestion-item>
+              <li key={`${term.value}-${index}`} data-fs-search-suggestion-item>
                 <Link
                   data-fs-search-suggestion-item-link
                   variant="display"
