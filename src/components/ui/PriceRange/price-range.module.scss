@@ -8,10 +8,15 @@
   // Default properties
   --fs-price-range-height                   : var(--fs-spacing-2);
   --fs-price-range-border-radius            : var(--fs-border-radius);
+  --fs-price-range-margin-bottom            : var(--fs-spacing-3);
 
   --fs-price-range-transition-function      : var(--fs-transition-function);
   --fs-price-range-transition-property      : var(--fs-transition-property);
   --fs-price-range-transition-timing        : var(--fs-transition-timing);
+
+  --fs-price-range-value-label-width        : var(--fs-spacing-7);
+  --fs-price-range-value-label-bottom       : var(--fs-spacing-4);
+  --fs-price-range-value-label-bkg-color    : var(--fs-color-body-bkg);
 
   // Slider
   --fs-price-range-slider-bkg-color         : var(--fs-color-neutral-bkg);
@@ -21,7 +26,7 @@
   --fs-price-range-thumb-bkg-color          : var(--fs-color-primary-bkg-active);
   --fs-price-range-thumb-bkg-color-hover    : var(--fs-color-primary-bkg-hover);
   --fs-price-range-thumb-radius             : var(--fs-border-radius-circle);
-  --fs-price-range-thumb-size               : var(--fs-spacing-4);
+  --fs-price-range-thumb-size               : var(--fs-price-range-value-label-bottom);
   --fs-price-range-thumb-border-color       : var(--fs-price-range-thumb-bkg-color);
   --fs-price-range-thumb-border-color-hover : var(--fs-price-range-thumb-bkg-color-hover);
   --fs-price-range-thumb-border-width       : var(--fs-border-width);
@@ -34,6 +39,7 @@
     position: relative;
     width: 100%;
     height: var(--fs-price-range-height);
+    margin-bottom: var(--fs-price-range-margin-bottom);
     background-color: var(--fs-price-range-slider-bkg-color);
     border-radius: var(--fs-price-range-border-radius);
   }
@@ -43,6 +49,18 @@
     height: var(--fs-price-range-height);
     background-color: var(--fs-price-range-selection-bkg-color);
     border-radius: var(--fs-price-range-border-radius);
+  }
+
+  [data-price-range-value-label="min"],
+  [data-price-range-value-label="max"] {
+    bottom: var(--fs-price-range-value-label-bottom);
+
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    width: var(--fs-price-range-value-label-width);
+    background-color: var(--fs-price-range-value-label-bkg-color);
+    transform: translateX(-50%);
   }
 
   // Thumb styles for Webkit based browsers (Chrome, Edge)

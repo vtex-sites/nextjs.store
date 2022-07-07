@@ -10,13 +10,15 @@ import InputText from '../InputText'
 type Props = Omit<PriceRangeProps, 'formatter'>
 
 function PriceRange({ min, max, ...otherProps }: Props) {
-  const formatter = usePriceFormatter()
+  const formatter = usePriceFormatter({ decimals: false })
   const inputMinRef = useRef<HTMLInputElement>(null)
   const inputMaxRef = useRef<HTMLInputElement>(null)
   const priceRangeRef = useRef<{
-    setEdgeValues: (values: { min: number; max: number }) => void
+    setPriceRangeValues: (values: { min: number; max: number }) => void
   }>()
 
+  const [inputMinError, setInputMinError] = useState<string>()
+  const [inputMaxError, setInputMaxError] = useState<string>()
   const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({
     min: min.selected,
     max: max.selected,
@@ -32,6 +34,34 @@ function PriceRange({ min, max, ...otherProps }: Props) {
     if (inputMaxRef.current?.value) {
       inputMaxRef.current.value = String(value.max)
     }
+  }
+
+  function onChangeInputMin(value: string) {
+    setInputMinError(undefined)
+
+    if (Number(value) > priceRange.max) {
+      setInputMinError(`Min price can't be greater than max`)
+    }
+
+    setPriceRange({ ...priceRange, min: Number(value) })
+    priceRangeRef.current?.setPriceRangeValues({
+      ...priceRange,
+      min: Number(value),
+    })
+  }
+
+  function onChangeInputMax(value: string) {
+    setInputMaxError(undefined)
+
+    if (Number(value) < priceRange.min) {
+      setInputMaxError(`Max price can't be smaller than min`)
+    }
+
+    setPriceRange({ ...priceRange, max: Number(value) })
+    priceRangeRef.current?.setPriceRangeValues({
+      ...priceRange,
+      max: Number(value),
+    })
   }
 
   return (
@@ -53,31 +83,27 @@ function PriceRange({ min, max, ...otherProps }: Props) {
       <div className={styles.fsPriceRange} data-fs-price-range-inputs>
         <InputText
           id="price-range-min"
-          type="number"
-          value={priceRange.min}
           label="Min"
+          type="number"
+          inputMode="numeric"
+          min={min.absolute}
+          max={priceRange.max}
+          error={inputMinError}
+          value={priceRange.min}
           inputRef={inputMinRef}
-          onChange={(e) => {
-            setPriceRange({ ...priceRange, min: Number(e.target.value) })
-            priceRangeRef.current?.setEdgeValues({
-              ...priceRange,
-              min: Number(e.target.value),
-            })
-          }}
+          onChange={(e) => onChangeInputMin(e.target.value)}
         />
         <InputText
           id="price-range-max"
-          type="number"
-          value={priceRange.max}
           label="Max"
+          type="number"
+          inputMode="numeric"
+          min={priceRange.min}
+          max={max.absolute}
+          error={inputMaxError}
+          value={priceRange.max}
           inputRef={inputMaxRef}
-          onChange={(e) => {
-            setPriceRange({ ...priceRange, max: Number(e.target.value) })
-            priceRangeRef.current?.setEdgeValues({
-              ...priceRange,
-              max: Number(e.target.value),
-            })
-          }}
+          onChange={(e) => onChangeInputMax(e.target.value)}
         />
       </div>
     </>
