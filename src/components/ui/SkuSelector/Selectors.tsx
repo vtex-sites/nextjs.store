@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useContext, createContext } from 'react'
 import { useRouter } from 'next/router'
 import type { NextRouter } from 'next/router'
 
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 
 import SkuSelector from './SkuSelector'
-import { useSKUVariations } from '../../sections/ProductDetails/useSKUVariations'
+import { useSKUVariations } from './useSKUVariations'
 
 type SKUOptionsByType = Record<
   string,
@@ -140,12 +140,11 @@ function navigateToSku({
   router.push(whereTo)
 }
 
-function SkuSelectors({ options, productId }: Props) {
-  const router = useRouter()
+const SelectorsStateContext = createContext<Record<string, string>>({})
 
-  const [selectedVariations, setSelectedVariations] = useState(() =>
-    getSelectedVariations(productId, options)
-  )
+function Selectors({ options, productId }: Props) {
+  const router = useRouter()
+  const selectedVariations = getSelectedVariations(productId, options)
 
   const { optionsByType, slugsMap, variationsByMainVariationValues } =
     useSKUVariations(options, DOMINANT_SKU_SELECTOR_PROPERTY)
@@ -163,58 +162,54 @@ function SkuSelectors({ options, productId }: Props) {
 
   return (
     <section>
-      {colorVariants && (
-        <SkuSelector
-          variant="image"
-          defaultSku={selectedVariations.Color}
-          options={colorVariants}
-          onChange={(e) => {
-            const newVariationValue = e.currentTarget.value
-
-            setSelectedVariations({
-              ...selectedVariations,
-              Color: newVariationValue,
-            })
-
-            navigateToSku({
-              router,
-              slugsMap,
-              selectedVariations,
-              updatedVariationName: 'Color',
-              updatedVariationValue: newVariationValue,
-              dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
-            })
-          }}
-        />
-      )}
-      {otherSKUVariants &&
-        Object.keys(otherSKUVariants).map((skuVariant) => (
+      <SelectorsStateContext.Provider value={selectedVariations}>
+        {colorVariants && (
           <SkuSelector
-            key={skuVariant}
-            variant="label"
-            defaultSku={selectedVariations[skuVariant]}
-            options={otherSKUVariants[skuVariant]}
+            label="Color"
+            variant="image"
+            options={colorVariants}
             onChange={(e) => {
               const newVariationValue = e.currentTarget.value
-
-              setSelectedVariations({
-                ...selectedVariations,
-                [skuVariant]: newVariationValue,
-              })
 
               navigateToSku({
                 router,
                 slugsMap,
                 selectedVariations,
-                updatedVariationName: skuVariant,
+                updatedVariationName: 'Color',
                 updatedVariationValue: newVariationValue,
                 dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
               })
             }}
           />
-        ))}
+        )}
+        {otherSKUVariants &&
+          Object.keys(otherSKUVariants).map((skuVariant) => (
+            <SkuSelector
+              label={skuVariant}
+              key={skuVariant}
+              variant="label"
+              options={otherSKUVariants[skuVariant]}
+              onChange={(e) => {
+                const newVariationValue = e.currentTarget.value
+
+                navigateToSku({
+                  router,
+                  slugsMap,
+                  selectedVariations,
+                  updatedVariationName: skuVariant,
+                  updatedVariationValue: newVariationValue,
+                  dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
+                })
+              }}
+            />
+          ))}
+      </SelectorsStateContext.Provider>
     </section>
   )
 }
 
-export default SkuSelectors
+export function useSelectorState() {
+  return useContext(SelectorsStateContext)
+}
+
+export default Selectors
