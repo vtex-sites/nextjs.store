@@ -95,12 +95,15 @@ export const Template = () => {
   const { fade, fadeOut } = useFadeEffect()
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <ButtonIcon
+      <Button
+        variant="tertiary"
+        icon={<Icon name="List" width={16} height={16} />}
+        iconPosition="left"
         aria-label="Open SlideOver"
-        icon={<Icon name="List" width={32} height={32} />}
         onClick={openCart}
-      />
-      <p style={{ marginLeft: '12px' }}>Open SlideOver</p>
+      >
+        Open SlideOver
+      </Button>
       {displayCart && <SlideOverTemplate />}
     </div>
   )
@@ -110,13 +113,15 @@ export const TemplateNavbarSlider = () => {
   const { openNavbar, navbar: displayNavbar } = useUI()
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <ButtonIcon
-        data-fs-navbar-button-menu
+      <Button
+        variant="tertiary"
+        icon={<Icon name="List" width={16} height={16} />}
+        iconPosition="left"
         aria-label="Open Menu"
-        icon={<Icon name="List" width={32} height={32} />}
         onClick={openNavbar}
-      />
-      <p style={{ marginLeft: '12px' }}>Open Menu</p>
+      >
+        Open Menu
+      </Button>
       {displayNavbar && <NavbarSlider />}
     </div>
   )
