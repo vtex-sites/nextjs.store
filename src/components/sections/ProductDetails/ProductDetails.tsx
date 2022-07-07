@@ -16,7 +16,7 @@ import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProduct } from 'src/sdk/product/useProduct'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
-import SkuSelectors from 'src/components/ui/SkuSelector/Selectors'
+import Selectors from 'src/components/ui/SkuSelector/Selectors'
 
 import Section from '../Section'
 
@@ -127,7 +127,7 @@ function ProductDetails({ product: staleProduct }: Props) {
         <ImageGallery images={productImages} />
 
         <section className="product-details__settings">
-          <SkuSelectors options={hasVariant} productId={sku} />
+          <Selectors options={hasVariant} productId={sku} />
           <section className="product-details__values">
             <div className="product-details__prices">
               <Price
