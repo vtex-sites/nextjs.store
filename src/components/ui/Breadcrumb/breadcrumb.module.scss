@@ -32,7 +32,6 @@
 
   // Dropdown Button
   --fs-breadcrumb-dropdown-button-padding             : 0 calc(var(--fs-spacing-0) / 2);
-  --fs-breadcrumb-dropdown-button-margin              : calc(var(--fs-spacing-0) / 4);
   --fs-breadcrumb-dropdown-button-color               : var(--fs-color-link);
   --fs-breadcrumb-dropdown-button-border-radius       : var(--fs-spacing-0);
   --fs-breadcrumb-dropdown-button-transition-property : var(--fs-transition-property);
@@ -133,7 +132,6 @@
   [data-fs-breadcrumb-dropdown-button] {
     display: inline;
     padding: var(--fs-breadcrumb-dropdown-button-padding);
-    margin: var(--fs-breadcrumb-dropdown-button-margin);
     color: var(--fs-breadcrumb-dropdown-button-color);
     letter-spacing: var(--fs-spacing-0);
     cursor: pointer;
