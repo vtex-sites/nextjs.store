@@ -79,7 +79,7 @@ function BaseBreadcrumb({
       {collapseBreadcrumb && (
         <Dropdown>
           <DropdownButton data-fs-breadcrumb-dropdown-button>
-            <span data-fs-breadcrumb-dropdown-button-text>...</span>
+            <Icon name="DotsThree" width={24} height={24} />
           </DropdownButton>
           <DropdownMenu data-fs-breadcrumb-dropdown-menu>
             {mediumItems.map(({ item, name }, index) => (
