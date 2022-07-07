@@ -13,6 +13,9 @@ const story = {
     id: {
       type: { name: 'string', required: true },
     },
+    onClear: {
+      table: { disable: true },
+    },
   },
 }
 
@@ -30,7 +33,7 @@ export const Disabled = Template.bind({})
 Default.args = {
   id: 'default-input-text',
   label: 'Email',
-  errorMessage: 'Please, add a valid email',
+  error: 'Please, add a valid email',
   disabled: false,
 }
 
@@ -38,7 +41,7 @@ HasError.args = {
   id: 'error-input-text',
   label: 'Email',
   value: 'invalid@mail',
-  errorMessage: 'Please, add a valid email',
+  error: 'Please, add a valid email',
   disabled: false,
 }
 
@@ -46,14 +49,14 @@ Actionable.args = {
   id: 'actionable-input-text',
   label: 'Postal Code',
   actionable: true,
-  errorMessage: 'Invalid Postal Code',
+  error: 'Invalid Postal Code',
   disabled: false,
 }
 
 Disabled.args = {
   id: 'disabled-input-text',
   label: 'Email',
-  errorMessage: 'Please, add a valid email',
+  error: 'Please, add a valid email',
   disabled: true,
 }
 
