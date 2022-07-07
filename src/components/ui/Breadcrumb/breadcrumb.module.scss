@@ -19,7 +19,7 @@
   // Link First
   --fs-breadcrumb-link-first-padding                  : var(--fs-spacing-1);
   --fs-breadcrumb-link-first-border-radius            : var(--fs-border-radius-circle);
-  --fs-breadcrumb-link-first-hover-background-color   : var(--fs-color-primary-bkg-light);
+  --fs-breadcrumb-link-first-hover-bkg-color          : var(--fs-color-primary-bkg-light);
 
   // Icon
   --fs-breadcrumb-item-icon-color                     : var(--fs-color-text);
@@ -85,7 +85,7 @@
       border-radius: var(--fs-breadcrumb-link-first-border-radius);
 
       &:hover, &:focus {
-        background-color: var(--fs-breadcrumb-link-first-hover-background-color);
+        background-color: var(--fs-breadcrumb-link-first-hover-bkg-color);
       }
     }
 
