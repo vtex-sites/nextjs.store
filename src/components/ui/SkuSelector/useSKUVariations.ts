@@ -16,6 +16,21 @@ type SKUOptionsByType = Record<
   >
 >
 
+function findSkuVariationImage(
+  availableImages: Array<{
+    url: string
+    alternateName: string
+  }>,
+  skuVariationImageAlt = 'skuvariation'
+) {
+  return (
+    availableImages.find(
+      (imageProperties) =>
+        imageProperties.alternateName === skuVariationImageAlt
+    ) ?? availableImages[0]
+  )
+}
+
 export function useSKUVariations(variants: SKUVariants, mainVariant: string) {
   return useMemo(() => {
     const optionsByType: SKUOptionsByType = {}
@@ -54,11 +69,11 @@ export function useSKUVariations(variants: SKUVariants, mainVariant: string) {
         }
 
         const isColorVariant = property.name === 'Color'
-        const [firstAvailableImage] = variant.image
+        const variantImageToUse = findSkuVariationImage(variant.image)
         const propertyToAdd = isColorVariant
           ? {
-              src: firstAvailableImage.url,
-              alt: firstAvailableImage.alternateName,
+              src: variantImageToUse.url,
+              alt: variantImageToUse.alternateName,
               label: property.value,
               value: property.value,
             }
