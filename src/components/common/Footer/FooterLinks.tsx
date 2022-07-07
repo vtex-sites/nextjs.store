@@ -142,7 +142,7 @@ function FooterLinks() {
         <nav data-fs-footer-links-columns>
           {links.map((section) => (
             <div key={section.title}>
-              <p className="text__title-mini">{section.title}</p>
+              <p data-fs-footer-title>{section.title}</p>
               <LinksList items={section.items} />
             </div>
           ))}

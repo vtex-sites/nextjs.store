@@ -50,10 +50,15 @@ Footer section is made with `FooterLinks`, [Incentives](?path=/docs/organisms-in
 
 <TokenTable>
   <TokenRow token="--fs-footer-min-height-mobile" value="rem(860px)" />
-  <TokenRow token="--fs-footer-min-height-notebook" value="rem(546px)" />
+  <TokenRow token="--fs-footer-min-height-notebook" value="rem(486px)" />
+  <TokenDivider />
   <TokenRow
     token="--fs-footer-spacing-vertical-mobile"
     value="var(--fs-spacing-4)"
+  />
+  <TokenRow
+    token="--fs-footer-spacing-vertical-notebook"
+    value="var(--fs-spacing-5)"
   />
   <TokenRow
     token="--fs-footer-spacing-horizontal-notebook"
@@ -71,6 +76,8 @@ Footer section is made with `FooterLinks`, [Incentives](?path=/docs/organisms-in
 
 ## Nested Elements
 
+### Divisor
+
 <TokenTable>
   <TokenRow
     token="--fs-footer-divisor-border-width"
@@ -83,9 +90,42 @@ Footer section is made with `FooterLinks`, [Incentives](?path=/docs/organisms-in
   />
 </TokenTable>
 
+### Title
+
+<TokenTable>
+  <TokenRow token="--fs-footer-title-size" value="var(--fs-text-size-body)" />
+  <TokenRow token="--fs-footer-title-line-height" value="1.25" />
+  <TokenRow
+    token="--fs-footer-title-weight"
+    value="var(--fs-text-weight-bold)"
+  />
+  <TokenRow
+    token="--fs-footer-title-margin-bottom"
+    value="var(--fs-spacing-1)"
+  />
+</TokenTable>
+
+### Payment Methods
+
+<TokenTable>
+  <TokenRow
+    token="--fs-footer-payment-methods-flags-border-width"
+    value="var(--fs-border-width)"
+  />
+  <TokenRow
+    token="--fs-footer-payment-methods-flags-border-color"
+    value="var(--fs-color-neutral-3)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-footer-payment-methods-flags-border-radius"
+    value="var(--fs-border-radius-small)"
+  />
+</TokenTable>
+
 ---
 
-## Components
+## Compound Components
 
 <SectionList grid="row">
   <SectionItem

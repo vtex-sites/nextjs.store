@@ -48,7 +48,7 @@ function Footer({
 
         {sectionSocial && (
           <section data-fs-footer-social>
-            <p className="text__title-mini">Follow us</p>
+            <p data-fs-footer-title>Follow us</p>
             <UIList variant="unordered">
               <li>
                 <Link
@@ -126,8 +126,8 @@ function Footer({
         />
 
         {sectionPaymentMethods && (
-          <UIPaymentMethods>
-            <p className="text__title-mini">Payment Methods</p>
+          <UIPaymentMethods data-fs-footer-payment-methods>
+            <p data-fs-footer-title>Payment Methods</p>
             <UIList>
               <li>
                 <Icon width="34px" height="24px" name="Visa" />

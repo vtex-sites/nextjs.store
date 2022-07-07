@@ -6,16 +6,29 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-footer-min-height-mobile           : rem(860px);
-  --fs-footer-min-height-notebook         : rem(546px);
-  --fs-footer-spacing-vertical-mobile     : var(--fs-spacing-4);
-  --fs-footer-spacing-horizontal-notebook : var(--fs-grid-gap-3);
+  --fs-footer-min-height-mobile                   : rem(860px);
+  --fs-footer-min-height-notebook                 : rem(486px);
 
-  --fs-footer-bkg-color                   : var(--fs-color-neutral-bkg);
+  --fs-footer-spacing-vertical-mobile             : var(--fs-spacing-4);
+  --fs-footer-spacing-vertical-notebook           : var(--fs-spacing-5);
+  --fs-footer-spacing-horizontal-notebook         : var(--fs-grid-gap-3);
+
+  --fs-footer-bkg-color                           : var(--fs-color-neutral-bkg);
 
   // Divisor
-  --fs-footer-divisor-border-width        : var(--fs-border-width);
-  --fs-footer-divisor-border-color        : var(--fs-border-color-light);
+  --fs-footer-divisor-border-width                : var(--fs-border-width);
+  --fs-footer-divisor-border-color                : var(--fs-border-color-light);
+
+  // Title
+  --fs-footer-title-size                          : var(--fs-text-size-body);
+  --fs-footer-title-line-height                   : 1.25;
+  --fs-footer-title-weight                        : var(--fs-text-weight-bold);
+  --fs-footer-title-margin-bottom                 : var(--fs-spacing-1);
+
+  // Payment Methods
+  --fs-footer-payment-methods-flags-border-width  : var(--fs-border-width);
+  --fs-footer-payment-methods-flags-border-color  : var(--fs-color-neutral-3);
+  --fs-footer-payment-methods-flags-border-radius : var(--fs-border-radius-small);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -31,6 +44,17 @@
 
   @include media(">=notebook") {
     contain-intrinsic-size: var(--fs-footer-min-height-notebook);
+  }
+
+  [data-fs-footer-title] {
+    margin-bottom: var(--fs-footer-title-margin-bottom);
+    font-size: var(--fs-footer-title-size);
+    font-weight: var(--fs-footer-title-weight);
+    line-height: var(--fs-footer-title-line-height);
+
+    @include media("<notebook") {
+      text-align: center;
+    }
   }
 
   [data-fs-footer-note],
@@ -61,8 +85,8 @@
 
   [data-fs-footer-nav] {
     @include media(">=notebook") {
-      row-gap: var(--fs-spacing-7);
-      padding-bottom: var(--fs-spacing-5);
+      row-gap: var(--fs-footer-spacing-vertical-notebook);
+      padding-bottom: var(--fs-footer-spacing-vertical-notebook);
     }
   }
 
@@ -81,55 +105,16 @@
     }
 
     @include media(">=notebook") {
-      row-gap: var(--fs-grid-gap-4);
+      row-gap: var(--fs-footer-spacing-vertical-notebook);
       padding-top: 0;
     }
+  }
 
-    [data-store-payment-methods] {
-      margin: var(--fs-footer-spacing-vertical-mobile) auto;
-
-      @include media(">=notebook") {
-        grid-column: 10 / span 3;
-        order: 3;
-        margin: 0;
-      }
-
-      @include media(">=desktop") {
-        grid-column: 11 / span 2;
-      }
-    }
-
-    [data-store-icon] {
-      @include media(">=notebook") {
-        grid-column: span 2;
-      }
-    }
-
-    [data-payment-methods-flags] {
-      p {
-        margin-bottom: var(--fs-spacing-3);
-        text-align: center;
-
-        @include media(">=notebook") {
-          text-align: left;
-        }
-      }
-
-      svg {
-        border: var(--fs-border-width) solid var(--fs-color-neutral-3);
-        border-radius: var(--fs-border-radius-small);
-      }
-
-      [data-store-list] {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, max-content));
-        row-gap: var(--fs-spacing-1);
-        justify-content: space-between;
-
-        @include media("<notebook") {
-          column-gap: var(--fs-grid-gap-2);
-        }
-      }
+  [data-fs-footer-social],
+  [data-fs-footer-payment-methods] {
+    @include media(">=notebook") {
+      grid-column: 11 / span 2;
+      margin-left: calc(-1 * var(--fs-spacing-3));
     }
   }
 
@@ -141,30 +126,12 @@
       padding: var(--fs-footer-spacing-vertical-mobile) 0 var(--fs-spacing-3);
     }
 
-    @include media(">=notebook") {
-      grid-column: 10 / span 3;
-    }
-
-    @include media(">=desktop") {
-      grid-column: 11 / span 2;
-    }
-
-    p {
-      text-align: center;
-
-      @include media(">=notebook") {
-        text-align: left;
-      }
-    }
-
     [data-store-list] {
       display: flex;
       justify-content: center;
-      margin-top: var(--fs-spacing-1);
 
       @include media(">=notebook") {
         justify-content: space-between;
-        margin-top: var(--fs-spacing-0);
       }
 
       [data-fs-link] {
@@ -174,6 +141,43 @@
         min-width: var(--fs-control-tap-size);
         min-height: var(--fs-control-tap-size);
         padding: var(--fs-spacing-1);
+      }
+    }
+  }
+
+  [data-fs-footer-payment-methods] {
+    @include media("<notebook") {
+      margin: var(--fs-footer-spacing-vertical-mobile) auto;
+    }
+
+    @include media(">=notebook") {
+      order: 3;
+    }
+  }
+
+  [data-store-icon] {
+    @include media(">=notebook") {
+      grid-column: span 2;
+    }
+  }
+
+  [data-payment-methods-flags] {
+    svg {
+      border: var(--fs-footer-payment-methods-flags-border-width) solid var(--fs-footer-payment-methods-flags-border-color);
+      border-radius: var(--fs-footer-payment-methods-flags-border-radius);
+    }
+
+    [data-store-list] {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, max-content));
+      row-gap: var(--fs-spacing-1);
+      justify-content: space-between;
+      margin-top: var(--fs-spacing-3);
+
+      li { display: flex; }
+
+      @include media("<notebook") {
+        column-gap: var(--fs-grid-gap-2);
       }
     }
   }
@@ -192,11 +196,13 @@
     }
   }
 
-  &[data-fs-footer-links] {
-    [data-store-list] {
-      margin-bottom: var(--fs-spacing-2);
-    }
+  [data-fs-footer-links-columns] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, auto));
+    grid-gap: var(--fs-footer-spacing-horizontal-notebook);
+  }
 
+  &[data-fs-footer-links] {
     [data-fs-link] {
       display: inline-block;
       padding-left: 0;
@@ -208,16 +214,6 @@
 
     @include media(">=desktop") {
       grid-column: span 8;
-    }
-  }
-
-  [data-fs-footer-links-columns] {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    grid-gap: var(--fs-footer-spacing-horizontal-notebook);
-
-    p {
-      margin-bottom: var(--fs-spacing-1);
     }
   }
 
