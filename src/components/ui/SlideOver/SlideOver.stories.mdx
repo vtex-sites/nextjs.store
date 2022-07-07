@@ -7,6 +7,7 @@ import {
   useSearch,
 } from '@faststore/sdk'
 import UIProvider, { useUI } from 'src/sdk/ui/Provider'
+import { useFadeEffect } from 'src/sdk/ui/useFadeEffect'
 import { useCart } from 'src/sdk/cart/useCart'
 
 import { NavbarSlider } from 'src/components/common/Navbar'
@@ -38,6 +39,72 @@ import {
 } from 'src/../.storybook/components'
 
 <Meta component={SlideOver} title="Organisms/SlideOver" />
+
+export function SlideOverTemplate() {
+  const { cart: displayCart, closeCart } = useUI()
+  const { fade, fadeOut } = useFadeEffect()
+  return (
+    <SlideOver
+      fade={fade}
+      isOpen={displayCart}
+      onDismiss={fadeOut}
+      size="partial"
+      direction="rightSide"
+      onTransitionEnd={() => fade === 'out' && closeCart()}
+    >
+      <header
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '1rem',
+        }}
+      >
+        <div>
+          <p className="text__lead">SlideOver</p>
+        </div>
+        <ButtonIcon
+          aria-label="Close"
+          icon={<Icon name="X" width={32} height={32} />}
+          onClick={fadeOut}
+        />
+      </header>
+      <main
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '1rem',
+          height: '100%',
+        }}
+      >
+        <p
+          style={{
+            margin: 'auto',
+          }}
+        >
+          A generic <code>SlideOver</code> component.
+        </p>
+      </main>
+    </SlideOver>
+  )
+}
+
+export const Template = () => {
+  const { cart: displayCart, openCart } = useUI()
+  const { fade, fadeOut } = useFadeEffect()
+  return (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <ButtonIcon
+        aria-label="Open SlideOver"
+        icon={<Icon name="List" width={32} height={32} />}
+        onClick={openCart}
+      />
+      <p style={{ marginLeft: '12px' }}>Open SlideOver</p>
+      {displayCart && <SlideOverTemplate />}
+    </div>
+  )
+}
 
 export const TemplateNavbarSlider = () => {
   const { openNavbar, navbar: displayNavbar } = useUI()
@@ -122,30 +189,14 @@ This component represents an aditional session that complements the screen's inf
 `import SlideOver from 'src/components/ui/SlideOver'`
 
 <Canvas>
-  <Story name="overview-navbar-slider">
+  <Story name="default">
     <TemplateProvider>
-      <TemplateNavbarSlider />
+      <Template />
     </TemplateProvider>
   </Story>
 </Canvas>
 
-<Canvas>
-  <Story name="overview-cart-sidebar">
-    <TemplateProvider>
-      <TemplateCartSidebar />
-    </TemplateProvider>
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="overview-filter-slider">
-    <TemplateProvider>
-      <TemplateFilter />
-    </TemplateProvider>
-  </Story>
-</Canvas>
-
-<ArgsTable story="overview-navbar-slider" />
+<ArgsTable story="default" />
 
 <TokenTable>
   <TokenRow

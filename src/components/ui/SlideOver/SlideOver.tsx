@@ -7,10 +7,22 @@ type Direction = 'leftSide' | 'rightSide'
 type WidthSize = 'full' | 'partial'
 
 interface SlideOverProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * A boolean value that represents the state of the SlideOver
+   */
   isOpen: boolean
+  /**
+   * Represents the side that the SlideOver comes from.
+   */
   direction: Direction
+  /**
+   * Represents the size that the SlideOver.
+   */
   size: WidthSize
   children: ReactNode
+  /**
+   * Represents the fade effect of the SlideOver.
+   */
   fade: 'in' | 'out'
   /**
    * This function is called whenever the user clicks outside
