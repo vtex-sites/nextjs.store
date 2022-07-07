@@ -36,6 +36,8 @@ import {
   TokenTable,
   TokenRow,
   TokenDivider,
+  SectionList,
+  SectionItem,
 } from 'src/../.storybook/components'
 
 <Meta component={SlideOver} title="Organisms/SlideOver" />
@@ -244,38 +246,48 @@ This component represents an aditional session that complements the screen's inf
 
 ## Use Cases
 
-### Navbar Slider
-
-An implementation of the `SlideOver` that represents the menu.
-
-<Canvas>
-  <Story name="use-cases-navbar-slider">
+<SectionList>
+  <SectionItem
+    title="Navbar Slider"
+    actionPath="../?path=/docs/organisms-navbar-navbarslider--overview-default"
+    description={
+      <>
+        An implementation of the <code>SlideOver</code> that represents the
+        menu.
+      </>
+    }
+  >
     <TemplateProvider>
       <TemplateNavbarSlider />
     </TemplateProvider>
-  </Story>
-</Canvas>
-
-### Cart Sidebar
-
-An implementation of the `SlideOver` that represents the summary of items added to the cart along with detailed information, and checkout option.
-
-<Canvas>
-  <Story name="use-cases-cart-sidebar">
+  </SectionItem>
+  <SectionItem
+    title="Cart Sidebar"
+    actionPath="../?path=/docs/organisms-cartsidebar--overview-default"
+    description={
+      <>
+        An implementation of the <code>SlideOver</code> that represents the
+        summary of items added to the cart along with detailed information, and
+        checkout option.
+      </>
+    }
+  >
     <TemplateProvider>
       <TemplateCartSidebar />
     </TemplateProvider>
-  </Story>
-</Canvas>
-
-### Filter Slider
-
-An implementation of the `SlideOver` that represents the mobile `Filter` view.
-
-<Canvas>
-  <Story name="use-cases-filter-slider">
+  </SectionItem>
+  <SectionItem
+    title="Filter Slider"
+    actionPath="../?path=/docs/organisms-filter-filterslider--default-story"
+    description={
+      <>
+        An implementation of the <code>SlideOver</code> that represents the
+        mobile <code>Filter</code> view.
+      </>
+    }
+  >
     <TemplateProvider>
       <TemplateFilter />
     </TemplateProvider>
-  </Story>
-</Canvas>
+  </SectionItem>
+</SectionList>
