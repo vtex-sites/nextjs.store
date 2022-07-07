@@ -31,16 +31,22 @@ type DefaultProps = {
 
 type ActionableInputText =
   | {
+      actionable?: never
+      onSubmit?: never
+      onClear?: never
+      buttonActionText?: string
+    }
+  | {
       /**
        * Adds a Button to the component.
        */
       actionable: true
       /**
-       * Callback function when button is clicked.
+       * Callback function when button is clicked. Required for actionable input.
        */
       onSubmit: () => void
       /**
-       * Callback function when clear button is clicked.
+       * Callback function when clear button is clicked. Required for actionable input.
        */
       onClear: () => void
       /**
@@ -48,15 +54,9 @@ type ActionableInputText =
        */
       buttonActionText?: string
     }
-  | {
-      actionable?: false
-      onSubmit?: never
-      onClear?: never
-      buttonActionText?: string
-    }
 
 export type InputTextProps = DefaultProps &
-  Omit<InputProps, 'disabled'> &
+  Omit<InputProps, 'disabled' | 'onSubmit'> &
   ActionableInputText
 
 const InputText = ({
@@ -71,17 +71,19 @@ const InputText = ({
   placeholder = ' ', // initializes with an empty space to style float label using `placeholder-shown`
   inputRef,
   disabled,
+  value,
   ...otherProps
 }: InputTextProps) => {
   return (
     <div
       data-fs-input-text
-      data-fs-input-text-error={!!error}
       data-fs-input-text-actionable={actionable}
+      data-fs-input-text-error={error && error !== ''}
     >
       <UIInput
         id={id}
         type={type}
+        value={value}
         ref={inputRef}
         disabled={disabled}
         placeholder={placeholder}
@@ -91,13 +93,14 @@ const InputText = ({
 
       {actionable &&
         !disabled &&
+        value !== '' &&
         (error ? (
           <ButtonIcon
             data-fs-button-size="small"
             aria-label="Clear Field"
             icon={<Icon name="XCircle" width={20} height={20} />}
             onClick={() => {
-              onClear?.()
+              onClear()
               inputRef?.current?.focus()
             }}
           />
@@ -106,7 +109,9 @@ const InputText = ({
             {buttonActionText}
           </Button>
         ))}
-      {error && !disabled && <span data-fs-input-text-message>{error}</span>}
+      {!disabled && error && error !== '' && (
+        <span data-fs-input-text-message>{error}</span>
+      )}
     </div>
   )
 }

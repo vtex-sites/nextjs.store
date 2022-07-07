@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import type { InputTextProps } from '.'
 import InputText from '.'
 
@@ -13,9 +15,6 @@ const story = {
     id: {
       type: { name: 'string', required: true },
     },
-    onClear: {
-      table: { disable: true },
-    },
   },
 }
 
@@ -25,15 +24,39 @@ const Template = ({ ...args }: InputTextProps) => (
   </div>
 )
 
+const TemplateActionable = ({ ...args }: InputTextProps) => {
+  const [input, setInput] = useState('')
+  const [error, setError] = useState<string>()
+
+  return (
+    <div style={{ width: 400 }}>
+      <InputText
+        actionable
+        error={error}
+        value={input}
+        onSubmit={() => setError('Invalid Postal Code')}
+        onClear={() => {
+          setError(undefined)
+          setInput('')
+        }}
+        onChange={(e) => {
+          error && setError(undefined)
+          setInput(e.target.value)
+        }}
+        {...args}
+      />
+    </div>
+  )
+}
+
 export const Default = Template.bind({})
 export const HasError = Template.bind({})
-export const Actionable = Template.bind({})
+export const Actionable = TemplateActionable.bind({})
 export const Disabled = Template.bind({})
 
 Default.args = {
   id: 'default-input-text',
   label: 'Email',
-  error: 'Please, add a valid email',
   disabled: false,
 }
 
@@ -48,8 +71,6 @@ HasError.args = {
 Actionable.args = {
   id: 'actionable-input-text',
   label: 'Postal Code',
-  actionable: true,
-  error: 'Invalid Postal Code',
   disabled: false,
 }
 
