@@ -16,7 +16,7 @@ import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProduct } from 'src/sdk/product/useProduct'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
-import Selectors from 'src/components/ui/SkuSelector/Selectors'
+import Selectors from 'src/components/ui/SkuSelector'
 
 import Section from '../Section'
 
