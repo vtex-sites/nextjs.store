@@ -2,13 +2,13 @@ import { useContext, createContext } from 'react'
 import { useRouter } from 'next/router'
 
 import SkuSelector from './SkuSelector'
-import { useSkuVariations } from './useSkuVariations'
-import type { SkuVariants } from './useSkuVariations'
+import { useSkuVariants } from './useSkuVariants'
+import type { SkuVariants } from './useSkuVariants'
 import {
   getAvailableVariationsForSelectedColor,
   getSelectedVariations,
   navigateToSku,
-} from './skuVariations'
+} from './skuVariants'
 
 interface Props {
   options: SkuVariants
@@ -32,7 +32,7 @@ function Selectors({ options, productId }: Props) {
   const selectedVariations = getSelectedVariations(productId, options)
 
   const { optionsByType, slugsMap, variationsByMainVariationValues } =
-    useSkuVariations(options, DOMINANT_SKU_SELECTOR_PROPERTY)
+    useSkuVariants(options, DOMINANT_SKU_SELECTOR_PROPERTY)
 
   const filteredOptionsByCurrentColor = getAvailableVariationsForSelectedColor(
     selectedVariations.Color,

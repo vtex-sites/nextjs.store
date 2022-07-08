@@ -1,6 +1,6 @@
 import type { NextRouter } from 'next/router'
 
-import type { SkuOptionsByType, SkuVariants } from './useSkuVariations'
+import type { SkuOptionsByName, SkuVariants } from './useSkuVariants'
 
 export function getSkuSlug(
   slugsMap: Record<string, string>,
@@ -59,10 +59,10 @@ export function getSelectedVariations(
 
 export function getAvailableVariationsForSelectedColor(
   selectedColor: string,
-  options: SkuOptionsByType,
+  options: SkuOptionsByName,
   variationsByMainVariationValues: Record<string, Record<string, string[]>>
-): SkuOptionsByType {
-  const filteredOptions: SkuOptionsByType = {}
+): SkuOptionsByName {
+  const filteredOptions: SkuOptionsByName = {}
 
   const { Color, ...otherProperties } = options
 
