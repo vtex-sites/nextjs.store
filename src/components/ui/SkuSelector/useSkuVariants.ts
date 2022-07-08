@@ -5,7 +5,7 @@ import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 export type SkuVariants =
   ProductDetailsFragment_ProductFragment['isVariantOf']['hasVariant']
 
-export type SkuOptionsByName = Record<
+export type SkuVariantsByName = Record<
   string,
   Array<
     | {
@@ -16,7 +16,7 @@ export type SkuOptionsByName = Record<
   >
 >
 
-function findSkuVariationImage(
+function findSkuVariantImage(
   availableImages: Array<{
     url: string
     alternateName: string
@@ -53,13 +53,13 @@ export function useSkuVariants(variants: SkuVariants, mainVariant: string) {
      *   ]
      * }
      */
-    const optionsByName: SkuOptionsByName = {}
+    const variantsByName: SkuVariantsByName = {}
 
     /**
      * Filtered possible variations for each possible value of the `mainVariant`
      * property.
      */
-    const availableVariationsByDominantValue: Record<
+    const availableVariantsByDominantValue: Record<
       string,
       Record<string, string[]>
     > = {}
@@ -94,19 +94,19 @@ export function useSkuVariants(variants: SkuVariants, mainVariant: string) {
 
         previouslySeenPropertyIDs[property.propertyID] = 1
 
-        const variantImageToUse = findSkuVariationImage(variant.image)
+        const variantImageToUse = findSkuVariantImage(variant.image)
 
-        const formattedPropertyOption = {
+        const formattedVariant = {
           src: variantImageToUse.url,
           alt: variantImageToUse.alternateName,
           label: property.value,
           value: property.value,
         }
 
-        if (optionsByName[property.name]) {
-          optionsByName[property.name].push(formattedPropertyOption)
+        if (variantsByName[property.name]) {
+          variantsByName[property.name].push(formattedVariant)
         } else {
-          optionsByName[property.name] = [formattedPropertyOption]
+          variantsByName[property.name] = [formattedVariant]
         }
       })
 
@@ -117,8 +117,8 @@ export function useSkuVariants(variants: SkuVariants, mainVariant: string) {
       const [, mainVariantCurrentValue, ...propertiesAndValueCombinations] =
         variantCombination.split('-')
 
-      if (!availableVariationsByDominantValue[mainVariantCurrentValue]) {
-        availableVariationsByDominantValue[mainVariantCurrentValue] = {}
+      if (!availableVariantsByDominantValue[mainVariantCurrentValue]) {
+        availableVariantsByDominantValue[mainVariantCurrentValue] = {}
       }
 
       for (
@@ -130,15 +130,15 @@ export function useSkuVariants(variants: SkuVariants, mainVariant: string) {
         const propertyValue = propertiesAndValueCombinations[index]
 
         if (
-          availableVariationsByDominantValue[mainVariantCurrentValue][
+          availableVariantsByDominantValue[mainVariantCurrentValue][
             propertyName
           ]
         ) {
-          availableVariationsByDominantValue[mainVariantCurrentValue][
+          availableVariantsByDominantValue[mainVariantCurrentValue][
             propertyName
           ].push(propertyValue)
         } else {
-          availableVariationsByDominantValue[mainVariantCurrentValue][
+          availableVariantsByDominantValue[mainVariantCurrentValue][
             propertyName
           ] = [propertyValue]
         }
@@ -146,9 +146,9 @@ export function useSkuVariants(variants: SkuVariants, mainVariant: string) {
     })
 
     return {
-      optionsByType: optionsByName,
+      variantsByName,
       slugsMap,
-      variationsByMainVariationValues: availableVariationsByDominantValue,
+      availableVariantsByDominantValue,
     }
   }, [mainVariant, variants])
 }
