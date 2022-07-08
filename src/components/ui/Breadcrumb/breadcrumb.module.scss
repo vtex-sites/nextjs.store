@@ -16,13 +16,11 @@
   // Link
   --fs-breadcrumb-link-color-visited                  : var(--fs-color-link);
 
-  // Link First
-  --fs-breadcrumb-link-first-padding                  : var(--fs-spacing-1);
-  --fs-breadcrumb-link-first-border-radius            : var(--fs-border-radius-circle);
-  --fs-breadcrumb-link-first-hover-bkg-color          : var(--fs-color-primary-bkg-light);
-
-  // Icon
-  --fs-breadcrumb-item-icon-color                     : var(--fs-color-text);
+  // Link Home
+  --fs-breadcrumb-link-home-padding                   : var(--fs-spacing-1);
+  --fs-breadcrumb-link-home-border-radius             : var(--fs-border-radius-circle);
+  --fs-breadcrumb-link-home-hover-bkg-color           : var(--fs-color-primary-bkg-light);
+  --fs-breadcrumb-link-home-color                     : var(--fs-color-text);
 
   // Divider
   --fs-breadcrumb-divider-height                      : var(--fs-spacing-3);
@@ -73,14 +71,18 @@
       }
     }
 
-    [data-fs-breadcrumb-link-first] {
+    [data-fs-breadcrumb-link-home] {
       display: flex;
       align-items: center;
-      padding: var(--fs-breadcrumb-link-first-padding);
-      border-radius: var(--fs-breadcrumb-link-first-border-radius);
+      padding: var(--fs-breadcrumb-link-home-padding);
+      border-radius: var(--fs-breadcrumb-link-home-border-radius);
 
       &:hover, &:focus {
-        background-color: var(--fs-breadcrumb-link-first-hover-bkg-color);
+        background-color: var(--fs-breadcrumb-link-home-hover-bkg-color);
+      }
+
+      svg {
+        color: var(--fs-breadcrumb-link-home-color);
       }
     }
 
@@ -105,10 +107,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
-    svg {
-      color: var(--fs-breadcrumb-item-icon-color);
-    }
   }
 
   [data-breadcrumb-divider] {

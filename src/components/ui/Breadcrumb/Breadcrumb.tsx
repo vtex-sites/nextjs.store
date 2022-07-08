@@ -52,7 +52,7 @@ function BaseBreadcrumb({
     >
       <Link
         data-fs-breadcrumb-link
-        data-fs-breadcrumb-link-first
+        data-fs-breadcrumb-link-home
         aria-label="Go to homepage"
         href="/"
       >
