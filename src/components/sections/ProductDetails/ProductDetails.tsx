@@ -17,7 +17,7 @@ import { useProduct } from 'src/sdk/product/useProduct'
 import { useSession } from 'src/sdk/session'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
-import Selectors from 'src/components/ui/SkuSelector/Selectors'
+import Selectors from 'src/components/ui/SkuSelector'
 
 import Section from '../Section'
 
