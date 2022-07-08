@@ -10,7 +10,7 @@
 
   // List item
   --fs-breadcrumb-list-item-padding                   : var(--fs-spacing-0);
-
+  --fs-breadcrumb-list-item-last-text-color           : var(--fs-color-text-light);
   --fs-breadcrumb-list-item-max-width-mobile          : 30%;
 
   // Link
@@ -35,9 +35,6 @@
   --fs-breadcrumb-dropdown-button-transition-property : var(--fs-transition-property);
   --fs-breadcrumb-dropdown-button-transition-timing   : var(--fs-transition-timing);
   --fs-breadcrumb-dropdown-button-transition-function : var(--fs-transition-function);
-
-  // Current
-  --fs-breadcrumb-item-current-text-color             : var(--fs-color-text-light);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -90,6 +87,10 @@
       overflow: visible;
     }
 
+    &:last-child {
+      color: var(--fs-breadcrumb-list-item-last-text-color);
+    }
+
     @include media(">=notebook") {
       &:nth-child(3) {
         overflow: visible;
@@ -137,13 +138,5 @@
     &:focus, &:focus-visible {
       @include focus-ring;
     }
-  }
-
-  // --------------------------------------------------------
-  // Variants Styles
-  // --------------------------------------------------------
-
-  [data-breadcrumb-item="current"] {
-    color: var(--fs-breadcrumb-item-current-text-color);
   }
 }
