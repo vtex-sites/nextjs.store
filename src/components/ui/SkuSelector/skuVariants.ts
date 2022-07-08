@@ -1,6 +1,6 @@
 import type { NextRouter } from 'next/router'
 
-import type { SkuOptionsByName, SkuVariants } from './useSkuVariants'
+import type { SkuVariantsByName, SkuVariants } from './useSkuVariants'
 
 export function getSkuSlug(
   slugsMap: Record<string, string>,
@@ -59,10 +59,10 @@ export function getSelectedVariations(
 
 export function getAvailableVariationsForSelectedColor(
   selectedColor: string,
-  options: SkuOptionsByName,
-  variationsByMainVariationValues: Record<string, Record<string, string[]>>
-): SkuOptionsByName {
-  const filteredOptions: SkuOptionsByName = {}
+  options: SkuVariantsByName,
+  variantsByDominantValue: Record<string, Record<string, string[]>>
+): SkuVariantsByName {
+  const filteredOptions: SkuVariantsByName = {}
 
   const { Color, ...otherProperties } = options
 
@@ -70,7 +70,7 @@ export function getAvailableVariationsForSelectedColor(
     if (Object.prototype.hasOwnProperty.call(otherProperties, propertyName)) {
       filteredOptions[propertyName] = otherProperties[propertyName].filter(
         (formattedProperty) =>
-          variationsByMainVariationValues[selectedColor][propertyName].includes(
+          variantsByDominantValue[selectedColor][propertyName].includes(
             formattedProperty.value
           )
       )
@@ -82,24 +82,24 @@ export function getAvailableVariationsForSelectedColor(
 }
 
 export function navigateToSku({
-  selectedVariations,
+  router,
+  slugsMap,
+  dominantSku,
+  selectorsState,
   updatedVariationName,
   updatedVariationValue,
-  slugsMap,
-  router,
-  dominantSku,
 }: {
-  selectedVariations: Record<string, string>
-  updatedVariationName: string
-  updatedVariationValue: string
-  slugsMap: Record<string, string>
   router: NextRouter
   dominantSku: string
+  slugsMap: Record<string, string>
+  selectorsState: Record<string, string>
+  updatedVariationName: string
+  updatedVariationValue: string
 }) {
   const whereTo = `/${getSkuSlug(
     slugsMap,
     {
-      ...selectedVariations,
+      ...selectorsState,
       [updatedVariationName]: updatedVariationValue,
     },
     dominantSku

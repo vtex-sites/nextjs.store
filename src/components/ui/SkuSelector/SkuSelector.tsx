@@ -3,7 +3,7 @@ import type { ChangeEventHandler } from 'react'
 
 import { Image } from 'src/components/ui/Image'
 
-import { useSelectorState } from './Selectors'
+import { useSelectorsState } from './Selectors'
 
 interface DefaultSkuProps {
   /**
@@ -87,7 +87,7 @@ function SkuSelector({
   testId = 'store-sku-selector',
   skuPropertyName,
 }: SkuSelectorProps) {
-  const selectorsState = useSelectorState()
+  const selectorsState = useSelectorsState()
   const selectedSku = selectorsState[skuPropertyName]
 
   return (
