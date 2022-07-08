@@ -16,7 +16,7 @@ interface SlideOverProps extends HTMLAttributes<HTMLDivElement> {
    */
   direction: Direction
   /**
-   * Represents the size that the SlideOver.
+   * Represents the size of the SlideOver.
    */
   size: WidthSize
   children: ReactNode
