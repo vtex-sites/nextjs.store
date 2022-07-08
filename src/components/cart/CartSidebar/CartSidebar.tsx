@@ -32,7 +32,7 @@ function CartSidebar() {
       onDismiss={fadeOut}
       size="partial"
       direction="rightSide"
-      className={`${styles.fsCartSidebar}`}
+      className={styles.fsCartSidebar}
       onTransitionEnd={() => fade === 'out' && closeCart()}
     >
       <header data-fs-cart-sidebar-header data-testid="cart-sidebar">
