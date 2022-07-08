@@ -5,7 +5,7 @@ import useSuggestions from 'src/sdk/search/useSuggestions'
 import { SearchHistory } from '../History'
 import { SuggestionsTopSearch } from '../SuggestionsTopSearch'
 
-function Search({ term = '', ...otherProps }: SuggestionsProps) {
+function SearchDropdown({ term = '', ...otherProps }: SuggestionsProps) {
   const { terms, products, isLoading } = useSuggestions(term)
 
   if (term.length === 0 && !isLoading) {
@@ -35,4 +35,4 @@ function Search({ term = '', ...otherProps }: SuggestionsProps) {
   )
 }
 
-export default Search
+export default SearchDropdown

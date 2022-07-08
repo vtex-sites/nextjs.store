@@ -24,9 +24,11 @@ import {
 import type { SearchInputContextValue } from 'src/sdk/search/useSearchInput'
 import useOnClickOutside from 'src/sdk/ui/useOnClickOutside'
 
-const Suggestions = lazy(() => import('src/components/search/Search'))
+const SearchDropdown = lazy(
+  () => import('src/components/search/SearchDropdown')
+)
 
-declare type SearchInputProps = {
+export type SearchInputProps = {
   onSearchClick?: () => void
   buttonTestId?: string
 } & Omit<UISearchInputProps, 'onSubmit'>
@@ -45,7 +47,7 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
   ) {
     const [searchQuery, setSearchQuery] = useState<string>('')
     const searchQueryDeferred = useDeferredValue(searchQuery)
-    const [suggestionsOpen, setSuggestionsOpen] = useState<boolean>(false)
+    const [searchDropdownOpen, setSearchDropdownOpen] = useState<boolean>(false)
     const searchRef = useRef<HTMLDivElement>(null)
     const { addToSearchHistory } = useSearchHistory()
     const router = useRouter()
@@ -54,17 +56,17 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
       (term, path) => {
         addToSearchHistory({ term, path })
         sendAnalytics(term)
-        setSuggestionsOpen(false)
+        setSearchDropdownOpen(false)
         setSearchQuery(term)
       }
 
-    useOnClickOutside(searchRef, () => setSuggestionsOpen(false))
+    useOnClickOutside(searchRef, () => setSearchDropdownOpen(false))
 
     return (
       <div
         ref={searchRef}
         data-store-search-input-wrapper
-        data-store-search-input-dropdown-open={suggestionsOpen}
+        data-store-search-input-dropdown-open={searchDropdownOpen}
       >
         <SearchInputProvider onSearchInputSelection={onSearchInputSelection}>
           <UISearchInput
@@ -84,14 +86,14 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
               onSearchInputSelection(term, path)
               router.push(path)
             }}
-            onFocus={() => setSuggestionsOpen(true)}
+            onFocus={() => setSearchDropdownOpen(true)}
             value={searchQuery}
             {...props}
           />
-          {suggestionsOpen && (
+          {searchDropdownOpen && (
             <Suspense fallback={null}>
               <div data-store-search-input-dropdown-wrapper>
-                <Suggestions term={searchQueryDeferred} />
+                <SearchDropdown term={searchQueryDeferred} />
               </div>
             </Suspense>
           )}
