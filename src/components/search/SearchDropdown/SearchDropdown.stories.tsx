@@ -1,40 +1,11 @@
 import { SessionProvider } from '@faststore/sdk'
+import { rest } from 'msw'
 
+import { productGridItems, searchTerms } from 'src/../.storybook/mocks'
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
 
 import SearchDropdown from '.'
 import type { SuggestionsProps } from '../Suggestions'
-
-const product = ({ id = '1', name = 'Handmade Steel Towels Practical' }) => ({
-  id,
-  slug: 'handmade-steel-towels-practical-15503951',
-  sku: '15503951',
-  brand: { brandName: 'Brand', name: 'Brand' },
-  name: 'red',
-  gtin: '5595633577807',
-  isVariantOf: {
-    productGroupID: '130742',
-    name,
-  },
-  image: [
-    {
-      url: 'http://storeframework.vtexassets.com/arquivos/ids/190191/numquam.jpg?v=637755599170100000',
-      alternateName: 'est',
-    },
-  ],
-  offers: {
-    lowPrice: 181.71,
-    offers: [
-      {
-        availability: 'https://schema.org/InStock',
-        price: 181.71,
-        listPrice: 208.72,
-        quantity: 1,
-        seller: { identifier: '1' },
-      },
-    ],
-  },
-})
 
 const meta = {
   component: SearchDropdown,
@@ -60,21 +31,52 @@ const Template = (props: SuggestionsProps) => (
 
 export const Default = Template.bind({})
 
-Default.args = {
-  term: 'Ste',
-  terms: [
-    { value: 'Steel', count: 1 },
-    { value: 'Stellar', count: 2 },
-  ],
-  products: [
-    product({ id: '1', name: 'Handmade Steel Towels Practical' }),
-    product({ id: '2', name: 'Steel Towels' }),
-    product({ id: '3', name: 'Steel Practical' }),
-  ],
-}
+const products = productGridItems.map((item) => item.node)
 
 Default.parameters = {
   backgrounds: { default: 'dark' },
+  msw: {
+    handlers: [
+      rest.get('/api/graphql', (req, res, ctx) => {
+        const {
+          url: { searchParams },
+        } = req
+
+        const operationName = searchParams.get('operationName')
+
+        if (operationName === 'TopSearchSuggestionsQuery') {
+          return res(
+            ctx.json({
+              data: {
+                search: {
+                  suggestions: {
+                    terms: searchTerms,
+                  },
+                },
+              },
+            })
+          )
+        }
+
+        if (operationName === 'SearchSuggestionsQuery') {
+          return res(
+            ctx.json({
+              data: {
+                search: {
+                  suggestions: {
+                    terms: searchTerms,
+                    products,
+                  },
+                },
+              },
+            })
+          )
+        }
+
+        return res(ctx.status(400))
+      }),
+    ],
+  },
 }
 
 export default meta

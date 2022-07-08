@@ -2,6 +2,7 @@ import { SessionProvider } from '@faststore/sdk'
 import { rest } from 'msw'
 
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
+import { searchTerms } from 'src/../.storybook/mocks'
 
 import type { SuggestionsTopSearchProps } from './SuggestionsTopSearch'
 import SuggestionsTopSearch from './SuggestionsTopSearch'
@@ -30,39 +31,32 @@ const Template = (props: SuggestionsTopSearchProps) => (
 
 export const Default = Template.bind({})
 
-Default.args = {
-  topTerms: [
-    { value: 'Office Supplies', count: 5 },
-    { value: 'Headphones', count: 4 },
-    { value: 'Notebooks', count: 3 },
-    { value: 'Laser Printer', count: 2 },
-    { value: 'Bluetooth Keyboard', count: 1 },
-  ],
-}
-
 Default.parameters = {
   backgrounds: { default: 'dark' },
   msw: {
     handlers: [
-      rest.get('/api/graphql', (_, res, ctx) => {
-        return res(
-          ctx.json({
-            data: {
-              search: {
-                suggestions: {
-                  terms: [
-                    {
-                      value: 'Option 1',
-                    },
-                    {
-                      value: 'Option 2',
-                    },
-                  ],
+      rest.get('/api/graphql', (req, res, ctx) => {
+        const {
+          url: { searchParams },
+        } = req
+
+        const operationName = searchParams.get('operationName')
+
+        if (operationName === 'TopSearchSuggestionsQuery') {
+          return res(
+            ctx.json({
+              data: {
+                search: {
+                  suggestions: {
+                    terms: searchTerms,
+                  },
                 },
               },
-            },
-          })
-        )
+            })
+          )
+        }
+
+        return res(ctx.status(400))
       }),
     ],
   },
