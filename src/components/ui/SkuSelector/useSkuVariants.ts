@@ -68,9 +68,7 @@ export function useSkuVariants(variants: SkuVariants, mainVariant: string) {
 
     variants.forEach((variant) => {
       const skuSpecificationProperties = variant.additionalProperty.filter(
-        (property) =>
-          property.valueReference === 'SPECIFICATION' &&
-          property.name !== mainVariant
+        (property) => property.valueReference === 'SPECIFICATION'
       )
 
       if (skuSpecificationProperties.length === 0) {
@@ -86,7 +84,10 @@ export function useSkuVariants(variants: SkuVariants, mainVariant: string) {
       }`
 
       skuSpecificationProperties.forEach((property) => {
-        skuVariantKey += `-${property.name}-${property.value}`
+        skuVariantKey +=
+          property.name !== mainVariant
+            ? `-${property.name}-${property.value}`
+            : ''
 
         if (previouslySeenPropertyIDs[property.propertyID]) {
           return
