@@ -31,36 +31,36 @@ function Selectors({ options, productId }: Props) {
   const router = useRouter()
   const selectedVariations = getSelectedVariations(productId, options)
 
-  const { optionsByType, slugsMap, variationsByMainVariationValues } =
+  const { variantsByName, slugsMap, availableVariantsByDominantValue } =
     useSkuVariants(options, DOMINANT_SKU_SELECTOR_PROPERTY)
 
   const filteredOptionsByCurrentColor = getAvailableVariationsForSelectedColor(
     selectedVariations.Color,
-    optionsByType,
-    variationsByMainVariationValues
+    variantsByName,
+    availableVariantsByDominantValue
   )
 
   // 'Color' variants are singled-out here because they will always be rendered
   // as 'image' variants. And they're also the 'dominant' variants in our store.
-  const { Color: colorVariants, ...otherSkuVariants } =
+  const { Color: colorOptions, ...otherSkuVariants } =
     filteredOptionsByCurrentColor
 
   return (
     <section>
       <SelectorsStateContext.Provider value={selectedVariations}>
-        {colorVariants && (
+        {colorOptions && (
           <SkuSelector
             skuPropertyName="Color"
             label="Color"
             variant="image"
-            options={colorVariants}
+            options={colorOptions}
             onChange={(e) => {
               const newVariationValue = e.currentTarget.value
 
               navigateToSku({
                 router,
                 slugsMap,
-                selectedVariations,
+                selectorsState: selectedVariations,
                 updatedVariationName: 'Color',
                 updatedVariationValue: newVariationValue,
                 dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
@@ -82,7 +82,7 @@ function Selectors({ options, productId }: Props) {
                 navigateToSku({
                   router,
                   slugsMap,
-                  selectedVariations,
+                  selectorsState: selectedVariations,
                   updatedVariationName: skuVariant,
                   updatedVariationValue: newVariationValue,
                   dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
@@ -95,7 +95,7 @@ function Selectors({ options, productId }: Props) {
   )
 }
 
-export function useSelectorState() {
+export function useSelectorsState() {
   return useContext(SelectorsStateContext)
 }
 
