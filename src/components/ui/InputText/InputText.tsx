@@ -74,6 +74,9 @@ const InputText = ({
   value,
   ...otherProps
 }: InputTextProps) => {
+  const shouldDisplayError = !disabled && error && error !== ''
+  const shouldDisplayButton = actionable && !disabled && value !== ''
+
   return (
     <div
       data-fs-input-text
@@ -91,16 +94,14 @@ const InputText = ({
       />
       <UILabel htmlFor={id}>{label}</UILabel>
 
-      {actionable &&
-        !disabled &&
-        value !== '' &&
+      {shouldDisplayButton &&
         (error ? (
           <ButtonIcon
             data-fs-button-size="small"
             aria-label="Clear Field"
             icon={<Icon name="XCircle" width={20} height={20} />}
             onClick={() => {
-              onClear()
+              onClear?.()
               inputRef?.current?.focus()
             }}
           />
@@ -109,9 +110,7 @@ const InputText = ({
             {buttonActionText}
           </Button>
         ))}
-      {!disabled && error && error !== '' && (
-        <span data-fs-input-text-message>{error}</span>
-      )}
+      {shouldDisplayError && <span data-fs-input-text-message>{error}</span>}
     </div>
   )
 }
