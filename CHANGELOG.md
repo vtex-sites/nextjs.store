@@ -30,7 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Flaky Integration Tests on CI ([#169](https://github.com/vtex-sites/nextjs.store/pull/169))
 - priceCurrency field on SEO meta data ([#161](https://github.com/vtex-sites/nextjs.store/pull/161))
 
 - Transfers responsibility of `InputText`'s main attributes and callbacks to the renderer ([#163](https://github.com/vtex-sites/nextjs.store/pull/163))
