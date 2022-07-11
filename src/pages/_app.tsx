@@ -14,6 +14,7 @@ import AnalyticsHandler from 'src/sdk/analytics'
 import { validateCart } from 'src/sdk/cart/validate'
 import ErrorBoundary from 'src/sdk/error/ErrorBoundary'
 import { validateSession } from 'src/sdk/session/validate'
+import TestProvider from 'src/sdk/tests'
 import UIProvider from 'src/sdk/ui/Provider'
 
 import storeConfig from '../../store.config'
@@ -27,22 +28,23 @@ function App({ Component, pageProps }: AppProps) {
         options={{ showSpinner: false }}
       />
       <AnalyticsHandler />
-
-      <UIProvider>
-        <SessionProvider
-          initialState={{
-            channel: storeConfig.channel,
-            locale: storeConfig.locale,
-          }}
-          onValidateSession={validateSession}
-        >
-          <CartProvider mode="optimistic" onValidateCart={validateCart}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </CartProvider>
-        </SessionProvider>
-      </UIProvider>
+      <TestProvider>
+        <UIProvider>
+          <SessionProvider
+            initialState={{
+              channel: storeConfig.channel,
+              locale: storeConfig.locale,
+            }}
+            onValidateSession={validateSession}
+          >
+            <CartProvider mode="optimistic" onValidateCart={validateCart}>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </CartProvider>
+          </SessionProvider>
+        </UIProvider>
+      </TestProvider>
     </ErrorBoundary>
   )
 }
