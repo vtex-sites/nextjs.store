@@ -28,7 +28,7 @@ type FooterProps = {
   sectionPaymentMethods?: boolean
 }
 
-function Footer({
+export function Footer({
   sectionIncentives = true,
   sectionSocial = true,
   sectionPaymentMethods = true,
@@ -180,5 +180,4 @@ function Footer({
 }
 
 Footer.displayName = 'Footer'
-mark(Footer)
-export default Footer
+export default mark(Footer)
