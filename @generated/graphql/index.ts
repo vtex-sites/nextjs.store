@@ -16,7 +16,6 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
-  /** A string or the string representation of an object (a stringified object). */
   ObjectOrString: any
 }
 
@@ -457,6 +456,7 @@ export type StoreProduct = {
   image: Array<StoreImage>
   /** Indicates product group related to this product. */
   isVariantOf: StoreProductGroup
+  measurementUnit: Maybe<Scalars['String']>
   /** Product name. */
   name: Scalars['String']
   /** Aggregate offer information. */
@@ -471,6 +471,7 @@ export type StoreProduct = {
   sku: Scalars['String']
   /** Corresponding collection URL slug, with which to retrieve this entity. */
   slug: Scalars['String']
+  unitMultiplier: Maybe<Scalars['Float']>
 }
 
 /** Product connections, including pagination information and products returned by the query. */
@@ -655,6 +656,8 @@ export type ProductDetailsFragment_ProductFragment = {
   name: string
   gtin: string
   description: string
+  unitMultiplier: number | null
+  measurementUnit: string | null
   id: string
   isVariantOf: { productGroupID: string; name: string }
   image: Array<{ url: string; alternateName: string }>
@@ -737,6 +740,8 @@ export type ServerProductPageQueryQuery = {
     gtin: string
     name: string
     description: string
+    unitMultiplier: number | null
+    measurementUnit: string | null
     id: string
     seo: { title: string; description: string; canonical: string }
     brand: { name: string }
@@ -834,6 +839,8 @@ export type BrowserProductQueryQuery = {
     name: string
     gtin: string
     description: string
+    unitMultiplier: number | null
+    measurementUnit: string | null
     id: string
     isVariantOf: { productGroupID: string; name: string }
     image: Array<{ url: string; alternateName: string }>
