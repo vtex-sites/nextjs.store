@@ -324,3 +324,53 @@ h3.sbdocs.sbdocs-h3 {
 .sbdocs-callout small {
   font-size: var(--fs-text-size-1);
 }
+
+/* Tokens Links */
+
+.sbdocs-tokens-links.sbdocs-list .sbdocs-div {
+  height: 170px;
+  background-color: #ecf0ff;
+  border-radius: 10px;
+}
+
+.sbdocs-tokens-links .sbdocs-ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.sbdocs-tokens-links .sbdocs-li:nth-child(odd) .sbdocs-div {
+  background-color: #00419e;
+}
+
+.sbdocs-tokens-links .sbdocs-li .sbdocs-div {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 30% auto;
+}
+
+.sbdocs-tokens-links .sbdocs-ul .sbdocs-list-text { flex-basis: 50%; }
+.sbdocs-tokens-links .sbdocs-ul .sbdocs-list-text p { margin-bottom: 0; }
+
+.sbdocs-tokens-links .sbdocs-li:nth-child(1) .sbdocs-div {
+  background-image: url("https://vtexhelp.vtexassets.com/assets/docs/src/colors___038effcf345acf3d037bc63ed8671455.png");
+}
+
+.sbdocs-tokens-links .sbdocs-li:nth-child(2) .sbdocs-div {
+  background-image: url("https://vtexhelp.vtexassets.com/assets/docs/src/typography___318fbc78202402728a2113e63b47241f.png");
+}
+
+.sbdocs-tokens-links .sbdocs-li:nth-child(3) .sbdocs-div {
+  background-image: url("https://vtexhelp.vtexassets.com/assets/docs/src/spacing___ca1d02b0bcc238811347eddc66a807ad.png");
+}
+
+.sbdocs-tokens-links .sbdocs-li:nth-child(4) .sbdocs-div {
+  background-image: url("https://vtexhelp.vtexassets.com/assets/docs/src/grid___6dfb4949712be94273bc119b7945babf.png");
+}
+
+.sbdocs-tokens-links .sbdocs-li:nth-child(5) .sbdocs-div {
+  background-image: url("https://vtexhelp.vtexassets.com/assets/docs/src/controls___a8302bd539d61653e60cb0aacd1c18e7.png");
+}
+
+.sbdocs-tokens-links .sbdocs-li:nth-child(6) .sbdocs-div {
+  background-image: url("https://vtexhelp.vtexassets.com/assets/docs/src/refinements___ca4c7814b2771e84601f4a6d457612fd.png");
+}
