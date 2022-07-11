@@ -8,8 +8,15 @@ import {
 import { useGraphQlJit } from '@envelop/graphql-jit'
 import { useParserCache } from '@envelop/parser-cache'
 import { useValidationCache } from '@envelop/validation-cache'
-import { getContextFactory, getSchema, isFastStoreError } from '@faststore/api'
+import {
+  getContextFactory,
+  getSchema,
+  isFastStoreError,
+  getTypeDefs,
+} from '@faststore/api'
 import { GraphQLError } from 'graphql'
+import { makeExecutableSchema, mergeSchemas } from '@graphql-tools/schema'
+import { mergeTypeDefs } from '@graphql-tools/merge'
 import type { FormatErrorHandler } from '@envelop/core'
 import type { Options as APIOptions } from '@faststore/api'
 
@@ -36,7 +43,42 @@ const apiOptions: APIOptions = {
   },
 }
 
-export const apiSchema = getSchema(apiOptions)
+// Setup type extensions
+const customTypeDefs = `
+extend type StoreProduct {
+  unitMultiplier: Float
+  measurementUnit: String
+}
+`
+
+const customResolvers = {
+  StoreProduct: {
+    unitMultiplier: async (root: any) => {
+      return root?.unitMultiplier
+    },
+    measurementUnit: async (root: any) => {
+      return root?.measurementUnit
+    },
+  },
+}
+
+const fastStoreAPISchema = getSchema(apiOptions)
+
+// Merge custom TypeDefs with the ones from @faststore/api
+const mergedTypeDefs = mergeTypeDefs([getTypeDefs(), customTypeDefs])
+
+const getMergedSchemas = async () =>
+  mergeSchemas({
+    schemas: [
+      await fastStoreAPISchema,
+      makeExecutableSchema({
+        resolvers: customResolvers,
+        typeDefs: mergedTypeDefs,
+      }),
+    ],
+  })
+
+export const apiSchema = getMergedSchemas()
 
 const apiContextFactory = getContextFactory(apiOptions)
 
