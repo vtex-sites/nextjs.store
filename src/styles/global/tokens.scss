@@ -222,6 +222,7 @@ body {
   // TAP
   --fs-control-tap-size                : var(--fs-spacing-7); // 3rem = 48px
   --fs-control-tap-size-smallest       : calc(var(--fs-control-tap-size) / 2);
+  --fs-control-min-height              : var(--fs-control-tap-size);
 
   @include media(">=notebook") {
     --fs-control-tap-size              : var(--fs-spacing-7); // This value can be smaller on desktops
@@ -230,9 +231,6 @@ body {
   // STATES
   --fs-control-bkg                     : var(--fs-color-neutral-0);
   --fs-control-bkg-disabled            : var(--fs-color-disabled-bkg);
-
-  // SIZING
-  --fs-control-min-height              : var(--fs-control-tap-size);
 
   // --------------------------------------------------------
   // Refinements
