@@ -67,10 +67,9 @@ export const parameters = {
       method: 'alphabetical',
       order: [
         'Getting Started',
-        'Customizing',
-        'Fundamentals',
-        ['Theming Theory', 'Icons'],
-        'Tokens',
+        'Media',
+        'Theming',
+        'Global Tokens',
         ['Colors', 'Typography', 'Spacing', 'Grid & Layout'],
         'Atoms',
         'Molecules',
