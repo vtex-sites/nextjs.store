@@ -53,6 +53,8 @@ function ProductDetails({ product: staleProduct }: Props) {
       },
       breadcrumbList: breadcrumbs,
       additionalProperty,
+      unitMultiplier,
+      measurementUnit,
     },
   } = data
 
@@ -146,6 +148,10 @@ function ProductDetails({ product: staleProduct }: Props) {
                 classes="text__lead"
                 SRText="Sale Price:"
               />
+            </div>
+            <div>
+              <p>{unitMultiplier}</p>
+              <p>{measurementUnit}</p>
             </div>
             {/* <div className="prices">
               <p className="price__old text__legend">{formattedListPrice}</p>
@@ -249,6 +255,9 @@ export const fragment = gql`
     name
     gtin
     description
+
+    unitMultiplier
+    measurementUnit
 
     isVariantOf {
       productGroupID
