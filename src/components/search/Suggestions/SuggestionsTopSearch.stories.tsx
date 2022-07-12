@@ -1,4 +1,5 @@
 import { SessionProvider } from '@faststore/sdk'
+import { rest } from 'msw'
 
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
 
@@ -7,7 +8,7 @@ import type { SuggestionsTopSearchProps } from '.'
 
 const meta = {
   component: SuggestionsTopSearch,
-  title: 'Organisms/Search/TopSearch',
+  title: 'Features/Search/TopSearch',
 }
 
 const Template = (props: SuggestionsTopSearchProps) => (
@@ -41,6 +42,30 @@ Default.args = {
 
 Default.parameters = {
   backgrounds: { default: 'dark' },
+  msw: {
+    handlers: [
+      rest.get('/api/graphql', (_, res, ctx) => {
+        return res(
+          ctx.json({
+            data: {
+              search: {
+                suggestions: {
+                  terms: [
+                    {
+                      value: 'Option 1',
+                    },
+                    {
+                      value: 'Option 2',
+                    },
+                  ],
+                },
+              },
+            },
+          })
+        )
+      }),
+    ],
+  },
 }
 
 export default meta
