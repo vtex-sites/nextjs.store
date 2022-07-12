@@ -118,7 +118,7 @@
     --fs-logo-width                               : 8rem;
   }
 
-  .footer {
+  [data-fs-footer] {
     --fs-footer-bkg-color                         : var(--fs-color-main-0);
   }
 }
