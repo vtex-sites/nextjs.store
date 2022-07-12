@@ -59,10 +59,16 @@ export interface SuggestionsProps extends HTMLAttributes<HTMLDivElement> {
    */
   testId?: string
   /**
-   * Search term
+   * Term researched.
    */
   term?: string
+  /**
+   * Suggestion terms.
+   */
   terms?: Array<{ value: string }>
+  /**
+   * Array with top search terms.
+   */
   products?: ProductSummary_ProductFragment[]
 }
 

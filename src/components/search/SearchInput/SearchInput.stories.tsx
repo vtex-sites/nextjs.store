@@ -9,7 +9,7 @@ import SearchInput from './SearchInput'
 
 const meta = {
   component: Suggestions,
-  title: 'Features/Search/SearchInput',
+  title: 'Features/SearchSuggestions/SearchInput',
 }
 
 const Template = (props: SearchInputProps) => (

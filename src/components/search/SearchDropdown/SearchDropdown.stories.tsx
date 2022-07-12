@@ -9,7 +9,7 @@ import type { SuggestionsProps } from '../Suggestions'
 
 const meta = {
   component: SearchDropdown,
-  title: 'Features/Search/SearchDropdown',
+  title: 'Features/SearchSuggestions/SearchDropdown',
 }
 
 const Template = (props: SuggestionsProps) => (

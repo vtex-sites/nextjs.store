@@ -10,6 +10,9 @@ import type { History } from 'src/sdk/search/useSearchHistory'
 import styles from '../search-common.module.scss'
 
 export interface SearchHistoryProps {
+  /**
+   * Array with history options.
+   */
   history?: History[]
 }
 

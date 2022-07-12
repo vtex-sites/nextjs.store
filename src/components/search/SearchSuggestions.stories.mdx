@@ -1,0 +1,125 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+import {
+  SectionList,
+  SectionItem,
+  TokenTable,
+  TokenRow,
+  TokenDivider,
+} from 'src/../.storybook/components'
+import { SearchHistory } from './History'
+import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
+import { rest } from 'msw'
+import { SessionProvider } from '@faststore/sdk'
+import SearchDropdown from './SearchDropdown'
+import SearchInput from './SearchInput'
+import SuggestionProductCard from './SuggestionProductCard'
+import Suggestions from './Suggestions'
+import { SuggestionsTopSearch } from './SuggestionsTopSearch'
+import { product, searchTerms } from 'src/../.storybook/mocks'
+import { msw, products } from'./searchMock.ts'
+
+
+
+<Meta
+  title='Features/SearchSuggestions/Overview'
+  parameters={{msw}}
+/>
+
+<Story
+  name="Search"
+>
+</Story>
+
+<header>
+
+# Search Suggestions
+
+This feature enables customers to set a location using a valid Postal Code.
+
+</header>
+
+## Overview
+
+---
+
+## Components
+<SessionProvider>
+  <SearchInputProvider>
+    <SectionList>
+      <SectionItem
+        title="History"
+        actionPath="../?path=/docs/organisms-navbar-navbarslider--overview-default"
+        description={
+          <>
+            Displays the <code>NavLinks</code> and some features using{' '}
+            <code>SlideOver</code> component.
+          </>
+        }
+      >
+        <SearchHistory />
+      </SectionItem>
+      <SectionItem
+        title="SearchDropdown"
+        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        description={
+          <>
+            Displays a set navigation links and self adapts on mobile{' '}
+            <code>NavbarSlider</code> or desktop screens.
+          </>
+        }
+        containerStyle={{ display: "flex", flexDirection: "column" }}
+      >
+        <SearchDropdown />
+      </SectionItem>
+      <SectionItem
+        title="SearchInput"
+        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        description={
+          <>
+            Displays a set navigation links and self adapts on mobile{' '}
+            <code>NavbarSlider</code> or desktop screens.
+          </>
+        }
+      >
+        <SearchInput />
+      </SectionItem>
+      <SectionItem
+        title="Suggestions"
+        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        description={
+          <>
+            Displays a set navigation links and self adapts on mobile{' '}
+            <code>NavbarSlider</code> or desktop screens.
+          </>
+        }
+        containerStyle={{ maxHeight: 600 }}
+      >
+        <Suggestions term="Ste" products={products.slice(0, 3)} terms={searchTerms} />
+      </SectionItem>
+      <SectionItem
+        title="SuggestionProductCard"
+        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        description={
+          <>
+            Displays a set navigation links and self adapts on mobile{' '}
+            <code>NavbarSlider</code> or desktop screens.
+          </>
+        }
+      >
+        <SuggestionProductCard product={product} />
+      </SectionItem>
+      <SectionItem
+        title="SuggestionsTopSearch"
+        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        description={
+          <>
+            Displays a set navigation links and self adapts on mobile{' '}
+            <code>NavbarSlider</code> or desktop screens.
+          </>
+        }
+      >
+        <SuggestionsTopSearch />
+      </SectionItem>
+    </SectionList>
+  </SearchInputProvider>
+</SessionProvider>

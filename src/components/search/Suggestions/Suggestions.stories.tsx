@@ -8,7 +8,7 @@ import type { SuggestionsProps } from '.'
 
 const meta = {
   component: Suggestions,
-  title: 'Features/Search/Suggestions',
+  title: 'Features/SearchSuggestions/Suggestions',
 }
 
 const Template = (props: SuggestionsProps) => (
