@@ -1,7 +1,9 @@
+import styles from './shimmer.module.scss'
+
 function Shimmer() {
   return (
-    <div data-store-shimmer>
-      <div data-shimmer />
+    <div className={styles.fsShimmer} data-fs-shimmer>
+      <div data-fs-shimmer-bkg />
     </div>
   )
 }
