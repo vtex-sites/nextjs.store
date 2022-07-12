@@ -1,33 +1,36 @@
 import Shimmer from '../Shimmer'
-import SkeletonElement from '../SkeletonElement'
+import Skeleton from '../Skeleton'
+import styles from './product-card-skeleton.module.scss'
 
-interface Props {
+interface ProductCardSkeletonProps {
   bordered?: boolean
   sectioned?: boolean
-  showActions?: boolean
-  variant?: 'wide' | 'default'
+  displayButton?: boolean
+  variant?: 'default' | 'wide'
 }
 
 function ProductCardSkeleton({
   bordered,
-  sectioned = false,
-  showActions = false,
+  sectioned,
+  displayButton,
   variant = 'default',
-}: Props) {
+}: ProductCardSkeletonProps) {
   return (
     <div
-      data-store-product-card-skeleton
-      data-bordered={bordered}
-      data-variant={variant}
+      className={styles.fsProductCardSkeleton}
+      data-fs-product-card-skeleton
+      data-fs-product-card-skeleton-variant={variant}
+      data-fs-product-card-skeleton-bordered={bordered}
+      data-fs-product-card-skeleton-sectioned={sectioned}
     >
-      <div data-product-card-skeleton-image data-sectioned={sectioned}>
-        <SkeletonElement type="image" />
+      <div data-fs-product-card-skeleton-image>
+        <Skeleton variant="image" />
       </div>
-      <div data-product-card-skeleton-content>
-        <SkeletonElement type="text" />
-        <SkeletonElement type="text" />
-        <SkeletonElement type="badge" />
-        {showActions && <SkeletonElement type="button" />}
+      <div data-fs-product-card-skeleton-content>
+        <Skeleton variant="text" />
+        <Skeleton variant="text" />
+        <Skeleton variant="badge" />
+        {displayButton && <Skeleton variant="button" />}
       </div>
       <Shimmer />
     </div>
