@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Applies CSS Modules to `Incentives` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
+- Applies new local tokens to `Footer` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
+- Adds [MSW Addon](https://storybook.js.org/addons/msw-storybook-addon) ([#166](https://github.com/vtex-sites/nextjs.store/pull/166))
+- Applies new local tokens to `Breadcrumb` ([#162](https://github.com/vtex-sites/nextjs.store/pull/162))
+- Applies new local tokens to `SlideOver` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
+- Applies new local tokens to `CartSidebar` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
 - Global tokens doc page on storybook ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
 - Adds [bun](https://bun.sh/) compatiblity ([#164](https://github.com/vtex-sites/nextjs.store/pull/164))
 - Uses new cross selling API on PDP ([#137](https://github.com/vtex-sites/gatsby.store/pull/137))
@@ -16,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Updates `IncentivesFooter` content ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
 - Updated Getting Started doc page and overall improvements ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
 - Fix storybook mock structure ([#156](https://github.com/vtex-sites/nextjs.store/pull/156))
 
@@ -25,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - priceCurrency field on SEO meta data ([#161](https://github.com/vtex-sites/nextjs.store/pull/161))
+
+- Transfers responsibility of `InputText`'s main attributes and callbacks to the renderer ([#163](https://github.com/vtex-sites/nextjs.store/pull/163))
 
 ## [22.26.0.beta] - 2022-07-01
 
