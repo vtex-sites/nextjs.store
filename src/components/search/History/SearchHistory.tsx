@@ -25,18 +25,18 @@ const SearchHistory = ({ history = [] }: SearchHistoryProps) => {
   }
 
   return (
-    <section data-fs-search-suggestion-section className={styles.fsSearch}>
-      <div data-fs-search-suggestion-header>
-        <p data-fs-search-suggestion-title>History</p>
+    <section data-fs-search-section className={styles.fsSearch}>
+      <div data-fs-search-header>
+        <p data-fs-search-title>History</p>
         <Button variant="tertiary" onClick={clearSearchHistory}>
           Clear History
         </Button>
       </div>
       <UIList variant="ordered">
         {searchHistory.map((item) => (
-          <li key={item.term} data-fs-search-suggestion-item>
+          <li key={item.term} data-fs-search-item>
             <Link
-              data-fs-search-suggestion-item-link
+              data-fs-search-item-link
               variant="display"
               href={item.path}
               onClick={() => onSearchInputSelection?.(item.term, item.path)}
@@ -45,7 +45,7 @@ const SearchHistory = ({ history = [] }: SearchHistoryProps) => {
                 name="Clock"
                 width={18}
                 height={18}
-                data-fs-search-suggestion-item-icon
+                data-fs-search-item-icon
               />
               {item.term}
             </Link>

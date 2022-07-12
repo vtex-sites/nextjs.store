@@ -13,26 +13,37 @@ import { SessionProvider } from '@faststore/sdk'
 import SearchDropdown from './SearchDropdown'
 import SearchInput from './SearchInput'
 import SuggestionProductCard from './SuggestionProductCard'
-import Suggestions from './Suggestions'
-import { SuggestionsTopSearch } from './SuggestionsTopSearch'
-import { product, searchTerms } from 'src/../.storybook/mocks'
+import SearchSuggestions from './SearchSuggestions'
+import { SearchTop } from './SearchTop'
+import { product, searchTerms, searchHistory } from 'src/../.storybook/mocks'
 import { msw, products } from'./searchMock.ts'
-
-
+import SearchSharedTokenTable from'./SearchSharedTokenTable.mdx'
 
 <Meta
-  title='Features/SearchSuggestions/Overview'
+  title='Features/Search/Overview'
   parameters={{msw}}
 />
 
-<Story
-  name="Search"
->
-</Story>
+export const Template = (props) => (
+  <div
+    style={{
+      maxWidth: '600px',
+      height: '400px',
+      margin: '0 auto',
+      padding: '0 16px',
+      background: 'white',
+    }}
+  >
+    <SessionProvider>
+      <SearchInput {...props} />
+    </SessionProvider>
+  </div>
+)
+
 
 <header>
 
-# Search Suggestions
+# Search
 
 This feature enables customers to set a location using a valid Postal Code.
 
@@ -40,14 +51,70 @@ This feature enables customers to set a location using a valid Postal Code.
 
 ## Overview
 
+<Canvas>
+  <Story
+    name="Overview"
+    parameters={{
+      backgrounds: { default: 'dark' },
+      msw
+    }}
+    args={{
+      products
+    }}
+  >
+  {Template.bind({})}
+  </Story>
+</Canvas>
+
 ---
+
+<SearchSharedTokenTable />
 
 ## Components
 <SessionProvider>
   <SearchInputProvider>
-    <SectionList>
+    <SectionList grid="grid">
       <SectionItem
-        title="History"
+        title="SearchSuggestions"
+        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        description={
+          <>
+            Displays a set navigation links and self adapts on mobile{' '}
+            <code>NavbarSlider</code> or desktop screens.
+          </>
+        }
+        containerStyle={{ overflowY: "scroll", alignItems: "flex-start" }}
+      >
+        <SearchSuggestions term="Ste" products={products.slice(0, 3)} terms={searchTerms} />
+      </SectionItem>
+      <SectionItem
+        title="SearchProductCard"
+        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        description={
+          <>
+            Displays a set navigation links and self adapts on mobile{' '}
+            <code>NavbarSlider</code> or desktop screens.
+          </>
+        }
+      >
+        <SuggestionProductCard product={product} />
+      </SectionItem>
+      <SectionItem
+        title="SearchTop"
+        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        description={
+          <>
+            Displays a set navigation links and self adapts on mobile{' '}
+            <code>NavbarSlider</code> or desktop screens.
+          </>
+        }
+      >
+        <SearchTop />
+      </SectionItem>
+    </SectionList>
+    <SectionList grid="grid">
+      <SectionItem
+        title="SearchHistory"
         actionPath="../?path=/docs/organisms-navbar-navbarslider--overview-default"
         description={
           <>
@@ -56,7 +123,7 @@ This feature enables customers to set a location using a valid Postal Code.
           </>
         }
       >
-        <SearchHistory />
+        <SearchHistory history={searchHistory}/>
       </SectionItem>
       <SectionItem
         title="SearchDropdown"
@@ -67,9 +134,9 @@ This feature enables customers to set a location using a valid Postal Code.
             <code>NavbarSlider</code> or desktop screens.
           </>
         }
-        containerStyle={{ display: "flex", flexDirection: "column" }}
+        containerStyle={{ display: "flex", flexDirection: "column", overflowY: "scroll", justifyContent: "start" }}
       >
-        <SearchDropdown />
+        <SearchDropdown history={searchHistory} />
       </SectionItem>
       <SectionItem
         title="SearchInput"
@@ -82,43 +149,6 @@ This feature enables customers to set a location using a valid Postal Code.
         }
       >
         <SearchInput />
-      </SectionItem>
-      <SectionItem
-        title="Suggestions"
-        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
-        description={
-          <>
-            Displays a set navigation links and self adapts on mobile{' '}
-            <code>NavbarSlider</code> or desktop screens.
-          </>
-        }
-        containerStyle={{ maxHeight: 600 }}
-      >
-        <Suggestions term="Ste" products={products.slice(0, 3)} terms={searchTerms} />
-      </SectionItem>
-      <SectionItem
-        title="SuggestionProductCard"
-        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
-        description={
-          <>
-            Displays a set navigation links and self adapts on mobile{' '}
-            <code>NavbarSlider</code> or desktop screens.
-          </>
-        }
-      >
-        <SuggestionProductCard product={product} />
-      </SectionItem>
-      <SectionItem
-        title="SuggestionsTopSearch"
-        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
-        description={
-          <>
-            Displays a set navigation links and self adapts on mobile{' '}
-            <code>NavbarSlider</code> or desktop screens.
-          </>
-        }
-      >
-        <SuggestionsTopSearch />
       </SectionItem>
     </SectionList>
   </SearchInputProvider>

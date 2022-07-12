@@ -67,7 +67,7 @@
 [data-store-search-input-wrapper] {
   position: relative;
 
-  [data-fs-search-suggestion-section] + [data-fs-search-input-loading-text] {
+  [data-fs-search-section] + [data-fs-search-input-loading-text] {
     padding-top: var(--fs-spacing-3);
   }
 }

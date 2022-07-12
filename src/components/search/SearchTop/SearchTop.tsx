@@ -10,8 +10,7 @@ import type { StoreSuggestionTerm } from '@generated/graphql'
 
 import styles from '../search-common.module.scss'
 
-export interface SuggestionsTopSearchProps
-  extends HTMLAttributes<HTMLDivElement> {
+export interface SearchTopProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * ID to find this component in testing tools (e.g.: cypress, testing library, and jest).
    */
@@ -22,10 +21,7 @@ export interface SuggestionsTopSearchProps
   topTerms?: StoreSuggestionTerm[]
 }
 
-const SuggestionsTopSearch = forwardRef<
-  HTMLDivElement,
-  SuggestionsTopSearchProps
->(function SuggestionsTopSearch(
+const SearchTop = forwardRef<HTMLDivElement, SearchTopProps>(function SearchTop(
   { testId = 'top-search', topTerms, ...otherProps },
   ref
 ) {
@@ -40,7 +36,7 @@ const SuggestionsTopSearch = forwardRef<
     <section
       ref={ref}
       data-testid={testId}
-      data-fs-search-suggestion-section
+      data-fs-search-section
       className={styles.fsSearch}
       {...otherProps}
     >
@@ -48,14 +44,14 @@ const SuggestionsTopSearch = forwardRef<
         <p data-fs-search-input-loading-text>Loading...</p>
       ) : (
         <>
-          <div data-fs-search-suggestion-header>
-            <p data-fs-search-suggestion-title>Top Search</p>
+          <div data-fs-search-header>
+            <p data-fs-search-title>Top Search</p>
           </div>
           <UIList variant="ordered">
             {terms.map((term, index) => (
-              <li key={term.value} data-fs-search-suggestion-item>
+              <li key={term.value} data-fs-search-item>
                 <Link
-                  data-fs-search-suggestion-item-link
+                  data-fs-search-item-link
                   variant="display"
                   href={formatSearchPath(term.value)}
                   onClick={() =>
@@ -65,7 +61,7 @@ const SuggestionsTopSearch = forwardRef<
                     )
                   }
                 >
-                  <Badge data-fs-search-suggestion-badge variant="info">
+                  <Badge data-fs-search-badge variant="info">
                     {index + 1}
                   </Badge>
                   {term.value}
@@ -79,4 +75,4 @@ const SuggestionsTopSearch = forwardRef<
   )
 })
 
-export default SuggestionsTopSearch
+export default SearchTop

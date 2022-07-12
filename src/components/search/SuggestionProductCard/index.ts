@@ -1,1 +1,1 @@
-export { default } from './SuggestionProductCard'
+export { default } from './SearchProductCard'

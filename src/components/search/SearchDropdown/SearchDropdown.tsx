@@ -1,18 +1,25 @@
-import type { SuggestionsProps } from 'src/components/search/Suggestions'
-import UISuggestions from 'src/components/search/Suggestions'
+import type { SearchSuggestionsProps } from 'src/components/search/SearchSuggestions'
+import UISearchSuggestions from 'src/components/search/SearchSuggestions'
 import useSuggestions from 'src/sdk/search/useSuggestions'
 
+import type { SearchHistoryProps } from '../History'
 import { SearchHistory } from '../History'
-import { SuggestionsTopSearch } from '../SuggestionsTopSearch'
+import { SearchTop } from '../SearchTop'
 
-function SearchDropdown({ term = '', ...otherProps }: SuggestionsProps) {
+export type SearchDropdownProps = SearchHistoryProps & SearchSuggestionsProps
+
+function SearchDropdown({
+  term = '',
+  history,
+  ...otherProps
+}: SearchDropdownProps) {
   const { terms, products, isLoading } = useSuggestions(term)
 
   if (term.length === 0 && !isLoading) {
     return (
       <>
-        <SearchHistory />
-        <SuggestionsTopSearch />
+        <SearchHistory history={history} />
+        <SearchTop />
       </>
     )
   }
@@ -26,7 +33,7 @@ function SearchDropdown({ term = '', ...otherProps }: SuggestionsProps) {
   }
 
   return (
-    <UISuggestions
+    <UISearchSuggestions
       term={term}
       terms={terms}
       products={products}
