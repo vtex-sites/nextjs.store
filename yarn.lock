@@ -1465,10 +1465,10 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@^1.10.7":
-  version "1.10.7"
-  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-1.10.7.tgz#22d02df880c0ce62dff1ce0e9c75c377d01e13d5"
-  integrity sha512-MD9NHFFsOOg3Jlsl3cN4VfCd5CzPRRsvGbB0FyOoIWZQKyGw2oCC1Xcu7gqvrrKPm0AtwF2SP8IiD1CSyXoTeg==
+"@faststore/ui@^1.10.12":
+  version "1.10.12"
+  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-1.10.12.tgz#ded491ba0899ce1b68fe2c528a7f987a5137c566"
+  integrity sha512-sv7p9An1gQdclxdAx0dDqnhD0Sjpz3s/bb8JjfAJgba+wroWJtqtiBSIQFy8R9BvdoqhKvtHTVSlOiv26X/y/g==
   dependencies:
     "@reach/popover" "^0.16.0"
     "@storybook/addon-a11y" "^6.4.4"
