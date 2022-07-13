@@ -14,7 +14,6 @@
   --fs-price-range-transition-property      : var(--fs-transition-property);
   --fs-price-range-transition-timing        : var(--fs-transition-timing);
 
-  --fs-price-range-value-label-width        : var(--fs-spacing-7);
   --fs-price-range-value-label-bottom       : var(--fs-spacing-4);
   --fs-price-range-value-label-bkg-color    : var(--fs-color-body-bkg);
 
@@ -54,13 +53,18 @@
   [data-price-range-value-label="min"],
   [data-price-range-value-label="max"] {
     bottom: var(--fs-price-range-value-label-bottom);
-
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    width: var(--fs-price-range-value-label-width);
+    padding: 0 var(--fs-spacing-0);
     background-color: var(--fs-price-range-value-label-bkg-color);
-    transform: translateX(-50%);
+  }
+
+  [data-price-range-value-label="min"] {
+    text-align: left;
+    transform: translateX(-1rem);
+  }
+
+  [data-price-range-value-label="max"] {
+    text-align: right;
+    transform: translateX(calc(-100% + 1rem));
   }
 
   // Thumb styles for Webkit based browsers (Chrome, Edge)
