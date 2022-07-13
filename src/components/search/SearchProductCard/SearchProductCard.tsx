@@ -12,7 +12,7 @@ import styles from './search-product-card.module.scss'
 
 type SearchProductCardProps = {
   /**
-   * Product to be showed in `SuggestionProductCard`.
+   * Product to be showed in `SearchProductCard`.
    */
   product: ProductSummary_ProductFragment
   /**

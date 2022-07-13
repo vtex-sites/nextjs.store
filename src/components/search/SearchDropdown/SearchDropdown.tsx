@@ -2,8 +2,8 @@ import type { SearchSuggestionsProps } from 'src/components/search/SearchSuggest
 import UISearchSuggestions from 'src/components/search/SearchSuggestions'
 import useSuggestions from 'src/sdk/search/useSuggestions'
 
-import type { SearchHistoryProps } from '../History'
-import { SearchHistory } from '../History'
+import type { SearchHistoryProps } from '../SearchHistory'
+import { SearchHistory } from '../SearchHistory'
 import { SearchTop } from '../SearchTop'
 
 export type SearchDropdownProps = SearchHistoryProps & SearchSuggestionsProps

@@ -2,7 +2,7 @@ import { List as UIList } from '@faststore/ui'
 import type { HTMLAttributes } from 'react'
 import { Fragment } from 'react'
 
-import SuggestionProductCard from 'src/components/search/SuggestionProductCard'
+import SearchProductCard from 'src/components/search/SearchProductCard'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import useSearchInput, { formatSearchPath } from 'src/sdk/search/useSearchInput'
@@ -121,7 +121,7 @@ function SearchSuggestions({
           <UIList>
             {products.map((product, index) => (
               <li key={product.id} data-fs-search-item>
-                <SuggestionProductCard product={product} index={index} />
+                <SearchProductCard product={product} index={index} />
               </li>
             ))}
           </UIList>

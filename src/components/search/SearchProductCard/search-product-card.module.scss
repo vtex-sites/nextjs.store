@@ -2,18 +2,18 @@
 
 .fs-search-product-card {
   // --------------------------------------------------------
-  // Design Tokens for Suggestion Product Card
+  // Design Tokens for Search Product Card
   // --------------------------------------------------------
 
-  // Suggestion Product Card Link
+  // Search Product Card Link
   --fs-search-product-card-link-padding                   : var(--fs-spacing-1) var(--fs-spacing-3);
 
-  // Suggestion Product Card Image
+  // Search Product Card Image
   --fs-search-product-card-image-border-radius            : var(--fs-border-radius);
   --fs-search-product-card-image-margin-right             : var(--fs-spacing-3);
   --fs-search-product-card-image-height                   : 3.5rem;
 
-  // Suggestion Product Card Title
+  // Search Product Card Title
   --fs-search-product-card-title-margin-bottom            : var(--fs-spacing-0);
   --fs-search-product-card-title-line-height              : 1.2;
   --fs-search-product-card-title-color                    : var(--fs-color-text);

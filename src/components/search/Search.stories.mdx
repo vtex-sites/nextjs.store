@@ -6,15 +6,15 @@ import {
   TokenRow,
   TokenDivider,
 } from 'src/../.storybook/components'
-import { SearchHistory } from './History'
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
 import { rest } from 'msw'
 import { SessionProvider } from '@faststore/sdk'
 import SearchDropdown from './SearchDropdown'
 import SearchInput from './SearchInput'
-import SuggestionProductCard from './SuggestionProductCard'
+import SearchProductCard from './SearchProductCard'
 import SearchSuggestions from './SearchSuggestions'
 import { SearchTop } from './SearchTop'
+import { SearchHistory } from './SearchHistory'
 import { product, searchTerms, searchHistory } from 'src/../.storybook/mocks'
 import { msw, products } from'./searchMock.ts'
 import SearchSharedTokenTable from'./SearchSharedTokenTable.mdx'
@@ -45,11 +45,27 @@ export const Template = (props) => (
 
 # Search
 
-This feature enables customers to set a location using a valid Postal Code.
+This feature permits customers find theirs search easier.
+
+
 
 </header>
 
 ## Overview
+
+This Search feature is based in Autocomplete.
+Autocomplete is described as the functionality that displays previous search results based on current and previous searches. These results are presented in four
+different lists, which can be together or separated, depending on the customer's interaction. The existing sections are:
+
+- Last searches performed;
+
+- Search suggestion;
+
+- Product suggestion;
+
+- Most searched terms.
+
+To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.com/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/4gXFsEWjF7QF7UtI2GAvhL).
 
 <Canvas>
   <Story
@@ -76,7 +92,7 @@ This feature enables customers to set a location using a valid Postal Code.
     <SectionList grid="grid">
       <SectionItem
         title="SearchSuggestions"
-        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        actionPath="../?path=/docs/features-search-searchsuggestions--default-story"
         description={
           <>
             Displays a set navigation links and self adapts on mobile{' '}
@@ -89,23 +105,21 @@ This feature enables customers to set a location using a valid Postal Code.
       </SectionItem>
       <SectionItem
         title="SearchProductCard"
-        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        actionPath="../?path=/docs/features-search-searchproductcard--search-product-card"
         description={
           <>
-            Displays a set navigation links and self adapts on mobile{' '}
-            <code>NavbarSlider</code> or desktop screens.
+            Card to show details of the product and suggest in search dropdown.
           </>
         }
       >
-        <SuggestionProductCard product={product} />
+        <SearchProductCard product={product} />
       </SectionItem>
       <SectionItem
         title="SearchTop"
-        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        actionPath="../?path=/docs/features-search-searchtop--default-story"
         description={
           <>
-            Displays a set navigation links and self adapts on mobile{' '}
-            <code>NavbarSlider</code> or desktop screens.
+            This section displays the most searched terms by customers.
           </>
         }
       >
@@ -115,11 +129,10 @@ This feature enables customers to set a location using a valid Postal Code.
     <SectionList grid="grid">
       <SectionItem
         title="SearchHistory"
-        actionPath="../?path=/docs/organisms-navbar-navbarslider--overview-default"
+        actionPath="../?path=/docs/features-search-searchhistory--default-story"
         description={
           <>
-            Displays the <code>NavLinks</code> and some features using{' '}
-            <code>SlideOver</code> component.
+            Responsible to show all history of terms researched.
           </>
         }
       >
@@ -127,11 +140,10 @@ This feature enables customers to set a location using a valid Postal Code.
       </SectionItem>
       <SectionItem
         title="SearchDropdown"
-        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        actionPath="../?path=/docs/features-search-searchdropdown--default-story"
         description={
           <>
-            Displays a set navigation links and self adapts on mobile{' '}
-            <code>NavbarSlider</code> or desktop screens.
+            Combine SearchHistory, SearchTop and SearchSuggestions to show all options in SearchInput.
           </>
         }
         containerStyle={{ display: "flex", flexDirection: "column", overflowY: "scroll", justifyContent: "start" }}
@@ -140,11 +152,10 @@ This feature enables customers to set a location using a valid Postal Code.
       </SectionItem>
       <SectionItem
         title="SearchInput"
-        actionPath="../?path=/docs/organisms-navbar-navlinks--overview-default"
+        actionPath="../?path=/docs/features-search-searchinput--default-story"
         description={
           <>
-            Displays a set navigation links and self adapts on mobile{' '}
-            <code>NavbarSlider</code> or desktop screens.
+            Responsible to receive, search and display suggestions.
           </>
         }
       >
