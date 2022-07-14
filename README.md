@@ -74,6 +74,7 @@ As of Dec, 22, 2021, this starter is still far from covering most basic cases fo
    Your site is now running at `http://localhost:3000`!
 
     Open the `awesome.store` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real-time!
+    
 
 ## :technologist: Contributing
 
