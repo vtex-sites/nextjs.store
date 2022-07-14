@@ -15,7 +15,7 @@ import { SectionList, SectionItem } from 'src/../.storybook/components'
 
 </header>
 
-To build your new theme, just create a new `.scss` file on `src/styles/themes` and overwrite the tokens you want. We created two themes to use as examples: `soft-blue` and `midnight`.
+## Global Tokens
 
 FastStore uses a default theme called `Brandless`, which provides structural styles for your components and pages. Please read <a href="../?path=/docs/theming-brandless--page">Brandless's page</a> to further information about our themeable architecture.
 
@@ -91,3 +91,23 @@ Its presets are defined on `src/styles/global/tokens.scss` and it's separated in
     <IncentivesFooter />
   </SectionItem>
 </SectionList>
+
+---
+
+## Build your new theme
+
+1. Create a new `.scss` file on `src/styles/themes` and overwrite the tokens you want: e.g. `my-theme.scss`
+2. Import `my-theme.scss` file on `src/pages/_app.tsx`
+
+```jsx
+import '../styles/themes/my-theme.scss'
+```
+
+3. Go to `store.config.js` and change the `theme` to your file's name:
+
+```js
+  // Theming
+  theme: 'my-theme',
+```
+
+If you want, you can work on `custom-theme.scss` file that's ready to use. Also, we created two themes to use as examples: `soft-blue` and `midnight`.

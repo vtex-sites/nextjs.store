@@ -6,6 +6,9 @@ module.exports = {
     author: 'Store Framework',
   },
 
+  // Theming
+  theme: 'custom-theme',
+
   // Ecommerce Platform
   platform: 'vtex',
 
@@ -53,7 +56,4 @@ module.exports = {
     // https://developers.google.com/tag-platform/tag-manager/web#standard_web_page_installation,
     gtmContainerId: 'GTM-PGHZ95N',
   },
-
-  // Theming
-  theme: 'custom-theme',
 }

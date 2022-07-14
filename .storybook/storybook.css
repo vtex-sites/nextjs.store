@@ -407,7 +407,7 @@ header.sbdocs-hero + .sbdocs-callout {
 }
 
 .sbdocs-content > header.sbdocs-hero p {
-  width: 70%;
+  width: 65%;
   margin-top: var(--fs-spacing-3);
   margin-bottom: var(--fs-spacing-3);
   font-size: var(--fs-text-size-lead);
