@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming/create'
-import Logo from '../public/brandless-neutral.png'
+import Logo from '../public/brandless-storybook.png'
 
 export default create({
   base: 'light',
