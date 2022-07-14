@@ -4,38 +4,38 @@
   // --------------------------------------------------------
   // Design Tokens for Select
   // --------------------------------------------------------
-  --fs-search-min-height : var(--fs-spacing-7);
+  --fs-search-min-height                : var(--fs-spacing-7);
 
   // Title
-  --fs-search-title: var(--fs-text-size-3);
-  --fs-search-title-line-height: 1.5;
+  --fs-search-title-size                : var(--fs-text-size-3);
+  --fs-search-title-line-height         : 1.5;
 
   // Title Small
-  --fs-search-title-small-margin-bottom: var(--fs-spacing-1);
-  --fs-search-title-small-font-size: var(--fs-text-size-2);
-  --fs-search-title-small-color: var(--fs-color-neutral-6);
+  --fs-search-title-small-margin-bottom : var(--fs-spacing-1);
+  --fs-search-title-small-size          : var(--fs-text-size-2);
+  --fs-search-title-small-color         : var(--fs-color-neutral-6);
 
   // Section
-  --fs-search-section-padding: var(--fs-spacing-1) 0;
-  --fs-search-section-bkg-color: var(--fs-color-neutral-0);
-  --fs-search-section-border-bottom: var(--fs-border-width) solid var(--fs-border-color-light);
+  --fs-search-section-padding           : var(--fs-spacing-1) 0;
+  --fs-search-section-bkg-color         : var(--fs-color-neutral-0);
+  --fs-search-section-border-bottom     : var(--fs-border-width) solid var(--fs-border-color-light);
 
   // Link
-  --fs-search-item-link-color : var(--fs-color-text-light);
-  --fs-search-item-link-padding-right: var(--fs-spacing-3);
-  --fs-search-item-link-padding-left: var(--fs-spacing-3);
+  --fs-search-item-link-color           : var(--fs-color-text-light);
+  --fs-search-item-link-padding-right   : var(--fs-spacing-3);
+  --fs-search-item-link-padding-left    : var(--fs-search-item-link-padding-right);
 
   // Item
-  --fs-search-item-font-size: var(--fs-text-size-2);
-  --fs-search-item-line-height: 1.25;
-  --fs-search-item-bkg-color-hover: var(--fs-color-tertiary-bkg-hover);
+  --fs-search-item-font-size            : var(--fs-text-size-2);
+  --fs-search-item-line-height          : 1.25;
+  --fs-search-item-bkg-color-hover      : var(--fs-color-tertiary-bkg-hover);
 
   // Icon
-  --fs-search-item-icon-color: var(--fs-color-neutral-4);
-  --fs-search-item-icon-margin-right: var(--fs-spacing-1);
+  --fs-search-item-icon-color           : var(--fs-color-neutral-4);
+  --fs-search-item-icon-margin-right    : var(--fs-spacing-1);
 
   // Badge
-  --fs-search-badge-margin-right: var(--fs-spacing-1);
+  --fs-search-badge-margin-right        : var(--fs-spacing-1);
 
   // Default properties
   [data-fs-search-header] {
@@ -46,13 +46,13 @@
   }
 
   [data-fs-search-title] {
-    font-size: var(--fs-search-title);
+    font-size: var(--fs-search-title-size);
     line-height: var(--fs-search-title-line-height);
   }
 
   [data-fs-search-title="small"] {
     margin-bottom: var(--fs-search-title-small-margin-bottom);
-    font-size: var(--fs-search-title-small-font-size);
+    font-size: var(--fs-search-title-small-size);
     color: var(--fs-search-title-small-color);
   }
 
