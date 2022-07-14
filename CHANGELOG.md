@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updates global tokens to follow Brandless approach ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
+- Sync `ModalProps` children between starters ([#169](https://github.com/vtex-sites/nextjs.store/pull/169))
 - Updates `IncentivesFooter` content ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
 - Updated Getting Started doc page and overall improvements ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
 - Fix storybook mock structure ([#156](https://github.com/vtex-sites/nextjs.store/pull/156))
