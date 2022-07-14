@@ -67,6 +67,18 @@ different lists, which can be together or separated, depending on the customer's
 
 To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.com/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/4gXFsEWjF7QF7UtI2GAvhL).
 
+## Usage
+
+On your `Layout.txt` file:
+
+```jsx
+import { SearchInput } from 'src/components/search/SearchInput'
+```
+
+Then, you can add your `<SearchInput />` whenever it's needed.
+
+It's suggested to add it on `Navbar`.
+
 <Canvas>
   <Story
     name="Overview"
@@ -85,6 +97,8 @@ To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.c
 ---
 
 <SearchSharedTokenTable />
+
+---
 
 ## Components
 <SessionProvider>
