@@ -4,6 +4,7 @@ import storeConfig from 'store.config'
 
 function WebFonts() {
   return (
+    // Replace this content with the <link> of your font-family of choice
     <>
       {storeConfig.theme === 'midnight' && (
         <link

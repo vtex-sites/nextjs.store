@@ -1,4 +1,3 @@
-import '../styles/fonts.css'
 import '../styles/global/tokens.scss'
 import '../styles/global/resets.scss'
 import '../styles/global/typography.scss'
