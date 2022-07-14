@@ -75,9 +75,9 @@ export const parameters = {
       method: 'alphabetical',
       order: [
         'Getting Started',
-        'Media',
         'Theming',
         'Global Tokens',
+        'Media',
         ['Colors', 'Typography', 'Spacing', 'Grid & Layout'],
         'Atoms',
         'Molecules',
