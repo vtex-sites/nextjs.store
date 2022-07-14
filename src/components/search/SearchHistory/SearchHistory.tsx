@@ -16,7 +16,7 @@ export interface SearchHistoryProps {
   history?: History[]
 }
 
-const SearchHistory = ({ history = [] }: SearchHistoryProps) => {
+const SearchHistory = ({ history = [], ...otherProps }: SearchHistoryProps) => {
   const { onSearchInputSelection } = useSearchInput()
   const { searchHistory, clearSearchHistory } = useSearchHistory(history)
 
@@ -25,7 +25,7 @@ const SearchHistory = ({ history = [] }: SearchHistoryProps) => {
   }
 
   return (
-    <section data-fs-search-section className={styles.fsSearch}>
+    <section data-fs-search-section className={styles.fsSearch} {...otherProps}>
       <div data-fs-search-header>
         <p data-fs-search-title>History</p>
         <Button variant="tertiary" onClick={clearSearchHistory}>

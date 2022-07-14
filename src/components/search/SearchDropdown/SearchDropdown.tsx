@@ -11,6 +11,7 @@ export type SearchDropdownProps = SearchHistoryProps & SearchSuggestionsProps
 function SearchDropdown({
   term = '',
   history,
+  style,
   ...otherProps
 }: SearchDropdownProps) {
   const { terms, products, isLoading } = useSuggestions(term)

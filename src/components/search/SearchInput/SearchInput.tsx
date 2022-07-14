@@ -1,6 +1,7 @@
 import { sendAnalyticsEvent } from '@faststore/sdk'
 import { SearchInput as UISearchInput } from '@faststore/ui'
 import { useRouter } from 'next/router'
+import type { CSSProperties } from 'react'
 import {
   forwardRef,
   lazy,
@@ -31,6 +32,7 @@ const SearchDropdown = lazy(
 export type SearchInputProps = {
   onSearchClick?: () => void
   buttonTestId?: string
+  containerStyle?: CSSProperties
 } & Omit<UISearchInputProps, 'onSubmit'>
 
 const sendAnalytics = async (term: string) => {
@@ -42,7 +44,12 @@ const sendAnalytics = async (term: string) => {
 
 const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
   function SearchInput(
-    { onSearchClick, buttonTestId = 'store-search-button', ...props },
+    {
+      onSearchClick,
+      buttonTestId = 'store-search-button',
+      containerStyle,
+      ...props
+    },
     ref
   ) {
     const [searchQuery, setSearchQuery] = useState<string>('')
@@ -67,6 +74,7 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
         ref={searchRef}
         data-store-search-input-wrapper
         data-store-search-input-dropdown-open={searchDropdownOpen}
+        style={containerStyle}
       >
         <SearchInputProvider onSearchInputSelection={onSearchInputSelection}>
           <UISearchInput

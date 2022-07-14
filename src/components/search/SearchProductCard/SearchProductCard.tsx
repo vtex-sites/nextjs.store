@@ -21,7 +21,11 @@ type SearchProductCardProps = {
   index: number
 }
 
-function SearchProductCard({ product, index }: SearchProductCardProps) {
+function SearchProductCard({
+  product,
+  index,
+  ...otherProps
+}: SearchProductCardProps) {
   const { onSearchInputSelection } = useSearchInput()
   const { onClick, href, ...linkProps } = useProductLink({
     product,
@@ -43,6 +47,7 @@ function SearchProductCard({ product, index }: SearchProductCardProps) {
       data-fs-search-product-card
       className={styles.fsSearchProductCard}
       data-testid="search-product-card"
+      {...otherProps}
     >
       <Link
         {...linkProps}

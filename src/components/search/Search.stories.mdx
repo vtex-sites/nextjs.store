@@ -101,7 +101,7 @@ To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.c
         }
         containerStyle={{ overflowY: "scroll", alignItems: "flex-start" }}
       >
-        <SearchSuggestions term="Ste" products={products.slice(0, 3)} terms={searchTerms} />
+        <SearchSuggestions term="Ste" products={products.slice(0, 3)} terms={searchTerms} style={{ width: "100%" }} />
       </SectionItem>
       <SectionItem
         title="SearchProductCard"
@@ -112,7 +112,7 @@ To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.c
           </>
         }
       >
-        <SearchProductCard product={product} />
+        <SearchProductCard product={product} style={{ width: "100%" }} />
       </SectionItem>
       <SectionItem
         title="SearchTop"
@@ -123,7 +123,7 @@ To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.c
           </>
         }
       >
-        <SearchTop />
+        <SearchTop style={{ width: "100%" }} />
       </SectionItem>
     </SectionList>
     <SectionList grid="grid">
@@ -132,11 +132,11 @@ To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.c
         actionPath="../?path=/docs/features-search-searchhistory--default-story"
         description={
           <>
-            Responsible to show all history of terms researched.
+            Responsible to show the history of most recent terms researched by the user.
           </>
         }
       >
-        <SearchHistory history={searchHistory}/>
+        <SearchHistory history={searchHistory} style={{ width: "100%" }} />
       </SectionItem>
       <SectionItem
         title="SearchDropdown"
@@ -158,8 +158,9 @@ To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.c
             Responsible to receive, search and display suggestions.
           </>
         }
+        containerStyle={{ overflowY: "scroll" }}
       >
-        <SearchInput />
+        <SearchInput containerStyle={{ width: "100%" }} />
       </SectionItem>
     </SectionList>
   </SearchInputProvider>
