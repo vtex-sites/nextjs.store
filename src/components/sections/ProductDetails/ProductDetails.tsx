@@ -16,6 +16,7 @@ import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProduct } from 'src/sdk/product/useProduct'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import Selectors from 'src/components/ui/SkuSelector'
 
 import Section from '../Section'
 
@@ -45,7 +46,7 @@ function ProductDetails({ product: staleProduct }: Props) {
       name: variantName,
       brand,
       isVariantOf,
-      isVariantOf: { name, productGroupID: productId },
+      isVariantOf: { name, productGroupID: productId, hasVariant },
       image: productImages,
       offers: {
         offers: [{ availability, price, listPrice, seller }],
@@ -126,6 +127,7 @@ function ProductDetails({ product: staleProduct }: Props) {
         <ImageGallery images={productImages} />
 
         <section className="product-details__settings">
+          <Selectors options={hasVariant} productId={sku} />
           <section className="product-details__values">
             <div className="product-details__prices">
               <Price
@@ -253,6 +255,24 @@ export const fragment = gql`
     isVariantOf {
       productGroupID
       name
+      hasVariant {
+        slug
+        name
+        productID
+        seo {
+          title
+        }
+        image {
+          url
+          alternateName
+        }
+        additionalProperty {
+          propertyID
+          value
+          name
+          valueReference
+        }
+      }
     }
 
     image {
