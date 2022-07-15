@@ -20,7 +20,7 @@
   // Content
   --fs-product-card-skeleton-content-height                 : 20%;
   --fs-product-card-skeleton-content-margin-top             : var(--fs-spacing-2);
-  --fs-product-card-skeleton-content-text-margin-top        : var(--fs-spacing-4);
+  --fs-product-card-skeleton-content-button-margin-top      : var(--fs-spacing-4);
   --fs-product-card-skeleton-content-text-margin-bottom     : var(--fs-product-card-skeleton-content-margin-top);
   --fs-product-card-skeleton-content-badge-min-height       : var(--fs-spacing-5);
   --fs-product-card-skeleton-content-badge-margin-top       : var(--fs-product-card-skeleton-content-text-margin-top);
@@ -52,7 +52,7 @@
 
   @include media(">=notebook") { min-width: var(--fs-product-card-skeleton-min-width-desktop); }
 
-  [data-product-card-skeleton-image] {
+  [data-fs-product-card-skeleton-image] {
     [data-fs-skeleton-variant="image"] {
       height: var(--fs-product-card-skeleton-image-height-mobile);
 
@@ -62,14 +62,14 @@
     }
   }
 
-  [data-product-card-skeleton-content] {
+  [data-fs-product-card-skeleton-content] {
     position: relative;
     height: var(--fs-product-card-skeleton-content-height);
     margin-top: var(--fs-product-card-skeleton-content-margin-top);
 
-    [data-fs-skeleton-variant="text"] { margin-bottom: var(--fs-product-card-skeleton-content-text-margin-top); }
+    [data-fs-skeleton-variant="text"] { margin-bottom: var(--fs-product-card-skeleton-content-text-margin-bottom); }
 
-    [data-fs-skeleton-variant="button"] { margin-top: var(--fs-product-card-skeleton-content-text-margin-top); }
+    [data-fs-skeleton-variant="button"] { margin-top: var(--fs-product-card-skeleton-content-button-margin-top); }
 
     [data-fs-skeleton-variant="badge"] {
       min-width: var(--fs-product-card-skeleton-content-badge-min-width-mobile);
