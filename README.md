@@ -22,7 +22,6 @@ As of Dec, 22, 2021, this starter is still far from covering most basic cases fo
 8. Shipping simulation
 9. Sitemap
 10. Sku selector on PDP
-
 11. Promotions via utm
 12. Product specifications
 
