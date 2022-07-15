@@ -117,7 +117,9 @@ function SearchSuggestions({
 
       {products.length > 0 && (
         <div data-fs-search-section>
-          <p data-fs-search-title="small">Suggested Products</p>
+          <div data-fs-search-header>
+            <p data-fs-search-title>Suggested Products</p>
+          </div>
           <UIList>
             {products.map((product, index) => (
               <li key={product.id} data-fs-search-item>

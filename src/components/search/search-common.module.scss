@@ -10,11 +10,6 @@
   --fs-search-title-size                : var(--fs-text-size-3);
   --fs-search-title-line-height         : 1.5;
 
-  // Title Small
-  --fs-search-title-small-margin-bottom : var(--fs-spacing-1);
-  --fs-search-title-small-size          : var(--fs-text-size-2);
-  --fs-search-title-small-color         : var(--fs-color-neutral-6);
-
   // Section
   --fs-search-section-padding           : var(--fs-spacing-1) 0;
   --fs-search-section-bkg-color         : var(--fs-color-neutral-0);
@@ -42,18 +37,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: var(--fs-search-suggestion);
+    min-height: var(--fs-search-min-height);
   }
 
   [data-fs-search-title] {
     font-size: var(--fs-search-title-size);
     line-height: var(--fs-search-title-line-height);
-  }
-
-  [data-fs-search-title="small"] {
-    margin-bottom: var(--fs-search-title-small-margin-bottom);
-    font-size: var(--fs-search-title-small-size);
-    color: var(--fs-search-title-small-color);
   }
 
   [data-fs-search-section] {

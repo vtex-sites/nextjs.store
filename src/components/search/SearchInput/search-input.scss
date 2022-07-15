@@ -93,6 +93,7 @@
   z-index: 1;
   width: 100vw;
   padding: var(--fs-spacing-3);
+  padding-top: 0;
   background-color: var(--fs-color-neutral-0);
 
   &:empty {
