@@ -14,7 +14,7 @@ function FilterSkeleton({
 }: PropsWithChildren<FilterSkeletonProps>) {
   return loading ? (
     <div className={styles.fsFilterSkeleton} data-fs-filter-skeleton>
-      <Skeleton shimmer variant="text" data-fs-filter-skeleton-title />
+      <Skeleton shimmer variant="text" />
 
       <div data-fs-filter-skeleton-content>
         <Skeleton variant="text" />

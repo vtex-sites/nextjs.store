@@ -7,10 +7,6 @@
 
   // Default properties
   --fs-filter-skeleton-margin-top            : var(--fs-spacing-1);
-  --fs-filter-skeleton-padding               : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-0);
-
-  --fs-filter-skeleton-border                : var(--fs-border-width) solid var(--fs-border-color-light);
-  --fs-filter-skeleton-border-radius         : var(--fs-border-radius);
 
   // Title
   --fs-filter-skeleton-title-max-width       : 30%;
@@ -20,6 +16,9 @@
   --fs-filter-skeleton-content-min-width     : 100%;
   --fs-filter-skeleton-content-min-height    : var(--fs-spacing-8);
   --fs-filter-skeleton-content-margin-bottom : var(--fs-spacing-0);
+  --fs-filter-skeleton-content-padding       : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-0);
+  --fs-filter-skeleton-content-border        : var(--fs-border-width) solid var(--fs-border-color-light);
+  --fs-filter-skeleton-content-border-radius : var(--fs-border-radius);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -29,7 +28,7 @@
 
   @include media("<notebook") { display: none; }
 
-  [data-fs-filter-skeleton-title] {
+  [data-fs-skeleton-variant="text"] {
     max-width: var(--fs-filter-skeleton-title-max-width);
     margin-bottom: var(--fs-filter-skeleton-title-margin-bottom);
   }
@@ -38,10 +37,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: var(--fs-filter-skeleton-padding);
+    padding: var(--fs-filter-skeleton-content-padding);
     overflow: hidden;
-    border: var(--fs-filter-skeleton-border);
-    border-radius: var(--fs-filter-skeleton-border-radius);
+    border: var(--fs-filter-skeleton-content-border);
+    border-radius: var(--fs-filter-skeleton-content-border-radius);
 
     [data-fs-skeleton-variant="text"] {
       min-width: var(--fs-filter-skeleton-content-min-width);
