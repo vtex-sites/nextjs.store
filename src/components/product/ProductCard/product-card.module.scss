@@ -81,11 +81,11 @@
       background-color: var(--fs-product-card-bkg-color-hover);
       border-color: var(--fs-product-card-border-color-hover);
       box-shadow: var(--fs-product-card-shadow-hover);
-      [data-product-card-image] img { transform: scale(var(--fs-product-card-img-scale-hover)); }
+      [data-fs-product-card-image] img { transform: scale(var(--fs-product-card-img-scale-hover)); }
     }
   }
 
-  [data-product-card-image] {
+  [data-fs-product-card-image] {
     position: relative;
     display: flex;
     justify-content: center;
