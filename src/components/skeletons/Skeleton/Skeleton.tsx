@@ -17,14 +17,19 @@ function Skeleton({
   children,
   loading = true,
   shimmer = false,
+  ...otherProps
 }: PropsWithChildren<SkeletonProps>) {
   return loading ? (
     <div
       data-fs-skeleton-wrapper
-      data-fs-skeleton-shimmer={shimmer}
       className={styles.fsSkeleton}
+      data-fs-skeleton-shimmer={shimmer}
     >
-      <UISkeleton data-fs-skeleton data-fs-skeleton-variant={variant} />
+      <UISkeleton
+        data-fs-skeleton
+        data-fs-skeleton-variant={variant}
+        {...otherProps}
+      />
       {shimmer && <Shimmer />}
     </div>
   ) : (
