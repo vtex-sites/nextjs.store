@@ -28,10 +28,10 @@
    * in order to the effect to work properly.
    */
   position: absolute;
-  top: var(--fs-wrapper-shimmer-top);
-  left: var(--fs-wrapper-shimmer-left);
-  width: var(--fs-wrapper-shimmer-width);
-  height: var(--fs-wrapper-shimmer-height);
+  top: var(--fs-shimmer-wrapper-top);
+  left: var(--fs-shimmer-wrapper-left);
+  width: var(--fs-shimmer-wrapper-width);
+  height: var(--fs-shimmer-wrapper-height);
   animation: loading var(--fs-shimmer-wrapper-transition-timing) var(--fs-shimmer-wrapper-transition-iteration) var(--fs-shimmer-wrapper-transition-function);
 
   [data-fs-shimmer] {
