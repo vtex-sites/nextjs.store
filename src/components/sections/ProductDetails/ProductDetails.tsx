@@ -47,7 +47,13 @@ function ProductDetails({ product: staleProduct }: Props) {
       name: variantName,
       brand,
       isVariantOf,
-      isVariantOf: { name, productGroupID: productId, hasVariant },
+      isVariantOf: {
+        name,
+        productGroupID: productId,
+        activeVariations,
+        slugsMap,
+        filteredAvailableVariations,
+      },
       image: productImages,
       offers: {
         offers: [{ availability, price, listPrice, seller }],
@@ -128,7 +134,11 @@ function ProductDetails({ product: staleProduct }: Props) {
         <ImageGallery images={productImages} />
 
         <section className="product-details__settings">
-          <Selectors options={hasVariant} productId={sku} />
+          <Selectors
+            slugsMap={slugsMap}
+            availableVariations={filteredAvailableVariations}
+            activeVariations={activeVariations}
+          />
           <section className="product-details__values">
             <div className="product-details__prices">
               <Price
@@ -256,6 +266,11 @@ export const fragment = gql`
     isVariantOf {
       productGroupID
       name
+
+      slugsMap(dominantVariantProperty: "Color")
+      filteredAvailableVariations(dominantVariantProperty: "Color")
+      activeVariations
+
       hasVariant {
         slug
         name
