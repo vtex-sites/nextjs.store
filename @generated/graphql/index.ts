@@ -18,6 +18,9 @@ export type Scalars = {
   Float: number
   /** A string or the string representation of an object (a stringified object). */
   ObjectOrString: any
+  SelectedVariants: any
+  SlugsMap: any
+  VariantsByName: any
 }
 
 /** Person data input to the newsletter. */
@@ -511,14 +514,28 @@ export type StoreProductEdge = {
 
 /** Product group information. Product groups are catalog entities that may contain variants. They are equivalent to VTEX [Products](https://help.vtex.com/en/tutorial/what-is-a-product--2zrB2gFCHyQokCKKE8kuAw#), whereas each variant is equivalent to a VTEX [SKU](https://help.vtex.com/en/tutorial/what-is-an-sku--1K75s4RXAQyOuGUYKMM68u#). For example, you may have a **Shirt** product group with associated products such as **Blue shirt size L**, **Green shirt size XL** and so on. */
 export type StoreProductGroup = {
+  activeVariations: Maybe<Scalars['SelectedVariants']>
   /** Array of additional properties. */
   additionalProperty: Array<StorePropertyValue>
+  filteredAvailableVariations: Maybe<Scalars['VariantsByName']>
   /** Array of variants related to product group. Variants are equivalent to VTEX [SKUs](https://help.vtex.com/en/tutorial/what-is-an-sku--1K75s4RXAQyOuGUYKMM68u#). */
   hasVariant: Array<StoreProduct>
   /** Product group name. */
   name: Scalars['String']
   /** Product group ID. */
   productGroupID: Scalars['String']
+  slugsMap: Maybe<Scalars['SlugsMap']>
+  variantsByName: Maybe<Scalars['VariantsByName']>
+}
+
+/** Product group information. Product groups are catalog entities that may contain variants. They are equivalent to VTEX [Products](https://help.vtex.com/en/tutorial/what-is-a-product--2zrB2gFCHyQokCKKE8kuAw#), whereas each variant is equivalent to a VTEX [SKU](https://help.vtex.com/en/tutorial/what-is-an-sku--1K75s4RXAQyOuGUYKMM68u#). For example, you may have a **Shirt** product group with associated products such as **Blue shirt size L**, **Green shirt size XL** and so on. */
+export type StoreProductGroupFilteredAvailableVariationsArgs = {
+  dominantVariantProperty: Scalars['String']
+}
+
+/** Product group information. Product groups are catalog entities that may contain variants. They are equivalent to VTEX [Products](https://help.vtex.com/en/tutorial/what-is-a-product--2zrB2gFCHyQokCKKE8kuAw#), whereas each variant is equivalent to a VTEX [SKU](https://help.vtex.com/en/tutorial/what-is-an-sku--1K75s4RXAQyOuGUYKMM68u#). For example, you may have a **Shirt** product group with associated products such as **Blue shirt size L**, **Green shirt size XL** and so on. */
+export type StoreProductGroupSlugsMapArgs = {
+  dominantVariantProperty: Scalars['String']
 }
 
 /** Properties that can be associated with products and products groups. */
@@ -679,6 +696,9 @@ export type ProductDetailsFragment_ProductFragment = {
   isVariantOf: {
     productGroupID: string
     name: string
+    slugsMap: any | null
+    filteredAvailableVariations: any | null
+    activeVariations: any | null
     hasVariant: Array<{
       slug: string
       name: string
@@ -797,6 +817,9 @@ export type ServerProductPageQueryQuery = {
     isVariantOf: {
       productGroupID: string
       name: string
+      slugsMap: any | null
+      filteredAvailableVariations: any | null
+      activeVariations: any | null
       hasVariant: Array<{
         slug: string
         name: string
@@ -898,6 +921,9 @@ export type BrowserProductQueryQuery = {
     isVariantOf: {
       productGroupID: string
       name: string
+      slugsMap: any | null
+      filteredAvailableVariations: any | null
+      activeVariations: any | null
       hasVariant: Array<{
         slug: string
         name: string
