@@ -1,6 +1,14 @@
 import type { NextRouter } from 'next/router'
 
-import type { SkuVariantsByName, SkuVariants } from './useSkuVariants'
+import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
+
+export type SkuVariants =
+  ProductDetailsFragment_ProductFragment['isVariantOf']['hasVariant']
+
+export type SkuVariantsByName = Record<
+  string,
+  Array<{ alt: string; src: string; label: string; value: string }>
+>
 
 export function getSkuSlug(
   slugsMap: Record<string, string>,
@@ -34,51 +42,6 @@ export function getSkuSlug(
   }
 
   return slugsMap[slugsMapKey]
-}
-
-export function getSelectedVariations(
-  productId: string,
-  variants: SkuVariants
-) {
-  const currentVariation = variants.find(
-    (variant) => variant.productID === productId
-  )
-
-  if (!currentVariation) {
-    throw new Error('Invalid SKU variations state reached.')
-  }
-
-  const selectedVariations: Record<string, string> = {}
-
-  currentVariation.additionalProperty.forEach((property) => {
-    selectedVariations[property.name] = property.value
-  })
-
-  return selectedVariations
-}
-
-export function getAvailableVariationsForSelectedColor(
-  selectedColor: string,
-  options: SkuVariantsByName,
-  variantsByDominantValue: Record<string, Record<string, string[]>>
-): SkuVariantsByName {
-  const filteredOptions: SkuVariantsByName = {}
-
-  const { Color, ...otherProperties } = options
-
-  for (const propertyName in otherProperties) {
-    if (Object.prototype.hasOwnProperty.call(otherProperties, propertyName)) {
-      filteredOptions[propertyName] = otherProperties[propertyName].filter(
-        (formattedProperty) =>
-          variantsByDominantValue[selectedColor][propertyName].includes(
-            formattedProperty.value
-          )
-      )
-      otherProperties[propertyName]
-    }
-  }
-
-  return { Color, ...filteredOptions }
 }
 
 export function navigateToSku({
