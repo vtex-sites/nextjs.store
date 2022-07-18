@@ -51,7 +51,7 @@ function ProductDetails({ product: staleProduct }: Props) {
         productGroupID: productId,
         activeVariations,
         slugsMap,
-        filteredAvailableVariations,
+        availableVariations,
       },
       image: productImages,
       offers: {
@@ -135,7 +135,7 @@ function ProductDetails({ product: staleProduct }: Props) {
         <section className="product-details__settings">
           <Selectors
             slugsMap={slugsMap}
-            availableVariations={filteredAvailableVariations}
+            availableVariations={availableVariations}
             activeVariations={activeVariations}
           />
           <section className="product-details__values">
@@ -266,8 +266,8 @@ export const fragment = gql`
       name
       productGroupID
       activeVariations
-      slugsMap(dominantVariantProperty: "Color")
-      filteredAvailableVariations(dominantVariantProperty: "Color")
+      slugsMap(dominantVariantName: "Color")
+      availableVariations(dominantVariantName: "Color")
     }
 
     image {
