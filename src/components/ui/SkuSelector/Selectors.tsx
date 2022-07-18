@@ -2,17 +2,13 @@ import { useContext, createContext } from 'react'
 import { useRouter } from 'next/router'
 
 import SkuSelector from './SkuSelector'
-import { useSkuVariants } from './useSkuVariants'
-import type { SkuVariants } from './useSkuVariants'
-import {
-  getAvailableVariationsForSelectedColor,
-  getSelectedVariations,
-  navigateToSku,
-} from './skuVariants'
+import { navigateToSku } from './skuVariants'
+import type { SkuVariantsByName } from './skuVariants'
 
 interface Props {
-  options: SkuVariants
-  productId: string
+  availableVariations: SkuVariantsByName
+  slugsMap: Record<string, string>
+  activeVariations: Record<string, string>
 }
 
 /**
@@ -27,27 +23,16 @@ const DOMINANT_SKU_SELECTOR_PROPERTY = 'Color'
 
 const SelectorsStateContext = createContext<Record<string, string>>({})
 
-function Selectors({ options, productId }: Props) {
+function Selectors({ slugsMap, availableVariations, activeVariations }: Props) {
   const router = useRouter()
-  const selectedVariations = getSelectedVariations(productId, options)
-
-  const { variantsByName, slugsMap, availableVariantsByDominantValue } =
-    useSkuVariants(options, DOMINANT_SKU_SELECTOR_PROPERTY)
-
-  const filteredOptionsByCurrentColor = getAvailableVariationsForSelectedColor(
-    selectedVariations.Color,
-    variantsByName,
-    availableVariantsByDominantValue
-  )
 
   // 'Color' variants are singled-out here because they will always be rendered
   // as 'image' variants. And they're also the 'dominant' variants in our store.
-  const { Color: colorOptions, ...otherSkuVariants } =
-    filteredOptionsByCurrentColor
+  const { Color: colorOptions, ...otherSkuVariants } = availableVariations
 
   return (
     <section>
-      <SelectorsStateContext.Provider value={selectedVariations}>
+      <SelectorsStateContext.Provider value={activeVariations}>
         {colorOptions && (
           <SkuSelector
             skuPropertyName="Color"
@@ -60,7 +45,7 @@ function Selectors({ options, productId }: Props) {
               navigateToSku({
                 router,
                 slugsMap,
-                selectorsState: selectedVariations,
+                selectorsState: activeVariations,
                 updatedVariationName: 'Color',
                 updatedVariationValue: newVariationValue,
                 dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
@@ -82,7 +67,7 @@ function Selectors({ options, productId }: Props) {
                 navigateToSku({
                   router,
                   slugsMap,
-                  selectorsState: selectedVariations,
+                  selectorsState: activeVariations,
                   updatedVariationName: skuVariant,
                   updatedVariationValue: newVariationValue,
                   dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
