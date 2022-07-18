@@ -264,31 +264,11 @@ export const fragment = gql`
     description
 
     isVariantOf {
-      productGroupID
       name
-
+      productGroupID
+      activeVariations
       slugsMap(dominantVariantProperty: "Color")
       filteredAvailableVariations(dominantVariantProperty: "Color")
-      activeVariations
-
-      hasVariant {
-        slug
-        name
-        productID
-        seo {
-          title
-        }
-        image {
-          url
-          alternateName
-        }
-        additionalProperty {
-          propertyID
-          value
-          name
-          valueReference
-        }
-      }
     }
 
     image {
