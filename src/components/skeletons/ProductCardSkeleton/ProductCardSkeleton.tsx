@@ -3,9 +3,21 @@ import Skeleton from '../Skeleton'
 import styles from './product-card-skeleton.module.scss'
 
 interface ProductCardSkeletonProps {
+  /**
+   * Specifies if the component should have a preset border.
+   */
   bordered?: boolean
+  /**
+   * Specifies if the component is displayed in a section.
+   */
   sectioned?: boolean
+  /**
+   * Control whether the button should be displayed.
+   */
   displayButton?: boolean
+  /**
+   * Specifies the component variant.
+   */
   variant?: 'default' | 'wide'
 }
 

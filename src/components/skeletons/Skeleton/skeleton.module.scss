@@ -1,3 +1,5 @@
+@import "src/styles/scaffold";
+
 .fs-skeleton {
   // --------------------------------------------------------
   // Design Tokens for Skeleton
@@ -13,11 +15,13 @@
 
   // Button
   --fs-skeleton-button-width         : var(--fs-spacing-13);
-  --fs-skeleton-button-min-height    : var(--fs-spacing-5);
+  --fs-skeleton-button-height        : var(--fs-spacing-5);
   --fs-skeleton-button-gap           : var(--fs-spacing-2);
   --fs-skeleton-button-border-radius : var(--fs-skeleton-border-radius);
 
   // Image
+  --fs-skeleton-image-height-mobile  : 45vw;
+  --fs-skeleton-image-height-desktop : 12.188rem;
   --fs-skeleton-image-border-radius  : var(--fs-skeleton-border-radius);
 
   // Badge
@@ -51,12 +55,17 @@
     &[data-fs-skeleton-variant="button"] {
       column-gap: var(--fs-skeleton-button-gap);
       width: var(--fs-skeleton-button-width);
-      min-height: var(--fs-skeleton-button-min-height);
+      height: var(--fs-skeleton-button-height);
       border-radius: var(--fs-skeleton-button-border-radius);
     }
 
     &[data-fs-skeleton-variant="image"] {
+      height: var(--fs-skeleton-image-height-mobile);
       border-radius: var(--fs-skeleton-image-border-radius);
+
+      @include media(">=notebook") {
+        height: var(--fs-skeleton-image-height-desktop);
+      }
     }
 
     &[data-fs-skeleton-variant="badge"] {

@@ -7,8 +7,17 @@ import styles from './skeleton.module.scss'
 type Variant = 'text' | 'button' | 'image' | 'badge'
 
 interface SkeletonProps {
+  /**
+   * Control whether skeleton should be visible or not.
+   */
   loading?: boolean
+  /**
+   * Control whether the shimmer effect should be displayed or not.
+   */
   shimmer?: boolean
+  /**
+   * Specifies the skeleton element variant.
+   */
   variant: Variant
 }
 

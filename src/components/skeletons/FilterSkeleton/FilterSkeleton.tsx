@@ -5,6 +5,9 @@ import Skeleton from '../Skeleton'
 import styles from './filter-skeleton.module.scss'
 
 interface FilterSkeletonProps {
+  /**
+   * Control whether skeleton should be visible or not.
+   */
   loading?: boolean
 }
 

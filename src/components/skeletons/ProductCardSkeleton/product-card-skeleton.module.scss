@@ -13,10 +13,6 @@
   --fs-product-card-skeleton-border                         : var(--fs-border-width) solid transparent;
   --fs-product-card-skeleton-border-radius                  : var(--fs-border-radius);
 
-  // Image
-  --fs-product-card-skeleton-image-height-mobile            : 45vw;
-  --fs-product-card-skeleton-image-height-desktop           : #{rem(195px)};
-
   // Content
   --fs-product-card-skeleton-content-height                 : 20%;
   --fs-product-card-skeleton-content-margin-top             : var(--fs-spacing-2);
@@ -52,16 +48,6 @@
 
   @include media(">=notebook") { min-width: var(--fs-product-card-skeleton-min-width-desktop); }
 
-  [data-fs-product-card-skeleton-image] {
-    [data-fs-skeleton-variant="image"] {
-      height: var(--fs-product-card-skeleton-image-height-mobile);
-
-      @include media(">=notebook") {
-        height: var(--fs-product-card-skeleton-image-height-desktop);
-      }
-    }
-  }
-
   [data-fs-product-card-skeleton-content] {
     position: relative;
     height: var(--fs-product-card-skeleton-content-height);
@@ -93,7 +79,7 @@
   &[data-fs-product-card-skeleton-sectioned="true"] {
     [data-fs-skeleton-variant="image"] {
       min-width: var(--fs-product-card-skeleton-sectioned-image-min-width);
-      height: var(--fs-product-card-skeleton-sectioned-image-height);
+      min-height: var(--fs-product-card-skeleton-sectioned-image-height);
     }
   }
 
