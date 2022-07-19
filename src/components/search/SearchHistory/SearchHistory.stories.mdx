@@ -6,6 +6,7 @@ import {
 } from 'src/../.storybook/components'
 
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
+import Button from 'src/components/ui/Button'
 
 import { SearchHistory } from '.'
 import { searchHistory } from 'src/../.storybook/mocks'
@@ -34,15 +35,15 @@ export const Template = (args) => {
 
 <header>
 
-# SearchHistory
+# Search History
 
-Responsible to show the history of most recent terms researched by the user.
+Responsible for showing the history of the most recent terms researched by the user.
 
 </header>
 
 ## Usage
 
-`import { SearchHistory } from 'src/components/search/History'`
+`import { SearchHistory } from 'src/components/search/SearchHistory`
 
 <Canvas>
   <Story

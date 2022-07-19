@@ -10,11 +10,10 @@ import {
 import { productGridItems, searchTerms } from 'src/../.storybook/mocks'
 import { msw, products } from'../searchMock'
 
-import Suggestions from '.'
 import SearchInput from './SearchInput'
 
 <Meta
-  component={Suggestions}
+  component={SearchInput}
   title="Features/Search/SearchInput"
 />
 
@@ -36,7 +35,7 @@ export const Template = (props) => (
 
 <header>
 
-# SearchInput
+# Search Input
 
 Responsible to receive, search and display suggestions.
 
@@ -44,7 +43,7 @@ Responsible to receive, search and display suggestions.
 
 ## Usage
 
-`import { SearchInput } from 'src/components/search/SearchInput'`
+`import SearchInput from 'src/components/search/SearchInput'`
 
 <Canvas>
   <Story

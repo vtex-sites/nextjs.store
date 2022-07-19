@@ -32,7 +32,7 @@ export const Template = (args) => (
 
 <header>
 
-# SearchTop
+# Search Top
 
 This section displays the most searched terms by customers.
 
@@ -48,6 +48,13 @@ This section displays the most searched terms by customers.
     parameters={{
       backgrounds: { default: 'dark' },
       msw
+    }}
+    argTypes={{
+      testId: {
+        table: {
+          disable: true,
+        },
+      },
     }}
   >
   {Template.bind({})}

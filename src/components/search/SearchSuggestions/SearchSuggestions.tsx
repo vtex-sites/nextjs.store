@@ -8,7 +8,7 @@ import Link from 'src/components/ui/Link'
 import useSearchInput, { formatSearchPath } from 'src/sdk/search/useSearchInput'
 import type { ProductSummary_ProductFragment } from '@generated/graphql'
 
-import styles from '../search-common.module.scss'
+import styles from '../search.module.scss'
 
 function formatSearchTerm(
   indexSubstring: number,

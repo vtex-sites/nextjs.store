@@ -1,5 +1,5 @@
 import type { SearchSuggestionsProps } from 'src/components/search/SearchSuggestions'
-import UISearchSuggestions from 'src/components/search/SearchSuggestions'
+import SearchSuggestions from 'src/components/search/SearchSuggestions'
 import useSuggestions from 'src/sdk/search/useSuggestions'
 
 import type { SearchHistoryProps } from '../SearchHistory'
@@ -34,7 +34,7 @@ function SearchDropdown({
   }
 
   return (
-    <UISearchSuggestions
+    <SearchSuggestions
       term={term}
       terms={terms}
       products={products}

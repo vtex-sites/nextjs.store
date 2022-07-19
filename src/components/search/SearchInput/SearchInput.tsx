@@ -48,7 +48,7 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
       onSearchClick,
       buttonTestId = 'store-search-button',
       containerStyle,
-      ...props
+      ...otherProps
     },
     ref
   ) {
@@ -96,7 +96,7 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
             }}
             onFocus={() => setSearchDropdownOpen(true)}
             value={searchQuery}
-            {...props}
+            {...otherProps}
           />
           {searchDropdownOpen && (
             <Suspense fallback={null}>

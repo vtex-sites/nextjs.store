@@ -7,7 +7,7 @@ import useSearchHistory from 'src/sdk/search/useSearchHistory'
 import useSearchInput from 'src/sdk/search/useSearchInput'
 import type { History } from 'src/sdk/search/useSearchHistory'
 
-import styles from '../search-common.module.scss'
+import styles from '../search.module.scss'
 
 export interface SearchHistoryProps {
   /**
@@ -20,7 +20,9 @@ const SearchHistory = ({ history = [], ...otherProps }: SearchHistoryProps) => {
   const { onSearchInputSelection } = useSearchInput()
   const { searchHistory, clearSearchHistory } = useSearchHistory(history)
 
-  if (!searchHistory.length) {
+  const historyMap = searchHistory.length ? searchHistory : history
+
+  if (!historyMap.length) {
     return null
   }
 
@@ -33,7 +35,7 @@ const SearchHistory = ({ history = [], ...otherProps }: SearchHistoryProps) => {
         </Button>
       </div>
       <UIList variant="ordered">
-        {searchHistory.map((item) => (
+        {historyMap.map((item) => (
           <li key={item.term} data-fs-search-item>
             <Link
               data-fs-search-item-link

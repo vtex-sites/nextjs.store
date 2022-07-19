@@ -45,14 +45,14 @@ export const Template = (props) => (
 
 # Search
 
-This feature permits customers find theirs search easier.
+This feature permits customers to find their search easier.
 
 </header>
 
 ## Overview
 
-This Search feature is based in Autocomplete.
-Autocomplete is described as the functionality that displays previous search results based on current and previous searches. These results are presented in four
+This Search feature is based on Autocomplete.
+Autocomplete is the functionality that displays previous search results based on current and previous searches. These results are presented in four
 different lists, which can be together or separated, depending on the customer's interaction. The existing sections are:
 
 - Last searches performed;
@@ -63,21 +63,19 @@ different lists, which can be together or separated, depending on the customer's
 
 - Most searched terms.
 
-To know more visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.com/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/4gXFsEWjF7QF7UtI2GAvhL).
+To know more, visit [Autocomplete in VTEX Intelligent Search](https://help.vtex.com/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/4gXFsEWjF7QF7UtI2GAvhL).
 
 ---
 
 ## Usage
 
-On your `Layout.txt` file:
-
-```jsx
-import { SearchInput } from 'src/components/search/SearchInput'
-```
-
-Then, you can add your `<SearchInput />` whenever it's needed.
+You can add your `<SearchInput />` whenever it's needed.
 
 It's suggested to add it on `Navbar`.
+
+```jsx
+import SearchInput from 'src/components/search/SearchInput'
+```
 
 <Canvas>
   <Story
@@ -107,8 +105,8 @@ It's suggested to add it on `Navbar`.
         actionPath="../?path=/docs/features-search-searchsuggestions--default-story"
         description={
           <>
-            Displays a set navigation links and self adapts on mobile{' '}
-            <code>NavbarSlider</code> or desktop screens.
+            Displays a set of navigation links that self-adapts on mobile{' '}
+            or desktop screens.
           </>
         }
         containerStyle={{ overflowY: "scroll", alignItems: "flex-start" }}
@@ -120,7 +118,7 @@ It's suggested to add it on `Navbar`.
         actionPath="../?path=/docs/features-search-searchproductcard--search-product-card"
         description={
           <>
-            Card to show details of the product and suggest in search dropdown.
+            Card to show details of the product and suggest in <code>SearchDropdown</code>.
           </>
         }
       >
@@ -144,7 +142,7 @@ It's suggested to add it on `Navbar`.
         actionPath="../?path=/docs/features-search-searchhistory--default-story"
         description={
           <>
-            Responsible to show the history of most recent terms researched by the user.
+            Responsible for showing the history of the most recent terms researched by the user.
           </>
         }
       >
@@ -155,7 +153,7 @@ It's suggested to add it on `Navbar`.
         actionPath="../?path=/docs/features-search-searchdropdown--default-story"
         description={
           <>
-            Combine SearchHistory, SearchTop and SearchSuggestions to show all options in SearchInput.
+            Combine <code>SearchHistory</code>, <code>SearchTop</code>, and <code>SearchSuggestions</code> to show all options in <code>SearchInput</code>.
           </>
         }
         containerStyle={{ display: "flex", flexDirection: "column", overflowY: "scroll", justifyContent: "start" }}

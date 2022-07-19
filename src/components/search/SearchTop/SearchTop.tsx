@@ -8,7 +8,7 @@ import useSearchInput, { formatSearchPath } from 'src/sdk/search/useSearchInput'
 import useTopSearch from 'src/sdk/search/useTopSearch'
 import type { StoreSuggestionTerm } from '@generated/graphql'
 
-import styles from '../search-common.module.scss'
+import styles from '../search.module.scss'
 
 export interface SearchTopProps extends HTMLAttributes<HTMLDivElement> {
   /**
