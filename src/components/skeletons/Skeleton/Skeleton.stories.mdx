@@ -1,0 +1,140 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+import {
+  TokenTable,
+  TokenRow,
+  TokenDivider,
+} from 'src/../.storybook/components'
+import Skeleton from '.'
+
+<Meta
+  component={Skeleton}
+  title="Features/Skeletons/Skeleton"
+  argTypes={{
+    loading: {
+      control: 'boolean',
+      table: { type: 'boolean', summary: true },
+    },
+    shimmer: {
+      control: 'boolean',
+      table: { type: 'boolean', summary: false },
+    },
+  }}
+/>
+
+export const TemplateSkeleton = ({ ...args }) => <Skeleton {...args} />
+
+<header>
+
+# Skeleton
+
+The loading placeholder for the store's primitive elements (e.g. texts, buttons).
+
+</header>
+
+## Overview
+
+The `Skeleton` component is part of [Skeletons](?path=/docs/features-skeletons-overview--page) feature.
+
+---
+
+## Usage
+
+`import Skeleton from 'src/components/skeletons/Skeleton'`
+
+<Canvas
+  className="no-code canvas-skeletons"
+  style={{ backgroundColor: '#f7f7f7' }}
+>
+  <Story name="Usage" args={{ loading: true, shimmer: false, variant: 'text' }}>
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Usage" />
+
+<TokenTable>
+  <TokenRow
+    token="--fs-skeleton-bkg-color"
+    value="var(--fs-color-disabled-bkg)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-skeleton-border-radius"
+    value="var(--fs-border-radius)"
+  />
+</TokenTable>
+
+---
+
+## Variants
+
+### Text
+
+<Canvas className="canvas-skeletons">
+  <Story name="Text" args={{ loading: true, shimmer: true, variant: 'text' }}>
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-skeleton-text-width" value="100%" />
+  <TokenRow token="--fs-skeleton-text-height" value="var(--fs-spacing-4)" />
+</TokenTable>
+
+### Button
+
+<Canvas>
+  <Story
+    name="Button"
+    args={{ loading: true, shimmer: true, variant: 'button' }}
+  >
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-skeleton-button-width" value="var(--fs-spacing-13)" />
+  <TokenRow token="--fs-skeleton-button-height" value="var(--fs-spacing-5)" />
+  <TokenRow token="--fs-skeleton-button-gap" value="var(--fs-spacing-2)" />
+  <TokenRow
+    token="--fs-skeleton-button-border-radius"
+    value="var(--fs-skeleton-border-radius)"
+  />
+</TokenTable>
+
+### Image
+
+<Canvas className="canvas-skeletons">
+  <Story name="Image" args={{ loading: true, shimmer: true, variant: 'image' }}>
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-skeleton-image-height-mobile" value="45vw" />
+  <TokenRow token="--fs-skeleton-image-height-desktop" value="12.188rem" />
+  <TokenRow
+    token="--fs-skeleton-image-border-radius"
+    value="var(--fs-skeleton-border-radius)"
+  />
+</TokenTable>
+
+### Badge
+
+<Canvas>
+  <Story name="Badge" args={{ loading: true, shimmer: true, variant: 'badge' }}>
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-skeleton-badge-height-mobile" value="45%" />
+  <TokenRow
+    token="--fs-skeleton-badge-height-desktop"
+    value="var(--fs-spacing-5)"
+  />
+  <TokenRow
+    token="--fs-skeleton-badge-border-radius"
+    value="var(--fs-skeleton-border-radius)"
+  />
+</TokenTable>
