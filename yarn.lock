@@ -1449,9 +1449,9 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/5407ca5d/@faststore/api":
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/909c4b5e/@faststore/api":
   version "1.10.8"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/5407ca5d/@faststore/api#bda543288e871754f0f659ed31af39acb2dabb6b"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/909c4b5e/@faststore/api#684afbfc9053aa71d2564e25deede45d937cefa6"
   dependencies:
     "@graphql-tools/schema" "^8.2.0"
     "@rollup/plugin-graphql" "^1.0.0"
