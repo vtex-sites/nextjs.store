@@ -1,10 +1,5 @@
 import type { NextRouter } from 'next/router'
 
-import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
-
-export type SkuVariants =
-  ProductDetailsFragment_ProductFragment['isVariantOf']['hasVariant']
-
 export type SkuVariantsByName = Record<
   string,
   Array<{ alt: string; src: string; label: string; value: string }>
