@@ -62,7 +62,9 @@ function Button({
       disabled={disabled}
       {...props}
     >
-      {iconPosition === 'left' && <UIIcon component={icon} />}
+      {(!iconPosition || iconPosition === 'left') && (
+        <UIIcon component={icon} />
+      )}
       {children}
       {iconPosition === 'right' && <UIIcon component={icon} />}
     </UIButton>
