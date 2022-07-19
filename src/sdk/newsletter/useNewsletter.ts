@@ -2,8 +2,8 @@ import { useCallback, useState } from 'react'
 import { gql } from '@faststore/graphql-utils'
 
 import type {
-  AddToNewsletterMutation,
-  AddToNewsletterMutationVariables,
+  SubscribeToNewsletterMutation,
+  SubscribeToNewsletterMutationVariables,
 } from '../../../@generated/graphql/index'
 import { request } from '../graphql/request'
 
@@ -12,19 +12,19 @@ type MasterDataResponse = {
 }
 
 export const mutation = gql`
-  mutation AddToNewsletter($data: IPersonNewsletter!) {
-    addToNewsletter(data: $data) {
+  mutation SubscribeToNewsletter($data: IPersonNewsletter!) {
+    subscribeToNewsletter(data: $data) {
       id
     }
   }
 `
-const addToNewsletter = async (data: { name: string; email: string }) => {
+const subscribeToNewsletter = async (data: { name: string; email: string }) => {
   const response = await request<
-    AddToNewsletterMutation,
-    AddToNewsletterMutationVariables
+    SubscribeToNewsletterMutation,
+    SubscribeToNewsletterMutationVariables
   >(mutation, { data })
 
-  return response.addToNewsletter
+  return response.subscribeToNewsletter
 }
 
 export const useNewsletter = () => {
@@ -38,7 +38,7 @@ export const useNewsletter = () => {
       setData(null)
       setLoading(true)
 
-      return addToNewsletter(user)
+      return subscribeToNewsletter(user)
         .then((response) => {
           setData(response as MasterDataResponse)
         })
