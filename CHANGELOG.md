@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Creates Themes pages ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
 - Added a new theme for testing purposes called midnight ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
 - Extracted all BaseStore visual to a new theme called soft-blue ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
 - Applies CSS Modules to `Incentives` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
@@ -24,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Removes Themes dependencies ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
 - Updates global tokens to follow Brandless approach ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
 - Sync `ModalProps` children between starters ([#169](https://github.com/vtex-sites/nextjs.store/pull/169))
 - Updates `IncentivesFooter` content ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
