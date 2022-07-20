@@ -4,6 +4,8 @@ import { Form, Label, Input, LoadingButton } from '@faststore/ui'
 
 import { useNewsletter } from 'src/sdk/newsletter/useNewsletter'
 
+import Section from '../Section'
+
 export interface NewsletterProps
   extends Omit<ComponentPropsWithRef<'form'>, 'title' | 'onSubmit'> {
   /**
@@ -36,7 +38,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
     }
 
     return (
-      <section data-store-newsletter>
+      <Section data-store-newsletter>
         <Form
           data-newsletter-form
           ref={ref}
@@ -70,7 +72,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
             </LoadingButton>
           </div>
         </Form>
-      </section>
+      </Section>
     )
   }
 )
