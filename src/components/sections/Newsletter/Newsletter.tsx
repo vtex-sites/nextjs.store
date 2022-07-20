@@ -18,18 +18,21 @@ export interface NewsletterProps
 
 const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
   function Newsletter({ title, subtitle, ...otherProps }, ref) {
-    const { addUser, loading } = useNewsletter()
-
+    const { subscribeUser, loading } = useNewsletter()
     const nameInputRef = useRef<HTMLInputElement>(null)
     const emailInputRef = useRef<HTMLInputElement>(null)
 
     const handleSubmit = (event: FormEvent) => {
       event.preventDefault()
-
-      addUser({
-        name: nameInputRef.current?.value ?? '',
-        email: emailInputRef.current?.value ?? '',
+      subscribeUser({
+        data: {
+          name: nameInputRef.current?.value ?? '',
+          email: emailInputRef.current?.value ?? '',
+        },
       })
+      const formElement = event.currentTarget as HTMLFormElement
+
+      formElement.reset()
     }
 
     return (
@@ -60,6 +63,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
               type="email"
               name="newsletter-email"
               ref={emailInputRef}
+              required
             />
             <LoadingButton type="submit" loading={loading}>
               Subscribe
