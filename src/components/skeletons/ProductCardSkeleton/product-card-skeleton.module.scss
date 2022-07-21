@@ -6,11 +6,10 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-product-card-skeleton-min-width-mobile               : 14vw;
-  --fs-product-card-skeleton-min-width-desktop              : 12rem;
-  --fs-product-card-skeleton-height                         : 100%;
   --fs-product-card-skeleton-padding                        : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-2);
-  --fs-product-card-skeleton-border                         : var(--fs-border-width) solid transparent;
+  --fs-product-card-skeleton-border-width                   : var(--fs-border-width);
+  --fs-product-card-skeleton-border-color                   : transparent;
+  --fs-product-card-skeleton-border-style                   : solid;
   --fs-product-card-skeleton-border-radius                  : var(--fs-border-radius);
 
   // Content
@@ -39,14 +38,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: var(--fs-product-card-skeleton-min-width-mobile);
-  height: var(--fs-product-card-skeleton-height);
+  min-width: 14vw;
+  height: 100%;
   padding: var(--fs-product-card-skeleton-padding);
   overflow: hidden;
-  border: var(--fs-product-card-skeleton-border);
+  border-color: var(--fs-product-card-skeleton-border-color);
+  border-style: var(--fs-product-card-skeleton-border-style);
+  border-width: var(--fs-product-card-skeleton-border-width);
   border-radius: var(--fs-product-card-skeleton-border-radius);
 
-  @include media(">=notebook") { min-width: var(--fs-product-card-skeleton-min-width-desktop); }
+  @include media(">=notebook") { min-width: 12rem; }
 
   [data-fs-product-card-skeleton-content] {
     position: relative;

@@ -13,11 +13,12 @@
   --fs-filter-skeleton-title-margin-bottom   : var(--fs-spacing-2);
 
   // Content
-  --fs-filter-skeleton-content-min-width     : 100%;
   --fs-filter-skeleton-content-min-height    : var(--fs-spacing-8);
   --fs-filter-skeleton-content-margin-bottom : var(--fs-spacing-0);
   --fs-filter-skeleton-content-padding       : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-0);
-  --fs-filter-skeleton-content-border        : var(--fs-border-width) solid var(--fs-border-color-light);
+  --fs-filter-skeleton-content-border-color  : var(--fs-border-color-light);
+  --fs-filter-skeleton-content-border-style  : solid;
+  --fs-filter-skeleton-content-border-width  : var(--fs-border-width);
   --fs-filter-skeleton-content-border-radius : var(--fs-border-radius);
 
   // --------------------------------------------------------
@@ -39,11 +40,13 @@
     flex-direction: column;
     padding: var(--fs-filter-skeleton-content-padding);
     overflow: hidden;
-    border: var(--fs-filter-skeleton-content-border);
+    border-color: var(--fs-filter-skeleton-content-border-color);
+    border-style: var(--fs-filter-skeleton-content-border-style);
+    border-width: var(--fs-filter-skeleton-content-border-width);
     border-radius: var(--fs-filter-skeleton-content-border-radius);
 
     [data-fs-skeleton-variant="text"] {
-      min-width: var(--fs-filter-skeleton-content-min-width);
+      min-width: 100%;
       min-height: var(--fs-filter-skeleton-content-min-height);
       margin-bottom: var(--fs-filter-skeleton-content-margin-bottom);
     }

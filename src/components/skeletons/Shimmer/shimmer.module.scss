@@ -4,11 +4,6 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-shimmer-wrapper-width                : 100vw;
-  --fs-shimmer-wrapper-height               : 100%;
-  --fs-shimmer-wrapper-top                  : 0;
-  --fs-shimmer-wrapper-left                 : 0;
-
   --fs-shimmer-wrapper-transition-timing    : 850ms;
   --fs-shimmer-wrapper-transition-function  : linear;
   --fs-shimmer-wrapper-transition-iteration : infinite;
@@ -28,10 +23,10 @@
    * in order to the effect to work properly.
    */
   position: absolute;
-  top: var(--fs-shimmer-wrapper-top);
-  left: var(--fs-shimmer-wrapper-left);
-  width: var(--fs-shimmer-wrapper-width);
-  height: var(--fs-shimmer-wrapper-height);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
   animation: loading var(--fs-shimmer-wrapper-transition-timing) var(--fs-shimmer-wrapper-transition-iteration) var(--fs-shimmer-wrapper-transition-function);
 
   [data-fs-shimmer] {

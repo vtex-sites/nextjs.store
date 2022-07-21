@@ -409,7 +409,7 @@ h3.sbdocs.sbdocs-h3 {
 }
 
 .canvas-skeletons [data-fs-skeleton-variant="badge"] {
-  max-width: 140px;
+  max-width: 100px;
 }
 
 .canvas-skeletons [data-fs-skeleton-variant="image"] {
@@ -434,7 +434,7 @@ h3.sbdocs.sbdocs-h3 {
 }
 
 .sbdocs-skeletons .sbdocs-li > .sbdocs-div [data-fs-skeleton-variant="badge"] {
-  min-width: 70px;
+  width: 120px;
 }
 
 .sbdocs-skeletons .sbdocs-li > .sbdocs-div [data-fs-skeleton-variant="button"] {
