@@ -38,19 +38,19 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
     }
 
     return (
-      <Section data-store-newsletter>
+      <Section data-fs-newsletter>
         <Form
-          data-newsletter-form
+          data-fs-newsletter-form
           ref={ref}
           onSubmit={handleSubmit}
           {...otherProps}
         >
-          <div data-newsletter-header>
+          <div data-fs-newsletter-header>
             {title}
             {Boolean(subtitle) && subtitle}
           </div>
 
-          <div data-newsletter-controls>
+          <div data-fs-newsletter-controls>
             <Label htmlFor="newsletter-name">Your name</Label>
             <Input
               id="newsletter-name"
