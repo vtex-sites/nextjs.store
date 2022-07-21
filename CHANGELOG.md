@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Renames and refactors the components of Search feature ([#173](https://github.com/vtex-sites/nextjs.store/pull/173))
+- A flaky PLP infinite scroll test to be more stable ([#180](https://github.com/vtex-sites/nextjs.store/pull/180))
 - Cypress version from 6.6.0 to 9.5.4 to match WebOps' ([#177](https://github.com/vtex-sites/nextjs.store/pull/177))
 - Updates global tokens to follow Brandless approach ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
 - Sync `ModalProps` children between starters ([#169](https://github.com/vtex-sites/nextjs.store/pull/169))
