@@ -83,47 +83,7 @@ We recommend the usage of [GoogleFonts](https://fonts.google.com/).
 
 ---
 
-## Mobile Scale
-
-<Typeset
-  fontSizes={[
-    Number(typography.sizeMob.s1),
-    Number(typography.sizeMob.s2),
-    Number(typography.sizeMob.s3),
-    Number(typography.sizeMob.m1),
-    Number(typography.sizeMob.m2),
-    Number(typography.sizeMob.m3),
-    Number(typography.sizeMob.l1),
-    Number(typography.sizeMob.l2),
-    Number(typography.sizeMob.l3),
-  ]}
-  fontWeight={typography.weight.regular}
-  sampleText={SampleText}
-  fontFamily={typography.type.primary}
-/>
-
-## Desktop Scale
-
-<Typeset
-  fontSizes={[
-    Number(typography.sizeDesk.s1),
-    Number(typography.sizeDesk.s2),
-    Number(typography.sizeDesk.s3),
-    Number(typography.sizeDesk.m1),
-    Number(typography.sizeDesk.m2),
-    Number(typography.sizeDesk.m3),
-    Number(typography.sizeDesk.l1),
-    Number(typography.sizeDesk.l2),
-    Number(typography.sizeDesk.l3),
-  ]}
-  fontWeight={typography.weight.regular}
-  sampleText={SampleText}
-  fontFamily={typography.type.primary}
-/>
-
----
-
-## Font
+## Font Family
 
 <TokenTable title="Global Token" description="Value">
   <TokenRow
@@ -151,6 +111,47 @@ We recommend the usage of [GoogleFonts](https://fonts.google.com/).
 Use a type scale to add rhythm to your typography and ensure consistency throughout the project.
 
 Access https://type-scale.com and pick a scale that suits the store's branding.
+
+<section className="sbdocs-section-text-scale">
+  <div>
+    <h3 className="sbdocs sbdocs-h3">Desktop Scale</h3>
+    <Typeset
+      fontSizes={[
+        Number(typography.sizeDesk.s1),
+        Number(typography.sizeDesk.s2),
+        Number(typography.sizeDesk.s3),
+        Number(typography.sizeDesk.m1),
+        Number(typography.sizeDesk.m2),
+        Number(typography.sizeDesk.m3),
+        Number(typography.sizeDesk.l1),
+        Number(typography.sizeDesk.l2),
+        Number(typography.sizeDesk.l3),
+      ]}
+      fontWeight={typography.weight.regular}
+      sampleText={SampleText}
+      fontFamily={typography.type.primary}
+    />
+  </div>
+  <div>
+    <h3 className="sbdocs sbdocs-h3">Mobile Scale</h3>
+    <Typeset
+      fontSizes={[
+        Number(typography.sizeMob.s1),
+        Number(typography.sizeMob.s2),
+        Number(typography.sizeMob.s3),
+        Number(typography.sizeMob.m1),
+        Number(typography.sizeMob.m2),
+        Number(typography.sizeMob.m3),
+        Number(typography.sizeMob.l1),
+        Number(typography.sizeMob.l2),
+        Number(typography.sizeMob.l3),
+      ]}
+      fontWeight={typography.weight.regular}
+      sampleText={SampleText}
+      fontFamily={typography.type.primary}
+    />
+  </div>
+</section>
 
 <TokenTable title="Global Token" description="Value">
   <TokenRow token="--fs-text-size-base" value="16px" />

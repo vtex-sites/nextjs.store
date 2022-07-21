@@ -460,3 +460,25 @@ header.sbdocs-hero + .sbdocs-callout {
 .sbdocs-section-theme > article {
   width: 65%;
 }
+
+/* Text Scale Section */
+
+.sbdocs-section-text-scale {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-bottom: var(--fs-spacing-7);
+}
+
+.sbdocs-section-text-scale .sbdocs.sbdocs-h3 { margin-top: var(--fs-spacing-3); }
+
+.sbdocs-section-text-scale .docblock-typeset {
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.sbdocs-section-text-scale > div {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
