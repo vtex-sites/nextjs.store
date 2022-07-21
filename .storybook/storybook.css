@@ -435,13 +435,13 @@ header.sbdocs-hero + .sbdocs-callout {
 
 /* Theme Section */
 
-.section-theme {
+.sbdocs-section-theme {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-.section-theme .section-theme-img {
+.sbdocs-section-theme .sbdocs-section-theme-img {
   width: 30%;
   height: 280px;
   overflow: hidden;
@@ -449,7 +449,7 @@ header.sbdocs-hero + .sbdocs-callout {
   border-radius: 4px;
 }
 
-.section-theme .section-theme-img img {
+.sbdocs-section-theme .sbdocs-section-theme-img img {
   display: block;
   width: auto;
   max-width: unset;
@@ -457,6 +457,6 @@ header.sbdocs-hero + .sbdocs-callout {
   margin: 0 auto;
 }
 
-.section-theme > article {
+.sbdocs-section-theme > article {
   width: 65%;
 }
