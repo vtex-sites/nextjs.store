@@ -17,7 +17,6 @@
   --fs-filter-skeleton-content-margin-bottom : var(--fs-spacing-0);
   --fs-filter-skeleton-content-padding       : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-0);
   --fs-filter-skeleton-content-border-color  : var(--fs-border-color-light);
-  --fs-filter-skeleton-content-border-style  : solid;
   --fs-filter-skeleton-content-border-width  : var(--fs-border-width);
   --fs-filter-skeleton-content-border-radius : var(--fs-border-radius);
 
@@ -41,7 +40,7 @@
     padding: var(--fs-filter-skeleton-content-padding);
     overflow: hidden;
     border-color: var(--fs-filter-skeleton-content-border-color);
-    border-style: var(--fs-filter-skeleton-content-border-style);
+    border-style: style;
     border-width: var(--fs-filter-skeleton-content-border-width);
     border-radius: var(--fs-filter-skeleton-content-border-radius);
 
