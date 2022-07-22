@@ -9,7 +9,22 @@ import ProductCardSkeleton from './ProductCardSkeleton'
 import Icon from 'src/components/ui/Icon'
 import ButtonLink from 'src/components/ui/Icon'
 
-<Meta title="Features/Skeletons/Overview" />
+export const TemplateSkeleton = ({ ...args }) => <Skeleton {...args} />
+
+<Meta
+  component={Skeleton}
+  title="Features/Skeletons/Overview"
+  argTypes={{
+    loading: {
+      control: 'boolean',
+      table: { type: 'boolean', summary: true },
+    },
+    shimmer: {
+      control: 'boolean',
+      table: { type: 'boolean', summary: false },
+    },
+  }}
+/>
 
 <header>
 
@@ -21,30 +36,124 @@ This feature improves the store's experience and perceived performance through l
 
 ## Overview
 
-<code>Skeletons</code> are like an element's or section's wireframe. It's a placeholder
+`Skeletons` are like an element's or section's wireframe. It's a placeholder
 that simulates the layout of these elements/sections while data is being loaded.
 
-Instead of showing a blank page, displaying <code>Skeletons</code> while loading content makes the user feel like the store is more responsive and faster.
+Instead of showing a blank page, displaying `Skeletons` while loading content makes the user feel like the store is more responsive and faster.
 
-Also by using <code>Skeletons</code> the store will be less likely to experience [Cumulative Layout Shilf (or CLS)](https://web.dev/i18n/en/cls/).
+Also by using `Skeletons` the store will be less likely to experience [Cumulative Layout Shilf (or CLS)](https://web.dev/i18n/en/cls/).
+
+---
+
+## Usage
+
+The `Skeleton` component is used as placeholder for the primitive elements (e.g. texts, buttons), being part of the related components.
+
+`import Skeleton from 'src/components/skeletons/Skeleton'`
+
+<Canvas
+  className="no-code canvas-skeletons"
+  style={{ backgroundColor: '#f7f7f7' }}
+>
+  <Story name="Usage" args={{ loading: true, shimmer: false, variant: 'text' }}>
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Usage" />
+
+<TokenTable>
+  <TokenRow
+    token="--fs-skeleton-bkg-color"
+    value="var(--fs-color-disabled-bkg)"
+    isColor
+  />
+  <TokenRow
+    token="--fs-skeleton-border-radius"
+    value="var(--fs-border-radius)"
+  />
+</TokenTable>
+
+---
+
+## Variants
+
+### Text
+
+<Canvas className="canvas-skeletons">
+  <Story name="Text" args={{ loading: true, shimmer: true, variant: 'text' }}>
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-skeleton-text-width" value="100%" />
+  <TokenRow token="--fs-skeleton-text-height" value="var(--fs-spacing-4)" />
+</TokenTable>
+
+### Button
+
+<Canvas>
+  <Story
+    name="Button"
+    args={{ loading: true, shimmer: true, variant: 'button' }}
+  >
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-skeleton-button-width" value="var(--fs-spacing-13)" />
+  <TokenRow token="--fs-skeleton-button-height" value="var(--fs-spacing-5)" />
+  <TokenRow token="--fs-skeleton-button-gap" value="var(--fs-spacing-2)" />
+  <TokenRow
+    token="--fs-skeleton-button-border-radius"
+    value="var(--fs-skeleton-border-radius)"
+  />
+</TokenTable>
+
+### Image
+
+<Canvas className="canvas-skeletons">
+  <Story name="Image" args={{ loading: true, shimmer: true, variant: 'image' }}>
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-skeleton-image-height-mobile" value="45vw" />
+  <TokenRow token="--fs-skeleton-image-height-desktop" value="12.188rem" />
+  <TokenRow
+    token="--fs-skeleton-image-border-radius"
+    value="var(--fs-skeleton-border-radius)"
+  />
+</TokenTable>
+
+### Badge
+
+<Canvas>
+  <Story name="Badge" args={{ loading: true, shimmer: true, variant: 'badge' }}>
+    {TemplateSkeleton.bind({})}
+  </Story>
+</Canvas>
+
+<TokenTable>
+  <TokenRow token="--fs-skeleton-badge-height-mobile" value="45%" />
+  <TokenRow
+    token="--fs-skeleton-badge-height-desktop"
+    value="var(--fs-spacing-5)"
+  />
+  <TokenRow
+    token="--fs-skeleton-badge-border-radius"
+    value="var(--fs-skeleton-border-radius)"
+  />
+</TokenTable>
 
 ---
 
 ## Components
 
 <SectionList grid="grid" classes="sbdocs-skeletons">
-  <SectionItem
-    title="Skeleton"
-    actionPath="../?path=/docs/features-skeletons-skeleton--usage"
-    description={
-      <>
-        Loading placeholder for the store's primitive elements (e.g. texts,
-        buttons).
-      </>
-    }
-  >
-    <Skeleton loading shimmer variant="badge" />
-  </SectionItem>
   <SectionItem
     title="Filter Skeleton"
     actionPath="../?path=/docs/features-skeletons-filterskeleton--usage"
@@ -69,14 +178,3 @@ Also by using <code>Skeletons</code> the store will be less likely to experience
     <ProductCardSkeleton variant="wide" displayButton />
   </SectionItem>
 </SectionList>
-
-<!-- ---
-
-## Usage
-
-<Canvas
-  className="no-code"
-  style={{ display: 'flex', justifyContent: 'center' }}
->
-  <Story name="default-button">{() => {}}</Story>
-</Canvas> -->
