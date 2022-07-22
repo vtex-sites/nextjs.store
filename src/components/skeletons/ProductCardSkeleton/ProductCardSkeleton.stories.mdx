@@ -47,10 +47,7 @@ The `ProductCardSkeleton` component is part of [Skeletons](?path=/docs/features-
 
 `import ProductCardSkeleton from 'src/components/skeletons/ProductCardSkeleton'`
 
-<Canvas
-  className="no-code canvas-product-card-skeleton"
-  style={{ backgroundColor: '#f7f7f7' }}
->
+<Canvas className="canvas-product-card-skeleton">
   <Story
     name="Usage"
     args={{
@@ -78,6 +75,7 @@ The `ProductCardSkeleton` component is part of [Skeletons](?path=/docs/features-
   <TokenRow
     token="--fs-product-card-skeleton-border-color"
     value="transparent"
+    isColor
   />
   <TokenRow
     token="--fs-product-card-skeleton-border-radius"
@@ -144,10 +142,7 @@ The `ProductCardSkeleton` component is part of [Skeletons](?path=/docs/features-
 
 ### Sectioned
 
-<Canvas
-  className="no-code canvas-product-card-skeleton"
-  style={{ backgroundColor: '#f7f7f7' }}
->
+<Canvas className="canvas-product-card-skeleton">
   <Story name="Sectioned" args={{ sectioned: true }}>
     {TemplateProductCardSkeleton.bind({})}
   </Story>
@@ -166,10 +161,7 @@ The `ProductCardSkeleton` component is part of [Skeletons](?path=/docs/features-
 
 ### Bordered
 
-<Canvas
-  className="no-code canvas-product-card-skeleton"
-  style={{ backgroundColor: '#f7f7f7' }}
->
+<Canvas className="canvas-product-card-skeleton">
   <Story name="Bordered" args={{ bordered: true }}>
     {TemplateProductCardSkeleton.bind({})}
   </Story>

@@ -39,10 +39,7 @@ The `FilterSkeleton` component is part of [Skeletons](?path=/docs/features-skele
 
 `import FilterSkeleton from 'src/components/skeletons/FilterSkeleton'`
 
-<Canvas
-  className="no-code canvas-filter-skeleton"
-  style={{ backgroundColor: '#f7f7f7' }}
->
+<Canvas className="canvas-filter-skeleton">
   <Story name="Usage" args={{ loading: true }}>
     {TemplateFilterSkeleton.bind({})}
   </Story>
@@ -91,6 +88,7 @@ The `FilterSkeleton` component is part of [Skeletons](?path=/docs/features-skele
   <TokenRow
     token="--fs-filter-skeleton-content-border-color"
     value="var(--fs-border-color-light)"
+    isColor
   />
   <TokenRow
     token="--fs-filter-skeleton-content-border-radius"
