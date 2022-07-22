@@ -80,7 +80,8 @@ function Page() {
 
       <BannerText
         title="Receive our news and promotions in advance. Enjoy and get 10% off on your first purchase."
-        actionLabel="Subscribe to our newsletter:"
+        actionPath="/"
+        actionLabel="Call to action"
         colorVariant="light"
       />
 

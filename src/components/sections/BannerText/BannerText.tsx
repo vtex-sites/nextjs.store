@@ -1,7 +1,8 @@
-import { Banner, BannerContent } from '@faststore/ui'
+import { Banner, BannerContent, BannerLink } from '@faststore/ui'
 import type { HTMLAttributes } from 'react'
 
-import Newsletter from '../Newsletter'
+import { ButtonLink } from 'src/components/ui/Button'
+
 import Section from '../Section'
 
 type BannerTextVariant =
@@ -29,7 +30,7 @@ interface BaseProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The href used at the link
    */
-  actionPath?: string
+  actionPath: string
   /**
    * The label used at the link
    */
@@ -46,6 +47,7 @@ export type BannerTextProps = BaseProps & BannerTextVariant
 function BannerText({
   title,
   caption,
+  actionPath,
   actionLabel,
   variant = 'primary',
   colorVariant = 'main',
@@ -65,7 +67,15 @@ function BannerText({
             <h2>{title}</h2>
             {variant === 'secondary' && caption && <p>{caption}</p>}
           </div>
-          <Newsletter title={actionLabel} />
+          <BannerLink data-fs-banner-text-link>
+            <ButtonLink
+              href={actionPath}
+              variant={variant}
+              inverse={colorVariant === 'main'}
+            >
+              {actionLabel}
+            </ButtonLink>
+          </BannerLink>
         </BannerContent>
       </Banner>
     </Section>
