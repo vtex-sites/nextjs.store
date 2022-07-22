@@ -5,7 +5,6 @@ import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
 import { incentivesMockHeader as IncentivesMock } from 'src/components/sections/Incentives/incentivesMock'
-import Newsletter from 'src/components/sections/Newsletter'
 import ProductShelf from 'src/components/sections/ProductShelf'
 import ProductTiles from 'src/components/sections/ProductTiles'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
@@ -85,8 +84,6 @@ function Page() {
         actionLabel="Call to action"
         colorVariant="light"
       />
-
-      <Newsletter title="Newsletter" />
 
       <Suspense fallback={<ProductShelfSkeleton loading />}>
         <ProductShelf
