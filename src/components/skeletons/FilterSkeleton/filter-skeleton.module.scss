@@ -39,9 +39,7 @@
     flex-direction: column;
     padding: var(--fs-filter-skeleton-content-padding);
     overflow: hidden;
-    border-color: var(--fs-filter-skeleton-content-border-color);
-    border-style: style;
-    border-width: var(--fs-filter-skeleton-content-border-width);
+    border: var(--fs-filter-skeleton-content-border-width) solid var(--fs-filter-skeleton-content-border-color);
     border-radius: var(--fs-filter-skeleton-content-border-radius);
 
     [data-fs-skeleton-variant="text"] {

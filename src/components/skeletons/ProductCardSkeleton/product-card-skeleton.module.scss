@@ -6,20 +6,20 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-product-card-skeleton-padding                        : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-2);
-  --fs-product-card-skeleton-border-width                   : var(--fs-border-width);
-  --fs-product-card-skeleton-border-color                   : transparent;
-  --fs-product-card-skeleton-border-radius                  : var(--fs-border-radius);
+  --fs-product-card-skeleton-padding                   : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-2);
+  --fs-product-card-skeleton-border-width              : var(--fs-border-width);
+  --fs-product-card-skeleton-border-color              : transparent;
+  --fs-product-card-skeleton-border-radius             : var(--fs-border-radius);
 
   // Content
-  --fs-product-card-skeleton-content-height         : 20%;
-  --fs-product-card-skeleton-content-margin-top     : var(--fs-spacing-2);
+  --fs-product-card-skeleton-content-height            : 20%;
+  --fs-product-card-skeleton-content-margin-top        : var(--fs-spacing-2);
 
   // Button
-  --fs-product-card-skeleton-button-margin-top      : var(--fs-spacing-4);
+  --fs-product-card-skeleton-button-margin-top         : var(--fs-spacing-4);
 
   // Text
-  --fs-product-card-skeleton-text-margin-bottom     : var(--fs-product-card-skeleton-content-margin-top);
+  --fs-product-card-skeleton-text-margin-bottom        : var(--fs-product-card-skeleton-content-margin-top);
 
   // Badge
   --fs-product-card-skeleton-badge-min-height          : var(--fs-spacing-5);
@@ -33,8 +33,8 @@
   --fs-product-card-skeleton-sectioned-image-height    : var(--fs-product-card-skeleton-image-height-desktop);
 
   // Bordered
-  --fs-product-card-skeleton-bordered-mobile            : none;
-  --fs-product-card-skeleton-bordered-desktop           : var(--fs-border-width) solid var(--fs-border-color-light);
+  --fs-product-card-skeleton-bordered-mobile           : none;
+  --fs-product-card-skeleton-bordered-desktop          : var(--fs-border-width) solid var(--fs-border-color-light);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -47,9 +47,7 @@
   height: 100%;
   padding: var(--fs-product-card-skeleton-padding);
   overflow: hidden;
-  border-color: var(--fs-product-card-skeleton-border-color);
-  border-style: solid;
-  border-width: var(--fs-product-card-skeleton-border-width);
+  border: var(--fs-product-card-skeleton-border-width) solid var(--fs-product-card-skeleton-border-color);
   border-radius: var(--fs-product-card-skeleton-border-radius);
 
   @include media(">=notebook") { min-width: 12rem; }
