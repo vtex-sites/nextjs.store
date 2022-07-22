@@ -51,10 +51,7 @@ The `Skeleton` component is used as placeholder for the primitive elements (e.g.
 
 `import Skeleton from 'src/components/skeletons/Skeleton'`
 
-<Canvas
-  className="no-code canvas-skeletons"
-  style={{ backgroundColor: '#f7f7f7' }}
->
+<Canvas className="no-code canvas-skeletons">
   <Story name="Usage" args={{ loading: true, shimmer: false, variant: 'text' }}>
     {TemplateSkeleton.bind({})}
   </Story>
@@ -93,7 +90,7 @@ The `Skeleton` component is used as placeholder for the primitive elements (e.g.
 
 ### Button
 
-<Canvas>
+<Canvas className="canvas-skeletons">
   <Story
     name="Button"
     args={{ loading: true, shimmer: true, variant: 'button' }}
@@ -131,7 +128,7 @@ The `Skeleton` component is used as placeholder for the primitive elements (e.g.
 
 ### Badge
 
-<Canvas>
+<Canvas className="canvas-skeletons">
   <Story name="Badge" args={{ loading: true, shimmer: true, variant: 'badge' }}>
     {TemplateSkeleton.bind({})}
   </Story>
