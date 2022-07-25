@@ -33,7 +33,7 @@
     "@faststore/api": "^1.10.8",
     "@faststore/graphql-utils": "^1.10.6",
     "@faststore/sdk": "^1.10.6",
-    "@faststore/ui": "^1.10.22",
+    "@faststore/ui": "^1.10.24",
     "graphql": "^15.0.0",
     "include-media": "^1.4.10",
     "next": "^12.2.0",
