@@ -77,7 +77,7 @@ function PriceRange({ min, max, ...otherProps }: Props) {
         data-fs-price-range
         formatter={formatter}
         className={styles.fsPriceRange}
-        onChange={(value) => onChangePriceRange(value)}
+        onEnd={(value) => onChangePriceRange(value)}
         {...otherProps}
       />
       <div className={styles.fsPriceRange} data-fs-price-range-inputs>
