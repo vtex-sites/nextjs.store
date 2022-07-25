@@ -67,8 +67,8 @@ function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
   return (
     <div className={styles.fsPriceRange} data-fs-price-range>
       <div data-fs-price-range-absolute-values>
-        <span>{min.absolute}</span>
-        <span>{max.absolute}</span>
+        <span>{Math.round(min.absolute)}</span>
+        <span>{Math.round(max.absolute)}</span>
       </div>
       <UIPriceRange
         ref={priceRangeRef}
