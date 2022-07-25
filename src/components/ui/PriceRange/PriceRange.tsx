@@ -9,7 +9,7 @@ import InputText from '../InputText'
 
 type Props = Omit<PriceRangeProps, 'formatter'>
 
-function PriceRange({ min, max, ...otherProps }: Props) {
+function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
   const formatter = usePriceFormatter({ decimals: false })
   const inputMinRef = useRef<HTMLInputElement>(null)
   const inputMaxRef = useRef<HTMLInputElement>(null)
@@ -77,7 +77,10 @@ function PriceRange({ min, max, ...otherProps }: Props) {
         data-fs-price-range
         formatter={formatter}
         className={styles.fsPriceRange}
-        onEnd={(value) => onChangePriceRange(value)}
+        onEnd={(value) => {
+          onEnd?.(value)
+          onChangePriceRange(value)
+        }}
         {...otherProps}
       />
       <div className={styles.fsPriceRange} data-fs-price-range-inputs>
