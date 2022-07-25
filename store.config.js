@@ -44,7 +44,7 @@ module.exports = {
     server: process.env.BASE_SITE_URL || 'http://localhost:3000',
     pages: {
       home: '/',
-      pdp: '/apple-magic-mouse/p',
+      pdp: '/apple-magic-mous/p',
       collection: '/office',
     },
   },
