@@ -122,11 +122,11 @@
     margin-bottom: var(--fs-spacing-3);
   }
 
-  &[data-fs-price-range-inputs] {
+  [data-fs-price-range-inputs] {
     display: flex;
 
     [data-fs-input-text] {
-      width: 100%;
+      width: 50%;
 
       input:hover,
       input:focus-visible,
@@ -151,7 +151,7 @@
     }
   }
 
-  &[data-fs-price-range-rule] {
+  [data-fs-price-range-absolute-values] {
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--fs-spacing-2);

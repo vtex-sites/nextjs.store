@@ -65,8 +65,8 @@ function PriceRange({ min, max, ...otherProps }: Props) {
   }
 
   return (
-    <>
-      <div className={styles.fsPriceRange} data-fs-price-range-rule>
+    <div className={styles.fsPriceRange} data-fs-price-range>
+      <div data-fs-price-range-absolute-values>
         <span>{min.absolute}</span>
         <span>{max.absolute}</span>
       </div>
@@ -74,13 +74,11 @@ function PriceRange({ min, max, ...otherProps }: Props) {
         ref={priceRangeRef}
         min={min}
         max={max}
-        data-fs-price-range
         formatter={formatter}
-        className={styles.fsPriceRange}
         onChange={(value) => onChangePriceRange(value)}
         {...otherProps}
       />
-      <div className={styles.fsPriceRange} data-fs-price-range-inputs>
+      <div data-fs-price-range-inputs>
         <InputText
           id="price-range-min"
           label="Min"
@@ -106,7 +104,7 @@ function PriceRange({ min, max, ...otherProps }: Props) {
           onChange={(e) => onChangeInputMax(e.target.value)}
         />
       </div>
-    </>
+    </div>
   )
 }
 
