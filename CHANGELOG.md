@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Applies new local tokens to `PriceRange` ([#146](https://github.com/vtex-sites/nextjs.store/pull/146))
+- Applies new local tokens to `Skeleton` and its related components ([#171](https://github.com/vtex-sites/nextjs.store/pull/171))
+- The `useNewsletter` hook ([#154](https://github.com/vtex-sites/nextjs.store/pull/154))
+- Creates Themes doc pages on storybook ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
+- Applies new local tokens to `SearchHistory`, `SearchTop`, `SearchDropdown` and `SearchSuggestions` ([#173](https://github.com/vtex-sites/nextjs.store/pull/173))
+- Added a new theme for testing purposes called midnight ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
+- Extracted all BaseStore visual to a new theme called soft-blue ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
 - Applies CSS Modules to `Incentives` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
 - Applies new local tokens to `Footer` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
 - Adds [MSW Addon](https://storybook.js.org/addons/msw-storybook-addon) ([#166](https://github.com/vtex-sites/nextjs.store/pull/166))
@@ -18,11 +24,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Applies new local tokens to `CartSidebar` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
 - Global tokens doc page on storybook ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
 - Adds [bun](https://bun.sh/) compatiblity ([#164](https://github.com/vtex-sites/nextjs.store/pull/164))
-- Uses new cross selling API on PDP ([#137](https://github.com/vtex-sites/gatsby.store/pull/137))
+- Uses new cross selling API on PDP ([#159](https://github.com/vtex-sites/nextjs.store/pull/159))
 - Applies new local tokens to `SuggestionProductCard` ([#151](https://github.com/vtex-sites/nextjs.store/pull/151))
 
 ### Changed
 
+- Cypress version from 9.5.4 to 9.6.0 to match WebOps' ([#182](https://github.com/vtex-sites/nextjs.store/pull/182))
+- Removes Themes dependencies ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
+- Renames and refactors the components of Search feature ([#173](https://github.com/vtex-sites/nextjs.store/pull/173))
+- A flaky PLP infinite scroll test to be more stable ([#180](https://github.com/vtex-sites/nextjs.store/pull/180))
+- Cypress version from 6.6.0 to 9.5.4 to match WebOps' ([#177](https://github.com/vtex-sites/nextjs.store/pull/177))
+- Updates global tokens to follow Brandless approach ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
 - Sync `ModalProps` children between starters ([#169](https://github.com/vtex-sites/nextjs.store/pull/169))
 - Updates `IncentivesFooter` content ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
 - Updated Getting Started doc page and overall improvements ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
@@ -31,6 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
 ### Removed
+
+- `ButtonIcon` component ([#181](https://github.com/vtex-sites/nextjs.store/pull/181))
 
 ### Fixed
 
