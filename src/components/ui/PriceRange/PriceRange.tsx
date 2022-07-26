@@ -20,11 +20,13 @@ function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
   const [inputMinError, setInputMinError] = useState<string>()
   const [inputMaxError, setInputMaxError] = useState<string>()
   const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({
-    min: min.selected,
-    max: max.selected,
+    min: Math.round(min.selected),
+    max: Math.round(max.selected),
   })
 
   function onChangePriceRange(value: { min: number; max: number }) {
+    setInputMinError(undefined)
+    setInputMaxError(undefined)
     setPriceRange({ min: value.min, max: value.max })
 
     if (inputMinRef.current?.value) {
@@ -39,6 +41,10 @@ function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
   function onChangeInputMin(value: string) {
     setInputMinError(undefined)
 
+    if (Number(value) < min.absolute) {
+      return
+    }
+
     if (Number(value) > priceRange.max) {
       setInputMinError(`Min price can't be greater than max`)
     }
@@ -52,6 +58,10 @@ function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
 
   function onChangeInputMax(value: string) {
     setInputMaxError(undefined)
+
+    if (Number(value) > max.absolute) {
+      return
+    }
 
     if (Number(value) < priceRange.min) {
       setInputMaxError(`Max price can't be smaller than min`)
@@ -85,27 +95,31 @@ function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
       <div data-fs-price-range-inputs>
         <InputText
           id="price-range-min"
+          step={10}
           label="Min"
           type="number"
           inputMode="numeric"
-          min={min.absolute}
-          max={priceRange.max}
           error={inputMinError}
-          value={priceRange.min}
           inputRef={inputMinRef}
+          min={Math.round(min.absolute)}
+          max={Math.round(priceRange.max)}
+          value={Math.round(priceRange.min)}
           onChange={(e) => onChangeInputMin(e.target.value)}
+          onBlur={() => !inputMinError && onEnd?.(priceRange)}
         />
         <InputText
           id="price-range-max"
           label="Max"
+          step={10}
           type="number"
           inputMode="numeric"
-          min={priceRange.min}
-          max={max.absolute}
           error={inputMaxError}
-          value={priceRange.max}
           inputRef={inputMaxRef}
+          max={Math.round(max.absolute)}
+          min={Math.round(priceRange.min)}
+          value={Math.round(priceRange.max)}
           onChange={(e) => onChangeInputMax(e.target.value)}
+          onBlur={() => !inputMaxError && onEnd?.(priceRange)}
         />
       </div>
     </div>
