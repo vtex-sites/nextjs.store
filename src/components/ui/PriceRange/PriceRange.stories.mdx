@@ -25,6 +25,10 @@ import {
         disable: true,
       },
     },
+    step: {
+      control: 'number',
+      table: { type: 'number', summary: 10 },
+    },
   }}
   component={PriceRange}
 />
@@ -32,11 +36,11 @@ import {
 export const defaultArgs = {
   min: {
     absolute: 0,
-    selected: 10,
+    selected: 0,
   },
   max: {
     absolute: 100,
-    selected: 90,
+    selected: 100,
   },
 }
 

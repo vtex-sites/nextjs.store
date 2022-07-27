@@ -9,7 +9,7 @@ import InputText from '../InputText'
 
 type Props = Omit<PriceRangeProps, 'formatter'>
 
-function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
+function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
   const formatter = usePriceFormatter({ decimals: false })
   const inputMinRef = useRef<HTMLInputElement>(null)
   const inputMaxRef = useRef<HTMLInputElement>(null)
@@ -82,6 +82,7 @@ function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
       </div>
       <UIPriceRange
         ref={priceRangeRef}
+        step={step}
         min={min}
         max={max}
         formatter={formatter}
@@ -95,7 +96,7 @@ function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
       <div data-fs-price-range-inputs>
         <InputText
           id="price-range-min"
-          step={10}
+          step={step}
           label="Min"
           type="number"
           inputMode="numeric"
@@ -110,7 +111,7 @@ function PriceRange({ min, max, onEnd, ...otherProps }: Props) {
         <InputText
           id="price-range-max"
           label="Max"
-          step={10}
+          step={step}
           type="number"
           inputMode="numeric"
           error={inputMaxError}
