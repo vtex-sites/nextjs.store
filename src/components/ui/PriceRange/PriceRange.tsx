@@ -24,7 +24,7 @@ function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
   const [inputMaxError, setInputMaxError] = useState<string>()
   const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({
     min: Math.round(min.selected),
-    max: Math.round(max.selected),
+    max: Math.ceil(max.selected),
   })
 
   function onChangePriceRange(value: { min: number; max: number }) {
@@ -81,7 +81,7 @@ function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
     <div className={styles.fsPriceRange} data-fs-price-range>
       <div data-fs-price-range-absolute-values>
         <span>{Math.round(min.absolute)}</span>
-        <span>{Math.round(max.absolute)}</span>
+        <span>{Math.ceil(max.absolute)}</span>
       </div>
       <UIPriceRange
         ref={priceRangeRef}
@@ -106,7 +106,7 @@ function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
           error={inputMinError}
           inputRef={inputMinRef}
           min={Math.round(min.absolute)}
-          max={Math.round(priceRange.max)}
+          max={Math.ceil(priceRange.max)}
           value={Math.round(priceRange.min)}
           onChange={(e) => onChangeInputMin(e.target.value)}
           onBlur={() => !inputMinError && onEnd?.(priceRange)}
@@ -119,9 +119,9 @@ function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
           inputMode="numeric"
           error={inputMaxError}
           inputRef={inputMaxRef}
-          max={Math.round(max.absolute)}
+          max={Math.ceil(max.absolute)}
           min={Math.round(priceRange.min)}
-          value={Math.round(priceRange.max)}
+          value={Math.ceil(priceRange.max)}
           onChange={(e) => onChangeInputMax(e.target.value)}
           onBlur={() => !inputMaxError && onEnd?.(priceRange)}
         />
