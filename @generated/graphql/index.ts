@@ -397,7 +397,7 @@ export type StoreCollectionMeta = {
   selectedFacets: Array<StoreCollectionFacet>
 }
 
-/** Product collection type. Possible values are `Department`, `Category`, `Brand` or `Cluster`. */
+/** Product collection type. Possible values are `Department`, `Category`, `Brand`, `Cluster`, `SubCategory` or `Collection`. */
 export type StoreCollectionType =
   /** Product brand. */
   | 'Brand'
@@ -405,8 +405,12 @@ export type StoreCollectionType =
   | 'Category'
   /** Product cluster. */
   | 'Cluster'
+  /** Product collection. */
+  | 'Collection'
   /** First level of product categorization. */
   | 'Department'
+  /** Third level of product categorization. */
+  | 'SubCategory'
 
 /** Currency information. */
 export type StoreCurrency = {
@@ -883,6 +887,7 @@ export type ServerProductPageQueryQuery = {
     }
     isVariantOf: {
       productGroupID: string
+      name: string
       skuVariants: {
         activeVariations: any | null
         slugsMap: any | null
