@@ -7,7 +7,10 @@ import { usePriceFormatter } from 'src/sdk/product/useFormattedPrice'
 import styles from './price-range.module.scss'
 import InputText from '../InputText'
 
-type Props = Omit<PriceRangeProps, 'formatter'>
+type Props = Omit<
+  PriceRangeProps,
+  'formatter' | 'minValueLabelComponent' | 'maxValueLabelComponent'
+>
 
 function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
   const formatter = usePriceFormatter({ decimals: false })
