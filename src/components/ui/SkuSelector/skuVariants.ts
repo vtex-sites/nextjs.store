@@ -10,33 +10,21 @@ export function getSkuSlug(
   selectedVariations: Record<string, string>,
   dominantVariation: string
 ) {
-  let slugsMapKey = ''
+  const slugsMapKey = Object.entries(selectedVariations).flat().join('-')
 
-  for (const key in selectedVariations) {
-    if (key in selectedVariations) {
-      const variationValue = selectedVariations[key]
-
-      slugsMapKey += `${key}-${variationValue}-`
-    }
+  if (slugsMapKey in slugsMap) {
+    return slugsMap[slugsMapKey]
   }
 
-  // Remove trailing '-'
-  slugsMapKey = slugsMapKey.slice(0, slugsMapKey.length - 1)
+  const possibleVariants = Object.keys(slugsMap)
 
-  const variantExists = slugsMapKey in slugsMap
-
-  if (!variantExists) {
-    const possibleVariants = Object.keys(slugsMap)
-    const firstVariationForDominantValue = possibleVariants.find((slug) =>
-      slug.includes(
-        `${dominantVariation}-${selectedVariations[dominantVariation]}`
-      )
+  const firstVariationForDominantValue = possibleVariants.find((slug) =>
+    slug.includes(
+      `${dominantVariation}-${selectedVariations[dominantVariation]}`
     )
+  )
 
-    return slugsMap[firstVariationForDominantValue ?? possibleVariants[0]]
-  }
-
-  return slugsMap[slugsMapKey]
+  return slugsMap[firstVariationForDominantValue ?? possibleVariants[0]]
 }
 
 export function navigateToSku({
