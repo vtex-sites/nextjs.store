@@ -7,7 +7,7 @@
 
   // Default properties
   --fs-price-range-height                     : var(--fs-spacing-2);
-  --fs-price-range-border-radius              : var(--fs-border-radius);
+  --fs-price-range-border-radius              : var(--fs-border-radius-pill);
   --fs-price-range-margin-bottom              : var(--fs-spacing-3);
 
   --fs-price-range-transition-function        : var(--fs-transition-function);
@@ -19,10 +19,13 @@
 
   // Slider
   --fs-price-range-slider-bkg-color           : var(--fs-color-neutral-bkg);
-  --fs-price-range-slider-selection-bkg-color : var(--fs-color-primary-bkg-light);
+  --fs-price-range-slider-selection-bkg-color : var(--fs-color-primary-bkg-light-active);
+
+  // Absolute Values
+  --fs-price-range-absolute-values-text-color : var(--fs-color-disabled-text);
 
   // Thumb
-  --fs-price-range-thumb-bkg-color            : var(--fs-color-primary-bkg-active);
+  --fs-price-range-thumb-bkg-color            : var(--fs-color-primary-bkg);
   --fs-price-range-thumb-bkg-color-hover      : var(--fs-color-primary-bkg-hover);
   --fs-price-range-thumb-radius               : var(--fs-border-radius-circle);
   --fs-price-range-thumb-size                 : var(--fs-price-range-value-label-bottom);
@@ -155,6 +158,6 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--fs-spacing-2);
-    color: var(--fs-color-disabled-text);
+    color: var(--fs-price-range-absolute-values-text-color);
   }
 }
