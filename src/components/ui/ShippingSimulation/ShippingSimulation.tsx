@@ -1,9 +1,14 @@
+import { useSession } from '@faststore/sdk'
 import { Table, TableBody, TableCell, TableRow } from '@faststore/ui'
 import type { HTMLAttributes } from 'react'
+import { useRef, useState } from 'react'
 
 import Price from 'src/components/ui/Price'
 import { usePriceFormatter } from 'src/sdk/product/useFormattedPrice'
 
+import Icon from '../Icon'
+import InputText from '../InputText'
+import Link from '../Link'
 import styles from './shipping-simulation.module.scss'
 
 interface ShippingSimulationProps extends HTMLAttributes<HTMLDivElement> {
@@ -16,23 +21,23 @@ interface ShippingSimulationProps extends HTMLAttributes<HTMLDivElement> {
 
 const shippingOptions = [
   {
-    name: 'Regular',
-    time: '12 days',
+    carrier: 'Regular',
+    estimate: '12 days',
     price: 21,
   },
   {
-    name: 'Fedex',
-    time: '12 days',
+    carrier: 'Fedex',
+    estimate: '12 days',
     price: 23,
   },
   {
-    name: 'Same day',
-    time: '1 day',
+    carrier: 'Same day',
+    estimate: '1 day',
     price: 89,
   },
   {
-    name: 'DHL',
-    time: '1 day',
+    carrier: 'DHL',
+    estimate: '1 day',
     price: 100,
   },
 ]
@@ -41,7 +46,21 @@ function ShippingSimulation({
   testId = 'store-shipping-simulation',
   ...otherProps
 }: ShippingSimulationProps) {
+  const postalCodeInputRef = useRef<HTMLInputElement>(null)
+  const { postalCode } = useSession()
+  const [postalCodeInput, setPostalCodeInput] = useState(postalCode ?? '')
+  const [postalCodeLocation, setPostalCodeLocation] = useState(
+    'Mt. Street — Newark, NY'
+  )
+
   const formatter = usePriceFormatter()
+
+  const handleSubmit = () => {
+    const value = postalCodeInputRef.current?.value
+
+    // API integration with shipping simulation resolver
+    setPostalCodeLocation(`Updated ${value} Location`)
+  }
 
   return (
     <section
@@ -50,21 +69,43 @@ function ShippingSimulation({
       data-testid={testId}
       {...otherProps}
     >
-      {/* Shipping */}
-      {/* Input */}
-      {/* Link */}
+      <h2 className="text__title-subsection" data-fs-shipping-simulation-title>
+        Shipping
+      </h2>
 
-      <h3>Shipping options</h3>
-      <p>Mt. Street — Newark, NY</p>
+      <InputText
+        inputRef={postalCodeInputRef}
+        actionable
+        id="shipping-postal-code"
+        label="Zip Code"
+        onSubmit={handleSubmit}
+        onInput={(e) => setPostalCodeInput(e.currentTarget.value)}
+        onClear={() => setPostalCodeInput('')}
+        value={postalCodeInput}
+      />
+
+      <Link href="/" data-fs-shipping-simulation-link>
+        {"I don't know my Postal Code"}
+        <Icon name="ArrowSquareOut" width={18} height={18} />
+      </Link>
+
+      <h3 data-fs-shipping-simulation-subtitle>Shipping options</h3>
+      <p className="text__body" data-fs-shipping-simulation-location>
+        {postalCodeLocation}
+      </p>
+
       <Table data-fs-shipping-simulation-table>
         <TableBody>
           {shippingOptions.map((option) => (
-            <TableRow key={option.name} data-fs-shipping-simulation-table-row>
+            <TableRow
+              key={option.carrier}
+              data-fs-shipping-simulation-table-row
+            >
               <TableCell data-fs-shipping-simulation-table-cell>
-                {option.name}
+                {option.carrier}
               </TableCell>
               <TableCell data-fs-shipping-simulation-table-cell>
-                {option.time}
+                {option.estimate}
               </TableCell>
               <TableCell data-fs-shipping-simulation-table-cell>
                 <Price

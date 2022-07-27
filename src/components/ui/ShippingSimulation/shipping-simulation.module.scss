@@ -23,6 +23,31 @@
   flex-direction: column;
   font-size: var(--fs-text-size-1);
 
+  [data-fs-shipping-simulation-title] {
+    padding-bottom: var(--fs-spacing-3);
+  }
+
+  [data-fs-shipping-simulation-link] {
+    display: flex;
+    align-items: center;
+    padding-top: var(--fs-spacing-1);
+    padding-bottom: var(--fs-spacing-4);
+
+    svg {
+      margin-left: var(--fs-spacing-0);
+    }
+  }
+
+  [data-fs-shipping-simulation-subtitle] {
+    font-size: var(--fs-text-size-2);
+    font-weight: var(--fs-text-weight-bold);
+    line-height: 1.5;
+  }
+
+  [data-fs-shipping-simulation-location] {
+    padding-bottom: var(--fs-spacing-2);
+  }
+
   [data-fs-shipping-simulation-table] {
     border-collapse: collapse;
   }
@@ -37,6 +62,7 @@
 
   [data-fs-shipping-simulation-table-cell] {
     padding: var(--fs-spacing-2);
+    font-size: var(--fs-text-size-2);
 
     &:first-child {
       border-top-left-radius: var(--fs-shipping-simulation-table-row-padding);
