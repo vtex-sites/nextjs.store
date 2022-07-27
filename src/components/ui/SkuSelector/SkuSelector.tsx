@@ -3,8 +3,6 @@ import type { ChangeEventHandler } from 'react'
 
 import { Image } from 'src/components/ui/Image'
 
-import { useSelectorsState } from './Selectors'
-
 interface SkuProps {
   /**
    * Alternative text description of the image.
@@ -53,11 +51,9 @@ export interface SkuSelectorProps {
    */
   label?: string
   /**
-   * Name of the property the SKU Selector is showing options for.
-   * Notice that this name should match the property name as it is in the
-   * store's catalog.
+   * Currently active variation's value.
    */
-  skuPropertyName: string
+  activeValue: string
   /**
    * Function to be triggered when SKU option change.
    */
@@ -70,20 +66,17 @@ function SkuSelector({
   options,
   onChange,
   testId = 'store-sku-selector',
-  skuPropertyName,
+  activeValue,
 }: SkuSelectorProps) {
-  const selectorsState = useSelectorsState()
-  const selectedSku = selectorsState[skuPropertyName]
-
   return (
     <div data-store-sku-selector data-testid={testId} data-variant={variant}>
       {label && (
         <Label data-sku-selector-label>
-          {label}: <strong>{selectedSku}</strong>
+          {label}: <strong>{activeValue}</strong>
         </Label>
       )}
       <RadioGroup
-        selectedValue={selectedSku}
+        selectedValue={activeValue}
         name={`sku-selector-${variant}`}
         onChange={(e) => {
           onChange?.(e)
@@ -96,7 +89,7 @@ function SkuSelector({
               label={option.label}
               value={option.value}
               disabled={option.disabled}
-              checked={option.value === selectedSku}
+              checked={option.value === activeValue}
             >
               {variant === 'label' && <span>{option.value}</span>}
               {variant === 'image' && 'src' in option && (

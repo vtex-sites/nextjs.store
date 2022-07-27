@@ -1,13 +1,13 @@
-import { useContext, createContext } from 'react'
 import { useRouter } from 'next/router'
+import type { ChangeEvent } from 'react'
 
 import SkuSelector from './SkuSelector'
 import { navigateToSku } from './skuVariants'
 import type { SkuVariantsByName } from './skuVariants'
 
 interface Props {
-  availableVariations: SkuVariantsByName
   slugsMap: Record<string, string>
+  availableVariations: SkuVariantsByName
   activeVariations: Record<string, string>
 }
 
@@ -21,8 +21,6 @@ interface Props {
  */
 const DOMINANT_SKU_SELECTOR_PROPERTY = 'Color'
 
-const SelectorsStateContext = createContext<Record<string, string>>({})
-
 function Selectors({ slugsMap, availableVariations, activeVariations }: Props) {
   const router = useRouter()
 
@@ -30,58 +28,46 @@ function Selectors({ slugsMap, availableVariations, activeVariations }: Props) {
   // as 'image' variants. And they're also the 'dominant' variants in our store.
   const { Color: colorOptions, ...otherSkuVariants } = availableVariations
 
+  function handleOnChange(
+    e: ChangeEvent<HTMLInputElement>,
+    updatedVariationName: string
+  ) {
+    const newVariationValue = e.currentTarget.value
+
+    navigateToSku({
+      router,
+      slugsMap,
+      updatedVariationName,
+      selectorsState: activeVariations,
+      updatedVariationValue: newVariationValue,
+      dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
+    })
+  }
+
   return (
     <section>
-      <SelectorsStateContext.Provider value={activeVariations}>
-        {colorOptions && (
+      {colorOptions && (
+        <SkuSelector
+          label="Color"
+          variant="image"
+          options={colorOptions}
+          activeValue={activeVariations.Color}
+          onChange={(e) => handleOnChange(e, 'Color')}
+        />
+      )}
+      {otherSkuVariants &&
+        Object.keys(otherSkuVariants).map((skuVariant) => (
           <SkuSelector
-            skuPropertyName="Color"
-            label="Color"
-            variant="image"
-            options={colorOptions}
-            onChange={(e) => {
-              const newVariationValue = e.currentTarget.value
-
-              navigateToSku({
-                router,
-                slugsMap,
-                selectorsState: activeVariations,
-                updatedVariationName: 'Color',
-                updatedVariationValue: newVariationValue,
-                dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
-              })
-            }}
+            variant="label"
+            key={skuVariant}
+            label={skuVariant}
+            options={otherSkuVariants[skuVariant]}
+            activeValue={activeVariations[skuVariant]}
+            onChange={(e) => handleOnChange(e, skuVariant)}
           />
-        )}
-        {otherSkuVariants &&
-          Object.keys(otherSkuVariants).map((skuVariant) => (
-            <SkuSelector
-              label={skuVariant}
-              skuPropertyName={skuVariant}
-              key={skuVariant}
-              variant="label"
-              options={otherSkuVariants[skuVariant]}
-              onChange={(e) => {
-                const newVariationValue = e.currentTarget.value
-
-                navigateToSku({
-                  router,
-                  slugsMap,
-                  selectorsState: activeVariations,
-                  updatedVariationName: skuVariant,
-                  updatedVariationValue: newVariationValue,
-                  dominantSku: DOMINANT_SKU_SELECTOR_PROPERTY,
-                })
-              }}
-            />
-          ))}
-      </SelectorsStateContext.Provider>
+        ))}
     </section>
   )
-}
-
-export function useSelectorsState() {
-  return useContext(SelectorsStateContext)
 }
 
 export default Selectors
