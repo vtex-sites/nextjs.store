@@ -5,22 +5,7 @@ import { Image } from 'src/components/ui/Image'
 
 import { useSelectorsState } from './Selectors'
 
-interface DefaultSkuProps {
-  /**
-   * Label to describe the SKU when selected.
-   */
-  label: string
-  /**
-   * Current value for this SKU.
-   */
-  value: string
-  /**
-   * Specifies that this option should be disabled.
-   */
-  disabled?: boolean
-}
-
-interface ImageSkuProps {
+interface SkuProps {
   /**
    * Alternative text description of the image.
    */
@@ -34,14 +19,14 @@ interface ImageSkuProps {
    */
   label: string
   /**
+   * Current value for this SKU.
+   */
+  value: string
+  /**
    * Specifies that this option should be disabled.
    */
   disabled?: boolean
 }
-
-type ImageVariant = 'image'
-
-type Sku<V> = V extends ImageVariant ? ImageSkuProps : DefaultSkuProps
 
 type Variant = 'color' | 'label' | 'image'
 
@@ -58,7 +43,7 @@ export interface SkuSelectorProps {
   /**
    * SKU options that should be rendered.
    */
-  options: Array<Sku<Variant>>
+  options: SkuProps[]
   /**
    * Default SKU option.
    */
@@ -109,11 +94,11 @@ function SkuSelector({
             <RadioOption
               key={String(index)}
               label={option.label}
-              value={option.label}
+              value={option.value}
               disabled={option.disabled}
-              checked={option.label === selectedSku}
+              checked={option.value === selectedSku}
             >
-              {variant === 'label' && <span>{option.label}</span>}
+              {variant === 'label' && <span>{option.value}</span>}
               {variant === 'image' && 'src' in option && (
                 <span>
                   <Image

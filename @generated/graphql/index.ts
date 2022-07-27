@@ -16,10 +16,69 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
+  /**
+   * Example:
+   *
+   * ```json
+   * {
+   *   Color: 'Red', Size: '42'
+   * }
+   * ```
+   */
+  ActiveVariations: any
+  /**
+   * Example:
+   *
+   * ```json
+   * {
+   *   Color: [
+   *     {
+   *       src: "https://storecomponents.vtexassets.com/...",
+   *       alt: "...",
+   *       label: "...",
+   *       value: "..."
+   *     },
+   *     {
+   *       src: "https://storecomponents.vtexassets.com/...",
+   *       alt: "...",
+   *       label: "...",
+   *       value: "..."
+   *     }
+   *   ],
+   *   Size: [
+   *     {
+   *       src: "https://storecomponents.vtexassets.com/...",
+   *       alt: "...",
+   *       label: "...",
+   *       value: "..."
+   *     }
+   *   ]
+   * }
+   * ```
+   */
+  FormattedVariants: any
   /** A string or the string representation of an object (a stringified object). */
   ObjectOrString: any
-  SelectedVariants: any
+  /**
+   * Example:
+   *
+   * ```json
+   * {
+   *   'Color-Red-Size-40': 'classic-shoes-37'
+   * }
+   * ```
+   */
   SlugsMap: any
+  /**
+   * Example:
+   *
+   * ```json
+   * {
+   *   Color: [ "Red", "Blue", "Green" ],
+   *   Size: [ "40", "41" ]
+   * }
+   * ```
+   */
   VariantsByName: any
 }
 
@@ -204,6 +263,34 @@ export type QuerySearchArgs = {
   selectedFacets: InputMaybe<Array<IStoreSelectedFacet>>
   sort?: InputMaybe<StoreSort>
   term?: InputMaybe<Scalars['String']>
+}
+
+export type SkuVariants = {
+  /** SKU property values for the current SKU. */
+  activeVariations: Maybe<Scalars['ActiveVariations']>
+  /** All available options for each SKU variant property, indexed by their name. */
+  allVariantsByName: Maybe<Scalars['VariantsByName']>
+  /**
+   * Available options for each varying SKU property, taking into account the
+   * `dominantVariantName` property. Returns all available options for the
+   * dominant property, and only options that can be combined with its current
+   * value for other properties.
+   */
+  availableVariations: Maybe<Scalars['FormattedVariants']>
+  /**
+   * Maps property value combinations to their respective SKU's slug. Enables
+   * us to retrieve the slug for the SKU that matches the currently selected
+   * variations in O(1) time.
+   */
+  slugsMap: Maybe<Scalars['SlugsMap']>
+}
+
+export type SkuVariantsAvailableVariationsArgs = {
+  dominantVariantName: Scalars['String']
+}
+
+export type SkuVariantsSlugsMapArgs = {
+  dominantVariantName: Scalars['String']
 }
 
 /** Aggregate offer information, for a given SKU that is available to be fulfilled by multiple sellers. */
@@ -514,28 +601,20 @@ export type StoreProductEdge = {
 
 /** Product group information. Product groups are catalog entities that may contain variants. They are equivalent to VTEX [Products](https://help.vtex.com/en/tutorial/what-is-a-product--2zrB2gFCHyQokCKKE8kuAw#), whereas each variant is equivalent to a VTEX [SKU](https://help.vtex.com/en/tutorial/what-is-an-sku--1K75s4RXAQyOuGUYKMM68u#). For example, you may have a **Shirt** product group with associated products such as **Blue shirt size L**, **Green shirt size XL** and so on. */
 export type StoreProductGroup = {
-  activeVariations: Maybe<Scalars['SelectedVariants']>
   /** Array of additional properties. */
   additionalProperty: Array<StorePropertyValue>
-  filteredAvailableVariations: Maybe<Scalars['VariantsByName']>
   /** Array of variants related to product group. Variants are equivalent to VTEX [SKUs](https://help.vtex.com/en/tutorial/what-is-an-sku--1K75s4RXAQyOuGUYKMM68u#). */
   hasVariant: Array<StoreProduct>
   /** Product group name. */
   name: Scalars['String']
   /** Product group ID. */
   productGroupID: Scalars['String']
-  slugsMap: Maybe<Scalars['SlugsMap']>
-  variantsByName: Maybe<Scalars['VariantsByName']>
-}
-
-/** Product group information. Product groups are catalog entities that may contain variants. They are equivalent to VTEX [Products](https://help.vtex.com/en/tutorial/what-is-a-product--2zrB2gFCHyQokCKKE8kuAw#), whereas each variant is equivalent to a VTEX [SKU](https://help.vtex.com/en/tutorial/what-is-an-sku--1K75s4RXAQyOuGUYKMM68u#). For example, you may have a **Shirt** product group with associated products such as **Blue shirt size L**, **Green shirt size XL** and so on. */
-export type StoreProductGroupFilteredAvailableVariationsArgs = {
-  dominantVariantProperty: Scalars['String']
-}
-
-/** Product group information. Product groups are catalog entities that may contain variants. They are equivalent to VTEX [Products](https://help.vtex.com/en/tutorial/what-is-a-product--2zrB2gFCHyQokCKKE8kuAw#), whereas each variant is equivalent to a VTEX [SKU](https://help.vtex.com/en/tutorial/what-is-an-sku--1K75s4RXAQyOuGUYKMM68u#). For example, you may have a **Shirt** product group with associated products such as **Blue shirt size L**, **Green shirt size XL** and so on. */
-export type StoreProductGroupSlugsMapArgs = {
-  dominantVariantProperty: Scalars['String']
+  /**
+   * Object containing data structures to facilitate handling different SKU
+   * variant properties. Specially useful for implementing SKU selection
+   * components.
+   */
+  skuVariants: Maybe<SkuVariants>
 }
 
 /** Properties that can be associated with products and products groups. */
@@ -695,23 +774,11 @@ export type ProductDetailsFragment_ProductFragment = {
   id: string
   isVariantOf: {
     productGroupID: string
-    name: string
-    slugsMap: any | null
-    filteredAvailableVariations: any | null
-    activeVariations: any | null
-    hasVariant: Array<{
-      slug: string
-      name: string
-      productID: string
-      seo: { title: string }
-      image: Array<{ url: string; alternateName: string }>
-      additionalProperty: Array<{
-        propertyID: string
-        value: any
-        name: string
-        valueReference: string
-      }>
-    }>
+    skuVariants: {
+      activeVariations: any | null
+      slugsMap: any | null
+      availableVariations: any | null
+    } | null
   }
   image: Array<{ url: string; alternateName: string }>
   brand: { name: string }
@@ -816,23 +883,11 @@ export type ServerProductPageQueryQuery = {
     }
     isVariantOf: {
       productGroupID: string
-      name: string
-      slugsMap: any | null
-      filteredAvailableVariations: any | null
-      activeVariations: any | null
-      hasVariant: Array<{
-        slug: string
-        name: string
-        productID: string
-        seo: { title: string }
-        image: Array<{ url: string; alternateName: string }>
-        additionalProperty: Array<{
-          propertyID: string
-          value: any
-          name: string
-          valueReference: string
-        }>
-      }>
+      skuVariants: {
+        activeVariations: any | null
+        slugsMap: any | null
+        availableVariations: any | null
+      } | null
     }
     additionalProperty: Array<{
       propertyID: string
@@ -920,23 +975,11 @@ export type BrowserProductQueryQuery = {
     id: string
     isVariantOf: {
       productGroupID: string
-      name: string
-      slugsMap: any | null
-      filteredAvailableVariations: any | null
-      activeVariations: any | null
-      hasVariant: Array<{
-        slug: string
-        name: string
-        productID: string
-        seo: { title: string }
-        image: Array<{ url: string; alternateName: string }>
-        additionalProperty: Array<{
-          propertyID: string
-          value: any
-          name: string
-          valueReference: string
-        }>
-      }>
+      skuVariants: {
+        activeVariations: any | null
+        slugsMap: any | null
+        availableVariations: any | null
+      } | null
     }
     image: Array<{ url: string; alternateName: string }>
     brand: { name: string }
