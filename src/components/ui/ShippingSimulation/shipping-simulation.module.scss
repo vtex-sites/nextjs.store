@@ -17,10 +17,12 @@
     border-radius: 0 0 var(--fs-border-radius) var(--fs-border-radius);
   }
 
+  &[data-fs-shipping-simulation-empty="true"] {
+    grid-row: 3;
+  }
+
   @include media(">=notebook") { grid-column: 9 / span 4; }
 
-  display: flex;
-  flex-direction: column;
   font-size: var(--fs-text-size-1);
 
   [data-fs-shipping-simulation-title] {
@@ -49,6 +51,7 @@
   }
 
   [data-fs-shipping-simulation-table] {
+    width: 100%;
     border-collapse: collapse;
   }
 
