@@ -14,7 +14,9 @@
   --fs-price-range-transition-property        : var(--fs-transition-property);
   --fs-price-range-transition-timing          : var(--fs-transition-timing);
 
+  // Value Label
   --fs-price-range-value-label-bottom         : var(--fs-spacing-4);
+  --fs-price-range-value-label-bkg-color      : var(--fs-color-body-bkg);
 
   // Slider
   --fs-price-range-slider-bkg-color           : var(--fs-color-neutral-bkg);
@@ -55,7 +57,8 @@
   [data-price-range-value-label="min"],
   [data-price-range-value-label="max"] {
     bottom: var(--fs-price-range-value-label-bottom);
-    padding: 0 var(--fs-spacing-0);
+    padding: 0 var(--fs-spacing-1);
+    background-color: var(--fs-price-range-value-label-bkg-color);
     opacity: 0;
     transition: opacity var(--fs-price-range-transition-timing) var(--fs-price-range-transition-function);
 
