@@ -2,7 +2,10 @@ import { useState, useRef } from 'react'
 import { PriceRange as UIPriceRange } from '@faststore/ui'
 import type { PriceRangeProps } from '@faststore/ui'
 
-import { usePriceFormatter } from 'src/sdk/product/useFormattedPrice'
+import {
+  usePriceFormatter,
+  useFormattedPrice,
+} from 'src/sdk/product/useFormattedPrice'
 
 import styles from './price-range.module.scss'
 import InputText from '../InputText'
@@ -14,6 +17,9 @@ type Props = Omit<
 
 function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
   const formatter = usePriceFormatter({ decimals: false })
+  const minAbsoluteFormatted = useFormattedPrice(Math.round(min.absolute))
+  const maxAbsoluteFormatted = useFormattedPrice(Math.ceil(max.absolute))
+
   const inputMinRef = useRef<HTMLInputElement>(null)
   const inputMaxRef = useRef<HTMLInputElement>(null)
   const priceRangeRef = useRef<{
@@ -80,8 +86,8 @@ function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
   return (
     <div className={styles.fsPriceRange} data-fs-price-range>
       <div data-fs-price-range-absolute-values>
-        <span>{Math.round(min.absolute)}</span>
-        <span>{Math.ceil(max.absolute)}</span>
+        <span>{minAbsoluteFormatted}</span>
+        <span>{maxAbsoluteFormatted}</span>
       </div>
       <UIPriceRange
         ref={priceRangeRef}
