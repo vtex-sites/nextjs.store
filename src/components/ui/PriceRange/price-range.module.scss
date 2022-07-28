@@ -15,7 +15,6 @@
   --fs-price-range-transition-timing          : var(--fs-transition-timing);
 
   --fs-price-range-value-label-bottom         : var(--fs-spacing-4);
-  --fs-price-range-value-label-bkg-color      : var(--fs-color-body-bkg);
 
   // Slider
   --fs-price-range-slider-bkg-color           : var(--fs-color-neutral-bkg);
@@ -57,7 +56,12 @@
   [data-price-range-value-label="max"] {
     bottom: var(--fs-price-range-value-label-bottom);
     padding: 0 var(--fs-spacing-0);
-    background-color: var(--fs-price-range-value-label-bkg-color);
+    opacity: 0;
+    transition: opacity var(--fs-price-range-transition-timing) var(--fs-price-range-transition-function);
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   [data-price-range-value-label="min"] {
@@ -112,10 +116,18 @@
 
   [data-slider-thumb="left"] {
     z-index: 1;
+
+    &:hover + [data-price-range-value-label="min"] {
+      opacity: 1;
+    }
   }
 
   [data-slider-thumb="right"] {
     z-index: 2;
+
+    &:hover + [data-price-range-value-label="max"] {
+      opacity: 1;
+    }
   }
 
   [data-price-range-values] {
