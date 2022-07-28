@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Creates `ShippingSimulation` component ([#183](https://github.com/vtex-sites/nextjs.store/pull/183))
 - Added a new theme for testing purposes called midnight ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
 - Extracted all BaseStore visual to a new theme called soft-blue ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
 - Applies CSS Modules to `Incentives` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
