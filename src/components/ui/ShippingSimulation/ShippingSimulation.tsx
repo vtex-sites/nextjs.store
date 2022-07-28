@@ -94,7 +94,7 @@ function ShippingSimulation({
       setPostalCodeLocation(`Updated ${shippingPostalCode} location`)
       setShippingOptions(defaultShippingOptions)
     } catch (error) {
-      setErrorMessage('You entered an invalid Zip Code')
+      setErrorMessage('You entered an invalid Postal Code')
     }
   }
 
@@ -132,7 +132,7 @@ function ShippingSimulation({
         actionable
         error={errorMessage}
         id="shipping-postal-code"
-        label="Zip Code"
+        label="Postal Code"
         value={shippingPostalCode}
         onInput={handleOnInput}
         onSubmit={handleSubmit}

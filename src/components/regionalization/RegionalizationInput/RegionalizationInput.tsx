@@ -35,7 +35,7 @@ function RegionInput({ closeModal }: Props) {
 
       closeModal()
     } catch (error) {
-      setErrorMessage('You entered an invalid Zip Code')
+      setErrorMessage('You entered an invalid Postal Code')
     }
   }
 
@@ -45,7 +45,7 @@ function RegionInput({ closeModal }: Props) {
         inputRef={inputRef}
         id="postal-code-input"
         error={errorMessage}
-        label="Zip Code"
+        label="Postal Code"
         actionable
         value={input}
         onInput={(e) => {
