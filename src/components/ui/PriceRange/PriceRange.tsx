@@ -85,7 +85,6 @@ function PriceRange({ min, max, onEnd, step = 10, ...otherProps }: Props) {
       </div>
       <UIPriceRange
         ref={priceRangeRef}
-        step={step}
         min={min}
         max={max}
         formatter={formatter}
