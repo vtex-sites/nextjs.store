@@ -81,7 +81,9 @@ function ShippingSimulation({
   const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
-    if (!sessionPostalCode || shippingPostalCode) return
+    if (!sessionPostalCode || shippingPostalCode) {
+      return
+    }
 
     // Use session postal code if there is no shippingPostalCode
     setShippingPostalCode(sessionPostalCode)
