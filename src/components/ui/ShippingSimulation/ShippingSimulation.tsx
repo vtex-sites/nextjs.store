@@ -17,20 +17,13 @@ type ShippingOptionProps = {
   price: number
 }
 
-interface ShippingSimulationProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * ID to find this component in testing tools (e.g.: cypress,
-   * testing-library, and jest).
-   */
-  testId?: string
-  /**
-   * Array of ShippingOptionProps
-   */
+type ShippingSimulationInfoProps = {
+  location?: string
   options?: ShippingOptionProps[]
 }
 
-// TODO Remove default values after API integration
-const defaultShippingOptions = [
+// TODO Remove Mocked data after API integration
+const mockShippingOptions: ShippingOptionProps[] = [
   {
     carrier: 'Regular',
     estimate: '12 days',
@@ -53,22 +46,39 @@ const defaultShippingOptions = [
   },
 ]
 
+const mockShippingSimulation: ShippingSimulationInfoProps = {
+  location: 'Street Default — Newark, NY',
+  options: mockShippingOptions,
+}
+
+const createEmptySimulation = () => ({
+  location: '',
+  options: [],
+})
+
+interface ShippingSimulationProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * ID to find this component in testing tools (e.g.: cypress,
+   * testing-library, and jest).
+   */
+  testId?: string
+}
+
 function ShippingSimulation({
   testId = 'store-shipping-simulation',
-  options,
   ...otherProps
 }: ShippingSimulationProps) {
   const { postalCode: sessionPostalCode } = useSession()
 
-  const [shippingPostalCode, setShippingPostalCode] = useState('')
-  const [shippingLocation, setShippingLocation] = useState('')
+  const [simulation, setSimulation] = useState<ShippingSimulationInfoProps>(
+    createEmptySimulation()
+  )
 
+  const { location: shippingLocation, options: shippingOptions } = simulation
+
+  const [shippingPostalCode, setShippingPostalCode] = useState('')
   const [displayClearButton, setDisplayClearButton] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-
-  const [shippingOptions, setShippingOptions] = useState<ShippingOptionProps[]>(
-    []
-  )
 
   useEffect(() => {
     if (!sessionPostalCode || shippingPostalCode) return
@@ -78,11 +88,13 @@ function ShippingSimulation({
     setDisplayClearButton(true)
 
     // TODO update after API integration
-    setShippingOptions(options ?? [])
-    setShippingLocation('Street Default — Newark, NY')
+    setSimulation({
+      location: mockShippingSimulation?.location,
+      options: mockShippingSimulation?.options ?? [],
+    })
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options, sessionPostalCode])
+  }, [sessionPostalCode])
 
   const formatter = usePriceFormatter()
 
@@ -91,8 +103,10 @@ function ShippingSimulation({
 
     try {
       // TODO Change next lines after API integration
-      setShippingLocation(`Street from ${shippingPostalCode} Postal Code.`)
-      setShippingOptions(defaultShippingOptions)
+      setSimulation({
+        location: `Street from ${shippingPostalCode} Postal Code.`,
+        options: mockShippingOptions ?? [],
+      })
     } catch (error) {
       setErrorMessage('You entered an invalid Postal Code')
     }
@@ -109,8 +123,7 @@ function ShippingSimulation({
     setDisplayClearButton(false)
 
     if (!currentValue) {
-      setShippingOptions([])
-      setShippingLocation('')
+      setSimulation(createEmptySimulation())
     }
   }
 
@@ -138,9 +151,8 @@ function ShippingSimulation({
         onSubmit={handleSubmit}
         onClear={() => {
           setShippingPostalCode('')
-          setShippingLocation('')
-          setShippingOptions([])
           setDisplayClearButton(false)
+          setSimulation(createEmptySimulation())
         }}
         displayClearButton={displayClearButton}
       />
@@ -185,11 +197,6 @@ function ShippingSimulation({
       )}
     </section>
   )
-}
-
-// TODO Remove next lines after API integration
-ShippingSimulation.defaultProps = {
-  options: defaultShippingOptions,
 }
 
 export default ShippingSimulation
