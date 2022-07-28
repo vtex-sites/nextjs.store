@@ -61,14 +61,14 @@ function ShippingSimulation({
   const { postalCode: sessionPostalCode } = useSession()
 
   const [shippingPostalCode, setShippingPostalCode] = useState('')
+  const [shippingLocation, setShippingLocation] = useState('')
+
   const [displayClearButton, setDisplayClearButton] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
   const [shippingOptions, setShippingOptions] = useState<ShippingOptionProps[]>(
     []
   )
-
-  const [postalCodeLocation, setPostalCodeLocation] = useState('')
 
   useEffect(() => {
     if (!sessionPostalCode || shippingPostalCode) return
@@ -79,7 +79,7 @@ function ShippingSimulation({
 
     // TODO update after API integration
     setShippingOptions(options ?? [])
-    setPostalCodeLocation('Mt. Street — Newark, NY')
+    setShippingLocation('Street Default — Newark, NY')
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options, sessionPostalCode])
@@ -91,7 +91,7 @@ function ShippingSimulation({
 
     try {
       // TODO Change next lines after API integration
-      setPostalCodeLocation(`Updated ${shippingPostalCode} location`)
+      setShippingLocation(`Street from ${shippingPostalCode} Postal Code.`)
       setShippingOptions(defaultShippingOptions)
     } catch (error) {
       setErrorMessage('You entered an invalid Postal Code')
@@ -99,7 +99,7 @@ function ShippingSimulation({
   }
 
   const handleOnInput = (e: ChangeEvent<HTMLInputElement>) => {
-    if (errorMessage !== '') {
+    if (errorMessage) {
       setErrorMessage('')
     }
 
@@ -110,7 +110,7 @@ function ShippingSimulation({
 
     if (!currentValue) {
       setShippingOptions([])
-      setPostalCodeLocation('')
+      setShippingLocation('')
     }
   }
 
@@ -138,7 +138,7 @@ function ShippingSimulation({
         onSubmit={handleSubmit}
         onClear={() => {
           setShippingPostalCode('')
-          setPostalCodeLocation('')
+          setShippingLocation('')
           setShippingOptions([])
           setDisplayClearButton(false)
         }}
@@ -154,7 +154,7 @@ function ShippingSimulation({
         <>
           <h3 data-fs-shipping-simulation-subtitle>Shipping options</h3>
           <p className="text__body" data-fs-shipping-simulation-location>
-            {postalCodeLocation}
+            {shippingLocation}
           </p>
 
           <Table data-fs-shipping-simulation-table>
