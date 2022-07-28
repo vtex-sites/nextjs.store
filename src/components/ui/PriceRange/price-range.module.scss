@@ -15,7 +15,7 @@
   --fs-price-range-transition-timing          : var(--fs-transition-timing);
 
   // Value Label
-  --fs-price-range-value-label-bottom         : var(--fs-spacing-4);
+  --fs-price-range-value-label-bottom         : var(--fs-spacing-3);
   --fs-price-range-value-label-bkg-color      : var(--fs-color-body-bkg);
 
   // Slider
@@ -26,7 +26,7 @@
   --fs-price-range-absolute-values-text-color : var(--fs-color-disabled-text);
 
   // Thumb
-  --fs-price-range-thumb-size                 : var(--fs-price-range-value-label-bottom);
+  --fs-price-range-thumb-size                 : var(--fs-spacing-4);
   --fs-price-range-thumb-bkg-color            : var(--fs-color-primary-bkg);
   --fs-price-range-thumb-bkg-color-hover      : var(--fs-color-primary-bkg-hover);
   --fs-price-range-thumb-border-radius        : var(--fs-border-radius-circle);
@@ -57,7 +57,7 @@
   [data-price-range-value-label="min"],
   [data-price-range-value-label="max"] {
     bottom: var(--fs-price-range-value-label-bottom);
-    padding: 0 var(--fs-spacing-1);
+    padding: var(--fs-spacing-1);
     background-color: var(--fs-price-range-value-label-bkg-color);
     opacity: 0;
     transition: opacity var(--fs-price-range-transition-timing) var(--fs-price-range-transition-function);
@@ -74,7 +74,7 @@
 
   [data-price-range-value-label="max"] {
     text-align: right;
-    transform: translateX(calc(-100% + 1rem));
+    transform: translateX(calc(-100% + 1.25rem));
   }
 
   // Thumb styles for Webkit based browsers (Chrome, Edge)
