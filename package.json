@@ -33,7 +33,7 @@
     "@faststore/api": "^1.10.19",
     "@faststore/graphql-utils": "^1.10.6",
     "@faststore/sdk": "^1.10.6",
-    "@faststore/ui": "^1.10.7",
+    "@faststore/ui": "https://pkg.csb.dev/vtex/faststore/commit/94943c32/@faststore/ui",
     "graphql": "^15.0.0",
     "include-media": "^1.4.10",
     "next": "^12.2.0",
