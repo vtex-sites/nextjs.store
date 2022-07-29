@@ -21,11 +21,11 @@ jobs:
           token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
           fetch-depth: 2
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+      - name: Setup Bun environment
+        uses: xhyrom/setup-bun@v0.1.7
         with:
-          node-version: 16
-          registry-url: 'https://registry.npmjs.org'
+          bun-version: latest
+          github-token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
 
       - name: Configure CI Git User
         run: |
