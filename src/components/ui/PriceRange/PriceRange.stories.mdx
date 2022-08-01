@@ -49,8 +49,8 @@ export const defaultArgs = {
     selected: 0,
   },
   max: {
-    absolute: 100,
-    selected: 100,
+    absolute: 12400,
+    selected: 12400,
   },
 }
 
@@ -93,6 +93,10 @@ The `PriceRange` component uses [FastStore UI Price Range](https://www.faststore
   <TokenRow
     token="--fs-price-range-border-radius"
     value="var(--fs-border-radius-pill)"
+  />
+  <TokenRow
+    token="--fs-price-range-margin-bottom"
+    value="var(--fs-spacing-3)"
   />
   <TokenDivider />
   <TokenRow
@@ -156,9 +160,10 @@ The `PriceRange` component uses [FastStore UI Price Range](https://www.faststore
 
 <TokenTable>
   <TokenRow token="--fs-price-range-thumb-size" value="var(--fs-spacing-4)" />
+  <TokenDivider />
   <TokenRow
     token="--fs-price-range-thumb-bkg-color"
-    value="var(--fs-color-primary-bkg-active)"
+    value="var(--fs-color-primary-bkg)"
     isColor
   />
   <TokenRow
@@ -166,6 +171,7 @@ The `PriceRange` component uses [FastStore UI Price Range](https://www.faststore
     value="var(--fs-color-primary-bkg-hover)"
     isColor
   />
+  <TokenDivider />
   <TokenRow
     token="--fs-price-range-thumb-border-radius"
     value="var(--fs-border-radius-circle)"

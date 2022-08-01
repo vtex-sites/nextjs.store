@@ -14,13 +14,13 @@
   --fs-price-range-transition-property        : var(--fs-transition-property);
   --fs-price-range-transition-timing          : var(--fs-transition-timing);
 
-  // Value Label
-  --fs-price-range-value-label-bottom         : var(--fs-spacing-3);
-  --fs-price-range-value-label-bkg-color      : var(--fs-color-body-bkg);
-
   // Slider
   --fs-price-range-slider-bkg-color           : var(--fs-color-neutral-bkg);
   --fs-price-range-slider-selection-bkg-color : var(--fs-color-primary-bkg-light-active);
+
+  // Value Label
+  --fs-price-range-value-label-bottom         : var(--fs-spacing-3);
+  --fs-price-range-value-label-bkg-color      : var(--fs-color-body-bkg);
 
   // Absolute Values
   --fs-price-range-absolute-values-text-color : var(--fs-color-disabled-text);
