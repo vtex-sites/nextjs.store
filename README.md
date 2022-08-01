@@ -1,4 +1,4 @@
-try 86
+try 87
 
 <p align="center">
   <a href="https://github.com/vtex/faststore">
