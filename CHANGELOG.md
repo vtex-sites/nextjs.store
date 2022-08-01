@@ -6,8 +6,6 @@ The format is based on [Conventional Changelog](https://github.com/conventional-
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
 ### Features
-
-* Applies new local tokens to `PriceRange` ([#146](https://github.com/vtex-sites/nextjs.store/pull/146))
 * Applies new local tokens to `Skeleton` and its related components ([#171](https://github.com/vtex-sites/nextjs.store/pull/171))
 * The `useNewsletter` hook ([#154](https://github.com/vtex-sites/nextjs.store/pull/154))
 * Creates Themes doc pages on storybook ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
