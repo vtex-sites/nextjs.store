@@ -1,4 +1,4 @@
-import { useEffect, Suspense, useRef, useState } from 'react'
+import { Suspense, useRef, useState } from 'react'
 import type { SearchInputRef } from '@faststore/ui'
 
 import CartToggle from 'src/components/cart/CartToggle'
@@ -12,40 +12,11 @@ import Link from 'src/components/ui/Link'
 import Logo from 'src/components/ui/Logo'
 import { mark } from 'src/sdk/tests/mark'
 import { useUI } from 'src/sdk/ui/Provider'
+import useScrollDirection from 'src/sdk/ui/useScrollDirection'
 
 import styles from './navbar.module.scss'
 import NavbarSlider from './NavbarSlider'
 import NavLinks from './NavLinks'
-
-export function useScrollDirection() {
-  const [scrollDirection, setScrollDirection] = useState('')
-
-  useEffect(() => {
-    let lastScrollY = window.pageYOffset
-
-    const updateScrollDirection = () => {
-      const scrollY = window.pageYOffset
-      const direction = scrollY > lastScrollY ? 'down' : 'up'
-
-      if (
-        direction !== scrollDirection &&
-        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
-      ) {
-        setScrollDirection(direction)
-      }
-
-      lastScrollY = scrollY > 0 ? scrollY : 0
-    }
-
-    window.addEventListener('scroll', updateScrollDirection)
-
-    return () => {
-      window.removeEventListener('scroll', updateScrollDirection)
-    }
-  }, [scrollDirection])
-
-  return scrollDirection
-}
 
 function Navbar() {
   const scrollDirection = useScrollDirection()
