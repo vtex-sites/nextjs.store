@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
 import {
   TokenTable,
@@ -8,8 +9,9 @@ import {
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
 import Button from 'src/components/ui/Button'
 
+import { searchHistoryStore } from 'src/sdk/search/useSearchHistory.ts'
+
 import { SearchHistory } from '.'
-import { searchHistory } from 'src/../.storybook/mocks'
 
 <Meta
   title="Features/Search/SearchHistory"
@@ -27,7 +29,7 @@ export const Template = (args) => {
       }}
     >
       <SearchInputProvider>
-        <SearchHistory {...args} />
+        <SearchHistory />
       </SearchInputProvider>
     </div>
   )
@@ -48,9 +50,6 @@ Responsible for showing the latest terms searched by the user.
 <Canvas>
   <Story
     name="default"
-    args={{
-      history: searchHistory
-    }}
     parameters={{
       backgrounds: { default: 'dark' },
     }}
