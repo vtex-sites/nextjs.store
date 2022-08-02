@@ -1,0 +1,39 @@
+# This Action should run on main branch and verify lint, test, and then publish the version on npm
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Release
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    if: github.repository == 'vtex-sites/nextjs.store' && !startsWith(github.event.head_commit.message, 'chore(release):')
+
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
+          fetch-depth: 2
+
+      - name: Setup Bun environment
+        uses: xhyrom/setup-bun@v0.1.7
+        with:
+          bun-version: latest
+          github-token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
+
+      - name: Configure CI Git User
+        run: |
+          git config user.name vtexgithubbot
+          git config user.email vtexgithubbot@github.com
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Release
+        run: bun release
