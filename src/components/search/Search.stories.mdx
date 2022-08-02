@@ -8,21 +8,17 @@ import {
 } from 'src/../.storybook/components'
 import { SearchInputProvider } from 'src/sdk/search/useSearchInput'
 import { rest } from 'msw'
-import { SessionProvider } from '@faststore/sdk'
 import SearchDropdown from './SearchDropdown'
 import SearchInput from './SearchInput'
 import SearchProductCard from './SearchProductCard'
 import SearchSuggestions from './SearchSuggestions'
 import { SearchTop } from './SearchTop'
 import { SearchHistory } from './SearchHistory'
-import { product, searchTerms, searchHistory } from 'src/../.storybook/mocks'
-import { msw, products } from'./searchMock.ts'
-import SearchSharedTokenTable from'./SearchSharedTokenTable.mdx'
+import { product, searchTerms } from 'src/../.storybook/mocks'
+import { msw, products } from './searchMock.ts'
+import SearchSharedTokenTable from './SearchSharedTokenTable.mdx'
 
-<Meta
-  title='Features/Search/Overview'
-  parameters={{msw}}
-/>
+<Meta title="Features/Search/Overview" parameters={{ msw }} />
 
 export const Template = (props) => (
   <div
@@ -34,12 +30,9 @@ export const Template = (props) => (
       background: 'white',
     }}
   >
-    <SessionProvider>
-      <SearchInput {...props} />
-    </SessionProvider>
+    <SearchInput {...props} />
   </div>
 )
-
 
 <header>
 
@@ -82,13 +75,13 @@ import SearchInput from 'src/components/search/SearchInput'
     name="Overview"
     parameters={{
       backgrounds: { default: 'dark' },
-      msw
+      msw,
     }}
     args={{
-      products
+      products,
     }}
   >
-  {Template.bind({})}
+    {Template.bind({})}
   </Story>
 </Canvas>
 
@@ -97,7 +90,8 @@ import SearchInput from 'src/components/search/SearchInput'
 ---
 
 ## Components
-<SessionProvider>
+
+<!-- {/* <SessionProvider>
   <SearchInputProvider>
     <SectionList grid="grid">
       <SectionItem
@@ -146,7 +140,7 @@ import SearchInput from 'src/components/search/SearchInput'
           </>
         }
       >
-        <SearchHistory history={searchHistory} style={{ width: "100%" }} />
+        <SearchHistory style={{ width: "100%" }} />
       </SectionItem>
       <SectionItem
         title="SearchDropdown"
@@ -158,7 +152,7 @@ import SearchInput from 'src/components/search/SearchInput'
         }
         containerStyle={{ display: "flex", flexDirection: "column", overflowY: "scroll", justifyContent: "start" }}
       >
-        <SearchDropdown history={searchHistory} />
+        <SearchDropdown />
       </SectionItem>
       <SectionItem
         title="SearchInput"
@@ -174,4 +168,4 @@ import SearchInput from 'src/components/search/SearchInput'
       </SectionItem>
     </SectionList>
   </SearchInputProvider>
-</SessionProvider>
+</SessionProvider> */} -->
