@@ -4,10 +4,10 @@ export default function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState<string>('')
 
   useEffect(() => {
-    const { scrollY } = window
-    let lastScrollY = scrollY
+    let lastScrollY = window.scrollY
 
     const updateScrollDirection = () => {
+      const { scrollY } = window
       const direction = scrollY > lastScrollY ? 'down' : 'up'
 
       if (
