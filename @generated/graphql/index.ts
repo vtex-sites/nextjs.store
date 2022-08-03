@@ -777,6 +777,7 @@ export type ProductDetailsFragment_ProductFragment = {
   description: string
   id: string
   isVariantOf: {
+    name: string
     productGroupID: string
     skuVariants: {
       activeVariations: any | null
@@ -979,6 +980,7 @@ export type BrowserProductQueryQuery = {
     description: string
     id: string
     isVariantOf: {
+      name: string
       productGroupID: string
       skuVariants: {
         activeVariations: any | null
