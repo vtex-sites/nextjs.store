@@ -21,11 +21,11 @@
 <em>You may erase this after checking them all ;)</em>
 
 **PR Title and Commit Messages**
-- [ ] PR title follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification
-- [ ] Commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification
+- [ ] PR title and commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification
+  - Available prefixes: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `perf`, and `test`
 
 **PR Description**
-- [ ] Added a label according to the PR goal - `Breaking change`, `Enhancement`, `Bug` or `Chore`.
+- [ ] Added a label according to the PR goal - `Breaking change`, `Feautures`, `Bug fixes`, `Chore`, `Documentation`, `Style changes`, `Refactoring`, `Performance`, and `Test`.
 - [ ] Added the component, hook, or pathname in-between backticks (\`\`) - *if applicable e.g., `ComponentName` component, `useWindowDimensions` hook*
 
 **Dependencies**
