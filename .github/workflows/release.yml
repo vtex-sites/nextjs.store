@@ -34,7 +34,7 @@ jobs:
           git config user.email vtexgithubbot@github.com
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install --verbose
 
       - name: Release
         run: yarn release
