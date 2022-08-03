@@ -28,6 +28,10 @@
 - [ ] Added a label according to the PR goal - `Breaking change`, `Enhancement`, `Bug` or `Chore`.
 - [ ] Added the component, hook, or pathname in-between backticks (\`\`) - *if applicable e.g., `ComponentName` component, `useWindowDimensions` hook*
 
+**Dependencies**
+- [ ] Commited the `yarn.lock` file when there were changes to the packages.
+- [ ] Commited the `bun.lockb` file when there were changes to the packages.
+
 **Documentation**
 - [ ] PR description
 - [ ] Added to/Updated the Storybook - *if applicable*.
