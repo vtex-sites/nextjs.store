@@ -6,7 +6,6 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-search-input-width                         : 100%;
   --fs-search-input-padding                       : var(--fs-spacing-1) var(--fs-spacing-7) var(--fs-spacing-1) var(--fs-spacing-2);
   --fs-search-input-bkg-color                     : var(--fs-color-body-bkg);
   --fs-search-input-box-shadow                    : 0 0 0 var(--fs-border-width) var(--fs-border-color-active);
@@ -62,13 +61,13 @@
   [data-store-search-input] {
     position: relative;
     display: inline-flex;
-    width: var(--fs-search-input-width);
+    width: 100%;
     height: var(--fs-search-input-height-mobile);
 
     @include media(">=notebook") { height: var(--fs-search-input-height-desktop); }
 
     [data-fs-search-input] {
-      width: var(--fs-search-input-width);
+      width: 100%;
       padding: var(--fs-search-input-padding);
       background-color: var(--fs-search-input-bkg-color);
       border: var(--fs-search-input-border-width) solid var(--fs-search-input-border-color);
