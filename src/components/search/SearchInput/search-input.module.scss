@@ -18,8 +18,8 @@
   --fs-search-input-border-color                  : var(--fs-border-color);
   --fs-search-input-border-color-hover            : var(--fs-border-color-active);
 
-  --fs-search-input-timing-timing                 : var(--fs-transition-timing);
-  --fs-search-input-timing-function               : ease;
+  --fs-search-input-transition-timing                 : var(--fs-transition-timing);
+  --fs-search-input-transition-function               : ease;
 
   // Button
   --fs-search-input-button-width                  : var(--fs-spacing-7);
@@ -72,7 +72,7 @@
       background-color: var(--fs-search-input-bkg-color);
       border: var(--fs-search-input-border-width) solid var(--fs-search-input-border-color);
       border-radius: var(--fs-search-input-border-radius);
-      transition: box-shadow var(--fs-search-input-timing-timing) var(--fs-search-input-timing-timing), border var(--fs-search-input-timing-timing) var(--fs-search-input-timing-function);
+      transition: box-shadow var(--fs-search-input-transition-timing) var(--fs-search-input-transition-timing), border var(--fs-search-input-transition-timing) var(--fs-search-input-transition-function);
 
       &:hover {
         border-color: var(--fs-search-input-border-color-hover);
