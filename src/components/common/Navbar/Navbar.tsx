@@ -3,6 +3,7 @@ import type { SearchInputRef } from '@faststore/ui'
 
 import CartToggle from 'src/components/cart/CartToggle'
 import SearchInput from 'src/components/search/SearchInput'
+import type { SearchInputRef } from 'src/components/search/SearchInput'
 import Button, {
   ButtonSignIn,
   ButtonSignInFallback,
@@ -69,7 +70,10 @@ function Navbar() {
                 data-fs-button-collapse
                 aria-label="Collapse search bar"
                 icon={<Icon name="CaretLeft" width={32} height={32} />}
-                onClick={() => setSearchExpanded(false)}
+                onClick={() => {
+                  setSearchExpanded(false)
+                  searchMobileRef.current?.resetSearchInput()
+                }}
               />
             )}
             <SearchInput
