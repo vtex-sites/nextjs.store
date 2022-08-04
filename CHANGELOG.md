@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+## [22.30.0](https://github.com/vtex-sites/nextjs.store/compare/22.29.3...22.30.0) (2022-08-04)
+
+
+### Features
+
+* Working `SkuSelector` component ([#158](https://github.com/vtex-sites/nextjs.store/issues/158)) ([1853f57](https://github.com/vtex-sites/nextjs.store/commit/1853f5750ea5c54e1afb225126dec8f4469da331))
+
+### [22.29.3](https://github.com/vtex-sites/nextjs.store/compare/22.29.2...22.29.3) (2022-08-04)
+
+
+### Chores
+
+* Updates `BannerText` content example ([#198](https://github.com/vtex-sites/nextjs.store/issues/198)) ([9501aee](https://github.com/vtex-sites/nextjs.store/commit/9501aeef875b5ca0f6dfd960841b2adf71c65d54))
+
+### [22.29.2](https://github.com/vtex-sites/nextjs.store/compare/22.29.1...22.29.2) (2022-08-03)
+
+
+### Bug Fixes
+
+* Avoids performing the search when user abandons the query ([#193](https://github.com/vtex-sites/nextjs.store/issues/193)) ([a5be6cd](https://github.com/vtex-sites/nextjs.store/commit/a5be6cd7a0abcaaab388b7531c79cc0c8160e81f))
+
+### 22.29.1 (2022-08-03)
+
+
+### Bug Fixes
+
+* Attempt to fix automated changelog update ([#195](https://github.com/vtex-sites/nextjs.store/issues/195)) ([0d8e616](https://github.com/vtex-sites/nextjs.store/commit/0d8e61665811c03f99b0a03dd49e96f57ed489e4))
+* Attempt to fix the automated changelog update ([#196](https://github.com/vtex-sites/nextjs.store/issues/196)) ([c4b6091](https://github.com/vtex-sites/nextjs.store/commit/c4b609130bbeac5c7cd769814bcb76d49121f51e)), closes [/github.com/vtex-sites/gatsby.store/blob/8d1b1a5d668b11578784c29a9b257c78c86a1a65/.github/workflows/release.yml#L24-L29](https://github.com/vtex-sites//github.com/vtex-sites/gatsby.store/blob/8d1b1a5d668b11578784c29a9b257c78c86a1a65/.github/workflows/release.yml/issues/L24-L29)
+
 ### Features
 * Applies new local tokens to `Skeleton` and its related components ([#171](https://github.com/vtex-sites/nextjs.store/pull/171))
 * The `useNewsletter` hook ([#154](https://github.com/vtex-sites/nextjs.store/pull/154))
