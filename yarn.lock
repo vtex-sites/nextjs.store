@@ -1445,9 +1445,20 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/4fddc44e/@faststore/api":
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/35e37509/@faststore/api":
   version "1.10.19"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/4fddc44e/@faststore/api#f4922c6944f7071d01d678be9e03696e161b1930"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/35e37509/@faststore/api#f4922c6944f7071d01d678be9e03696e161b1930"
+  dependencies:
+    "@graphql-tools/schema" "^8.2.0"
+    "@rollup/plugin-graphql" "^1.0.0"
+    dataloader "^2.1.0"
+    fast-deep-equal "^3.1.3"
+    isomorphic-unfetch "^3.1.0"
+    p-limit "^3.1.0"
+
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/a935eed2/@faststore/api":
+  version "1.10.19"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/a935eed2/@faststore/api#86488e080195db617b7e2e43c9ca236679ae3732"
   dependencies:
     "@graphql-tools/schema" "^8.2.0"
     "@rollup/plugin-graphql" "^1.0.0"
