@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [22.30.1](https://github.com/vtex-sites/nextjs.store/compare/22.30.0...22.30.1) (2022-08-04)
+
+
+### Refactoring
+
+* Import `Tiles` & `Tile` components from `@faststore/ui` ([#185](https://github.com/vtex-sites/nextjs.store/issues/185)) ([491ed3d](https://github.com/vtex-sites/nextjs.store/commit/491ed3dbfe4c8b8b3109078591c5f7fe36a37cb1))
+
+## [22.30.0](https://github.com/vtex-sites/nextjs.store/compare/22.29.3...22.30.0) (2022-08-04)
+
+
+### Features
+
+* Working `SkuSelector` component ([#158](https://github.com/vtex-sites/nextjs.store/issues/158)) ([1853f57](https://github.com/vtex-sites/nextjs.store/commit/1853f5750ea5c54e1afb225126dec8f4469da331))
+
+### [22.29.3](https://github.com/vtex-sites/nextjs.store/compare/22.29.2...22.29.3) (2022-08-04)
+
+
+### Chores
+
+* Updates `BannerText` content example ([#198](https://github.com/vtex-sites/nextjs.store/issues/198)) ([9501aee](https://github.com/vtex-sites/nextjs.store/commit/9501aeef875b5ca0f6dfd960841b2adf71c65d54))
+
 ### [22.29.2](https://github.com/vtex-sites/nextjs.store/compare/22.29.1...22.29.2) (2022-08-03)
 
 
