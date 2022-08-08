@@ -1,5 +1,4 @@
 import { Suspense, useRef, useState } from 'react'
-import type { SearchInputRef } from '@faststore/ui'
 
 import CartToggle from 'src/components/cart/CartToggle'
 import SearchInput from 'src/components/search/SearchInput'
