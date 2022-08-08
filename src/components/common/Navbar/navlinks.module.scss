@@ -5,10 +5,10 @@
   // Design Tokens for Navlinks
   // --------------------------------------------------------
 
-  --fs-navlinks-bkg-color                        : var(--fs-color-body-bkg);
-
   --fs-navlinks-padding-top-notebook             : var(--fs-spacing-1);
   --fs-navlinks-padding-bottom-notebook          : var(--fs-navlinks-padding-top-notebook);
+
+  --fs-navlinks-bkg-color                        : var(--fs-color-body-bkg);
 
   --fs-navlinks-transition-property              : var(--fs-transition-property);
   --fs-navlinks-transition-timing                : var(--fs-transition-timing);
