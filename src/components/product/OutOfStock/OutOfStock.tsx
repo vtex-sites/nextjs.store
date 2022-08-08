@@ -81,12 +81,6 @@ function OutOfStock(props: OutOfStockProps) {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
 
-    const emailRegex = /^[a-z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-z0-9.-]+$/
-
-    if (!email.match(emailRegex)) {
-      return setError('Please enter a valid email.')
-    }
-
     setDisabled(true)
     setButtonIconName('Ellipsis')
 
