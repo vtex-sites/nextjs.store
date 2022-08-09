@@ -64,9 +64,10 @@ function useCartItemEvent() {
 
 interface Props {
   item: ICartItem
+  gift?: boolean
 }
 
-function CartItem({ item }: Props) {
+function CartItem({ item, gift = false }: Props) {
   const btnProps = useRemoveButton(item)
 
   const { sendCartItemEvent } = useCartItemEvent()
@@ -123,21 +124,23 @@ function CartItem({ item }: Props) {
         </div>
       </CardContent>
 
-      <CardActions data-fs-cart-item-actions>
-        <Button
-          variant="tertiary"
-          icon={<Icon name="XCircle" width={18} height={18} />}
-          iconPosition="left"
-          {...btnProps}
-        >
-          Remove
-        </Button>
-        <QuantitySelector
-          min={1}
-          initial={item.quantity}
-          onChange={onQuantityChange}
-        />
-      </CardActions>
+      {!gift && (
+        <CardActions data-fs-cart-item-actions>
+          <Button
+            variant="tertiary"
+            icon={<Icon name="XCircle" width={18} height={18} />}
+            iconPosition="left"
+            {...btnProps}
+          >
+            Remove
+          </Button>
+          <QuantitySelector
+            min={1}
+            initial={item.quantity}
+            onChange={onQuantityChange}
+          />
+        </CardActions>
+      )}
     </Card>
   )
 }
