@@ -3,6 +3,8 @@ import type { ChangeEventHandler } from 'react'
 
 import { Image } from 'src/components/ui/Image'
 
+import styles from './sku-selector.module.scss'
+
 interface SkuProps {
   /**
    * Alternative text description of the image.
@@ -69,9 +71,14 @@ function SkuSelector({
   activeValue,
 }: SkuSelectorProps) {
   return (
-    <div data-store-sku-selector data-testid={testId} data-variant={variant}>
+    <div
+      data-fs-sku-selector
+      data-testid={testId}
+      className={styles.fsSkuSelector}
+      data-fs-sku-selector-variant={variant}
+    >
       {label && (
-        <Label data-sku-selector-label>
+        <Label data-fs-sku-selector-title>
           {label}: <strong>{activeValue}</strong>
         </Label>
       )}
@@ -85,6 +92,7 @@ function SkuSelector({
         {options.map((option, index) => {
           return (
             <RadioOption
+              data-fs-sku-selector-option
               key={String(index)}
               label={option.label}
               value={option.value}
@@ -95,12 +103,12 @@ function SkuSelector({
               {variant === 'image' && 'src' in option && (
                 <span>
                   <Image
-                    data-sku-selector-image
                     src={option.src}
                     alt={option.alt}
                     width={20}
                     height={20}
                     loading="lazy"
+                    data-fs-sku-selector-option-image
                   />
                 </span>
               )}
