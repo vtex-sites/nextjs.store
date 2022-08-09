@@ -101,26 +101,28 @@ function CartItem({ item, gift = false }: Props) {
           <p className="text__body" data-fs-cart-item-title>
             {item.itemOffered.isVariantOf.name}
           </p>
-          <span data-fs-cart-item-prices>
-            <Price
-              value={item.listPrice}
-              formatter={useFormattedPrice}
-              testId="list-price"
-              data-value={item.listPrice}
-              variant="listing"
-              classes="text__legend"
-              SRText="Original price:"
-            />
-            <Price
-              value={item.price}
-              formatter={useFormattedPrice}
-              testId="price"
-              data-value={item.price}
-              variant="spot"
-              classes="text__title-subsection"
-              SRText="Price:"
-            />
-          </span>
+          {!gift && (
+            <span data-fs-cart-item-prices>
+              <Price
+                value={item.listPrice}
+                formatter={useFormattedPrice}
+                testId="list-price"
+                data-value={item.listPrice}
+                variant="listing"
+                classes="text__legend"
+                SRText="Original price:"
+              />
+              <Price
+                value={item.price}
+                formatter={useFormattedPrice}
+                testId="price"
+                data-value={item.price}
+                variant="spot"
+                classes="text__title-subsection"
+                SRText="Price:"
+              />
+            </span>
+          )}
         </div>
       </CardContent>
 
