@@ -113,61 +113,61 @@
     line-height: 1.5;
     color: var(--fs-input-label-color);
   }
-}
-
-[data-fs-input-text-message] {
-  margin-top: var(--fs-input-message-margin-top);
-  font-size: var(--fs-input-message-size);
-  line-height: var(--fs-input-message-line-height);
-}
-
-// --------------------------------------------------------
-// Variants Styles
-// --------------------------------------------------------
-
-[data-fs-input-text-error="true"] {
-  input {
-    border-color: var(--fs-input-error-border-color);
-
-    @include input-focus-ring($outline: #{var(--fs-input-error-focus-ring)},
-    $border: #{var(--fs-input-error-border-color)});
-
-    &:hover:not(:disabled):not(:focus-visible):not(:focus) {
-      border-color: var(--fs-input-error-border-color);
-      box-shadow: var(--fs-input-error-box-shadow);
-    }
-  }
 
   [data-fs-input-text-message] {
-    color: var(--fs-input-message-error-color);
-  }
-}
-
-[data-fs-input-text-actionable="true"] {
-  min-width: rem(250px);
-
-  input {
-    padding-right: var(--fs-spacing-13);
+    margin-top: var(--fs-input-message-margin-top);
+    font-size: var(--fs-input-message-size);
+    line-height: var(--fs-input-message-line-height);
   }
 
-  [data-fs-button] {
-    position: absolute;
-    top: var(--fs-spacing-1);
-    right: var(--fs-spacing-1);
+  // --------------------------------------------------------
+  // Variants Styles
+  // --------------------------------------------------------
 
-    &::before {
-      position: absolute;
-      left: calc(-1 * var(--fs-spacing-1));
-      width: 1px;
-      height: 80%;
-      content: "";
-      background-color: var(--fs-input-border-color);
+  &[data-fs-input-text-error="true"] {
+    input {
+      border-color: var(--fs-input-error-border-color);
+
+      @include input-focus-ring($outline: #{var(--fs-input-error-focus-ring)},
+      $border: #{var(--fs-input-error-border-color)});
+
+      &:hover:not(:disabled):not(:focus-visible):not(:focus) {
+        border-color: var(--fs-input-error-border-color);
+        box-shadow: var(--fs-input-error-box-shadow);
+      }
+    }
+
+    [data-fs-input-text-message] {
+      color: var(--fs-input-message-error-color);
     }
   }
 
-  [data-fs-button][data-store-icon-button] {
-    &::before {
-      left: calc(-1 * var(--fs-spacing-1));
+  &[data-fs-input-text-actionable="true"] {
+    min-width: rem(250px);
+
+    input {
+      padding-right: var(--fs-spacing-13);
+    }
+
+    [data-fs-button] {
+      position: absolute;
+      top: var(--fs-spacing-1);
+      right: var(--fs-spacing-1);
+
+      &::before {
+        position: absolute;
+        left: calc(-1 * var(--fs-spacing-1));
+        width: 1px;
+        height: 80%;
+        content: "";
+        background-color: var(--fs-input-border-color);
+      }
+    }
+
+    [data-fs-button][data-store-icon-button] {
+      &::before {
+        left: calc(-1 * var(--fs-spacing-1));
+      }
     }
   }
 }
