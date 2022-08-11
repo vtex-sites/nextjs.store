@@ -1,20 +1,15 @@
 import { NextSeo, SiteLinksSearchBoxJsonLd } from 'next-seo'
-import { Suspense } from 'react'
+import type { ContentData } from '@vtex/client-cms'
 
-import BannerText from 'src/components/sections/BannerText'
-import Hero from 'src/components/sections/Hero'
-import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
-import { incentivesMockHeader as IncentivesMock } from 'src/components/sections/Incentives/incentivesMock'
-import ProductShelf from 'src/components/sections/ProductShelf'
-import ProductTiles from 'src/components/sections/ProductTiles'
-import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
-import ProductTilesSkeleton from 'src/components/skeletons/ProductTilesSkeleton'
-import { ITEMS_PER_SECTION } from 'src/constants'
+import RenderPageSections from 'src/components/cms/RenderPageSections'
 import { mark } from 'src/sdk/tests/mark'
+import { clientCMS } from 'src/client'
 
 import storeConfig from '../../store.config'
 
-function Page() {
+export type Props = { cmsHome: ContentData }
+
+function Page({ cmsHome }: Props) {
   return (
     <>
       {/* SEO */}
@@ -51,49 +46,27 @@ function Page() {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-      <Hero
-        title="New Offers"
-        subtitle="At BaseStore you can shop the best tech of 2022. Enjoy and get 10% off on your first purchase."
-        linkText="See all"
-        link="/technology"
-        imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
-        imageAlt="Quest 2 Controller on a table"
-      />
-
-      <IncentivesHeader incentives={IncentivesMock} />
-
-      <Suspense fallback={<ProductShelfSkeleton loading />}>
-        <ProductShelf
-          first={ITEMS_PER_SECTION}
-          selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
-          title="Most Wanted"
-        />
-      </Suspense>
-
-      <Suspense fallback={<ProductTilesSkeleton loading />}>
-        <ProductTiles
-          first={3}
-          selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
-          title="Just Arrived"
-        />
-      </Suspense>
-
-      <BannerText
-        title="The sun has set on our Summer Sale! Save up to 50% off. Don't miss out!"
-        actionPath="/"
-        actionLabel="Call to action"
-        colorVariant="light"
-      />
-
-      <Suspense fallback={<ProductShelfSkeleton loading />}>
-        <ProductShelf
-          first={ITEMS_PER_SECTION}
-          selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
-          title="Deals & Promotions"
-        />
-      </Suspense>
+      <RenderPageSections sections={cmsHome.sections} />
     </>
   )
+}
+
+export async function getStaticProps() {
+  try {
+    const cmsHome = await clientCMS.getCMSPage({
+      contentType: 'home',
+      documentId: 'ad2fd81d-a53c-4281-8d01-a4fc2f274db3',
+      versionId: '1b18fbcf-ce08-4ead-9011-364921e725c3',
+    })
+
+    return {
+      props: { cmsHome },
+    }
+  } catch (error) {
+    return {
+      status: 500,
+    }
+  }
 }
 
 Page.displayName = 'Page'
