@@ -3,7 +3,8 @@ import type { ContentData } from '@vtex/client-cms'
 
 import RenderPageSections from 'src/components/cms/RenderPageSections'
 import { mark } from 'src/sdk/tests/mark'
-import { clientCMS } from 'src/client'
+import { clientCMS } from 'src/cms/client'
+import cmsHomeFallback from 'src/cms/cmsHomeFallback'
 
 import storeConfig from '../../store.config'
 
@@ -63,8 +64,10 @@ export async function getStaticProps() {
       props: { cmsHome },
     }
   } catch (error) {
+    console.error('CMS fetch error', error)
+
     return {
-      status: 500,
+      props: { cmsHome: cmsHomeFallback },
     }
   }
 }
