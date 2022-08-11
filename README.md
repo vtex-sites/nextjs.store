@@ -396,6 +396,23 @@ That's it! you have just regenerated all graphql queries/fragments for your appl
 
 > Pro tip: Pass `-w` to the `yarn generate` command so it watches for changes and you don't need to run this command multiple times
 
+## CMS Integration
+
+This store is integrated with [VTEX headless CMS](https://www.faststore.dev/tutorials/cms/0).
+
+Since we have pages and components rendered with and without CMS we replicate the same folder structure so we can easily identify them:
+
+- index page without cms: `pages/index.tsx`
+- index page with cms: `pages/cms/index.tsx`
+
+> ⚠️ Warning
+> As it is now, to visit the cms integrated homepage, you must go to `your-store.vtex.app/cms`.
+> If you want the cms homepage to be at the root, just replace `pages/cms/index.tsx` with `pages/index.tsx`.
+
+### CMS configs
+
+It's possible to change the CMS tenant and workspace at `store.config.js`.
+
 ## 🎓 Learning the Frameworks
 
 Looking for more guidance? Full documentation for FastStore lives [on this GitHub repository](https://github.com/vtex/faststore). Also, for learning NextJS, take a look at the [NextJS Website](https://nextjs.org/docs/getting-started), they have plenty of tutorials and examples in there.

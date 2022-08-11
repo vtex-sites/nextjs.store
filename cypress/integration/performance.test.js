@@ -9,7 +9,7 @@ import { cypress } from '../../store.config'
 
 const { pages } = cypress
 
-const paths = [pages.home, pages.pdp, pages.collection]
+const paths = [pages.home, pages.pdp, pages.collection, pages.cmsHome]
 
 const testMark = (path, mark) => {
   cy.visit(path, options)

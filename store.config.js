@@ -12,6 +12,12 @@ module.exports = {
   // Ecommerce Platform
   platform: 'vtex',
 
+  // Headless CMS
+  cms: {
+    tenant: 'storeframework',
+    workspace: 'master',
+  },
+
   // Platform specific configs for API
   api: {
     storeId: 'storeframework',
@@ -46,6 +52,7 @@ module.exports = {
       home: '/',
       pdp: '/apple-magic-mouse/p',
       collection: '/office',
+      cmsHome: '/cms',
     },
   },
 
@@ -53,6 +60,7 @@ module.exports = {
   cypress: {
     pages: {
       home: '/',
+      cmsHome: '/cms',
       pdp: '/apple-magic-mouse/p',
       collection: '/office',
       collection_filtered:
