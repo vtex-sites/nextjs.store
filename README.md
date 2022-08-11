@@ -91,7 +91,7 @@ A quick look at the top-level files and directories you'll see in a NextJS proje
     ├── .gitignore
     ├── .eslintignore
     ├── .prettierignore
-    ├── .prettierrrc
+    ├── .prettierrc
     ├── .eslintrc
     ├── LICENSE
     └── yarn.lock
@@ -229,7 +229,7 @@ Now, on `button.scss`:
 }
 ```
 
-This `data-store-button` is a CSS data attribute selector. To know which selectors are available, check [FastStore UI docs](https://faststoreui.netlify.app/).
+This `data-store-button` is a CSS data attribute selector. To know which selectors are available, check [FastStore UI docs](https://www.faststore.dev/reference/ui/components).
 
 Now, include the component's CSS into the Store's CSS. Open `src/styles/global/components.scss` and import this CSS with:
 
