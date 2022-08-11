@@ -166,9 +166,6 @@
   }
 
   [data-fs-button][data-store-icon-button] {
-    width: var(--fs-input-button-size);
-    height: var(--fs-input-button-size);
-
     &::before {
       left: calc(-1 * var(--fs-spacing-1));
     }
