@@ -16,6 +16,9 @@ import {
     actionable: {
       type: { name: 'boolean' },
     },
+    disabled: {
+      type: { name: 'boolean' },
+    },
     id: {
       type: { name: 'string', required: true },
     },
@@ -73,13 +76,22 @@ The `InputText` component uses [FastStore UI Input Text](https://www.faststore.d
   <TokenDivider />
   <TokenRow token="--fs-input-border-radius" value="var(--fs-border-radius)" />
   <TokenRow token="--fs-input-border-width" value="var(--fs-border-width)" />
-  <TokenRow token="--fs-input-border-color" value="var(--fs-border-color)" />
+  <TokenRow
+    token="--fs-input-border-color"
+    value="var(--fs-border-color)"
+    isColor
+  />
   <TokenRow
     token="--fs-input-border-color-hover"
     value="var(--fs-border-color-active)"
+    isColor
   />
   <TokenDivider />
-  <TokenRow token="--fs-input-text-color" value="var(--fs-color-text)" />
+  <TokenRow
+    token="--fs-input-text-color"
+    value="var(--fs-color-text)"
+    isColor
+  />
   <TokenRow token="--fs-input-text-size" value="var(--fs-text-size-body)" />
   <TokenDivider />
   <TokenRow token="--fs-input-line-height" value="1.25" />
@@ -129,6 +141,10 @@ The `InputText` component uses [FastStore UI Input Text](https://www.faststore.d
   />
   <TokenRow token="--fs-input-message-margin-top" value="var(--fs-spacing-0)" />
 </TokenTable>
+
+---
+
+## Variants
 
 ### Error
 
