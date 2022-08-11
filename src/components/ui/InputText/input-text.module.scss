@@ -26,16 +26,16 @@
   --fs-input-transition-property   : var(--fs-transition-property);
   --fs-input-transition-timing     : var(--fs-transition-timing);
 
+  // Label
+  --fs-input-label-padding         : 0 var(--fs-spacing-2);
+  --fs-input-label-color           : var(--fs-color-text-light);
+  --fs-input-label-size            : var(--fs-text-size-tiny);
+
   // Message
   --fs-input-message-size          : var(--fs-text-size-legend);
   --fs-input-message-line-height   : 1.1;
   --fs-input-message-error-color   : var(--fs-color-danger-text);
   --fs-input-message-margin-top    : var(--fs-spacing-0);
-
-  // Label
-  --fs-input-label-padding         : 0 var(--fs-spacing-2);
-  --fs-input-label-color           : var(--fs-color-text-light);
-  --fs-input-label-size            : var(--fs-text-size-tiny);
 
   // Error
   --fs-input-error-border-color    : var(--fs-color-danger-border);
