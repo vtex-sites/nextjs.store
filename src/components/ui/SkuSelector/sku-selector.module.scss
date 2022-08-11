@@ -150,7 +150,7 @@
     &:checked + span { background-color: var(--fs-sku-selector-option-checked-bkg-color); }
   }
 
-  &[data-fs-sku-selector-variant="image"] [data-fs-sku-selector-option] {
+  &[data-fs-sku-selector-variant="image"] {
     [data-fs-sku-selector-option-image] {
       width: var(--fs-sku-selector-image-width);
       height: var(--fs-sku-selector-image-height);
