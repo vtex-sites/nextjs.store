@@ -34,13 +34,13 @@
   // Message
   --fs-input-message-size          : var(--fs-text-size-legend);
   --fs-input-message-line-height   : 1.1;
-  --fs-input-message-error-color   : var(--fs-color-danger-text);
   --fs-input-message-margin-top    : var(--fs-spacing-0);
 
   // Error
   --fs-input-error-border-color    : var(--fs-color-danger-border);
   --fs-input-error-box-shadow      : 0 0 0 var(--fs-border-width) var(--fs-input-error-border-color);
   --fs-input-error-focus-ring      : var(--fs-color-focus-ring-danger);
+  --fs-input-error-message-color   : var(--fs-color-danger-text);
 
   // Disabled
   --fs-input-disabled-bkg-color    : var(--fs-color-disabled-bkg);
@@ -114,7 +114,7 @@
     color: var(--fs-input-label-color);
   }
 
-  [data-fs-input-text-message] {
+  [data-fs-input-text-error-message] {
     margin-top: var(--fs-input-message-margin-top);
     font-size: var(--fs-input-message-size);
     line-height: var(--fs-input-message-line-height);
@@ -137,8 +137,8 @@
       }
     }
 
-    [data-fs-input-text-message] {
-      color: var(--fs-input-message-error-color);
+    [data-fs-input-text-error-message] {
+      color: var(--fs-input-error-message-color);
     }
   }
 

@@ -114,7 +114,9 @@ const InputText = ({
             {buttonActionText}
           </Button>
         ))}
-      {shouldDisplayError && <span data-fs-input-text-message>{error}</span>}
+      {shouldDisplayError && (
+        <span data-fs-input-text-error-message>{error}</span>
+      )}
     </div>
   )
 }
