@@ -41,6 +41,64 @@ Input Text are text fields used to get user inputs.
 
 The `InputText` component uses [FastStore UI Input Text](https://www.faststore.dev/reference/ui/atoms/Input) as base.
 
+<Canvas isColumn>
+  <Story
+    name="overview-default"
+    args={{
+      id: 'overview-default',
+      label: 'Label',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-error"
+    args={{
+      id: 'overview-error',
+      label: 'Input w/ Error Message',
+      error: 'Error Message',
+      disabled: false,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-actionable"
+    args={{
+      id: 'overview-actionable',
+      label: 'Input w/ Action',
+      actionable: true,
+      disabled: false,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-actionable-error"
+    args={{
+      id: 'overview-actionable-error',
+      label: 'Input w/ Action and Error',
+      actionable: true,
+      error: 'Error Message',
+      disabled: false,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-disabled"
+    args={{
+      id: 'overview-disabled',
+      label: 'Input Disabled',
+      actionable: false,
+      disabled: true,
+      value: 'Input Text',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ---
 
 ## Usage
@@ -49,9 +107,9 @@ The `InputText` component uses [FastStore UI Input Text](https://www.faststore.d
 
 <Canvas>
   <Story
-    name="overview-default"
+    name="input-default"
     args={{
-      id: 'overview-input-default',
+      id: 'input-default',
       label: 'Label',
     }}
   >
@@ -59,7 +117,7 @@ The `InputText` component uses [FastStore UI Input Text](https://www.faststore.d
   </Story>
 </Canvas>
 
-<ArgsTable story="overview-default" />
+<ArgsTable story="input-default" />
 
 <TokenTable>
   <TokenRow
@@ -146,7 +204,54 @@ The `InputText` component uses [FastStore UI Input Text](https://www.faststore.d
 
 ## Variants
 
+### Actionable
+
+<Canvas>
+  <Story
+    name="input-actionable"
+    args={{
+      id: 'input-actionable',
+      disabled: false,
+      label: 'Input w/ Action',
+      actionable: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Actionable w/ Error
+
+<Canvas>
+  <Story
+    name="input-actionable-error"
+    args={{
+      id: 'input-actionable-error',
+      disabled: false,
+      label: 'Input w/ Action and Error',
+      error: 'Error Message',
+      actionable: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ### Error
+
+<Canvas>
+  <Story
+    name="input-error"
+    args={{
+      id: 'input-error',
+      disabled: false,
+      label: 'Input w/ Error Message',
+      error: 'Error Message',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
 <TokenTable>
   <TokenRow
@@ -166,6 +271,19 @@ The `InputText` component uses [FastStore UI Input Text](https://www.faststore.d
 </TokenTable>
 
 ### Disabled
+
+<Canvas>
+  <Story
+    name="input-disabled"
+    args={{
+      id: 'input-disabled',
+      disabled: true,
+      label: 'Disabled Input',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
 <TokenTable>
   <TokenRow
