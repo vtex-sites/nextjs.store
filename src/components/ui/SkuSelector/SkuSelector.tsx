@@ -28,7 +28,8 @@ interface SkuProps {
   disabled?: boolean
 }
 
-type Variant = 'color' | 'label' | 'image'
+// TODO: Add the 'color' variant back once the store supports naturally handling color SKUs.
+type Variant = 'label' | 'image'
 
 export interface SkuSelectorProps {
   /**
@@ -37,6 +38,10 @@ export interface SkuSelectorProps {
    */
   testId?: string
   /**
+   * ID of the current instance of the component.
+   */
+  id?: string
+  /**
    * Specify which variant the component should handle.
    */
   variant: Variant
@@ -44,10 +49,6 @@ export interface SkuSelectorProps {
    * SKU options that should be rendered.
    */
   options: SkuProps[]
-  /**
-   * Default SKU option.
-   */
-  defaultSku?: string
   /**
    * Section label for the SKU selector.
    */
@@ -63,6 +64,7 @@ export interface SkuSelectorProps {
 }
 
 function SkuSelector({
+  id,
   label,
   variant,
   options,
@@ -84,7 +86,7 @@ function SkuSelector({
       )}
       <RadioGroup
         selectedValue={activeValue}
-        name={`sku-selector-${variant}`}
+        name={`sku-selector-${variant}${id ? `-${id}` : ''}`}
         onChange={(e) => {
           onChange?.(e)
         }}
