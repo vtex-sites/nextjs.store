@@ -39,9 +39,6 @@
   --fs-sku-selector-option-height                : var(--fs-sku-selector-option-width);
   --fs-sku-selector-option-bkg-color-hover       : var(--fs-color-primary-bkg-light);
 
-  --fs-sku-selector-option-transition-timing     : var(--fs-transition-timing);
-  --fs-sku-selector-option-transition-function   : ease;
-
   --fs-sku-selector-option-border-width          : var(--fs-border-width-thick);
   --fs-sku-selector-option-border-color          : var(--fs-color-neutral-7);
   --fs-sku-selector-option-border-radius         : var(--fs-border-radius);
@@ -56,6 +53,9 @@
   --fs-sku-selector-option-disabled-color        : var(--fs-color-disabled-text);
   --fs-sku-selector-option-disabled-border-color : var(--fs-border-color-disabled);
   --fs-sku-selector-option-disabled-bkg-color    : var(--fs-sku-selector-option-disabled-border-color);
+
+  --fs-sku-selector-option-transition-timing     : var(--fs-transition-timing);
+  --fs-sku-selector-option-transition-function   : ease;
 
   // Image
   --fs-sku-selector-image-width                  : var(--fs-spacing-6);
