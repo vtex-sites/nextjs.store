@@ -23,7 +23,7 @@ import {
       type: { name: 'string', required: true },
     },
     inputRef: {
-      control: { disable: true }
+      control: { disable: true },
     },
   }}
 />
@@ -187,17 +187,6 @@ The `InputText` component uses [FastStore UI Input Text](https://www.faststore.d
   <TokenRow token="--fs-input-label-size" value="var(--fs-text-size-tiny)" />
 </TokenTable>
 
-### Message
-
-<TokenTable>
-  <TokenRow
-    token="--fs-input-message-size"
-    value="var(--fs-text-size-legend)"
-  />
-  <TokenRow token="--fs-input-message-line-height" value="1.1" />
-  <TokenRow token="--fs-input-message-margin-top" value="var(--fs-spacing-0)" />
-</TokenTable>
-
 ---
 
 ## Variants
@@ -252,11 +241,22 @@ The `InputText` component uses [FastStore UI Input Text](https://www.faststore.d
 </Canvas>
 
 <TokenTable>
+   <TokenRow
+    token="--fs-input-error-message-margin-top"
+    value="var(--fs-spacing-0)"
+  />
+  <TokenRow
+    token="--fs-input-error-message-size"
+    value="var(--fs-text-size-legend)"
+  />
+  <TokenRow token="--fs-input-error-message-line-height" value="1.1" />
   <TokenRow
     token="--fs-input-error-message-color"
     value="var(--fs-color-danger-text)"
     isColor
   />
+
+  <TokenDivider />
   <TokenRow
     token="--fs-input-error-border-color"
     value="var(--fs-color-danger-border)"
