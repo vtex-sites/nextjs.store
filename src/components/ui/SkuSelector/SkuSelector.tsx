@@ -72,6 +72,8 @@ function SkuSelector({
   testId = 'store-sku-selector',
   activeValue,
 }: SkuSelectorProps) {
+  const radioGroupId = id ? `-${id}` : ''
+
   return (
     <div
       data-fs-sku-selector
@@ -86,7 +88,7 @@ function SkuSelector({
       )}
       <RadioGroup
         selectedValue={activeValue}
-        name={`sku-selector-${variant}${id ? `-${id}` : ''}`}
+        name={`sku-selector-${variant}${radioGroupId}`}
         onChange={(e) => {
           onChange?.(e)
         }}
