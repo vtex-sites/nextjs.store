@@ -2,55 +2,122 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
+and this project adheres to [Calendar Versioning](https://calver.org/).
 
-## [Unreleased]
+### [22.32.1](https://github.com/vtex-sites/nextjs.store/compare/22.32.0...22.32.1) (2022-08-15)
 
-### Added
 
-- Creates `ShippingSimulation` component ([#183](https://github.com/vtex-sites/nextjs.store/pull/183))
-- Applies new local tokens to `Skeleton` and its related components ([#171](https://github.com/vtex-sites/nextjs.store/pull/171))
-- The `useNewsletter` hook ([#154](https://github.com/vtex-sites/nextjs.store/pull/154))
-- Creates Themes doc pages on storybook ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
-- Applies new local tokens to `SearchHistory`, `SearchTop`, `SearchDropdown` and `SearchSuggestions` ([#173](https://github.com/vtex-sites/nextjs.store/pull/173))
-- Added a new theme for testing purposes called midnight ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
-- Extracted all BaseStore visual to a new theme called soft-blue ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
-- Applies CSS Modules to `Incentives` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
-- Applies new local tokens to `Footer` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
-- Adds [MSW Addon](https://storybook.js.org/addons/msw-storybook-addon) ([#166](https://github.com/vtex-sites/nextjs.store/pull/166))
-- Applies new local tokens to `Breadcrumb` ([#162](https://github.com/vtex-sites/nextjs.store/pull/162))
-- Applies new local tokens to `SlideOver` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
-- Applies new local tokens to `CartSidebar` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
-- Global tokens doc page on storybook ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
-- Adds [bun](https://bun.sh/) compatiblity ([#164](https://github.com/vtex-sites/nextjs.store/pull/164))
-- Uses new cross selling API on PDP ([#159](https://github.com/vtex-sites/nextjs.store/pull/159))
-- Applies new local tokens to `SuggestionProductCard` ([#151](https://github.com/vtex-sites/nextjs.store/pull/151))
+### Chores
 
-### Changed
+* Adds `InputText` documentation to storybook ([#203](https://github.com/vtex-sites/nextjs.store/issues/203)) ([b6c3ba6](https://github.com/vtex-sites/nextjs.store/commit/b6c3ba6b468338954caa8d09820465aacc20a3cf))
 
-- Cypress version from 9.5.4 to 9.6.0 to match WebOps' ([#182](https://github.com/vtex-sites/nextjs.store/pull/182))
-- Removes Themes dependencies ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
-- Renames and refactors the components of Search feature ([#173](https://github.com/vtex-sites/nextjs.store/pull/173))
-- A flaky PLP infinite scroll test to be more stable ([#180](https://github.com/vtex-sites/nextjs.store/pull/180))
-- Cypress version from 6.6.0 to 9.5.4 to match WebOps' ([#177](https://github.com/vtex-sites/nextjs.store/pull/177))
-- Updates global tokens to follow Brandless approach ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
-- Sync `ModalProps` children between starters ([#169](https://github.com/vtex-sites/nextjs.store/pull/169))
-- Updates `IncentivesFooter` content ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
-- Updated Getting Started doc page and overall improvements ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
-- Fix storybook mock structure ([#156](https://github.com/vtex-sites/nextjs.store/pull/156))
+## [22.32.0](https://github.com/vtex-sites/nextjs.store/compare/22.31.2...22.32.0) (2022-08-12)
 
-### Deprecated
 
-### Removed
+### Features
 
-- `ButtonIcon` component ([#181](https://github.com/vtex-sites/nextjs.store/pull/181))
+* Handles `OutOfStock` error message through `InputText`'s `error` prop ([#200](https://github.com/vtex-sites/nextjs.store/issues/200)) ([1e81207](https://github.com/vtex-sites/nextjs.store/commit/1e81207bfd165d7140aefd1e029a10e631e198b8))
 
-### Fixed
+### [22.31.2](https://github.com/vtex-sites/nextjs.store/compare/22.31.1...22.31.2) (2022-08-10)
 
-- priceCurrency field on SEO meta data ([#161](https://github.com/vtex-sites/nextjs.store/pull/161))
 
-- Transfers responsibility of `InputText`'s main attributes and callbacks to the renderer ([#163](https://github.com/vtex-sites/nextjs.store/pull/163))
+### Bug Fixes
+
+* Cart promotions & more ([#201](https://github.com/vtex-sites/nextjs.store/issues/201)) ([e4c3b5b](https://github.com/vtex-sites/nextjs.store/commit/e4c3b5b85d5269a442a1f7d86fb10aba7a7e3f16))
+
+### [22.31.1](https://github.com/vtex-sites/nextjs.store/compare/22.31.0...22.31.1) (2022-08-09)
+
+
+### Features
+
+* Refinements on `Navbar` and `Navlinks` ([#191](https://github.com/vtex-sites/nextjs.store/issues/191)) ([f950d19](https://github.com/vtex-sites/nextjs.store/commit/f950d1987e0ee212f5cec8391798e120b82a62e5))
+
+## [22.31.0](https://github.com/vtex-sites/nextjs.store/compare/22.30.1...22.31.0) (2022-08-08)
+
+
+### Features
+
+* Add new tokens to `SearchInput` [FS-496] ([#189](https://github.com/vtex-sites/nextjs.store/issues/189)) ([f682090](https://github.com/vtex-sites/nextjs.store/commit/f682090dc7102cba6ee37bd38c66b88f332e805d))
+
+### [22.30.1](https://github.com/vtex-sites/nextjs.store/compare/22.30.0...22.30.1) (2022-08-04)
+
+
+### Refactoring
+
+* Import `Tiles` & `Tile` components from `@faststore/ui` ([#185](https://github.com/vtex-sites/nextjs.store/issues/185)) ([491ed3d](https://github.com/vtex-sites/nextjs.store/commit/491ed3dbfe4c8b8b3109078591c5f7fe36a37cb1))
+
+## [22.30.0](https://github.com/vtex-sites/nextjs.store/compare/22.29.3...22.30.0) (2022-08-04)
+
+
+### Features
+
+* Working `SkuSelector` component ([#158](https://github.com/vtex-sites/nextjs.store/issues/158)) ([1853f57](https://github.com/vtex-sites/nextjs.store/commit/1853f5750ea5c54e1afb225126dec8f4469da331))
+
+### [22.29.3](https://github.com/vtex-sites/nextjs.store/compare/22.29.2...22.29.3) (2022-08-04)
+
+
+### Chores
+
+* Updates `BannerText` content example ([#198](https://github.com/vtex-sites/nextjs.store/issues/198)) ([9501aee](https://github.com/vtex-sites/nextjs.store/commit/9501aeef875b5ca0f6dfd960841b2adf71c65d54))
+
+### [22.29.2](https://github.com/vtex-sites/nextjs.store/compare/22.29.1...22.29.2) (2022-08-03)
+
+
+### Bug Fixes
+
+* Avoids performing the search when user abandons the query ([#193](https://github.com/vtex-sites/nextjs.store/issues/193)) ([a5be6cd](https://github.com/vtex-sites/nextjs.store/commit/a5be6cd7a0abcaaab388b7531c79cc0c8160e81f))
+
+### 22.29.1 (2022-08-03)
+
+
+### Bug Fixes
+
+* Attempt to fix automated changelog update ([#195](https://github.com/vtex-sites/nextjs.store/issues/195)) ([0d8e616](https://github.com/vtex-sites/nextjs.store/commit/0d8e61665811c03f99b0a03dd49e96f57ed489e4))
+* Attempt to fix the automated changelog update ([#196](https://github.com/vtex-sites/nextjs.store/issues/196)) ([c4b6091](https://github.com/vtex-sites/nextjs.store/commit/c4b609130bbeac5c7cd769814bcb76d49121f51e)), closes [/github.com/vtex-sites/gatsby.store/blob/8d1b1a5d668b11578784c29a9b257c78c86a1a65/.github/workflows/release.yml#L24-L29](https://github.com/vtex-sites//github.com/vtex-sites/gatsby.store/blob/8d1b1a5d668b11578784c29a9b257c78c86a1a65/.github/workflows/release.yml/issues/L24-L29)
+
+### Features
+* Applies new local tokens to `Skeleton` and its related components ([#171](https://github.com/vtex-sites/nextjs.store/pull/171))
+* The `useNewsletter` hook ([#154](https://github.com/vtex-sites/nextjs.store/pull/154))
+* Creates Themes doc pages on storybook ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
+* Applies new local tokens to `SearchHistory`, `SearchTop`, `SearchDropdown` and `SearchSuggestions` ([#173](https://github.com/vtex-sites/nextjs.store/pull/173))
+* Added a new theme for testing purposes called midnight ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
+* Extracted all BaseStore visual to a new theme called soft-blue ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
+* Applies CSS Modules to `Incentives` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
+* Applies new local tokens to `Footer` ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
+* Adds [MSW Addon](https://storybook.js.org/addons/msw-storybook-addon) ([#166](https://github.com/vtex-sites/nextjs.store/pull/166))
+* Applies new local tokens to `Breadcrumb` ([#162](https://github.com/vtex-sites/nextjs.store/pull/162))
+* Applies new local tokens to `SlideOver` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
+* Applies new local tokens to `CartSidebar` ([#145](https://github.com/vtex-sites/nextjs.store/pull/145))
+* Global tokens doc page on storybook ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
+* Adds [bun](https://bun.sh/) compatiblity ([#164](https://github.com/vtex-sites/nextjs.store/pull/164))
+* Uses new cross selling API on PDP ([#159](https://github.com/vtex-sites/nextjs.store/pull/159))
+* Applies new local tokens to `SuggestionProductCard` ([#151](https://github.com/vtex-sites/nextjs.store/pull/151))
+
+
+### Bug Fixes
+
+* priceCurrency field on SEO meta data ([#161](https://github.com/vtex-sites/nextjs.store/pull/161))
+* Transfers responsibility of `InputText`'s main attributes and callbacks to the renderer ([#163](https://github.com/vtex-sites/nextjs.store/pull/163))
+
+
+### Chores
+
+* `ButtonIcon` component ([#181](https://github.com/vtex-sites/nextjs.store/pull/181))
+
+
+### Refactoring
+
+* Cypress version from 9.5.4 to 9.6.0 to match WebOps' ([#182](https://github.com/vtex-sites/nextjs.store/pull/182))
+* Removes Themes dependencies ([#175](https://github.com/vtex-sites/nextjs.store/pull/175))
+* Renames and refactors the components of Search feature ([#173](https://github.com/vtex-sites/nextjs.store/pull/173))
+* A flaky PLP infinite scroll test to be more stable ([#180](https://github.com/vtex-sites/nextjs.store/pull/180))
+* Cypress version from 6.6.0 to 9.5.4 to match WebOps' ([#177](https://github.com/vtex-sites/nextjs.store/pull/177))
+* Updates global tokens to follow Brandless approach ([#119](https://github.com/vtex-sites/nextjs.store/pull/119))
+* Sync `ModalProps` children between starters ([#169](https://github.com/vtex-sites/nextjs.store/pull/169))
+* Updates `IncentivesFooter` content ([#155](https://github.com/vtex-sites/nextjs.store/pull/155))
+* Updated Getting Started doc page and overall improvements ([#147](https://github.com/vtex-sites/nextjs.store/pull/147))
+* Fix storybook mock structure ([#156](https://github.com/vtex-sites/nextjs.store/pull/156))
 
 ## [22.26.0.beta] - 2022-07-01
 

@@ -1,5 +1,5 @@
-import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
 import { gql } from '@faststore/graphql-utils'
+import { sendAnalyticsEvent } from '@faststore/sdk'
 import { useEffect, useState } from 'react'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 
@@ -15,8 +15,10 @@ import ShippingSimulation from 'src/components/ui/ShippingSimulation'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProduct } from 'src/sdk/product/useProduct'
+import { useSession } from 'src/sdk/session'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import Selectors from 'src/components/ui/SkuSelector'
 
 import Section from '../Section'
 
@@ -46,7 +48,7 @@ function ProductDetails({ product: staleProduct }: Props) {
       name: variantName,
       brand,
       isVariantOf,
-      isVariantOf: { name, productGroupID: productId },
+      isVariantOf: { name, productGroupID: productId, skuVariants },
       image: productImages,
       offers: {
         offers: [{ availability, price, listPrice, seller }],
@@ -127,6 +129,14 @@ function ProductDetails({ product: staleProduct }: Props) {
         <ImageGallery images={productImages} />
 
         <section className="product-details__settings">
+          {skuVariants && (
+            <Selectors
+              slugsMap={skuVariants.slugsMap}
+              availableVariations={skuVariants.availableVariations}
+              activeVariations={skuVariants.activeVariations}
+            />
+          )}
+
           <section className="product-details__values">
             <div className="product-details__prices">
               <Price
@@ -254,8 +264,13 @@ export const fragment = gql`
     description
 
     isVariantOf {
-      productGroupID
       name
+      productGroupID
+      skuVariants {
+        activeVariations
+        slugsMap(dominantVariantName: "Color")
+        availableVariations(dominantVariantName: "Color")
+      }
     }
 
     image {
@@ -287,12 +302,8 @@ export const fragment = gql`
       }
     }
 
-    additionalProperty {
-      propertyID
-      name
-      value
-      valueReference
-    }
+    # Contains necessary info to add this item to cart
+    ...CartProductItem
   }
 `
 

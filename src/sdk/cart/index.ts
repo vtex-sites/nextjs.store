@@ -1,15 +1,18 @@
 import { gql } from '@faststore/graphql-utils'
-import type { CartItem as SDKCartItem, Cart as SDKCart } from '@faststore/sdk'
+import { createCartStore } from '@faststore/sdk'
+import { useMemo } from 'react'
+import type { Cart as SDKCart, CartItem as SDKCartItem } from '@faststore/sdk'
 
 import type {
-  ValidateCartMutationMutation,
-  ValidateCartMutationMutationVariables,
   CartItemFragment,
   CartMessageFragment,
   IStoreOffer,
+  ValidateCartMutationMutation,
+  ValidateCartMutationMutationVariables,
 } from '@generated/graphql'
 
 import { request } from '../graphql/request'
+import { createValidationStore, useStore } from '../useStore'
 
 export interface CartItem extends SDKCartItem, CartItemFragment {}
 
@@ -45,39 +48,40 @@ export const ValidateCartMutation = gql`
     price
     listPrice
     itemOffered {
-      sku
+      ...CartProductItem
+    }
+  }
+
+  fragment CartProductItem on StoreProduct {
+    sku
+    name
+    image {
+      url
+      alternateName
+    }
+    brand {
       name
-      image {
-        url
-        alternateName
-      }
-      brand {
-        name
-      }
-      isVariantOf {
-        productGroupID
-        name
-      }
-      gtin
-      additionalProperty {
-        propertyID
-        name
-        value
-        valueReference
-      }
+    }
+    isVariantOf {
+      productGroupID
+      name
+    }
+    gtin
+    additionalProperty {
+      propertyID
+      name
+      value
+      valueReference
     }
   }
 `
 
-export const isGift = (item: CartItem) => item.price === 0
+const isGift = (item: CartItem) => item.price === 0
 
-export const getItemId = (
-  item: Pick<CartItem, 'itemOffered' | 'seller' | 'price'>
-) =>
+const getItemId = (item: Pick<CartItem, 'itemOffered' | 'seller' | 'price'>) =>
   [
     item.itemOffered.sku,
     item.seller.identifier,
-    item.price,
     item.itemOffered.additionalProperty
       ?.map(({ propertyID }) => propertyID)
       .join('-'),
@@ -85,7 +89,7 @@ export const getItemId = (
     .filter(Boolean)
     .join('::')
 
-export const validateCart = async (cart: Cart): Promise<Cart | null> => {
+const validateCart = async (cart: Cart): Promise<Cart | null> => {
   const { validateCart: validated = null } = await request<
     ValidateCartMutationMutation,
     ValidateCartMutationMutationVariables
@@ -126,5 +130,56 @@ export const validateCart = async (cart: Cart): Promise<Cart | null> => {
       })),
       messages: validated.messages,
     }
+  )
+}
+
+const [validationStore, onValidate] = createValidationStore(validateCart)
+const defaultCartStore = createCartStore<Cart>(
+  {
+    id: '',
+    items: [],
+    messages: [],
+  },
+  onValidate
+)
+
+export const cartStore = {
+  ...defaultCartStore,
+  addItem: (item: Omit<CartItem, 'id'>) => {
+    const cartItem = {
+      ...item,
+      id: getItemId(item),
+    }
+
+    defaultCartStore.addItem(cartItem)
+  },
+}
+
+export const useCart = () => {
+  const cart = useStore(cartStore)
+  const isValidating = useStore(validationStore)
+
+  return useMemo(
+    () => ({
+      ...cart,
+      isValidating,
+      messages: cart.messages,
+      gifts: cart.items.filter((item) => isGift(item)),
+      items: cart.items.filter((item) => !isGift(item)),
+      totalUniqueItems: cart.items.length,
+      totalItems: cart.items.reduce(
+        (acc, curr) => acc + (isGift(curr) ? 0 : curr.quantity),
+        0
+      ),
+      total: cart.items.reduce(
+        (acc, curr) => acc + curr.price * curr.quantity,
+        0
+      ),
+      subTotal: cart.items.reduce(
+        (acc, curr) => acc + curr.listPrice * curr.quantity,
+        0
+      ),
+    }),
+    [cart, isValidating]
   )
 }

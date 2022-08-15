@@ -5,7 +5,7 @@ import { Badge } from 'src/components/ui/Badge'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
-import { useCart } from 'src/sdk/cart/useCart'
+import { useCart } from 'src/sdk/cart'
 import { useCheckoutButton } from 'src/sdk/cart/useCheckoutButton'
 import { useUI } from 'src/sdk/ui/Provider'
 import { useFadeEffect } from 'src/sdk/ui/useFadeEffect'
@@ -21,7 +21,7 @@ function CartSidebar() {
   const { cart: displayCart, closeCart } = useUI()
   const { fade, fadeOut } = useFadeEffect()
 
-  const { items, totalItems, isValidating, subTotal, total } = cart
+  const { items, gifts, totalItems, isValidating, subTotal, total } = cart
 
   const isEmpty = items.length === 0
 
@@ -67,6 +67,21 @@ function CartSidebar() {
               </li>
             ))}
           </List>
+
+          {gifts.length > 0 && (
+            <>
+              <Alert icon={<Icon name="Gift" width={24} height={24} />}>
+                Gifts
+              </Alert>
+              <List data-fs-cart-sidebar-list>
+                {gifts.map((item) => (
+                  <li key={item.id}>
+                    <CartItem gift item={item} />
+                  </li>
+                ))}
+              </List>
+            </>
+          )}
 
           <footer data-fs-cart-sidebar-footer>
             <OrderSummary
