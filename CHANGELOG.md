@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [22.32.1](https://github.com/vtex-sites/nextjs.store/compare/22.32.0...22.32.1) (2022-08-15)
+
+
+### Chores
+
+* Adds `InputText` documentation to storybook ([#203](https://github.com/vtex-sites/nextjs.store/issues/203)) ([b6c3ba6](https://github.com/vtex-sites/nextjs.store/commit/b6c3ba6b468338954caa8d09820465aacc20a3cf))
+
+## [22.32.0](https://github.com/vtex-sites/nextjs.store/compare/22.31.2...22.32.0) (2022-08-12)
+
+
+### Features
+
+* Handles `OutOfStock` error message through `InputText`'s `error` prop ([#200](https://github.com/vtex-sites/nextjs.store/issues/200)) ([1e81207](https://github.com/vtex-sites/nextjs.store/commit/1e81207bfd165d7140aefd1e029a10e631e198b8))
+
 ### [22.31.2](https://github.com/vtex-sites/nextjs.store/compare/22.31.1...22.31.2) (2022-08-10)
 
 
