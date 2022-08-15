@@ -1,7 +1,5 @@
-import { useSession } from '@faststore/sdk'
 import { Table, TableBody, TableCell, TableRow } from '@faststore/ui'
-import type { ChangeEvent, HTMLAttributes } from 'react'
-import { useEffect, useState } from 'react'
+import type { HTMLAttributes } from 'react'
 
 import Price from 'src/components/ui/Price'
 import { usePriceFormatter } from 'src/sdk/product/useFormattedPrice'
@@ -10,51 +8,7 @@ import Icon from '../Icon'
 import InputText from '../InputText'
 import Link from '../Link'
 import styles from './shipping-simulation.module.scss'
-
-type ShippingOptionProps = {
-  carrier: string
-  estimate: string
-  price: number
-}
-
-type ShippingSimulationInfoProps = {
-  location?: string
-  options?: ShippingOptionProps[]
-}
-
-// TODO Remove Mocked data after API integration
-const mockShippingOptions: ShippingOptionProps[] = [
-  {
-    carrier: 'Regular',
-    estimate: '12 days',
-    price: 21,
-  },
-  {
-    carrier: 'Fedex',
-    estimate: '12 days',
-    price: 23,
-  },
-  {
-    carrier: 'Same day',
-    estimate: '1 day',
-    price: 89,
-  },
-  {
-    carrier: 'DHL',
-    estimate: '1 day',
-    price: 100,
-  },
-]
-
-const mockShippingSimulation: ShippingSimulationInfoProps = {
-  location: 'Street Default — Newark, NY',
-  options: mockShippingOptions,
-}
-
-const createEmptySimulation = () => ({
-  location: '',
-  options: [],
-})
+import { useShippingSimulation } from './useShippingSimulation'
 
 interface ShippingSimulationProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -68,66 +22,19 @@ function ShippingSimulation({
   testId = 'store-shipping-simulation',
   ...otherProps
 }: ShippingSimulationProps) {
-  const { postalCode: sessionPostalCode } = useSession()
+  const { dispatch, input, shippingSimulation, handleSubmit, handleOnInput } =
+    useShippingSimulation()
 
-  const [simulation, setSimulation] = useState<ShippingSimulationInfoProps>(
-    createEmptySimulation()
-  )
+  const {
+    postalCode: shippingPostalCode,
+    displayClearButton,
+    errorMessage,
+  } = input
 
-  const { location: shippingLocation, options: shippingOptions } = simulation
-
-  const [shippingPostalCode, setShippingPostalCode] = useState('')
-  const [displayClearButton, setDisplayClearButton] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
-
-  useEffect(() => {
-    if (!sessionPostalCode || shippingPostalCode) {
-      return
-    }
-
-    // Use session postal code if there is no shippingPostalCode
-    setShippingPostalCode(sessionPostalCode)
-    setDisplayClearButton(true)
-
-    // TODO update after API integration
-    setSimulation({
-      location: mockShippingSimulation?.location,
-      options: mockShippingSimulation?.options ?? [],
-    })
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sessionPostalCode])
+  const { location: shippingLocation, options: shippingOptions } =
+    shippingSimulation
 
   const formatter = usePriceFormatter()
-
-  const handleSubmit = () => {
-    setDisplayClearButton(true)
-
-    try {
-      // TODO Change next lines after API integration
-      setSimulation({
-        location: `Street from ${shippingPostalCode} Postal Code.`,
-        options: mockShippingOptions ?? [],
-      })
-    } catch (error) {
-      setErrorMessage('You entered an invalid Postal Code')
-    }
-  }
-
-  const handleOnInput = (e: ChangeEvent<HTMLInputElement>) => {
-    if (errorMessage) {
-      setErrorMessage('')
-    }
-
-    const currentValue = e.currentTarget.value
-
-    setShippingPostalCode(currentValue)
-    setDisplayClearButton(false)
-
-    if (!currentValue) {
-      setSimulation(createEmptySimulation())
-    }
-  }
 
   const hasShippingOptions = !!shippingOptions && shippingOptions.length > 0
 
@@ -151,11 +58,7 @@ function ShippingSimulation({
         value={shippingPostalCode}
         onInput={handleOnInput}
         onSubmit={handleSubmit}
-        onClear={() => {
-          setShippingPostalCode('')
-          setDisplayClearButton(false)
-          setSimulation(createEmptySimulation())
-        }}
+        onClear={() => dispatch({ type: 'clear' })}
         displayClearButton={displayClearButton}
       />
 
