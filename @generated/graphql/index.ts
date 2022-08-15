@@ -869,7 +869,6 @@ export type ServerProductPageQueryQuery = {
     description: string
     releaseDate: string
     id: string
-    productName: string
     seo: { title: string; description: string; canonical: string }
     brand: { name: string }
     breadcrumbList: {
