@@ -67,7 +67,8 @@ function Page({ product }: Props) {
         images={product.image.map((img) => img.url)} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
         offers={{
           ...product.offers,
-          price: product.offers.offers[0].price.toString(),
+          ...product.offers.offers[0],
+          url: canonical,
         }}
       />
 
