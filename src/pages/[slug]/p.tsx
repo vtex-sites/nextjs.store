@@ -57,14 +57,18 @@ function Page({ product }: Props) {
         itemListElements={product.breadcrumbList.itemListElement}
       />
       <ProductJsonLd
-        {...product}
         offersType="AggregateOffer"
-        images={product.image.map((img) => img.url)} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
+        productName={product.name}
+        description={product.description}
         brand={product.brand.name}
-        // offers={{
-        //   ...product.offers,
-        //   price: product.offers.offers[0].price.toString(),
-        // }}
+        sku={product.sku}
+        gtin={product.gtin}
+        releaseDate={product.releaseDate}
+        images={product.image.map((img) => img.url)} // Somehow, Google does not understand this valid Schema.org schema, so we need to do conversions
+        offers={{
+          ...product.offers,
+          price: product.offers.offers[0].price.toString(),
+        }}
       />
 
       {/*
