@@ -36,7 +36,6 @@
   --fs-shipping-simulation-table-cell-padding         : var(--fs-spacing-2);
   --fs-shipping-simulation-table-cell-text-size       : var(--fs-text-size-2);
   --fs-shipping-simulation-table-cell-border-radius   : .25rem;
-  --fs-shipping-simulation-table-cell-text-align-last : right;
 
   font-size: var(--fs-shipping-simulation-font-size);
 
@@ -104,7 +103,7 @@
     }
 
     &:last-child {
-      text-align: var(--fs-shipping-simulation-table-cell-text-align-last);
+      text-align: right;
       border-top-right-radius: var(--fs-shipping-simulation-table-cell-border-radius);
       border-bottom-right-radius: var(--fs-shipping-simulation-table-cell-border-radius);
     }
