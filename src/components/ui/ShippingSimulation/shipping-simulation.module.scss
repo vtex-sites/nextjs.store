@@ -6,36 +6,36 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-shipping-simulation-font-size                  : var(--fs-text-size-legend);
+  --fs-shipping-simulation-font-size                : var(--fs-text-size-legend);
 
-  --fs-shipping-simulation-padding                    : var(--fs-spacing-5);
+  --fs-shipping-simulation-padding                  : var(--fs-spacing-5);
 
-  --fs-shipping-simulation-border-width               : var(--fs-border-width);
-  --fs-shipping-simulation-border-color               : var(--fs-border-color-light);
-  --fs-shipping-simulation-border-radius-bottom       : var(--fs-border-radius);
+  --fs-shipping-simulation-border-width             : var(--fs-border-width);
+  --fs-shipping-simulation-border-color             : var(--fs-border-color-light);
+  --fs-shipping-simulation-border-radius-bottom     : var(--fs-border-radius);
 
   // Title
-  --fs-shipping-simulation-title-padding-bottom       : var(--fs-spacing-2);
+  --fs-shipping-simulation-title-padding-bottom     : var(--fs-spacing-2);
 
   // Link
-  --fs-shipping-simulation-link-padding-top           : var(--fs-spacing-1);
-  --fs-shipping-simulation-link-padding-bottom        : var(--fs-spacing-4);
+  --fs-shipping-simulation-link-padding-top         : var(--fs-spacing-1);
+  --fs-shipping-simulation-link-padding-bottom      : var(--fs-spacing-4);
 
   // Subtitle
-  --fs-shipping-simulation-subtitle-text-size         : var(--fs-text-size-2);
-  --fs-shipping-simulation-subtitle-text-weight       : var(--fs-text-weight-bold);
-  --fs-shipping-simulation-subtitle-line-height       : 1.5;
+  --fs-shipping-simulation-subtitle-text-size       : var(--fs-text-size-2);
+  --fs-shipping-simulation-subtitle-text-weight     : var(--fs-text-weight-bold);
+  --fs-shipping-simulation-subtitle-line-height     : 1.5;
 
   // Location
-  --fs-shipping-simulation-location-padding-bottom    : var(--fs-spacing-2);
+  --fs-shipping-simulation-location-padding-bottom  : var(--fs-spacing-2);
 
   // Table
-  --fs-shipping-simulation-table-row-bkg-color        : var(--fs-color-main-0);
-  --fs-shipping-simulation-table-row-even-bkg-color   : transparent;
+  --fs-shipping-simulation-table-row-bkg-color      : var(--fs-color-main-0);
+  --fs-shipping-simulation-table-row-even-bkg-color : transparent;
 
-  --fs-shipping-simulation-table-cell-padding         : var(--fs-spacing-2);
-  --fs-shipping-simulation-table-cell-text-size       : var(--fs-text-size-2);
-  --fs-shipping-simulation-table-cell-border-radius   : .25rem;
+  --fs-shipping-simulation-table-cell-padding       : var(--fs-spacing-2);
+  --fs-shipping-simulation-table-cell-text-size     : var(--fs-text-size-2);
+  --fs-shipping-simulation-table-cell-border-radius : .25rem;
 
   font-size: var(--fs-shipping-simulation-font-size);
 
