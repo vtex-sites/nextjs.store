@@ -3,8 +3,7 @@ import type { ContentData } from '@vtex/client-cms'
 
 import RenderPageSections from 'src/components/cms/RenderPageSections'
 import { mark } from 'src/sdk/tests/mark'
-import { clientCMS } from 'src/cms/client'
-import cmsHomeFallback from 'src/cms/cmsHomeFallback'
+import { getCMSPageDataByContentType } from 'src/cms/client'
 
 import storeConfig from '../../store.config'
 
@@ -53,24 +52,17 @@ function Page({ cmsHome }: Props) {
 }
 
 export async function getStaticProps() {
-  const contentType = 'home'
-
   try {
-    const {
-      data: [cmsHome],
-    } = await clientCMS.getCMSPagesByContentType(contentType)
+    const cmsHome = await getCMSPageDataByContentType('home')
 
     return {
       props: { cmsHome },
     }
   } catch (error) {
-    console.error(
-      `Missing '${contentType}' data from CMS. To prevent this warning, open https://storeframework.myvtex.com/admin/new-cms and create a new content from the 'home' template. Falling back to default home template`,
-      error
-    )
+    console.error(error)
 
     return {
-      props: { cmsHome: cmsHomeFallback },
+      props: { cmsHome: { sections: [] } },
     }
   }
 }
