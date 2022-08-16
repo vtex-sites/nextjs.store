@@ -179,7 +179,7 @@
           "type": "string",
           "title": "After",
           "default": "0",
-          "description": "Initial paginatio item"
+          "description": "Initial pagination item"
         },
         "sort": {
           "title": "Sort",
