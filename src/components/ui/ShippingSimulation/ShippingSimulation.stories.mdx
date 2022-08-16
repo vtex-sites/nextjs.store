@@ -1,5 +1,3 @@
-import { SessionProvider } from '@faststore/sdk'
-
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
 import ShippingSimulation from '.'
 import {
@@ -21,11 +19,7 @@ import {
 />
 
 export const TemplateProvider = (args) => {
-  return (
-    <SessionProvider initialState={{ postalCode: '1234' }}>
-      <ShippingSimulation {...args} style={{ border: 0 }} />
-    </SessionProvider>
-  )
+  return <ShippingSimulation {...args} style={{ border: 0 }} />
 }
 
 <header>
