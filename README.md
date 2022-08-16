@@ -400,7 +400,7 @@ That's it! you have just regenerated all graphql queries/fragments for your appl
 
 This store is integrated with [VTEX headless CMS](https://www.faststore.dev/tutorials/cms/0). 
 
-The pages rendered with CMS are:
+The page rendered with CMS is:
 
 - index page: `pages/index.tsx`
 
