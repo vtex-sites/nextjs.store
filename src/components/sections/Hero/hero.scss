@@ -16,12 +16,12 @@
   --fs-hero-img-border-radius            : 0;
 
   // Primary
-  --fs-hero-primary-img-height-mob       : #{rem(240px)};
+  --fs-hero-primary-img-height-mobile       : #{rem(240px)};
   --fs-hero-primary-img-height-desktop   : #{rem(464px)};
   --fs-hero-primary-title-size           : var(--fs-text-size-title-huge);
 
   // Secondary
-  --fs-hero-secondary-img-height-mob     : #{rem(180px)};
+  --fs-hero-secondary-img-height-mobile     : #{rem(180px)};
   --fs-hero-secondary-img-height-desktop : #{rem(227px)};
   --fs-hero-secondary-title-size         : var(--fs-text-size-title-page);
 
@@ -123,7 +123,7 @@
   }
 
   [data-fs-hero-image] {
-    @include media("<tablet") { height: var(--fs-hero-primary-img-height-mob); }
+    @include media("<tablet") { height: var(--fs-hero-primary-img-height-mobile); }
   }
 
   [data-fs-hero-info] {
@@ -152,7 +152,7 @@
   }
 
   [data-fs-hero-image] {
-    @include media("<tablet") { height: var(--fs-hero-secondary-img-height-mob); }
+    @include media("<tablet") { height: var(--fs-hero-secondary-img-height-mobile); }
   }
 }
 
