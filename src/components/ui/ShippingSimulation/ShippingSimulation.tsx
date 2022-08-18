@@ -101,7 +101,7 @@ function ShippingSimulation({
                   <TableCell data-fs-shipping-simulation-table-cell>
                     <Price
                       formatter={formatter}
-                      value={option.price}
+                      value={Number(option.price)}
                       SRText="price"
                     />
                   </TableCell>

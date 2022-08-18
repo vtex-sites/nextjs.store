@@ -2,7 +2,7 @@ import type { ChangeEvent } from 'react'
 import { useCallback, useEffect, useReducer } from 'react'
 
 import { useSession } from 'src/sdk/session'
-import { getShippingEstimate } from 'src/sdk/shipping'
+import { getFriendlyEstimate, getShippingSimulation } from 'src/sdk/shipping'
 
 import type { ShippingItem } from './ShippingSimulation'
 
@@ -130,7 +130,7 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
     // Use sessionPostalCode if there is no shippingPostalCode
     // TODO update mock after API integration
     async function fetchShipping() {
-      const { shipping } = await getShippingEstimate({
+      const { shipping } = await getShippingSimulation({
         country,
         postalCode: sessionPostalCode ?? '',
         items: [shippingItem],
@@ -138,8 +138,10 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
 
       const options: ShippingOptionProps[] =
         shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
-          carrier: sla?.id ?? '',
-          estimate: sla?.shippingEstimate ?? '',
+          carrier: sla?.name ?? '',
+          estimate: sla?.shippingEstimate
+            ? getFriendlyEstimate(sla.shippingEstimate)
+            : '',
           price: String(sla?.price) ?? '',
         })) ?? []
 
@@ -167,7 +169,7 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
   const handleSubmit = useCallback(async () => {
     try {
       // TODO update mock after API integration
-      const { shipping } = await getShippingEstimate({
+      const { shipping } = await getShippingSimulation({
         country,
         postalCode: shippingPostalCode ?? '',
         items: [shippingItem],
@@ -175,8 +177,10 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
 
       const options: ShippingOptionProps[] =
         shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
-          carrier: sla?.id ?? '',
-          estimate: sla?.shippingEstimate ?? '',
+          carrier: sla?.name ?? '',
+          estimate: sla?.shippingEstimate
+            ? getFriendlyEstimate(sla.shippingEstimate)
+            : '',
           price: String(sla?.price) ?? '',
         })) ?? []
 
