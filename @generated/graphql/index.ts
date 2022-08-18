@@ -972,6 +972,7 @@ export type ServerProductPageQueryQuery = {
     gtin: string
     name: string
     description: string
+    releaseDate: string
     id: string
     seo: { title: string; description: string; canonical: string }
     brand: { name: string }
