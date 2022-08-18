@@ -6,7 +6,7 @@ import type {
   ShippingSimulationQueryQueryVariables as Variables,
 } from '@generated/graphql'
 
-import { useLazyQuery } from '../graphql/useLazyQuery'
+import { request } from '../graphql/request'
 
 const query = gql`
   query ShippingSimulationQuery(
@@ -19,6 +19,7 @@ const query = gql`
         itemIndex
         slas {
           id
+          name
           friendlyName
           price
           shippingEstimate
@@ -35,20 +36,18 @@ export type ShippingQueryData = {
   country: string
 }
 
-function useShippingQuery({ country, postalCode, items }: ShippingQueryData) {
-  const [loadShippingSimulation, { data, error, isValidating: loading }] =
-    useLazyQuery<Query, Variables>(query, {
-      items,
-      postalCode,
-      country,
-    })
+export const getShippingEstimate = async ({
+  country,
+  postalCode,
+  items,
+}: ShippingQueryData) => {
+  const data = await request<Query, Variables>(query, {
+    items,
+    postalCode,
+    country,
+  })
 
-  return {
-    loadShippingSimulation,
-    data,
-    error,
-    loading,
-  }
+  return data
 }
 
-export default useShippingQuery
+export default getShippingEstimate

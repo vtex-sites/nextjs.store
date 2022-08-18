@@ -344,9 +344,9 @@ export type QuerySearchArgs = {
 }
 
 export type QueryShippingArgs = {
-  country: InputMaybe<Scalars['String']>
+  country: Scalars['String']
   items: Array<IShippingItem>
-  postalCode: InputMaybe<Scalars['String']>
+  postalCode: Scalars['String']
 }
 
 /** Shipping Simulation information. */
@@ -1246,6 +1246,7 @@ export type ShippingSimulationQueryQuery = {
       itemIndex: string | null
       slas: Array<{
         id: string | null
+        name: string | null
         friendlyName: string | null
         price: number | null
         shippingEstimate: string | null

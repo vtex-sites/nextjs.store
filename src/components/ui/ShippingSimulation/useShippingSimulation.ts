@@ -2,7 +2,7 @@ import type { ChangeEvent } from 'react'
 import { useCallback, useEffect, useReducer } from 'react'
 
 import { useSession } from 'src/sdk/session'
-import useShippingQuery from 'src/sdk/shipping/useShippingQuery'
+import { getShippingEstimate } from 'src/sdk/shipping'
 
 import type { ShippingItem } from './ShippingSimulation'
 
@@ -15,7 +15,7 @@ type InputProps = {
 type ShippingOptionProps = {
   carrier: string
   estimate: string
-  price: number
+  price?: string
 }
 
 type ShippingSimulationProps = {
@@ -45,33 +45,8 @@ type Action =
       type: 'clear'
     }
 
-// TODO Remove Mocked data after API integration
-const mockShippingOptions: ShippingOptionProps[] = [
-  {
-    carrier: 'Regular',
-    estimate: '12 days',
-    price: 21,
-  },
-  {
-    carrier: 'Fedex',
-    estimate: '12 days',
-    price: 23,
-  },
-  {
-    carrier: 'Same day',
-    estimate: '1 day',
-    price: 89,
-  },
-  {
-    carrier: 'DHL',
-    estimate: '1 day',
-    price: 100,
-  },
-]
-
 const mockShippingSimulation: ShippingSimulationProps = {
   location: 'Street Default — Newark, NY',
-  options: mockShippingOptions,
 }
 
 const createEmptySimulation = () => ({
@@ -147,12 +122,6 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
 
   const { postalCode: shippingPostalCode } = input
 
-  const { loadShippingSimulation, data } = useShippingQuery({
-    country,
-    postalCode: shippingPostalCode ?? sessionPostalCode ?? '',
-    items: [shippingItem],
-  })
-
   useEffect(() => {
     if (!sessionPostalCode || shippingPostalCode) {
       return
@@ -160,32 +129,56 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
 
     // Use sessionPostalCode if there is no shippingPostalCode
     // TODO update mock after API integration
-    dispatch({
-      type: 'update',
-      payload: {
-        input: {
-          postalCode: sessionPostalCode,
-          displayClearButton: true,
-          errorMessage: '',
+    async function fetchShipping() {
+      const { shipping } = await getShippingEstimate({
+        country,
+        postalCode: sessionPostalCode ?? '',
+        items: [shippingItem],
+      })
+
+      const options: ShippingOptionProps[] =
+        shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
+          carrier: sla?.id ?? '',
+          estimate: sla?.shippingEstimate ?? '',
+          price: String(sla?.price) ?? '',
+        })) ?? []
+
+      dispatch({
+        type: 'update',
+        payload: {
+          input: {
+            postalCode: sessionPostalCode ?? '',
+            displayClearButton: true,
+            errorMessage: '',
+          },
+          shippingSimulation: {
+            location: mockShippingSimulation?.location,
+            options,
+          },
         },
-        shippingSimulation: {
-          location: mockShippingSimulation?.location,
-          options: mockShippingSimulation?.options ?? [],
-        },
-      },
-    })
+      })
+    }
+
+    fetchShipping()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionPostalCode])
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(async () => {
     try {
       // TODO update mock after API integration
-      loadShippingSimulation({
+      const { shipping } = await getShippingEstimate({
         country,
-        postalCode: shippingPostalCode ?? sessionPostalCode ?? '',
+        postalCode: shippingPostalCode ?? '',
         items: [shippingItem],
       })
+
+      const options: ShippingOptionProps[] =
+        shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
+          carrier: sla?.id ?? '',
+          estimate: sla?.shippingEstimate ?? '',
+          price: String(sla?.price) ?? '',
+        })) ?? []
 
       dispatch({
         type: 'update',
@@ -196,7 +189,7 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
           },
           shippingSimulation: {
             location: `Street from ${shippingPostalCode} Postal Code.`,
-            options: mockShippingOptions ?? [],
+            options,
           },
         },
       })
@@ -233,7 +226,6 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
   return {
     input,
     shippingSimulation,
-    data,
     dispatch,
     handleSubmit,
     handleOnInput,
