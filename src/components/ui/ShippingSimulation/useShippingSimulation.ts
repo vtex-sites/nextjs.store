@@ -2,6 +2,9 @@ import type { ChangeEvent } from 'react'
 import { useCallback, useEffect, useReducer } from 'react'
 
 import { useSession } from 'src/sdk/session'
+import useShippingQuery from 'src/sdk/shipping/useShippingQuery'
+
+import type { ShippingItem } from './ShippingSimulation'
 
 type InputProps = {
   postalCode?: string
@@ -134,8 +137,8 @@ const reducer = (state: State, action: Action) => {
   }
 }
 
-export const useShippingSimulation = () => {
-  const { postalCode: sessionPostalCode } = useSession()
+export const useShippingSimulation = (shippingItem: ShippingItem) => {
+  const { postalCode: sessionPostalCode, country } = useSession()
   const [{ input, shippingSimulation }, dispatch] = useReducer(
     reducer,
     null,
@@ -143,6 +146,12 @@ export const useShippingSimulation = () => {
   )
 
   const { postalCode: shippingPostalCode } = input
+
+  const { loadShippingSimulation, data } = useShippingQuery({
+    country,
+    postalCode: shippingPostalCode ?? sessionPostalCode ?? '',
+    items: [shippingItem],
+  })
 
   useEffect(() => {
     if (!sessionPostalCode || shippingPostalCode) {
@@ -172,6 +181,12 @@ export const useShippingSimulation = () => {
   const handleSubmit = useCallback(() => {
     try {
       // TODO update mock after API integration
+      loadShippingSimulation({
+        country,
+        postalCode: shippingPostalCode ?? sessionPostalCode ?? '',
+        items: [shippingItem],
+      })
+
       dispatch({
         type: 'update',
         payload: {
@@ -218,6 +233,7 @@ export const useShippingSimulation = () => {
   return {
     input,
     shippingSimulation,
+    data,
     dispatch,
     handleSubmit,
     handleOnInput,

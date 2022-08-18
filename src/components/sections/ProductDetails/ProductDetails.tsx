@@ -1,8 +1,9 @@
 import { gql } from '@faststore/graphql-utils'
+import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import { sendAnalyticsEvent } from '@faststore/sdk'
 import { useEffect, useState } from 'react'
-import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 
+import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import OutOfStock from 'src/components/product/OutOfStock'
 import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
@@ -12,13 +13,12 @@ import Price from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
 import QuantitySelector from 'src/components/ui/QuantitySelector'
 import ShippingSimulation from 'src/components/ui/ShippingSimulation'
+import Selectors from 'src/components/ui/SkuSelector'
+import type { AnalyticsItem } from 'src/sdk/analytics/types'
 import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProduct } from 'src/sdk/product/useProduct'
 import { useSession } from 'src/sdk/session'
-import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
-import type { AnalyticsItem } from 'src/sdk/analytics/types'
-import Selectors from 'src/components/ui/SkuSelector'
 
 import Section from '../Section'
 
@@ -184,7 +184,13 @@ function ProductDetails({ product: staleProduct }: Props) {
           )}
         </section>
 
-        <ShippingSimulation />
+        <ShippingSimulation
+          shippingItem={{
+            id,
+            quantity: addQuantity,
+            seller: seller.identifier,
+          }}
+        />
 
         <section className="product-details__content">
           <article className="product-details__description">

@@ -10,20 +10,31 @@ import Link from '../Link'
 import styles from './shipping-simulation.module.scss'
 import { useShippingSimulation } from './useShippingSimulation'
 
+export type ShippingItem = {
+  id: string
+  quantity: number
+  seller: string
+}
+
 interface ShippingSimulationProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * ID to find this component in testing tools (e.g.: cypress,
    * testing-library, and jest).
    */
   testId?: string
+  /**
+   * Object used for simulating shippings
+   */
+  shippingItem: ShippingItem
 }
 
 function ShippingSimulation({
   testId = 'store-shipping-simulation',
+  shippingItem,
   ...otherProps
 }: ShippingSimulationProps) {
   const { dispatch, input, shippingSimulation, handleSubmit, handleOnInput } =
-    useShippingSimulation()
+    useShippingSimulation(shippingItem)
 
   const {
     postalCode: shippingPostalCode,
