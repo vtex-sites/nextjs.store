@@ -1,6 +1,7 @@
 import type { ChangeEvent } from 'react'
 import { useCallback, useEffect, useReducer } from 'react'
 
+import type { ShippingSimulationQueryQuery } from '@generated/graphql'
 import { useSession } from 'src/sdk/session'
 import { getFriendlyEstimate, getShippingSimulation } from 'src/sdk/shipping'
 
@@ -44,10 +45,6 @@ type Action =
   | {
       type: 'clear'
     }
-
-const mockShippingSimulation: ShippingSimulationProps = {
-  location: 'Street Default — Newark, NY',
-}
 
 const createEmptySimulation = () => ({
   input: {
@@ -112,6 +109,26 @@ const reducer = (state: State, action: Action) => {
   }
 }
 
+function getShippingInformation(
+  shipping: ShippingSimulationQueryQuery['shipping']
+): [string, ShippingOptionProps[]] {
+  const location =
+    [shipping?.address?.neighborhood, shipping?.address?.city]
+      .filter(Boolean)
+      .join(' / ') ?? ''
+
+  const options: ShippingOptionProps[] =
+    shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
+      carrier: sla?.name ?? '',
+      estimate: sla?.shippingEstimate
+        ? getFriendlyEstimate(sla.shippingEstimate)
+        : '',
+      price: String(sla?.price) ?? '',
+    })) ?? []
+
+  return [location, options]
+}
+
 export const useShippingSimulation = (shippingItem: ShippingItem) => {
   const { postalCode: sessionPostalCode, country } = useSession()
   const [{ input, shippingSimulation }, dispatch] = useReducer(
@@ -128,22 +145,14 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
     }
 
     // Use sessionPostalCode if there is no shippingPostalCode
-    // TODO update mock after API integration
     async function fetchShipping() {
-      const { shipping } = await getShippingSimulation({
+      const shipping = await getShippingSimulation({
         country,
         postalCode: sessionPostalCode ?? '',
         items: [shippingItem],
       })
 
-      const options: ShippingOptionProps[] =
-        shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
-          carrier: sla?.name ?? '',
-          estimate: sla?.shippingEstimate
-            ? getFriendlyEstimate(sla.shippingEstimate)
-            : '',
-          price: String(sla?.price) ?? '',
-        })) ?? []
+      const [location, options] = getShippingInformation(shipping)
 
       dispatch({
         type: 'update',
@@ -154,7 +163,7 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
             errorMessage: '',
           },
           shippingSimulation: {
-            location: mockShippingSimulation?.location,
+            location,
             options,
           },
         },
@@ -168,21 +177,13 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
 
   const handleSubmit = useCallback(async () => {
     try {
-      // TODO update mock after API integration
-      const { shipping } = await getShippingSimulation({
+      const shipping = await getShippingSimulation({
         country,
         postalCode: shippingPostalCode ?? '',
         items: [shippingItem],
       })
 
-      const options: ShippingOptionProps[] =
-        shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
-          carrier: sla?.name ?? '',
-          estimate: sla?.shippingEstimate
-            ? getFriendlyEstimate(sla.shippingEstimate)
-            : '',
-          price: String(sla?.price) ?? '',
-        })) ?? []
+      const [location, options] = getShippingInformation(shipping)
 
       dispatch({
         type: 'update',
@@ -192,7 +193,7 @@ export const useShippingSimulation = (shippingItem: ShippingItem) => {
             errorMessage: '',
           },
           shippingSimulation: {
-            location: `Street from ${shippingPostalCode} Postal Code.`,
+            location,
             options,
           },
         },

@@ -26,6 +26,13 @@ const query = gql`
           shippingEstimateDate
         }
       }
+      address {
+        city
+        state
+        street
+        number
+        neighborhood
+      }
     }
   }
 `
@@ -37,9 +44,9 @@ export type ShippingQueryData = {
 }
 
 export const getShippingSimulation = async ({
-  country,
-  postalCode,
   items,
+  postalCode,
+  country,
 }: ShippingQueryData) => {
   const data = await request<Query, Variables>(query, {
     items,
@@ -47,7 +54,7 @@ export const getShippingSimulation = async ({
     country,
   })
 
-  return data
+  return data.shipping
 }
 
 type Unit = 'bd' | 'd' | 'h' | 'm'

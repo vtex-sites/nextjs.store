@@ -14,7 +14,7 @@ module.exports = {
 
   // Platform specific configs for API
   api: {
-    storeId: 'storecomponents',
+    storeId: 'storeframework',
     environment: 'vtexcommercestable',
     hideUnavailableItems: true,
   },
