@@ -591,26 +591,29 @@ export const Usage = ({ inverse, ...args }) => {
 
 ## Related Components <a id="related-components" />
 
-<section className="sbdocs-section">
-  <article>
-    <div>
-      <ButtonBuy>Button Buy</ButtonBuy>
+<SectionList grid="grid">
+  <SectionItem
+    title="Button Icon"
+    description="A button which content is only an icon, without label."
+  >
+    <div data-fs-button style={{ backgroundColor: 'white', borderRadius: 2 }}>
+      <Button
+        variant="tertiary"
+        data-fs-button-icon
+        icon={<Icon name="MapPin" width={32} height={32} color="black" />}
+      />
     </div>
-    <article className="sbdocs-section-text">
-      <h3>Button Buy</h3>
-      <p>
-        A button with the intent of directly sending the user to the
-        checkout/cart step.
-      </p>
-    </article>
-  </article>
-  <article>
-    <div>
-      <ButtonLink href="/">Button Link</ButtonLink>
-    </div>
-    <article className="sbdocs-section-text">
-      <h3>Button Link</h3>
-      <p>A button that acts as a link to navigate users between pages.</p>
-    </article>
-  </article>
-</section>
+  </SectionItem>
+  <SectionItem
+    title="Button Buy"
+    description="A button with the intent of directly sending the user to the checkout/cart step."
+  >
+    <ButtonBuy>Button Buy</ButtonBuy>
+  </SectionItem>
+  <SectionItem
+    title="Button Link"
+    description="A button that acts as a link to navigate users between pages."
+  >
+    <ButtonLink href="/">Button Link</ButtonLink>
+  </SectionItem>
+</SectionList>
