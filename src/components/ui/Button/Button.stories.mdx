@@ -9,6 +9,8 @@ import {
   TokenDivider,
   SectionList,
   SectionItem,
+  BestPractices,
+  BestPracticesRule,
 } from 'src/../.storybook/components'
 
 <Meta
@@ -594,6 +596,7 @@ export const Usage = ({ inverse, ...args }) => {
       <Button
         variant="tertiary"
         data-fs-button-icon
+        aria-label="Set location"
         icon={<Icon name="MapPin" width={32} height={32} color="black" />}
       />
     </div>
@@ -611,3 +614,33 @@ export const Usage = ({ inverse, ...args }) => {
     <ButtonLink href="/">Button Link</ButtonLink>
   </SectionItem>
 </SectionList>
+
+---
+
+<BestPractices>
+  <BestPracticesRule
+    recommendedUsage={
+      <div data-fs-button style={{ backgroundColor: 'white', borderRadius: 2 }}>
+        <Button
+          variant="tertiary"
+          data-fs-button-icon
+          aria-label="Open menu"
+          icon={<Icon name="List" width={32} height={32} color="black" />}
+        />
+      </div>
+    }
+    recommendedDescription={
+      <>
+        For cases when the button doesn't have label, use{' '}
+        <code>aria-label</code> to describe its action for accessibility
+        purposes.
+      </>
+    }
+    discouragedUsage={<Button variant="primary">Button</Button>}
+    discouragedDescription={
+      <>
+        Avoid using <code>aria-label</code> when the button already has a label.
+      </>
+    }
+  />
+</BestPractices>
