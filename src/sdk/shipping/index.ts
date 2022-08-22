@@ -16,21 +16,15 @@ const query = gql`
   ) {
     shipping(items: $items, postalCode: $postalCode, country: $country) {
       logisticsInfo {
-        itemIndex
         slas {
-          id
           name
           friendlyName
           price
           shippingEstimate
-          shippingEstimateDate
         }
       }
       address {
         city
-        state
-        street
-        number
         neighborhood
       }
     }
