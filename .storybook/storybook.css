@@ -12,6 +12,10 @@
 
 /* Text */
 
+.sbdocs {
+  font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+}
+
 .sbdocs-content > header h1 {
   margin-bottom: 0;
   font-size: var(--fs-text-size-5);
@@ -520,4 +524,11 @@ header.sbdocs-hero + .sbdocs-callout {
   display: flex;
   flex-direction: column;
   width: 49%;
+}
+
+/* Navlinks - workaround to display on stories */
+/* stylelint-disable-next-line selector-id-pattern */
+#story--organisms-navbar-navlinks--overview-default {
+  position: relative;
+  z-index: 0;
 }

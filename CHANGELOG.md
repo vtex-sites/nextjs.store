@@ -5,6 +5,48 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [22.34.7](https://github.com/vtex-sites/nextjs.store/compare/22.34.6...22.34.7) (2022-08-22)
+
+
+### Chores
+
+* Include `Button` with only an icon on Storybook ([#213](https://github.com/vtex-sites/nextjs.store/issues/213)) ([7def16b](https://github.com/vtex-sites/nextjs.store/commit/7def16b27230ed01cbd7784ebd5105810131144f))
+
+### [22.34.6](https://github.com/vtex-sites/nextjs.store/compare/22.34.5...22.34.6) (2022-08-19)
+
+
+### Bug Fixes
+
+* Fix cms config ([#214](https://github.com/vtex-sites/nextjs.store/issues/214)) ([46f7b7e](https://github.com/vtex-sites/nextjs.store/commit/46f7b7eb2b1e87e46a8bf6b2a5509ecc674beda7))
+
+### [22.34.5](https://github.com/vtex-sites/nextjs.store/compare/22.34.4...22.34.5) (2022-08-19)
+
+
+### Features
+
+* integrate with client-cms ([#205](https://github.com/vtex-sites/nextjs.store/issues/205)) ([edb1139](https://github.com/vtex-sites/nextjs.store/commit/edb113942b1163875b4c2d97d7cd88b85c42fbfe))
+
+### [22.34.4](https://github.com/vtex-sites/nextjs.store/compare/22.34.3...22.34.4) (2022-08-19)
+
+
+### Chores
+
+* Renames/Updates breakpoints tokens ([#209](https://github.com/vtex-sites/nextjs.store/issues/209)) ([10f8865](https://github.com/vtex-sites/nextjs.store/commit/10f88651df7778d2012791d3e70bc1ae048c001e))
+
+### [22.34.3](https://github.com/vtex-sites/nextjs.store/compare/22.34.2...22.34.3) (2022-08-19)
+
+
+### Bug Fixes
+
+* Display `SearchDropdown` correctly ([#212](https://github.com/vtex-sites/nextjs.store/issues/212)) ([33667f8](https://github.com/vtex-sites/nextjs.store/commit/33667f83807639456e08088b84e55fc2295449ed))
+
+### [22.34.2](https://github.com/vtex-sites/nextjs.store/compare/22.34.1...22.34.2) (2022-08-19)
+
+
+### Chores
+
+* Renames/Updates border tokens ([#208](https://github.com/vtex-sites/nextjs.store/issues/208)) ([0d4928f](https://github.com/vtex-sites/nextjs.store/commit/0d4928fa821b9d77d2fd3318a228310bef89f03a))
+
 ### [22.34.1](https://github.com/vtex-sites/nextjs.store/compare/22.34.0...22.34.1) (2022-08-16)
 
 
