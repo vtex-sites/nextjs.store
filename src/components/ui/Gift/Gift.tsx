@@ -36,7 +36,7 @@ function Gift({
   ...otherProps
 }: Props) {
   const {
-    isVariantOf: { name },
+    isVariantOf,
     image: [img],
     offers: {
       offers: [{ listPrice }],
@@ -55,7 +55,7 @@ function Gift({
       </UIGiftImage>
       <UIGiftContent>
         <h3 data-gift-product-title>
-          {titleMessage} {product.isVariantOf.name}
+          {titleMessage} {isVariantOf.name}
         </h3>
         <span data-gift-product-summary>
           <Price
