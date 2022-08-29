@@ -16,11 +16,11 @@ import styles from './gift.module.scss'
 
 export type Props = GiftProps & {
   /**
-   * Product to be showed in `SearchProductCard`.
+   * Product to be showed as `Gift`.
    */
   product: ProductSummary_ProductFragment
   /**
-   * Additional message in Title
+   * Additional message in the title
    */
   titleMessage?: string
   /**
