@@ -12,18 +12,29 @@ import { Badge } from 'src/components/ui/Badge'
 import { Image } from 'src/components/ui/Image'
 import type { ProductSummary_ProductFragment } from '@generated/graphql'
 
+import styles from './gift.module.scss'
+
 export type Props = GiftProps & {
   /**
    * Product to be showed in `SearchProductCard`.
    */
   product: ProductSummary_ProductFragment
   /**
+   * Additional message in Title
+   */
+  titleMessage?: string
+  /**
    * Badge's label
    */
   badgeLabel?: string
 }
 
-function Gift({ product, badgeLabel = 'Free', ...otherProps }: Props) {
+function Gift({
+  product,
+  titleMessage = 'Get a',
+  badgeLabel = 'Free',
+  ...otherProps
+}: Props) {
   const {
     isVariantOf: { name },
     image: [img],
@@ -34,7 +45,8 @@ function Gift({ product, badgeLabel = 'Free', ...otherProps }: Props) {
 
   return (
     <UIGift
-      icon={<Icon name="Tag" width={24} height={24} />}
+      className={styles.fsGift}
+      icon={<Icon name="Tag" width={18} height={18} />}
       aria-label="Tag Icon"
       {...otherProps}
     >
@@ -42,8 +54,10 @@ function Gift({ product, badgeLabel = 'Free', ...otherProps }: Props) {
         <Image src={img.url} alt={img.alternateName} width={89} height={89} />
       </UIGiftImage>
       <UIGiftContent>
-        <h3>{product.isVariantOf.name}</h3>
-        <div>
+        <h3 data-gift-product-title>
+          {titleMessage} {product.isVariantOf.name}
+        </h3>
+        <span data-gift-product-summary>
           <Price
             value={listPrice}
             formatter={useFormattedPrice}
@@ -54,7 +68,7 @@ function Gift({ product, badgeLabel = 'Free', ...otherProps }: Props) {
             SRText="Original price:"
           />
           <Badge>{badgeLabel}</Badge>
-        </div>
+        </span>
       </UIGiftContent>
     </UIGift>
   )
