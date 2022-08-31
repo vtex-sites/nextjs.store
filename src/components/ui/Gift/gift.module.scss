@@ -16,11 +16,11 @@
 
   // Content
   --fs-gift-content-padding                : var(--fs-gift-gap) var(--fs-gift-gap) var(--fs-gift-gap) 0;
+  --fs-gift-content-row-gap                : var(--fs-spacing-0);
 
   // Title
-  --fs-gift-title-margin-bottom            : var(--fs-spacing-0);
   --fs-gift-title-line-height              : 1.25;
-  --fs-gift-title-text-size                : var(--fs-text-size-body);
+  --fs-gift-title-size                     : var(--fs-text-size-body);
   --fs-gift-title-color                    : var(--fs-color-text);
 
   // Icon
@@ -39,7 +39,7 @@
     display: grid;
     grid-template-columns: var(--fs-gift-height) repeat(4, 1fr);
     column-gap: var(--fs-gift-gap);
-    align-items: center;
+    align-items: flex-start;
     height: var(--fs-gift-height);
     overflow: hidden;
     border: var(--fs-gift-border-width) solid var(--fs-gift-border-color);
@@ -60,12 +60,12 @@
   [data-fs-gift-content] {
     display: grid;
     grid-column: 2 / span 4;
+    row-gap: var(--fs-gift-content-row-gap);
     padding: var(--fs-gift-content-padding);
   }
 
   [data-gift-product-title] {
-    margin-bottom: var(--fs-gift-margin-bottom);
-    font-size: var(--fs-gift-title-text-size);
+    font-size: var(--fs-gift-title-size);
     line-height: var(--fs-gift-title-line-height);
     color: var(--fs-gift-title-color);
 
