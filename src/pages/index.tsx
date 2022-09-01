@@ -9,6 +9,8 @@ import storeConfig from '../../store.config'
 
 export type Props = { cmsHome: ContentData }
 
+// Remove later on
+function Page(props: Props) {
   return (
     <>
       {/* SEO */}
