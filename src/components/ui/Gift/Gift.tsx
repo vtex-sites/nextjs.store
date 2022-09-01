@@ -47,7 +47,6 @@ function Gift({
     <UIGift
       className={styles.fsGift}
       icon={<Icon name="Tag" width={18} height={18} />}
-      aria-label="Tag Icon"
       {...otherProps}
     >
       <UIGiftImage>
