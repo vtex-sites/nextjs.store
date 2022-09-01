@@ -19,7 +19,7 @@ function Layout({ children }: PropsWithChildren) {
   return (
     <>
       <Alert icon="Bell" link={{ text: 'Buy now', to: '/office' }} dismissible>
-        This is a development build for this store.
+        This is a development build for this store. Second try.
       </Alert>
 
       <Navbar />
