@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [22.35.2](https://github.com/vtex-sites/nextjs.store/compare/22.35.1...22.35.2) (2022-08-31)
+
+
+### Bug Fixes
+
+* Navigation links on mobile not being clickable ([#224](https://github.com/vtex-sites/nextjs.store/issues/224)) ([6c3f85f](https://github.com/vtex-sites/nextjs.store/commit/6c3f85f0228e6a63e95f6a43578d76c3b475c594))
+
+### [22.35.1](https://github.com/vtex-sites/nextjs.store/compare/22.35.0...22.35.1) (2022-08-30)
+
+
+### Chores
+
+* Revisit `Hero` documentation (Storybook) ([#217](https://github.com/vtex-sites/nextjs.store/issues/217)) ([397046f](https://github.com/vtex-sites/nextjs.store/commit/397046f94bd2e38181a3aeef572338d65cb0eb99))
+
+## [22.35.0](https://github.com/vtex-sites/nextjs.store/compare/22.34.8...22.35.0) (2022-08-29)
+
+
+### Features
+
+* Cart with session info ([#218](https://github.com/vtex-sites/nextjs.store/issues/218)) ([0f56058](https://github.com/vtex-sites/nextjs.store/commit/0f5605826840839c3091e91daf428b10a7ea9081))
+
 ### [22.34.8](https://github.com/vtex-sites/nextjs.store/compare/22.34.7...22.34.8) (2022-08-23)
 
 ### [22.34.7](https://github.com/vtex-sites/nextjs.store/compare/22.34.6...22.34.7) (2022-08-22)
