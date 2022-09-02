@@ -1,0 +1,32 @@
+@import "src/styles/scaffold";
+
+.fs-newsletter {
+  // --------------------------------------------------------
+  // Design Tokens for Newsletter
+  // --------------------------------------------------------
+
+  // Default properties
+  --fs-newsletter-bkg                               : var(--fs-color-primary-bkg);
+  --fs-newsletter-text-color                        : var(--fs-color-text-inverse);
+
+  // Title
+  --fs-newsletter-title-size                        : var(--fs-text-size-title-section);
+  --fs-newsletter-title-weight                      : var(--fs-text-weight-bold);
+
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
+
+  color: var(--fs-newsletter-text-color);
+  background-color: var(--fs-newsletter-bkg);
+
+  [data-fs-newsletter-header] {
+    display: grid;
+    row-gap: var(--fs-spacing-2);
+  }
+
+  [data-fs-newsletter-header] h3 {
+    font-size: var(--fs-newsletter-title-size);
+    font-weight: var(--fs-newsletter-title-weight);
+  }
+}

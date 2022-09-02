@@ -7,6 +7,7 @@ import Select from 'src/components/ui/Select'
 import { useNewsletter } from 'src/sdk/newsletter/useNewsletter'
 
 import Section from '../Section'
+import styles from './newsletter.module.scss'
 
 export interface NewsletterProps
   extends Omit<ComponentPropsWithRef<'form'>, 'title' | 'onSubmit'> {
@@ -18,6 +19,14 @@ export interface NewsletterProps
    * A subtitle for the section.
    */
   subtitle?: ReactNode
+  /**
+   * The card Variant
+   */
+  card?: boolean
+  /**
+   * The compact form of the Newsletter component
+   */
+  lite?: boolean
 }
 
 const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
@@ -40,7 +49,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
     }
 
     return (
-      <Section data-fs-newsletter>
+      <Section data-fs-newsletter className={styles.fsNewsletter}>
         <Form
           data-fs-newsletter-form
           ref={ref}
@@ -48,7 +57,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
           {...otherProps}
         >
           <header data-fs-newsletter-header>
-            {title}
+            <h3>{title}</h3>
             <span> {Boolean(subtitle) && subtitle}</span>
           </header>
           <div data-fs-newsletter-controls>
