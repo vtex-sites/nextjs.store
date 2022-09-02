@@ -1,7 +1,9 @@
 import type { ComponentPropsWithRef, FormEvent, ReactNode } from 'react'
 import { forwardRef, useRef } from 'react'
-import { Form, Label, Input, LoadingButton } from '@faststore/ui'
+import { Form, LoadingButton } from '@faststore/ui'
 
+import InputText from 'src/components/ui/InputText'
+import Select from 'src/components/ui/Select'
 import { useNewsletter } from 'src/sdk/newsletter/useNewsletter'
 
 import Section from '../Section'
@@ -45,26 +47,30 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
           onSubmit={handleSubmit}
           {...otherProps}
         >
-          <div data-fs-newsletter-header>
+          <header data-fs-newsletter-header>
             {title}
-            {Boolean(subtitle) && subtitle}
-          </div>
-
+            <span> {Boolean(subtitle) && subtitle}</span>
+          </header>
           <div data-fs-newsletter-controls>
-            <Label htmlFor="newsletter-name">Your name</Label>
-            <Input
+            <InputText
+              inputRef={nameInputRef}
               id="newsletter-name"
-              type="text"
-              name="newsletter-name"
-              ref={nameInputRef}
+              label="Your Name"
               required
             />
-            <Label htmlFor="newsletter-email">Your email</Label>
-            <Input
+            <Select
+              id="newsletter-options"
+              options={{
+                name_asc: 'Name, A-Z',
+                name_desc: 'Name, Z-A',
+              }}
+              label="Area of Interest"
+            />
+            <InputText
+              inputRef={emailInputRef}
               id="newsletter-email"
+              label="Your Email"
               type="email"
-              name="newsletter-email"
-              ref={emailInputRef}
               required
             />
             <LoadingButton type="submit" loading={loading}>
