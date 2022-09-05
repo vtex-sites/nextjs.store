@@ -25,8 +25,6 @@
 
   @include media(">=tablet") {
     left: 0;
-    grid-row: 1 / span 3;
-    grid-column: span 7;
     width: 100%;
     max-height: 380px;
     margin-bottom: var(--fs-spacing-7);
@@ -62,8 +60,6 @@
     @include media(">=notebook") {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
-      grid-row: 1 / span 4;
-      grid-column: span 8;
       column-gap: var(--fs-image-gallery-gap-notebook);
     }
   }

@@ -7,7 +7,6 @@
 
   // Default properties
   --fs-shipping-simulation-font-size                : var(--fs-text-size-legend);
-  --fs-shipping-simulation-border-radius-bottom     : var(--fs-border-radius);
 
   // Title
   --fs-shipping-simulation-title-padding-bottom     : var(--fs-spacing-2);
@@ -39,29 +38,6 @@
   // --------------------------------------------------------
 
   font-size: var(--fs-shipping-simulation-font-size);
-
-  @include media(">=tablet") {
-    grid-row: span 4;
-    grid-column: 8 / span 5;
-    border-top: 0;
-    border-bottom-right-radius: var(--fs-shipping-simulation-border-radius-bottom);
-    border-bottom-left-radius: var(--fs-shipping-simulation-border-radius-bottom);
-  }
-
-  @include media(">=notebook") {
-    grid-row: auto;
-    grid-column: 9 / span 4;
-  }
-
-  &[data-fs-shipping-simulation-empty="false"] {
-    @include media(">=tablet") {
-      grid-row: span 4;
-    }
-
-    @include media(">=notebook") {
-      grid-row: span 6;
-    }
-  }
 
   [data-fs-shipping-simulation-title] {
     padding-bottom: var(--fs-shipping-simulation-title-padding-bottom);

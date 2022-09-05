@@ -38,21 +38,7 @@
     }
   }
 
-  [data-fs-product-details-title] {
-    @include media(">=tablet") {
-      grid-column: 8 / span 5;
-      padding: var(--fs-spacing-3);
-      border: var(--fs-border-width) solid var(--fs-border-color-light);
-      border-radius: var(--fs-border-radius) var(--fs-border-radius) 0 0;
-    }
-
-    @include media(">=notebook") {
-      grid-column: 9 / span 4;
-      padding: var(--fs-spacing-4) var(--fs-spacing-5);
-    }
-  }
-
-  [data-fs-product-details-settings] {
+  [data-fs-product-details-section] {
     height: fit-content;
 
     [data-store-sku-selector] {
@@ -76,12 +62,21 @@
       height: 100%;
       padding: var(--fs-spacing-3);
       border: var(--fs-border-width) solid var(--fs-border-color-light);
-      border-top: 0;
+
+      &:not(:first-child) {
+        border-top: 0;
+      }
     }
 
     @include media(">=notebook") {
       grid-column: 9 / span 4;
-      padding: var(--fs-spacing-5);
+      padding: var(--fs-spacing-4) var(--fs-spacing-5);
+    }
+  }
+
+  [data-fs-product-details-title] {
+    @include media(">=tablet") {
+      border-radius: var(--fs-border-radius) var(--fs-border-radius) 0 0;
     }
   }
 
@@ -89,5 +84,49 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--fs-spacing-4);
+  }
+
+  [data-fs-product-details-gallery] {
+    @include media(">=tablet") {
+      grid-row: 1 / span 3;
+      grid-column: span 7;
+    }
+
+    &[data-fs-image-gallery="without-selector"] {
+      @include media(">=notebook") {
+        grid-row-end: span 4;
+        grid-column: span 8;
+      }
+    }
+
+    &[data-fs-image-gallery="with-selector"] {
+      @include media(">=notebook") {
+        grid-row: 1 / span 4;
+        grid-column: span 8;
+      }
+    }
+  }
+
+  [data-fs-product-details-shipping] {
+    @include media(">=tablet") {
+      grid-row: span 4;
+      grid-column: 8 / span 5;
+      border-radius: 0 0 var(--fs-border-radius) var(--fs-border-radius);
+    }
+
+    @include media(">=notebook") {
+      grid-row: auto;
+      grid-column: 9 / span 4;
+    }
+
+    &[data-fs-shipping-simulation-empty="false"] {
+      @include media(">=tablet") {
+        grid-row: span 4;
+      }
+
+      @include media(">=notebook") {
+        grid-row: span 6;
+      }
+    }
   }
 }

@@ -119,7 +119,7 @@ function ProductDetails({ product: staleProduct }: Props) {
       <Breadcrumb breadcrumbList={breadcrumbs.itemListElement} />
 
       <section data-fs-product-details-body>
-        <header data-fs-product-details-title>
+        <header data-fs-product-details-title data-fs-product-details-section>
           <ProductTitle
             title={<h1>{name}</h1>}
             label={
@@ -129,9 +129,9 @@ function ProductDetails({ product: staleProduct }: Props) {
           />
         </header>
 
-        <ImageGallery images={productImages} />
+        <ImageGallery data-fs-product-details-gallery images={productImages} />
 
-        <section data-fs-product-details-settings>
+        <section data-fs-product-details-section>
           {skuVariants && (
             <Selectors
               slugsMap={skuVariants.slugsMap}
@@ -187,7 +187,10 @@ function ProductDetails({ product: staleProduct }: Props) {
           )}
         </section>
 
-        <ShippingSimulation data-fs-product-details-settings />
+        <ShippingSimulation
+          data-fs-product-details-shipping
+          data-fs-product-details-section
+        />
 
         <section data-fs-product-details-content>
           <article data-fs-product-details-description>

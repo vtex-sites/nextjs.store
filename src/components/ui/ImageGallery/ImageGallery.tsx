@@ -14,7 +14,7 @@ interface ImageGalleryProps {
   images: ImageElementData[]
 }
 
-function ImageGallery({ images }: ImageGalleryProps) {
+function ImageGallery({ images, ...otherProps }: ImageGalleryProps) {
   const [selectedImageIdx, setSelectedImageIdx] = useState(0)
   const currentImage = images[selectedImageIdx]
   const hasSelector = images.length > 1
@@ -23,6 +23,7 @@ function ImageGallery({ images }: ImageGalleryProps) {
     <section
       data-fs-image-gallery={hasSelector ? 'with-selector' : 'without-selector'}
       className={styles.fsImageGallery}
+      {...otherProps}
     >
       <ImageZoom>
         <Image
