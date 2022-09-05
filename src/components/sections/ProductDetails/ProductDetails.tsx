@@ -20,6 +20,7 @@ import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 import Selectors from 'src/components/ui/SkuSelector'
 
+import styles from './product-details.module.scss'
 import Section from '../Section'
 
 interface Props {
@@ -112,10 +113,12 @@ function ProductDetails({ product: staleProduct }: Props) {
   ])
 
   return (
-    <Section className="product-details layout__content layout__section">
+    <Section
+      className={`${styles.fsProductDetails} layout__content layout__section`}
+    >
       <Breadcrumb breadcrumbList={breadcrumbs.itemListElement} />
 
-      <section className="product-details__body">
+      <section data-fs-product-details-body>
         <header data-fs-product-details-title>
           <ProductTitle
             title={<h1>{name}</h1>}
@@ -137,8 +140,8 @@ function ProductDetails({ product: staleProduct }: Props) {
             />
           )}
 
-          <section className="product-details__values">
-            <div className="product-details__prices">
+          <section data-fs-product-details-values>
+            <div data-fs-product-details-prices>
               <Price
                 value={listPrice}
                 formatter={useFormattedPrice}
@@ -186,8 +189,8 @@ function ProductDetails({ product: staleProduct }: Props) {
 
         <ShippingSimulation data-fs-product-details-settings />
 
-        <section className="product-details__content">
-          <article className="product-details__description">
+        <section data-fs-product-details-content>
+          <article data-fs-product-details-description>
             <h2 className="text__title-subsection">Description</h2>
             <p className="text__body">{description}</p>
           </article>

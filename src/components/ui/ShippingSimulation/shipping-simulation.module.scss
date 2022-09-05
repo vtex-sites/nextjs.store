@@ -34,6 +34,10 @@
   --fs-shipping-simulation-table-cell-text-size     : var(--fs-text-size-2);
   --fs-shipping-simulation-table-cell-border-radius : var(--fs-border-radius);
 
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
+
   font-size: var(--fs-shipping-simulation-font-size);
 
   @include media(">=tablet") {
