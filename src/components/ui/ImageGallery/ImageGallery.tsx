@@ -21,7 +21,7 @@ function ImageGallery({ images }: ImageGalleryProps) {
 
   return (
     <section
-      data-fs-image-gallery={!hasSelector ? 'without-selector' : ''}
+      data-fs-image-gallery={hasSelector ? 'with-selector' : 'without-selector'}
       className={styles.fsImageGallery}
     >
       <ImageZoom>
