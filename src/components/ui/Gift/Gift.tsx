@@ -53,10 +53,10 @@ function Gift({
         <Image src={img.url} alt={img.alternateName} width={89} height={89} />
       </UIGiftImage>
       <UIGiftContent>
-        <h3 data-gift-product-title>
+        <h3 data-fs-gift-product-title>
           {titleMessage} {isVariantOf.name}
         </h3>
-        <span data-gift-product-summary>
+        <span data-fs-gift-product-summary>
           <Price
             value={listPrice}
             formatter={useFormattedPrice}

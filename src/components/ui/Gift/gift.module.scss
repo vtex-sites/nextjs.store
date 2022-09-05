@@ -64,7 +64,7 @@
     padding: var(--fs-gift-content-padding);
   }
 
-  [data-gift-product-title] {
+  [data-fs-gift-product-title] {
     font-size: var(--fs-gift-title-size);
     line-height: var(--fs-gift-title-line-height);
     color: var(--fs-gift-title-color);
@@ -72,7 +72,7 @@
     @include truncate-title;
   }
 
-  [data-gift-product-summary] {
+  [data-fs-gift-product-summary] {
     display: flex;
     align-items: center;
 
