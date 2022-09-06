@@ -85,6 +85,10 @@
   // -----------------------------
 
   [data-fs-product-details-buying] {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--fs-spacing-4);
+
     @include media(">=tablet") {
       grid-row: span 5;
     }
@@ -109,6 +113,14 @@
     justify-content: space-between;
   }
 
+  // Shipping
+
+  [data-fs-product-details-shipping] {
+    @include media(">=tablet") {
+      border-radius: 0 0 var(--fs-border-radius) var(--fs-border-radius);
+    }
+  }
+
   // -----------------------------
   // Gallery Section
   // -----------------------------
@@ -117,6 +129,15 @@
     @include media(">=tablet") {
       grid-row: 1 / span 3;
       grid-column: span 7;
+      max-height: 380px;
+    }
+
+    @include media(">tablet", "<notebook") {
+      max-height: 560px;
+    }
+
+    @include media(">=notebook") {
+      max-height: 530px;
     }
 
     &[data-fs-image-gallery="without-selector"] {
@@ -135,39 +156,13 @@
   }
 
   // -----------------------------
-  // Shipping Section
-  // -----------------------------
-
-  // [data-fs-product-details-shipping] {
-  //   @include media(">=tablet") {
-  //     grid-row: span 4;
-  //     grid-column: 8 / span 5;
-  //     border-radius: 0 0 var(--fs-border-radius) var(--fs-border-radius);
-  //   }
-
-  //   @include media(">=notebook") {
-  //     grid-row: auto;
-  //     grid-column: 9 / span 4;
-  //   }
-
-  //   &[data-fs-shipping-simulation-empty="false"] {
-  //     @include media(">=tablet") {
-  //       grid-row: span 4;
-  //     }
-
-  //     @include media(">=notebook") {
-  //       grid-row: span 6;
-  //     }
-  //   }
-  // }
-
-  // -----------------------------
   // Content Section
   // -----------------------------
 
   [data-fs-product-details-content] {
-    margin-top: var(--fs-spacing-3);
-    [data-fs-product-details-description] .text__title-subsection { margin-bottom: var(--fs-spacing-3); }
+    [data-fs-product-details-description] .text__title-subsection {
+      margin-bottom: var(--fs-spacing-3);
+    }
 
     @include media(">=tablet") {
       grid-row: span 10;

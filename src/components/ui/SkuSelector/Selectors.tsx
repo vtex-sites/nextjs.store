@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
-import type { ChangeEvent } from 'react'
+import type { ChangeEvent, HTMLAttributes } from 'react'
 
 import SkuSelector from './SkuSelector'
 import { navigateToSku } from './skuVariants'
 import type { SkuVariantsByName } from './skuVariants'
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   /**
    * Maps property value combinations to their respective SKU's slug
    */
