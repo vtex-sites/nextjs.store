@@ -131,69 +131,71 @@ function ProductDetails({ product: staleProduct }: Props) {
 
         <ImageGallery data-fs-product-details-gallery images={productImages} />
 
-        <section
-          data-fs-product-details-settings
-          data-fs-product-details-section
-        >
-          <section data-fs-product-details-values>
-            <div data-fs-product-details-prices>
-              <Price
-                value={listPrice}
-                formatter={useFormattedPrice}
-                testId="list-price"
-                data-value={listPrice}
-                variant="listing"
-                classes="text__legend"
-                SRText="Original price:"
+        <section data-fs-product-details-buying>
+          <section
+            data-fs-product-details-settings
+            data-fs-product-details-section
+          >
+            <section data-fs-product-details-values>
+              <div data-fs-product-details-prices>
+                <Price
+                  value={listPrice}
+                  formatter={useFormattedPrice}
+                  testId="list-price"
+                  data-value={listPrice}
+                  variant="listing"
+                  classes="text__legend"
+                  SRText="Original price:"
+                />
+                <Price
+                  value={lowPrice}
+                  formatter={useFormattedPrice}
+                  testId="price"
+                  data-value={lowPrice}
+                  variant="spot"
+                  classes="text__lead"
+                  SRText="Sale Price:"
+                />
+              </div>
+              {/* <div className="prices">
+                <p className="price__old text__legend">{formattedListPrice}</p>
+                <p className="price__new">{isValidating ? '' : formattedPrice}</p>
+              </div> */}
+              <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
+            </section>
+            {skuVariants && (
+              <Selectors
+                slugsMap={skuVariants.slugsMap}
+                availableVariations={skuVariants.availableVariations}
+                activeVariations={skuVariants.activeVariations}
+                data-fs-product-details-selectors
               />
-              <Price
-                value={lowPrice}
-                formatter={useFormattedPrice}
-                testId="price"
-                data-value={lowPrice}
-                variant="spot"
-                classes="text__lead"
-                SRText="Sale Price:"
+            )}
+            {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
+                non-composited animation violation due to the button transitioning its
+                background color when changing from its initial disabled to active state.
+                See full explanation on commit https://git.io/JyXV5. */}
+            {isValidating ? (
+              <AddToCartLoadingSkeleton />
+            ) : (
+              <ButtonBuy disabled={buyDisabled} {...buyProps}>
+                Add to Cart
+              </ButtonBuy>
+            )}
+            {!availability && (
+              <OutOfStock
+                onSubmit={(email) => {
+                  console.info(email)
+                }}
               />
-            </div>
-            {/* <div className="prices">
-              <p className="price__old text__legend">{formattedListPrice}</p>
-              <p className="price__new">{isValidating ? '' : formattedPrice}</p>
-            </div> */}
-            <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
+            )}
           </section>
-          {skuVariants && (
-            <Selectors
-              slugsMap={skuVariants.slugsMap}
-              availableVariations={skuVariants.availableVariations}
-              activeVariations={skuVariants.activeVariations}
-              data-fs-product-details-selectors
-            />
-          )}
-          {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
-              non-composited animation violation due to the button transitioning its
-              background color when changing from its initial disabled to active state.
-              See full explanation on commit https://git.io/JyXV5. */}
-          {isValidating ? (
-            <AddToCartLoadingSkeleton />
-          ) : (
-            <ButtonBuy disabled={buyDisabled} {...buyProps}>
-              Add to Cart
-            </ButtonBuy>
-          )}
-          {!availability && (
-            <OutOfStock
-              onSubmit={(email) => {
-                console.info(email)
-              }}
-            />
-          )}
-        </section>
 
-        <ShippingSimulation
-          data-fs-product-details-shipping
-          data-fs-product-details-section
-        />
+          <ShippingSimulation
+            data-fs-product-details-section
+            data-fs-product-details-shipping
+          />
+        </section>
 
         <section data-fs-product-details-content>
           <article data-fs-product-details-description>

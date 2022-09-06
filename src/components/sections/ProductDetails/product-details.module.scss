@@ -16,7 +16,6 @@
     @include media(">=tablet") {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: auto;
       row-gap: 0;
       column-gap: var(--fs-spacing-4);
     }
@@ -45,8 +44,6 @@
     }
 
     @include media(">=tablet") {
-      grid-column: 8 / span 5;
-      height: 100%;
       padding: var(--fs-spacing-3);
       border: var(--fs-border-width) solid var(--fs-border-color-light);
 
@@ -56,8 +53,19 @@
     }
 
     @include media(">=notebook") {
-      grid-column: 9 / span 4;
       padding: var(--fs-spacing-4) var(--fs-spacing-5);
+    }
+  }
+
+  [data-fs-product-details-title],
+  [data-fs-product-details-buying] {
+    @include media(">=tablet") {
+      grid-column: 8 / span 5;
+      height: 100%;
+    }
+
+    @include media(">=notebook") {
+      grid-column: 9 / span 4;
     }
   }
 
@@ -67,13 +75,22 @@
 
   [data-fs-product-details-title] {
     @include media(">=tablet") {
+      border-bottom: 0;
       border-radius: var(--fs-border-radius) var(--fs-border-radius) 0 0;
     }
   }
 
   // -----------------------------
-  // Settings Section
+  // Buying Section
   // -----------------------------
+
+  [data-fs-product-details-buying] {
+    @include media(">=tablet") {
+      grid-row: span 5;
+    }
+  }
+
+  // Settings
 
   [data-fs-product-details-settings] {
     display: flex;
@@ -121,28 +138,28 @@
   // Shipping Section
   // -----------------------------
 
-  [data-fs-product-details-shipping] {
-    @include media(">=tablet") {
-      grid-row: span 4;
-      grid-column: 8 / span 5;
-      border-radius: 0 0 var(--fs-border-radius) var(--fs-border-radius);
-    }
+  // [data-fs-product-details-shipping] {
+  //   @include media(">=tablet") {
+  //     grid-row: span 4;
+  //     grid-column: 8 / span 5;
+  //     border-radius: 0 0 var(--fs-border-radius) var(--fs-border-radius);
+  //   }
 
-    @include media(">=notebook") {
-      grid-row: auto;
-      grid-column: 9 / span 4;
-    }
+  //   @include media(">=notebook") {
+  //     grid-row: auto;
+  //     grid-column: 9 / span 4;
+  //   }
 
-    &[data-fs-shipping-simulation-empty="false"] {
-      @include media(">=tablet") {
-        grid-row: span 4;
-      }
+  //   &[data-fs-shipping-simulation-empty="false"] {
+  //     @include media(">=tablet") {
+  //       grid-row: span 4;
+  //     }
 
-      @include media(">=notebook") {
-        grid-row: span 6;
-      }
-    }
-  }
+  //     @include media(">=notebook") {
+  //       grid-row: span 6;
+  //     }
+  //   }
+  // }
 
   // -----------------------------
   // Content Section
