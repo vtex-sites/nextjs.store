@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import type { HTMLAttributes } from 'react'
 
 import { Image } from 'src/components/ui/Image'
 import styles from 'src/components/ui/ImageGallery/image-gallery.module.scss'
@@ -10,7 +11,7 @@ export interface ImageElementData {
   alternateName: string
 }
 
-interface ImageGalleryProps {
+interface ImageGalleryProps extends HTMLAttributes<HTMLDivElement> {
   images: ImageElementData[]
 }
 
