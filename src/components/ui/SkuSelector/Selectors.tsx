@@ -30,7 +30,12 @@ interface Props {
  */
 const DOMINANT_SKU_SELECTOR_PROPERTY = 'Color'
 
-function Selectors({ slugsMap, availableVariations, activeVariations }: Props) {
+function Selectors({
+  slugsMap,
+  availableVariations,
+  activeVariations,
+  ...otherProps
+}: Props) {
   const router = useRouter()
 
   // 'Color' variants are singled-out here because they will always be rendered
@@ -54,7 +59,7 @@ function Selectors({ slugsMap, availableVariations, activeVariations }: Props) {
   }
 
   return (
-    <section>
+    <section {...otherProps}>
       {colorOptions && (
         <SkuSelector
           label="Color"

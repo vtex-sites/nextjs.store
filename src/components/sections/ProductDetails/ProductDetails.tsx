@@ -131,15 +131,10 @@ function ProductDetails({ product: staleProduct }: Props) {
 
         <ImageGallery data-fs-product-details-gallery images={productImages} />
 
-        <section data-fs-product-details-section>
-          {skuVariants && (
-            <Selectors
-              slugsMap={skuVariants.slugsMap}
-              availableVariations={skuVariants.availableVariations}
-              activeVariations={skuVariants.activeVariations}
-            />
-          )}
-
+        <section
+          data-fs-product-details-settings
+          data-fs-product-details-section
+        >
           <section data-fs-product-details-values>
             <div data-fs-product-details-prices>
               <Price
@@ -167,6 +162,14 @@ function ProductDetails({ product: staleProduct }: Props) {
             </div> */}
             <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
           </section>
+          {skuVariants && (
+            <Selectors
+              slugsMap={skuVariants.slugsMap}
+              availableVariations={skuVariants.availableVariations}
+              activeVariations={skuVariants.activeVariations}
+              data-fs-product-details-selectors
+            />
+          )}
           {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
               non-composited animation violation due to the button transitioning its
               background color when changing from its initial disabled to active state.
