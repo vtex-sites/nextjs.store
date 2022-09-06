@@ -37,7 +37,6 @@
   [data-fs-gift-wrapper] {
     display: grid;
     grid-template-columns: var(--fs-gift-height) repeat(4, 1fr);
-    column-gap: var(--fs-gift-gap);
     align-items: flex-start;
     height: var(--fs-gift-height);
     overflow: hidden;
