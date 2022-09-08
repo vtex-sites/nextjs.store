@@ -131,7 +131,7 @@ function ProductDetails({ product: staleProduct }: Props) {
 
         <ImageGallery data-fs-product-details-gallery images={productImages} />
 
-        <section data-fs-product-details-buying>
+        <section data-fs-product-details-info>
           <section
             data-fs-product-details-settings
             data-fs-product-details-section

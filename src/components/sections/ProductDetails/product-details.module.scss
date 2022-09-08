@@ -73,7 +73,7 @@
   }
 
   [data-fs-product-details-title],
-  [data-fs-product-details-buying] {
+  [data-fs-product-details-info] {
     @include media(">=tablet") {
       grid-column: 8 / span 5;
       height: 100%;
@@ -96,10 +96,10 @@
   }
 
   // -----------------------------
-  // Buying Section
+  // Info Section
   // -----------------------------
 
-  [data-fs-product-details-buying] {
+  [data-fs-product-details-info] {
     display: flex;
     flex-direction: column;
     row-gap: var(--fs-product-details-vertical-spacing);
