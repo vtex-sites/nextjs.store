@@ -1,9 +1,10 @@
 import type { ComponentPropsWithRef, FormEvent, ReactNode } from 'react'
 import { forwardRef, useRef } from 'react'
-import { Form, LoadingButton } from '@faststore/ui'
+import { Form } from '@faststore/ui'
 
+import Icon from 'src/components/ui/Icon'
+import Button from 'src/components/ui/Button'
 import InputText from 'src/components/ui/InputText'
-import Select from 'src/components/ui/Select'
 import { useNewsletter } from 'src/sdk/newsletter/useNewsletter'
 
 import Section from '../Section'
@@ -16,9 +17,9 @@ export interface NewsletterProps
    */
   title: ReactNode
   /**
-   * A subtitle for the section.
+   * A description for the section.
    */
-  subtitle?: ReactNode
+  description?: ReactNode
   /**
    * The card Variant
    */
@@ -30,7 +31,10 @@ export interface NewsletterProps
 }
 
 const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
-  function Newsletter({ title, subtitle, ...otherProps }, ref) {
+  function Newsletter(
+    { title, description, card = false, lite = false, ...otherProps },
+    ref
+  ) {
     const { subscribeUser, loading } = useNewsletter()
     const nameInputRef = useRef<HTMLInputElement>(null)
     const emailInputRef = useRef<HTMLInputElement>(null)
@@ -49,7 +53,10 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
     }
 
     return (
-      <Section data-fs-newsletter className={styles.fsNewsletter}>
+      <Section
+        data-fs-newsletter={card ? 'card' : ''}
+        className={styles.fsNewsletter}
+      >
         <Form
           data-fs-newsletter-form
           ref={ref}
@@ -57,34 +64,34 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
           {...otherProps}
         >
           <header data-fs-newsletter-header>
-            <h3>{title}</h3>
-            <span> {Boolean(subtitle) && subtitle}</span>
+            <h3>
+              <Icon name="Envelop" width={32} height={32} />
+              {title}
+            </h3>
+            <span> {Boolean(description) && description}</span>
           </header>
           <div data-fs-newsletter-controls>
-            <InputText
-              inputRef={nameInputRef}
-              id="newsletter-name"
-              label="Your Name"
-              required
-            />
-            <Select
-              id="newsletter-options"
-              options={{
-                name_asc: 'Name, A-Z',
-                name_desc: 'Name, Z-A',
-              }}
-              label="Area of Interest"
-            />
-            <InputText
-              inputRef={emailInputRef}
-              id="newsletter-email"
-              label="Your Email"
-              type="email"
-              required
-            />
-            <LoadingButton type="submit" loading={loading}>
+            <>
+              <InputText
+                inputRef={nameInputRef}
+                id="newsletter-name"
+                label="Your Name"
+                required
+              />
+              <InputText
+                inputRef={emailInputRef}
+                id="newsletter-email"
+                label="Your Email"
+                type="email"
+                required
+              />
+              {/* <LoadingButton type="submit" loading={loading}>
               Subscribe
-            </LoadingButton>
+            </LoadingButton> */}
+              <Button variant="secondary" inverse type="submit">
+                {loading ? 'Loading...' : 'Subscribe'}
+              </Button>
+            </>
           </div>
         </Form>
       </Section>

@@ -116,7 +116,12 @@ const InputText = ({
             }}
           />
         ) : (
-          <Button variant="tertiary" size="small" onClick={onSubmit}>
+          <Button
+            variant="tertiary"
+            size="small"
+            onClick={onSubmit}
+            type="submit"
+          >
             {buttonActionText}
           </Button>
         ))}

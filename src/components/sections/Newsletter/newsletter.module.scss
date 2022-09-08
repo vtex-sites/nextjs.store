@@ -17,6 +17,11 @@
   // Structural Styles
   // --------------------------------------------------------
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: var(--fs-spacing-4) var(--fs-spacing-4) var(--fs-spacing-5);
   color: var(--fs-newsletter-text-color);
   background-color: var(--fs-newsletter-bkg);
 
@@ -26,7 +31,29 @@
   }
 
   [data-fs-newsletter-header] h3 {
+    display: flex;
+    column-gap: var(--fs-spacing-2);
+    align-items: center;
     font-size: var(--fs-newsletter-title-size);
     font-weight: var(--fs-newsletter-title-weight);
+    color: var(--fs-newsletter-text-color);
+  }
+
+  [data-fs-newsletter-controls] {
+    display: grid;
+    row-gap: var(--fs-spacing-3);
+    margin-top: var(--fs-spacing-4);
+
+    [data-fs-button-inverse] {
+      margin-top: var(--fs-spacing-3);
+    }
+  }
+
+  // --------------------------------------------------------
+  // Variants Styles
+  // --------------------------------------------------------
+
+  &[data-fs-newsletter="card"] {
+    border-radius: var(--fs-border-radius);
   }
 }
