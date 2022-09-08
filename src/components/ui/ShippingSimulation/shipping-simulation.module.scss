@@ -15,7 +15,7 @@
   --fs-shipping-simulation-link-padding-top         : var(--fs-spacing-1);
 
   // Header
-  --fs-shipping-simulation-header-padding-bottom    : var(--fs-spacing-3);
+  --fs-shipping-simulation-header-padding-top       : var(--fs-spacing-3);
 
   // Subtitle
   --fs-shipping-simulation-subtitle-text-size       : var(--fs-text-size-2);
@@ -54,7 +54,7 @@
   }
 
   [data-fs-shipping-simulation-header] {
-    padding-top: var(--fs-shipping-simulation-header-padding-bottom);
+    padding-top: var(--fs-shipping-simulation-header-padding-top);
   }
 
   [data-fs-shipping-simulation-subtitle] {
