@@ -55,13 +55,14 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
     return (
       <Section
         data-fs-newsletter={card ? 'card' : ''}
-        className={styles.fsNewsletter}
+        className={`${styles.fsNewsletter} layout__section`}
       >
         <Form
           data-fs-newsletter-form
           ref={ref}
           onSubmit={handleSubmit}
           {...otherProps}
+          className="layout__content"
         >
           <header data-fs-newsletter-header>
             <h3>
