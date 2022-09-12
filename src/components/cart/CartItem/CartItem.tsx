@@ -1,12 +1,12 @@
 import { sendAnalyticsEvent } from '@faststore/sdk'
 import {
-  CartItem as CartItemUI,
-  CartItemActions as CartItemActionsUI,
-  CartItemSummary as CartItemSummaryUI,
-  CartItemTitle as CartItemTitleUI,
-  CartItemPrices as CartItemPricesUI,
-  CartItemContent as CartItemContentUI,
-  CartItemImage as CartItemImageUI,
+  CartItem as UICartItem,
+  CartItemActions as UICartItemActions,
+  CartItemSummary as UICartItemSummary,
+  CartItemTitle as UICartItemTitle,
+  CartItemPrices as UICartItemPrices,
+  CartItemContent as UICartItemContent,
+  CartItemImage as UICartItemImage,
 } from '@faststore/ui'
 import { useCallback, useMemo } from 'react'
 import type {
@@ -90,27 +90,27 @@ function CartItem({ item, gift = false }: Props) {
   )
 
   return (
-    <CartItemUI
+    <UICartItem
       className={styles.fsCartItem}
       data-testid="cart-item"
       data-sku={item.itemOffered.sku}
       data-seller={item.seller.identifier}
     >
-      <CartItemContentUI>
-        <CartItemImageUI>
+      <UICartItemContent>
+        <UICartItemImage>
           <Image
             src={item.itemOffered.image[0].url}
             alt={item.itemOffered.image[0].alternateName}
             width={72}
             height={72}
           />
-        </CartItemImageUI>
-        <CartItemSummaryUI>
-          <CartItemTitleUI className="text__body">
+        </UICartItemImage>
+        <UICartItemSummary>
+          <UICartItemTitle className="text__body">
             {item.itemOffered.isVariantOf.name}
-          </CartItemTitleUI>
+          </UICartItemTitle>
           {!gift && (
-            <CartItemPricesUI>
+            <UICartItemPrices>
               <Price
                 value={item.listPrice}
                 formatter={useFormattedPrice}
@@ -129,13 +129,13 @@ function CartItem({ item, gift = false }: Props) {
                 classes="text__title-subsection"
                 SRText="Price:"
               />
-            </CartItemPricesUI>
+            </UICartItemPrices>
           )}
-        </CartItemSummaryUI>
-      </CartItemContentUI>
+        </UICartItemSummary>
+      </UICartItemContent>
 
       {!gift && (
-        <CartItemActionsUI>
+        <UICartItemActions>
           <Button
             variant="tertiary"
             icon={<Icon name="XCircle" width={18} height={18} />}
@@ -149,9 +149,9 @@ function CartItem({ item, gift = false }: Props) {
             initial={item.quantity}
             onChange={onQuantityChange}
           />
-        </CartItemActionsUI>
+        </UICartItemActions>
       )}
-    </CartItemUI>
+    </UICartItem>
   )
 }
 
