@@ -27,7 +27,7 @@ function SkuSelector({ ...props }: SkuSelectorProps) {
             {variant === 'image' && 'src' in option && (
               <span>
                 <Image
-                  src={option.src}
+                  src={option.src ?? ''}
                   alt={option.alt}
                   width={20}
                   height={20}
