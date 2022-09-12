@@ -27,7 +27,7 @@ function OrderSummary({
         subtotalLabel={`Subtotal (${numberOfItems} products)`}
         subtotalValue={useFormattedPrice(subTotal)}
         discountLabel="Discount"
-        discountValue={discount > 0 ? `-${formattedDiscount}` : null}
+        discountValue={discount > 0 ? `-${formattedDiscount}` : undefined}
         totalLabel="Total"
         totalValue={useFormattedPrice(total)}
       />
