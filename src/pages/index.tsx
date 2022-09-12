@@ -10,6 +10,8 @@ import storeConfig from '../../store.config'
 export type Props = { cmsHome: ContentData }
 
 function Page({ cmsHome }: Props) {
+  console.error('page')
+
   return (
     <>
       {/* SEO */}
