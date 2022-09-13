@@ -17,8 +17,9 @@ function ProductShelf({
   ...variables
 }: ProductShelfProps) {
   const products = useProductsQuery(variables)
+  const productEdges = products?.edges ?? []
 
-  if (products?.edges.length === 0) {
+  if (productEdges.length === 0) {
     return null
   }
 
@@ -30,7 +31,7 @@ function ProductShelf({
       <div className={styles.fsProductShelf} data-fs-product-shelf>
         <ProductShelfSkeleton loading={products === undefined}>
           <ul data-fs-product-shelf-items className="layout__content">
-            {products?.edges.map((product, idx) => (
+            {productEdges.map((product, idx) => (
               <li key={`${product.node.id}`}>
                 <ProductCard product={product.node} index={idx + 1} />
               </li>

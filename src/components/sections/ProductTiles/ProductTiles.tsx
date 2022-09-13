@@ -29,8 +29,9 @@ const getRatio = (products: number, idx: number) => {
 
 const ProductTiles = ({ title, ...variables }: ProductTilesProps) => {
   const products = useProductsQuery(variables)
+  const productEdges = products?.edges ?? []
 
-  if (products?.edges.length === 0) {
+  if (productEdges.length === 0) {
     return null
   }
 
@@ -40,14 +41,14 @@ const ProductTiles = ({ title, ...variables }: ProductTilesProps) => {
       <div>
         <ProductTilesSkeleton variant="wide" loading={!products}>
           <Tiles>
-            {products?.edges.map((product, idx) => (
+            {productEdges.map((product, idx) => (
               <Tile key={product.node.id}>
                 <ProductCard
                   data-testid="tile-card"
                   product={product.node}
                   index={idx + 1}
                   variant="wide"
-                  aspectRatio={getRatio(products.edges.length, idx)}
+                  aspectRatio={getRatio(productEdges.length, idx)}
                 />
               </Tile>
             ))}
