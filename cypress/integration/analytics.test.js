@@ -268,6 +268,14 @@ describe('view_item_list event', () => {
         cy.scrollTo('top', { duration: 500 }).then(() => {
           dataLayerHasEvent('view_item_list')
           eventDataHasCurrencyProperty()
+
+          cy.window().then((window) => {
+            const event = window.dataLayer.find(
+              (evt) => evt.event === 'view_item_list'
+            )
+
+            expect(event.ecommerce.items.length).to.eq(12)
+          })
         })
       })
     })
