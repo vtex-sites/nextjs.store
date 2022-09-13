@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [22.36.2](https://github.com/vtex-sites/nextjs.store/compare/22.36.1...22.36.2) (2022-09-12)
+
+
+### Refactoring
+
+* Extract `CartItem` from the starter to `@faststore/ui` ([#239](https://github.com/vtex-sites/nextjs.store/issues/239)) ([0319076](https://github.com/vtex-sites/nextjs.store/commit/0319076f0dd99b5d4757dd61ce64659ad9d86792))
+
+### [22.36.1](https://github.com/vtex-sites/nextjs.store/compare/22.36.0...22.36.1) (2022-09-12)
+
+
+### Chores
+
+* move OrderSummary to FastStore UI ([#238](https://github.com/vtex-sites/nextjs.store/issues/238)) ([055ff8b](https://github.com/vtex-sites/nextjs.store/commit/055ff8b308adc63587661f379927e276e23cca8c))
+
+## [22.36.0](https://github.com/vtex-sites/nextjs.store/compare/22.35.3...22.36.0) (2022-09-06)
+
+
+### Features
+
+* Adds `Gift` component ([#234](https://github.com/vtex-sites/nextjs.store/issues/234)) ([ef78f5d](https://github.com/vtex-sites/nextjs.store/commit/ef78f5d78d29d4ece856c0cb4fdcfa16853e3d75))
+
+### [22.35.3](https://github.com/vtex-sites/nextjs.store/compare/22.35.2...22.35.3) (2022-09-02)
+
+
+### Chores
+
+* Adds props description - Hero documentation (Storybook)  ([#229](https://github.com/vtex-sites/nextjs.store/issues/229)) ([8a452b8](https://github.com/vtex-sites/nextjs.store/commit/8a452b8fcf5df65b849d5aa4ae9da2c2ec31a403))
+
 ### [22.35.2](https://github.com/vtex-sites/nextjs.store/compare/22.35.1...22.35.2) (2022-08-31)
 
 
