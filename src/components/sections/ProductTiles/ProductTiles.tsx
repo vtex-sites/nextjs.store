@@ -7,7 +7,7 @@ import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import Section from '../Section'
 
 interface ProductTilesProps extends Partial<ProductsQueryQueryVariables> {
-  title: string | JSX.Element
+  title: string
 }
 
 const NUMBER_ITEMS_TO_EXPAND_FIRST = 3

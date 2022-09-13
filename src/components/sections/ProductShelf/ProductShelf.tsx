@@ -7,7 +7,7 @@ import Section from '../Section'
 import styles from './product-shelf.module.scss'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
-  title: string | JSX.Element
+  title: string
   withDivisor?: boolean
 }
 
