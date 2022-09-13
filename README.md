@@ -1,4 +1,4 @@
-run: 6
+run: 7
 
 <p align="center">
   <a href="https://github.com/vtex/faststore">
