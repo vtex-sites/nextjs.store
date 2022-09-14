@@ -23,11 +23,7 @@ interface Props {
   sections?: Array<{ name: string; data: any }>
 }
 
-function RenderPageSections({ sections }: Props) {
-  for (let it = 0; it < 4; it++) {
-    console.info(it)
-  }
-
+function RenderPageSections({ sections }: Props | Props) {
   return (
     <>
       {sections?.map(({ name, data }, index) => {
