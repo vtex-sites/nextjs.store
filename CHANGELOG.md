@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [22.36.7](https://github.com/vtex-sites/nextjs.store/compare/22.36.6...22.36.7) (2022-09-15)
+
+
+### Bug Fixes
+
+* Product Details Grid ([#236](https://github.com/vtex-sites/nextjs.store/issues/236)) ([61970cc](https://github.com/vtex-sites/nextjs.store/commit/61970cc64aacc60f1d1ca042ef0e2db16bffb438))
+
+### [22.36.6](https://github.com/vtex-sites/nextjs.store/compare/22.36.5...22.36.6) (2022-09-14)
+
+
+### Bug Fixes
+
+* `view_item_list` event being fired without products ([#242](https://github.com/vtex-sites/nextjs.store/issues/242)) ([5bb098b](https://github.com/vtex-sites/nextjs.store/commit/5bb098b900596f3aaec77a4d1137adc90c1d767a))
+
+### [22.36.5](https://github.com/vtex-sites/nextjs.store/compare/22.36.4...22.36.5) (2022-09-13)
+
+
+### Refactoring
+
+* Extract `SkuSelector` component to `@faststore/ui` ([#240](https://github.com/vtex-sites/nextjs.store/issues/240)) ([b446979](https://github.com/vtex-sites/nextjs.store/commit/b446979695f4eb0aa952d500bb2cae4ccfd8bf28))
+
+### [22.36.4](https://github.com/vtex-sites/nextjs.store/compare/22.36.3...22.36.4) (2022-09-13)
+
+### [22.36.3](https://github.com/vtex-sites/nextjs.store/compare/22.36.2...22.36.3) (2022-09-13)
+
+### [22.36.2](https://github.com/vtex-sites/nextjs.store/compare/22.36.1...22.36.2) (2022-09-12)
+
+
+### Refactoring
+
+* Extract `CartItem` from the starter to `@faststore/ui` ([#239](https://github.com/vtex-sites/nextjs.store/issues/239)) ([0319076](https://github.com/vtex-sites/nextjs.store/commit/0319076f0dd99b5d4757dd61ce64659ad9d86792))
+
+### [22.36.1](https://github.com/vtex-sites/nextjs.store/compare/22.36.0...22.36.1) (2022-09-12)
+
+
+### Chores
+
+* move OrderSummary to FastStore UI ([#238](https://github.com/vtex-sites/nextjs.store/issues/238)) ([055ff8b](https://github.com/vtex-sites/nextjs.store/commit/055ff8b308adc63587661f379927e276e23cca8c))
+
 ## [22.36.0](https://github.com/vtex-sites/nextjs.store/compare/22.35.3...22.36.0) (2022-09-06)
 
 
