@@ -36,7 +36,7 @@ function CartSidebar() {
       params: {
         currency: currency.code as CurrencyCode,
         value: total,
-        items: items.map((item) => ({
+        items: items.concat(gifts).map((item) => ({
           item_id: item.itemOffered.isVariantOf.productGroupID,
           item_name: item.itemOffered.isVariantOf.name,
           item_brand: item.itemOffered.brand.name,
