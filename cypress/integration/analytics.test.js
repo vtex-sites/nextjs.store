@@ -370,7 +370,7 @@ describe('view_cart event', () => {
     dataLayerHasEvent('view_cart')
 
     cy.window().then((window) => {
-      const event = window.dataLayer.findLast(
+      const event = window.dataLayer.find(
         ({ event: eventName }) => eventName === 'view_cart'
       )
 
