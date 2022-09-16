@@ -25,7 +25,7 @@ export interface NewsletterProps
    */
   card?: boolean
   /**
-   * The compact form of the Newsletter component
+   * The compact version of the Newsletter component
    */
   lite?: boolean
 }
@@ -47,6 +47,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
           email: emailInputRef.current?.value ?? '',
         },
       })
+
       const formElement = event.currentTarget as HTMLFormElement
 
       formElement.reset()
@@ -71,28 +72,41 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
             </h3>
             <span> {Boolean(description) && description}</span>
           </header>
+
           <div data-fs-newsletter-controls>
-            <>
-              <InputText
-                inputRef={nameInputRef}
-                id="newsletter-name"
-                label="Your Name"
-                required
-              />
+            {lite ? (
               <InputText
                 inputRef={emailInputRef}
                 id="newsletter-email"
                 label="Your Email"
                 type="email"
                 required
+                actionable
+                onSubmit={() => {}}
+                onClear={() => {}}
+                buttonActionText="Subscribe"
+                displayClearButton={false}
               />
-              {/* <LoadingButton type="submit" loading={loading}>
-              Subscribe
-            </LoadingButton> */}
-              <Button variant="secondary" inverse type="submit">
-                {loading ? 'Loading...' : 'Subscribe'}
-              </Button>
-            </>
+            ) : (
+              <>
+                <InputText
+                  inputRef={nameInputRef}
+                  id="newsletter-name"
+                  label="Your Name"
+                  required
+                />
+                <InputText
+                  inputRef={emailInputRef}
+                  id="newsletter-email"
+                  label="Your Email"
+                  type="email"
+                  required
+                />
+                <Button variant="secondary" inverse type="submit">
+                  {loading ? 'Loading...' : 'Subscribe'}
+                </Button>
+              </>
+            )}
           </div>
         </Form>
       </Section>
