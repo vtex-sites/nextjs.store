@@ -22,6 +22,7 @@ import Selectors from 'src/components/ui/SkuSelector'
 
 import styles from './product-details.module.scss'
 import Section from '../Section'
+import ProductDetailsContent from '../ProducDetailsContent'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -197,12 +198,7 @@ function ProductDetails({ product: staleProduct }: Props) {
           />
         </section>
 
-        <section data-fs-product-details-content>
-          <article data-fs-product-details-description>
-            <h2 className="text__title-subsection">Description</h2>
-            <p className="text__body">{description}</p>
-          </article>
-        </section>
+        <ProductDetailsContent />
       </section>
     </Section>
   )
