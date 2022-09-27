@@ -18,6 +18,8 @@
   --fs-facets-accordion-item-button-text-size            : var(--fs-text-size-lead);
   --fs-facets-accordion-item-button-text-weight          : var(--fs-text-weight-regular);
   --fs-facets-accordion-item-button-line-height          : 1.5;
+  --fs-accordion-item-button-padding-right-notebook      : var(--fs-spacing-4);
+  --fs-accordion-item-button-padding-left-notebook       : var(--fs-accordion-item-button-padding-right-notebook);
 
   --fs-facets-accordion-item-button-text-weight-notebook : var(--fs-text-size-2);
   --fs-facets-accordion-item-button-line-height-notebook : 1.25;
@@ -57,14 +59,25 @@
     }
   }
 
-  [data-fs-facets-accordion-item] [data-fs-accordion-item-button] {
-    font-size: var(--fs-facets-accordion-item-button-text-size);
-    font-weight: var(--fs-facets-accordion-item-button-text-weight);
-    line-height: var(--fs-facets-accordion-item-button-line-height);
+  [data-fs-facets-accordion-item] {
+    [data-fs-accordion-item-button] {
+      font-size: var(--fs-facets-accordion-item-button-text-size);
+      font-weight: var(--fs-facets-accordion-item-button-text-weight);
+      line-height: var(--fs-facets-accordion-item-button-line-height);
 
-    @include media(">=notebook") {
-      font-size: var(--fs-facets-accordion-item-button-text-weight-notebook);
-      line-height: var(--fs-facets-accordion-item-button-line-height-notebook);
+      @include media(">=notebook") {
+        padding-right: var(--fs-accordion-item-button-padding-right-notebook);
+        padding-left: var(--fs-accordion-item-button-padding-left-notebook);
+        font-size: var(--fs-facets-accordion-item-button-text-weight-notebook);
+        line-height: var(--fs-facets-accordion-item-button-line-height-notebook);
+      }
+    }
+
+    [data-fs-accordion-item-panel] {
+      @include media(">=notebook") {
+        padding-right: var(--fs-accordion-item-button-padding-right-notebook);
+        padding-left: var(--fs-accordion-item-button-padding-left-notebook);
+      }
     }
   }
 

@@ -101,7 +101,7 @@ function ProductDetailsContent({
 
   return (
     <Section
-      className={`${styles.fsProductDetailsContent} layout__content layout__section`}
+      className={styles.fsProductDetailsContent}
       data-fs-product-details-content
     >
       <Accordion expandedIndices={indices} onChange={onChange}>

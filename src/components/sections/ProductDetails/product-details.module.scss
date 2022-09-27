@@ -183,8 +183,13 @@
     }
 
     @include media(">=notebook") {
-      grid-row: span 7;
       grid-column: span 8;
+    }
+  }
+
+  [data-fs-image-gallery="with-selector"] ~ [data-fs-product-details-content] {
+    @include media(">=notebook") {
+      grid-column: 2 / 9;
     }
   }
 }
