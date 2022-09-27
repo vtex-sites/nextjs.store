@@ -14,8 +14,74 @@ import Icon from 'src/components/ui/Icon'
 import styles from './product-details-content.module.scss'
 import Section from '../Section'
 
-function ProductDetailsContent() {
-  const [indices, setIndices] = useState(new Set([0, 1, 2, 3]))
+interface ArticleLabels {
+  /**
+   * Label for the "description" article.
+   *
+   * @default 'Description'
+   */
+  description: string
+  /**
+   * Label for the "About this product" article.
+   *
+   * @default 'About this product'
+   */
+  about: string
+  /**
+   * Label for the "Product highlights" article.
+   *
+   * @default 'Product highlights'
+   */
+  highlights: string
+  /**
+   * Label for the "Learn more" article.
+   *
+   * @default 'Learn more'
+   */
+  learnMore: string
+}
+
+interface Props {
+  /**
+   * Controls which articles will be initially expanded.
+   *
+   * @default 'first'
+   */
+  initiallyExpanded?: 'first' | 'all' | 'none'
+  /**
+   * Defines the labels used in each article.
+   *
+   * @default {description: 'Description', about: 'About this product', highlights: 'Product highlights', learnMore: 'Learn More' }
+   */
+  labels?: Partial<ArticleLabels>
+}
+
+/**
+ * Maps 'initiallyExpanded' prop values to indices
+ */
+const INITIALLY_EXPANDED_MAP = {
+  first: [0],
+  all: [0, 1, 2, 3],
+  none: [],
+}
+
+/**
+ * Default article labels
+ */
+const DEFAULT_LABELS: ArticleLabels = {
+  description: 'Description',
+  about: 'About this product',
+  highlights: 'Product highlights',
+  learnMore: 'Learn More',
+} as const
+
+function ProductDetailsContent({
+  initiallyExpanded = 'first',
+  labels: propLabels = {},
+}: Props) {
+  const [indices, setIndices] = useState(
+    new Set(INITIALLY_EXPANDED_MAP[initiallyExpanded])
+  )
 
   const onChange = (index: number) => {
     setIndices((currentIndices) => {
@@ -31,6 +97,8 @@ function ProductDetailsContent() {
     })
   }
 
+  const labels = { ...DEFAULT_LABELS, ...propLabels }
+
   return (
     <Section
       className={`${styles.fsProductDetailsContent} layout__content layout__section`}
@@ -41,8 +109,11 @@ function ProductDetailsContent() {
           as="article"
           index={0}
           isExpanded={indices.has(0)}
-          buttonLabel={<h2 className="text__title-subsection">Description</h2>}
+          buttonLabel={
+            <h2 className="text__title-subsection">{labels.description}</h2>
+          }
           data-fs-product-details-description
+          prefixId="product-details-content"
         >
           <p className="text__body">
             Sony WH-1000XM4 Wireless Industry Leading Noise Canceling Overhead
@@ -54,9 +125,10 @@ function ProductDetailsContent() {
           index={1}
           isExpanded={indices.has(1)}
           buttonLabel={
-            <h2 className="text__title-subsection">About this product</h2>
+            <h2 className="text__title-subsection">{labels.about}</h2>
           }
           data-fs-product-details-about
+          prefixId="product-details-content"
         >
           <UITable
             cellPadding={0}
@@ -137,9 +209,10 @@ function ProductDetailsContent() {
           index={2}
           isExpanded={indices.has(2)}
           buttonLabel={
-            <h2 className="text__title-subsection">Product highlights</h2>
+            <h2 className="text__title-subsection">{labels.highlights}</h2>
           }
           data-fs-product-details-highlights
+          prefixId="product-details-content"
         >
           <UIList>
             <li>
@@ -177,8 +250,11 @@ function ProductDetailsContent() {
           as="article"
           index={3}
           isExpanded={indices.has(3)}
-          buttonLabel={<h2 className="text__title-subsection">Learn more</h2>}
+          buttonLabel={
+            <h2 className="text__title-subsection">{labels.learnMore}</h2>
+          }
           data-fs-product-details-learn-more
+          prefixId="product-details-content"
         >
           <p className="text__body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
