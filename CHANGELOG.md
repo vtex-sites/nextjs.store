@@ -5,6 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+## [22.38.0](https://github.com/vtex-sites/nextjs.store/compare/22.37.1...22.38.0) (2022-09-26)
+
+
+### Features
+
+* add [@cache](https://github.com/cache)Control directive to GraphQL schema ([#259](https://github.com/vtex-sites/nextjs.store/issues/259)) ([f93597d](https://github.com/vtex-sites/nextjs.store/commit/f93597d0008f2459ba0816119298f6c067f13d23))
+
+### [22.37.1](https://github.com/vtex-sites/nextjs.store/compare/22.37.0...22.37.1) (2022-09-19)
+
+
+### Bug Fixes
+
+* improve the execute server type ([#254](https://github.com/vtex-sites/nextjs.store/issues/254)) ([c35ddd9](https://github.com/vtex-sites/nextjs.store/commit/c35ddd9b9b32c11e765680cf8bdadb5a948f2462))
+
+## [22.37.0](https://github.com/vtex-sites/nextjs.store/compare/22.36.9...22.37.0) (2022-09-16)
+
+
+### Features
+
+* Fire `view_cart` event when the minicart is opened ([#247](https://github.com/vtex-sites/nextjs.store/issues/247)) ([b9c2f61](https://github.com/vtex-sites/nextjs.store/commit/b9c2f6190368d9c4200e13b697a842fce7221378))
+
+### [22.36.9](https://github.com/vtex-sites/nextjs.store/compare/22.36.8...22.36.9) (2022-09-16)
+
+
+### Bug Fixes
+
+* A regression with CLS on the Home page ([#251](https://github.com/vtex-sites/nextjs.store/issues/251)) ([85bb9ce](https://github.com/vtex-sites/nextjs.store/commit/85bb9ce0b85f9ca2045a73acb5cb24857ba794f7))
+
+### [22.36.8](https://github.com/vtex-sites/nextjs.store/compare/22.36.7...22.36.8) (2022-09-15)
+
+
+### Bug Fixes
+
+* `ShippingSimulation` tokens ([#250](https://github.com/vtex-sites/nextjs.store/issues/250)) ([d2fddf2](https://github.com/vtex-sites/nextjs.store/commit/d2fddf2c16df1bb69a29eaecfaaec148168b9df3))
+
 ### [22.36.7](https://github.com/vtex-sites/nextjs.store/compare/22.36.6...22.36.7) (2022-09-15)
 
 

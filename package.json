@@ -1,7 +1,7 @@
 {
   "name": "nextjs.store",
   "private": true,
-  "version": "22.36.7",
+  "version": "22.38.0",
   "license": "MIT",
   "browserslist": "supports es6-module and not dead",
   "scripts": {
@@ -31,7 +31,7 @@
     "@envelop/graphql-jit": "^1.1.1",
     "@envelop/parser-cache": "^2.2.0",
     "@envelop/validation-cache": "^2.2.0",
-    "@faststore/api": "^1.11.7",
+    "@faststore/api": "^1.12.6",
     "@faststore/graphql-utils": "^1.10.34",
     "@faststore/sdk": "^1.10.34",
     "@faststore/ui": "^1.11.20",
