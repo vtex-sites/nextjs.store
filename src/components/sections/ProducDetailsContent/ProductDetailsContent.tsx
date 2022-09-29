@@ -104,7 +104,11 @@ function ProductDetailsContent({
       className={styles.fsProductDetailsContent}
       data-fs-product-details-content
     >
-      <Accordion expandedIndices={indices} onChange={onChange}>
+      <Accordion
+        expandedIndices={indices}
+        onChange={onChange}
+        aria-label="Product Details Content"
+      >
         <AccordionItem
           as="article"
           index={0}
