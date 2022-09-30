@@ -14,7 +14,7 @@ module.exports = {
 
   // Platform specific configs for API
   api: {
-    storeId: 'storeframework',
+    storeId: 'lojavivara',
     workspace: 'master',
     environment: 'vtexcommercestable',
     hideUnavailableItems: true,
@@ -26,7 +26,7 @@ module.exports = {
       code: 'USD',
       symbol: '$',
     },
-    locale: 'en-US',
+    locale: 'pt-BR',
     channel: '{"salesChannel":"1","regionId":""}',
     country: 'USA',
     postalCode: null,
