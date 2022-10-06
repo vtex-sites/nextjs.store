@@ -4,6 +4,7 @@ import type { HTMLAttributes } from 'react'
 import { ButtonLink } from 'src/components/ui/Button'
 
 import Section from '../Section'
+import styles from './banner-text.module.scss'
 
 type BannerTextVariant =
   | {
@@ -53,7 +54,7 @@ function BannerText({
   colorVariant = 'main',
 }: BannerTextProps) {
   return (
-    <Section className="layout__section">
+    <Section className={`${styles.fsBannerText} layout__section`}>
       <Banner
         data-fs-banner-text
         data-fs-banner-text-variant={variant}
