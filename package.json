@@ -34,7 +34,7 @@
     "@faststore/api": "^1.12.8",
     "@faststore/graphql-utils": "^1.10.34",
     "@faststore/sdk": "^1.10.34",
-    "@faststore/ui": "https://pkg.csb.dev/vtex/faststore/commit/adf155b3/@faststore/ui",
+    "@faststore/ui": "^1.12.11",
     "@vtex/client-cms": "^0.2.10",
     "graphql": "^15.0.0",
     "include-media": "^1.4.10",
