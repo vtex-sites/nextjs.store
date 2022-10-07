@@ -145,15 +145,15 @@
     @include media(">=tablet") {
       grid-row: 1 / span 3;
       grid-column: span 7;
-      max-height: 380px;
+      max-height: 23.75rem;
     }
 
     @include media(">tablet", "<notebook") {
-      max-height: 560px;
+      max-height: 35rem;
     }
 
     @include media(">=notebook") {
-      max-height: 530px;
+      max-height: 33.125rem;
     }
 
     &[data-fs-image-gallery="without-selector"] {
@@ -176,10 +176,6 @@
   // -----------------------------
 
   [data-fs-product-details-content] {
-    [data-fs-product-details-description] h2 {
-      margin-bottom: var(--fs-spacing-3);
-    }
-
     @include media(">=tablet") {
       grid-row: span 10;
       grid-column: span 7;
@@ -187,8 +183,13 @@
     }
 
     @include media(">=notebook") {
-      grid-row: span 7;
       grid-column: span 8;
+    }
+  }
+
+  [data-fs-image-gallery="with-selector"] ~ [data-fs-product-details-content] {
+    @include media(">=notebook") {
+      grid-column: 2 / 9;
     }
   }
 }

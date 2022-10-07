@@ -5,6 +5,43 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+## [22.39.0](https://github.com/vtex-sites/nextjs.store/compare/22.38.3...22.39.0) (2022-09-29)
+
+
+### Features
+
+* Create Product Details Content component ([#258](https://github.com/vtex-sites/nextjs.store/issues/258)) ([954e4b3](https://github.com/vtex-sites/nextjs.store/commit/954e4b38934dcf254350dc1d7ad1d4a7677a0bf3))
+
+### [22.38.3](https://github.com/vtex-sites/nextjs.store/compare/22.38.2...22.38.3) (2022-09-29)
+
+### [22.38.2](https://github.com/vtex-sites/nextjs.store/compare/22.38.1...22.38.2) (2022-09-29)
+
+
+### Bug Fixes
+
+* Wrong sku being returned for slug ([#261](https://github.com/vtex-sites/nextjs.store/issues/261)) ([b4c6911](https://github.com/vtex-sites/nextjs.store/commit/b4c6911fadac42a12f935e606f6f812316840d39))
+
+### [22.38.1](https://github.com/vtex-sites/nextjs.store/compare/22.38.0...22.38.1) (2022-09-28)
+
+
+### Bug Fixes
+
+* ImageGallery height on responsive views ([#255](https://github.com/vtex-sites/nextjs.store/issues/255)) ([8f704c2](https://github.com/vtex-sites/nextjs.store/commit/8f704c2a23eadc3e2274abc483379972fd27fa8b))
+
+## [22.38.0](https://github.com/vtex-sites/nextjs.store/compare/22.37.1...22.38.0) (2022-09-26)
+
+
+### Features
+
+* add [@cache](https://github.com/cache)Control directive to GraphQL schema ([#259](https://github.com/vtex-sites/nextjs.store/issues/259)) ([f93597d](https://github.com/vtex-sites/nextjs.store/commit/f93597d0008f2459ba0816119298f6c067f13d23))
+
+### [22.37.1](https://github.com/vtex-sites/nextjs.store/compare/22.37.0...22.37.1) (2022-09-19)
+
+
+### Bug Fixes
+
+* improve the execute server type ([#254](https://github.com/vtex-sites/nextjs.store/issues/254)) ([c35ddd9](https://github.com/vtex-sites/nextjs.store/commit/c35ddd9b9b32c11e765680cf8bdadb5a948f2462))
+
 ## [22.37.0](https://github.com/vtex-sites/nextjs.store/compare/22.36.9...22.37.0) (2022-09-16)
 
 
