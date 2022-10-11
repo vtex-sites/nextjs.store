@@ -4,8 +4,6 @@ import type { ReactNode } from 'react'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 
-import styles from './badge.module.scss'
-
 export type BadgeVariants = 'info' | 'highlighted' | 'success' | 'neutral'
 
 type ActionableBadge =
@@ -36,7 +34,6 @@ const Badge = ({
 }: Props) => {
   return (
     <UIBadge
-      className={styles.fsBadge}
       data-fs-badge={big ? 'big' : ''}
       data-fs-badge-variant={variant}
       data-fs-badge-actionable={actionable}
@@ -44,8 +41,8 @@ const Badge = ({
     >
       {actionable && (
         <Button
+          data-fs-badge-button="true"
           aria-label="Remove"
-          data-fs-badge-button
           onClick={onClose}
           icon={<Icon name="X" width={18} height={18} weight="bold" />}
           iconPosition="left"
