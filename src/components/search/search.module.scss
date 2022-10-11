@@ -55,10 +55,13 @@
   }
 
   [data-fs-search-item-link] {
-    overflow: hidden;
     color: var(--fs-search-item-link-color);
-    text-overflow: ellipsis;
-    white-space: nowrap;
+
+    > span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   [data-fs-search-item] {
