@@ -54,8 +54,9 @@ function BannerText({
   colorVariant = 'main',
 }: BannerTextProps) {
   return (
-    <Section className={`${styles.fsBannerText} layout__section`}>
+    <Section className="layout__section">
       <Banner
+        className={styles.fsBannerText}
         data-fs-banner-text
         data-fs-banner-text-variant={variant}
         data-fs-banner-text-color-variant={colorVariant}
