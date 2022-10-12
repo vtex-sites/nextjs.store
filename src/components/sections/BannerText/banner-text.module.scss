@@ -65,7 +65,7 @@
   // Variants Styles
   // --------------------------------------------------------
 
-  [data-fs-banner-text-variant="primary"] {
+  &[data-fs-banner-text-variant="primary"] {
     h2 {
       font-size: var(--fs-banner-title-size);
       font-weight: var(--fs-banner-title-weight);
@@ -78,7 +78,7 @@
     }
   }
 
-  [data-fs-banner-text-variant="secondary"] {
+  &[data-fs-banner-text-variant="secondary"] {
     h2 {
       margin-bottom: var(--fs-spacing-2);
       font-size: var(--fs-banner-title-size);
@@ -98,7 +98,7 @@
     }
   }
 
-  [data-fs-banner-text-color-variant="main"] {
+  &[data-fs-banner-text-color-variant="main"] {
     background-color: var(--fs-banner-main-bkg-color);
 
     [data-fs-banner-text-heading] {
@@ -106,7 +106,7 @@
     }
   }
 
-  [data-fs-banner-text-color-variant="light"] {
+  &[data-fs-banner-text-color-variant="light"] {
     background-color: var(--fs-banner-light-bkg-color);
 
     [data-fs-banner-text-heading] {
@@ -114,7 +114,7 @@
     }
   }
 
-  [data-fs-banner-text-color-variant="accent"] {
+  &[data-fs-banner-text-color-variant="accent"] {
     background-color: var(--fs-banner-accent-bkg-color);
 
     [data-fs-banner-text-heading] {
