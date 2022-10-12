@@ -10,6 +10,10 @@
   --fs-newsletter-bkg                               : var(--fs-color-primary-bkg);
   --fs-newsletter-text-color                        : var(--fs-color-text-inverse);
 
+  // Card
+  --fs-newsletter-card-width                        : 23.438rem;  // 375px
+  --fs-newsletter-card-width-notebook               : 33.125rem;  // 530px
+
   // Title
   --fs-newsletter-title-size                        : var(--fs-text-size-title-section);
   --fs-newsletter-title-weight                      : var(--fs-text-weight-bold);
@@ -98,11 +102,11 @@
   // --------------------------------------------------------
 
   &[data-fs-newsletter="card"] {
-    width: 375px;
+    width: var(--fs-newsletter-card-width);
     border-radius: var(--fs-newsletter-card-border-radius);
 
     @include media(">=notebook") {
-      width: 530px;
+      width: var(--fs-newsletter-card-width-notebook);
 
       [data-fs-newsletter-form] {
         display: block;
