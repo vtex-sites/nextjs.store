@@ -70,7 +70,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
               <Icon name="Envelop" width={32} height={32} />
               {title}
             </h3>
-            <span> {Boolean(description) && description}</span>
+            {description && <span> {description}</span>}
           </header>
 
           <div data-fs-newsletter-controls>
