@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import Icon from 'src/components/ui/Icon'
 
 import Button from '../../ui/Button'
@@ -44,4 +42,4 @@ function ScrollToTopButton({
   )
 }
 
-export default memo(ScrollToTopButton)
+export default ScrollToTopButton
