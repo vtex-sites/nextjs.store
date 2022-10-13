@@ -3,7 +3,8 @@ import Icon from 'src/components/ui/Icon'
 import { useCartToggleButton } from 'src/sdk/cart/useCartToggleButton'
 
 function CartToggle() {
-  const { 'data-items': totalItems, ...btnProps } = useCartToggleButton()
+  const btnProps = useCartToggleButton()
+  const totalItems = btnProps['data-items']
 
   return (
     <Button
