@@ -65,6 +65,7 @@
   [data-fs-newsletter-header] {
     display: grid;
     row-gap: var(--fs-spacing-2);
+    line-height: 1.5;
     text-align: center;
 
     @include media(">=notebook") {
