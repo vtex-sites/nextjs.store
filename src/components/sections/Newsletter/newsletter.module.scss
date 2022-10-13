@@ -54,6 +54,10 @@
         [data-fs-button-inverse] {
           grid-column: 3;
         }
+
+        [data-fs-newsletter-addendum] {
+          grid-column: 1 / span 3;
+        }
       }
     }
   }

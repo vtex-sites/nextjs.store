@@ -5,6 +5,7 @@ import { Form } from '@faststore/ui'
 import { useUI } from 'src/sdk/ui/Provider'
 import Icon from 'src/components/ui/Icon'
 import Button from 'src/components/ui/Button'
+import Link from 'src/components/ui/Link'
 import InputText from 'src/components/ui/InputText'
 import { useNewsletter } from 'src/sdk/newsletter/useNewsletter'
 
@@ -94,18 +95,26 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
 
           <div data-fs-newsletter-controls>
             {lite ? (
-              <InputText
-                inputRef={emailInputRef}
-                id="newsletter-email"
-                label="Your Email"
-                type="email"
-                required
-                actionable
-                onSubmit={() => {}}
-                onClear={() => {}}
-                buttonActionText="Subscribe"
-                displayClearButton={false}
-              />
+              <>
+                <InputText
+                  inputRef={emailInputRef}
+                  id="newsletter-email"
+                  label="Your Email"
+                  type="email"
+                  required
+                  actionable
+                  onSubmit={() => {}}
+                  onClear={() => {}}
+                  buttonActionText="Subscribe"
+                  displayClearButton={false}
+                />
+                <span data-fs-newsletter-addendum>
+                  By subscribing to our newsletter you agree to to our{' '}
+                  <Link href="/" inverse variant="inline">
+                    Privacy Policy.
+                  </Link>
+                </span>
+              </>
             ) : (
               <>
                 <InputText
@@ -121,6 +130,12 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
                   type="email"
                   required
                 />
+                <span data-fs-newsletter-addendum>
+                  By subscribing to our newsletter you agree to to our{' '}
+                  <Link href="/" inverse variant="inline">
+                    Privacy Policy.
+                  </Link>
+                </span>
                 <Button variant="secondary" inverse type="submit">
                   {loading ? 'Loading...' : 'Subscribe'}
                 </Button>
