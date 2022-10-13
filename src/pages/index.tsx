@@ -54,7 +54,6 @@ function Page({ sections }: Props) {
       <Newsletter
         title="Get News and Special Offers!"
         description="Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here."
-        lite
       />
     </>
   )

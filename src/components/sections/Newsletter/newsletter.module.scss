@@ -10,14 +10,12 @@
   --fs-newsletter-bkg                               : var(--fs-color-primary-bkg);
   --fs-newsletter-text-color                        : var(--fs-color-text-inverse);
 
-  // Card
-  --fs-newsletter-card-width                        : 23.438rem;  // 375px
-  --fs-newsletter-card-width-notebook               : 33.125rem;  // 530px
-  --fs-newsletter-card-border-radius                : var(--fs-border-radius);
-
   // Title
   --fs-newsletter-title-size                        : var(--fs-text-size-title-section);
   --fs-newsletter-title-weight                      : var(--fs-text-weight-bold);
+
+  // Card
+  --fs-newsletter-card-border-radius                : var(--fs-border-radius);
 
   // --------------------------------------------------------
   // Structural Styles
@@ -35,7 +33,7 @@
     @include media(">=notebook") {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      column-gap: var(--fs-grid-gap-4);
+      column-gap: var(--fs-spacing-8);
       padding-top: var(--fs-spacing-6);
       padding-bottom: var(--fs-spacing-6);
 
@@ -100,12 +98,9 @@
   // --------------------------------------------------------
 
   &[data-fs-newsletter="card"] {
-    width: var(--fs-newsletter-card-width);
     border-radius: var(--fs-newsletter-card-border-radius);
 
     @include media(">=notebook") {
-      width: var(--fs-newsletter-card-width-notebook);
-
       [data-fs-newsletter-form] {
         display: block;
       }
