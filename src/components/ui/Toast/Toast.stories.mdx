@@ -1,15 +1,14 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { TokenTable, TokenRow } from 'src/../.storybook/components'
+
 import UIProvider, { useUI } from 'src/sdk/ui/Provider'
 
 import Toast from '.'
 
-const story = {
-  component: Toast,
-  title: 'Atoms/Toast ⚠️',
-}
+<Meta title="Atoms/Toast ⚠️" component={Toast} />
 
-const Template = () => {
+export const Template = () => {
   const { pushToast } = useUI()
-
   return (
     <div
       style={{
@@ -36,7 +35,7 @@ const Template = () => {
   )
 }
 
-const TemplateWithProvider = () => {
+export const TemplateWithProvider = () => {
   return (
     <UIProvider>
       <Toast />
@@ -45,8 +44,24 @@ const TemplateWithProvider = () => {
   )
 }
 
-export const Default = TemplateWithProvider.bind({})
+<header>
 
-Default.args = {}
+# Toast
 
-export default story
+Toast are used to display notifications. They appear temporarily, and should contain a single line of text directly related to the operation performed.
+
+</header>
+
+---
+
+## Usage
+
+`import Toast from 'src/components/ui/Toast'`
+
+<Canvas>
+  <Story name="default">{TemplateWithProvider.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="default" />
+
+---
