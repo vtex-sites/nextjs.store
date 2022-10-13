@@ -1,11 +1,11 @@
 import { Select as UISelect, Label as UILabel } from '@faststore/ui'
-import type { SelectProps } from '@faststore/ui'
+import type { SelectProps as UISelectProps } from '@faststore/ui'
 
 import Icon from 'src/components/ui/Icon'
 
 import styles from './select.module.scss'
 
-export interface UISelectProps extends SelectProps {
+export interface SelectProps extends UISelectProps {
   /*
    * Redefines the id property to be required when using the Select component. The
    * id will be used to link the UISelect component and its label.
@@ -24,7 +24,7 @@ export interface UISelectProps extends SelectProps {
   label?: string
 }
 
-export default function Select({
+function Select({
   id,
   className,
   options,
@@ -34,7 +34,7 @@ export default function Select({
   'aria-label': ariaLabel,
   testId,
   ...otherProps
-}: UISelectProps) {
+}: SelectProps) {
   return (
     <div data-fs-select className={`${styles.fsSelect} ${className}`}>
       {label && (
@@ -66,3 +66,5 @@ export default function Select({
     </div>
   )
 }
+
+export default Select
