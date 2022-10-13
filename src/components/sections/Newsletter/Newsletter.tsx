@@ -2,6 +2,7 @@ import type { ComponentPropsWithRef, FormEvent, ReactNode } from 'react'
 import { forwardRef, useRef } from 'react'
 import { Form } from '@faststore/ui'
 
+import { useUI } from 'src/sdk/ui/Provider'
 import Icon from 'src/components/ui/Icon'
 import Button from 'src/components/ui/Button'
 import InputText from 'src/components/ui/InputText'
@@ -35,9 +36,11 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
     { title, description, card = false, lite = false, ...otherProps },
     ref
   ) {
-    const { subscribeUser, loading } = useNewsletter()
+    const { subscribeUser, loading, data } = useNewsletter()
     const nameInputRef = useRef<HTMLInputElement>(null)
     const emailInputRef = useRef<HTMLInputElement>(null)
+
+    const { pushToast } = useUI()
 
     const handleSubmit = (event: FormEvent) => {
       event.preventDefault()
@@ -47,6 +50,22 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
           email: emailInputRef.current?.value ?? '',
         },
       })
+
+      if (data?.subscribeToNewsletter?.id) {
+        pushToast({
+          title: 'Hooray!',
+          message: 'Thank for your subscription.',
+          status: 'INFO',
+          icon: 'CircleWavyCheck',
+        })
+      } else {
+        pushToast({
+          title: 'Oops.',
+          message: 'Something went wrong. Please Try again.',
+          status: 'ERROR',
+          icon: 'CircleWavyWarning',
+        })
+      }
 
       const formElement = event.currentTarget as HTMLFormElement
 

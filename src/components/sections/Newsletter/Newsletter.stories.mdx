@@ -1,11 +1,17 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import { TokenTable, TokenRow } from 'src/../.storybook/components'
 
+import UIProvider from 'src/sdk/ui/Provider'
+
 import Newsletter from '.'
 
 <Meta title="Organisms/Newsletter" component={Newsletter} />
 
-export const Template = (args) => <Newsletter {...args} />
+export const Template = (args) => (
+  <UIProvider>
+    <Newsletter {...args} />
+  </UIProvider>
+)
 
 <header>
 
