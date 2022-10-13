@@ -74,7 +74,37 @@ The Newsletter component is a section with at least one input text with an actio
 
 ## Variants
 
+### Lite
+
+<Canvas>
+  <Story
+    name="Lite"
+    args={{
+      title: 'Get News and Special Offers!',
+      description:
+        'Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here.',
+      lite: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ### Card
+
+<Canvas>
+  <Story
+    name="Card"
+    args={{
+      title: 'Get News and Special Offers!',
+      description:
+        'Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here.',
+      card: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
 <TokenTable>
   <TokenRow token="--fs-newsletter-card-width" value="23.438rem" />
@@ -84,3 +114,20 @@ The Newsletter component is a section with at least one input text with an actio
     value="var(--fs-border-radius)"
   />
 </TokenTable>
+
+### Card & Lite
+
+<Canvas>
+  <Story
+    name="Card-Lite"
+    args={{
+      title: 'Get News and Special Offers!',
+      description:
+        'Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here.',
+      card: true,
+      lite: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
