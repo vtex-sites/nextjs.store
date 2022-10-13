@@ -13,13 +13,11 @@
   // Card
   --fs-newsletter-card-width                        : 23.438rem;  // 375px
   --fs-newsletter-card-width-notebook               : 33.125rem;  // 530px
+  --fs-newsletter-card-border-radius                : var(--fs-border-radius);
 
   // Title
   --fs-newsletter-title-size                        : var(--fs-text-size-title-section);
   --fs-newsletter-title-weight                      : var(--fs-text-weight-bold);
-
-  // Card
-  --fs-newsletter-card-border-radius                : var(--fs-border-radius);
 
   // --------------------------------------------------------
   // Structural Styles
