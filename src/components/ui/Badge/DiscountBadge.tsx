@@ -7,10 +7,17 @@ import Badge from './Badge'
 export type DiscountBadgeProps = {
   listPrice: number
   spotPrice: number
+  /**
+   * Specifies the component size as big.
+   */
   big?: boolean
-  // Set limit percentage value to consider a low discount.
+  /**
+   * Set limit percentage value to consider a low discount.
+   */
   thresholdLow?: number
-  // Set limit percentage value to consider a high discount
+  /**
+   * Set limit percentage value to consider a high discount.
+   */
   thresholdHigh?: number
 }
 

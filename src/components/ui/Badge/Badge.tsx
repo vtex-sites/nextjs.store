@@ -16,7 +16,7 @@ type ActionableBadge =
       onClose?: never
     }
 
-type Props = {
+export type BadgeProps = {
   big?: boolean
   variant?: BadgeVariants
   children: ReactNode
@@ -31,7 +31,7 @@ const Badge = ({
   big = false,
   actionable = false,
   ...otherProps
-}: Props) => {
+}: BadgeProps) => {
   return (
     <UIBadge
       data-fs-badge={big ? 'big' : ''}
