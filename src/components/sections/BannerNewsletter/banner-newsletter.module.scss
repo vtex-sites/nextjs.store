@@ -3,6 +3,10 @@
 .fs-banner-newsletter {
   margin-bottom: var(--fs-grid-padding);
 
+  [data-fs-banner-text] {
+    border-radius: var(--fs-border-radius);
+  }
+
   > section {
     margin-top: 0;
   }
