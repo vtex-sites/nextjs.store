@@ -1,0 +1,111 @@
+@import "src/styles/scaffold";
+
+.fs-carousel {
+  // --------------------------------------------------------
+  // Design Tokens for Carousel
+  // --------------------------------------------------------
+
+  // Default properties
+  --fs-carousel-padding : var(--fs-spacing-13);
+
+  // --------------------------------------------------------
+  // Structural Styles
+  // --------------------------------------------------------
+
+  &:hover {
+    [data-fs-carousel-controls] {
+      @include media(">=tablet") {
+        display: flex;
+        width: 100%;
+
+        [data-store-icon-button] {
+          top: calc((100% - var(--fs-spacing-7) - var(--fs-spacing-1)) / 2);
+          width: 3.125rem;
+          height: 3.125rem;
+          padding-top: var(--fs-spacing-0);
+          cursor: pointer;
+          background-color: var(--fs-color-neutral-0);
+          border-color: transparent;
+          border-radius: calc(3.125rem / 2);
+          box-shadow: 0 3px 14px rgb(0 0 0 / 15%);
+          transform: translateY(-50%);
+        }
+
+        [data-arrow="left"] {
+          position: absolute;
+          left: var(--fs-spacing-5);
+        }
+
+        [data-arrow="right"] {
+          position: absolute;
+          right: var(--fs-spacing-4);
+        }
+      }
+    }
+  }
+
+  [data-fs-carousel-track] {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include media(">=tablet") {
+      padding: 0 6.25rem;
+    }
+  }
+
+  [data-fs-carousel-item] {
+    width: 80%;
+
+    @include media(">=tablet") {
+      width: 15rem;
+      height: 100%;
+      margin-right: var(--fs-spacing-0);
+    }
+  }
+
+  [data-fs-carousel-controls] {
+    display: none;
+  }
+
+  [data-fs-carousel-bullets] {
+    width: 100%;
+    padding-top: var(--fs-spacing-5);
+
+    @include media(">=tablet") {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: var(--fs-spacing-7);
+    }
+
+    [data-store-bullets] {
+      display: flex;
+      flex-flow: row nowrap;
+
+      @include media(">=tablet") {
+        column-gap: var(--fs-spacing-3);
+      }
+
+      [data-bullet-item] {
+        width: 100%;
+        height: var(--fs-spacing-0);
+        padding: 0;
+        margin-right: var(--fs-spacing-0);
+        background-color: var(--fs-color-neutral-3);
+        border-color: transparent;
+
+        &[aria-selected="true"] {
+          background-color: var(--fs-color-main-4);
+        }
+
+        @include media(">=tablet") {
+          width: var(--fs-spacing-1);
+          height: var(--fs-spacing-1);
+          margin: 0;
+          border-radius: calc(var(--fs-spacing-1) / 2);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+
+import Carousel from '.'
+import ProductCard from 'src/components/product/ProductCard'
+
+<Meta component={Carousel} title="Molecules/Carousel" />
+
+export const product = {
+  id: '15503951',
+  slug: 'handmade-steel-towels-practical-15503951',
+  sku: '15503951',
+  brand: { brandName: 'Brand', name: 'Brand' },
+  name: 'red',
+  gtin: '5595633577807',
+  isVariantOf: {
+    productGroupID: '130742',
+    name: 'Handmade Steel Towels Practical',
+  },
+  image: [
+    {
+      url: 'http://storeframework.vtexassets.com/arquivos/ids/190191/numquam.jpg?v=637755599170100000',
+      alternateName: 'est',
+    },
+  ],
+  offers: {
+    lowPrice: 181.71,
+    offers: [
+      {
+        availability: 'https://schema.org/InStock',
+        price: 181.71,
+        listPrice: 208.72,
+        quantity: 1,
+        seller: { identifier: '1' },
+      },
+    ],
+  },
+}
+
+export const Template = ({ children }) => (
+  <Carousel>
+    {Array.from({ length: 8 }, (_, index) => (
+      <ProductCard
+        index={index}
+        key={String(index)}
+        product={{ ...product, isVariantOf: { name: `Product ${index + 1}` } }}
+      />
+    ))}
+  </Carousel>
+)
+
+<header>
+
+# Carousel
+
+The `Carousel` component is great for swiping images.
+
+</header>
+
+## Overview
+
+The `Carousel` component uses [FastStore UI Carousel](https://www.faststore.dev/reference/ui/molecules/Carousel) as base.
+
+<Canvas>
+  <Story name="overview">{Template.bind({})}</Story>
+</Canvas>
+
+---
