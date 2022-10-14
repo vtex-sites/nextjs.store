@@ -6,18 +6,18 @@ import Icon from 'src/components/ui/Icon'
 import styles from './select.module.scss'
 
 export interface SelectProps extends UISelectProps {
-  /*
+  /**
    * Redefines the id property to be required when using the Select component. The
    * id will be used to link the UISelect component and its label.
    */
   id: string
-  /*
+  /**
    * Defines the options available in the select. The SelectOptions object
    * keys are the property names, while the values correspond to the text that
-   * will be displayed in the UI
+   * will be displayed in the UI.
    */
   options: Record<string, string>
-  /*
+  /**
    * Specifies the text that will be displayed in the label right next to the Select.
    * If omitted, the label will not be rendered.
    */
