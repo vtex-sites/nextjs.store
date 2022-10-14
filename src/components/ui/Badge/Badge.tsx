@@ -6,7 +6,13 @@ import Icon from 'src/components/ui/Icon'
 
 import styles from './badge.module.scss'
 
-export type BadgeVariants = 'info' | 'highlighted' | 'success' | 'neutral'
+export type BadgeVariants =
+  | 'info'
+  | 'highlighted'
+  | 'success'
+  | 'neutral'
+  | 'warning'
+  | 'danger'
 
 type ActionableBadge =
   | {
