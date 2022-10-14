@@ -5,7 +5,13 @@ import { useDiscountPercent } from 'src/sdk/product/useDiscountPercent'
 import Badge from './Badge'
 
 export type DiscountBadgeProps = {
+  /**
+   * Specifies old price before discount.
+   */
   listPrice: number
+  /**
+   * Specifies current price with discount applied.
+   */
   spotPrice: number
   /**
    * Specifies the component size as big.
