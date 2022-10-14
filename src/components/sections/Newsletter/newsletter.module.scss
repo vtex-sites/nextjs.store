@@ -103,7 +103,12 @@
   // --------------------------------------------------------
 
   &[data-fs-newsletter="card"] {
+    text-align: center;
     border-radius: var(--fs-newsletter-card-border-radius);
+
+    [data-fs-newsletter-header] {
+      text-align: center;
+    }
 
     @include media(">=notebook") {
       [data-fs-newsletter-form] {
