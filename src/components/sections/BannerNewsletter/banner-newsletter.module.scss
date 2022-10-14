@@ -9,6 +9,7 @@
 
   @include media(">=notebook") {
     display: flex;
+    column-gap: var(--fs-grid-gap-3);
 
     > section {
       padding-top: 0;
