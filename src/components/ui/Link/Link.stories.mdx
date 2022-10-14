@@ -28,13 +28,15 @@ import {
   }}
 />
 
-export const Template = (args) => <Link {...args}></Link>
+export const Template = ({ children, ...args }) => (
+  <Link {...args}>{children}</Link>
+)
 
 <header>
 
 # Link
 
-The Link component behaves as a regular anchor tag `<a>`, but can be used as any HTML tag.
+The Link component behaves as a regular anchor tag `<a />`, but can be used as any HTML tag.
 
 </header>
 
