@@ -98,6 +98,14 @@
     }
   }
 
+  [data-fs-newsletter-addendum] {
+    text-align: center;
+
+    @include media(">=notebook") {
+      text-align: left;
+    }
+  }
+
   // --------------------------------------------------------
   // Variants Styles
   // --------------------------------------------------------
