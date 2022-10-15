@@ -6,6 +6,7 @@ import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
 import ProductShelf from 'src/components/sections/ProductShelf'
 import ProductTiles from 'src/components/sections/ProductTiles'
+import SectionBoundary from 'src/sdk/error/ErrorBoundary/SectionBoundary'
 
 /**
  * Sections: Components imported from '../components/sections' only.
@@ -37,7 +38,11 @@ function RenderPageSections({ sections }: Props) {
           return <></>
         }
 
-        return <Component key={`cms-section-${index}`} {...data} />
+        return (
+          <SectionBoundary key={`cms-section-${index}`} name={name}>
+            <Component {...data} />
+          </SectionBoundary>
+        )
       })}
     </>
   )
