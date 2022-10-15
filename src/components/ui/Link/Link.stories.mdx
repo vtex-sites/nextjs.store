@@ -15,16 +15,16 @@ import {
     href: {
       type: { name: 'string', required: true },
     },
-    ref: {
-      table: {
-        disable: true,
-      },
-    },
-    as: {
-      table: {
-        disable: true,
-      },
-    },
+    ref: { table: { disable: true } },
+    as: { table: { disable: true } },
+    children: { table: { disable: true } },
+    replace: { table: { disable: true } },
+    scroll: { table: { disable: true } },
+    shallow: { table: { disable: true } },
+    passHref: { table: { disable: true } },
+    prefetch: { table: { disable: true } },
+    locale: { table: { disable: true } },
+    legacyBehavior: { table: { disable: true } },
   }}
 />
 
@@ -42,7 +42,9 @@ The Link component behaves as a regular anchor tag `<a />`, but can be used as a
 
 ## Overview
 
-The `Link` component uses [FastStore UI Link](https://www.faststore.dev/reference/ui/atoms/Link) as base.
+The `Link` component uses [FastStore UI Link](https://www.faststore.dev/reference/ui/atoms/Link) and [Next.js Link](https://nextjs.org/docs/api-reference/next/link) as base.
+
+Internally, the `Link` component handles client-side navigation through the Next.js `Link`, so all the Next.js `Link` attributes can be used for this case.
 
 <Canvas style={{ backgroundColor: 'var(--fs-color-neutral-3)' }}>
   <Story
