@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+## [22.40.0](https://github.com/vtex-sites/nextjs.store/compare/22.39.6...22.40.0) (2022-10-14)
+
+
+### Features
+
+* Adds missing CSS modules ([#270](https://github.com/vtex-sites/nextjs.store/issues/270)) ([831011e](https://github.com/vtex-sites/nextjs.store/commit/831011ebaece3a2e818a2678dfdb484428eaaadf)), closes [vtex-sites/nextjs.store#267](https://github.com/vtex-sites/nextjs.store/issues/267)
+
+### [22.39.6](https://github.com/vtex-sites/nextjs.store/compare/22.39.5...22.39.6) (2022-10-14)
+
+
+### Chores
+
+* Change `resource-summary:stylesheet` Lighthouse metric to warning ([#272](https://github.com/vtex-sites/nextjs.store/issues/272)) ([bd405e9](https://github.com/vtex-sites/nextjs.store/commit/bd405e9fd5a04bcb6da7f2211a6beee32cb3f9a1))
+
 ### [22.39.5](https://github.com/vtex-sites/nextjs.store/compare/22.39.4...22.39.5) (2022-10-13)
 
 ### [22.39.4](https://github.com/vtex-sites/nextjs.store/compare/22.39.3...22.39.4) (2022-10-11)
