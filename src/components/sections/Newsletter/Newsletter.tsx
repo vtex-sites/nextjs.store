@@ -103,8 +103,8 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
                   type="email"
                   required
                   actionable
-                  onSubmit={() => {}}
-                  onClear={() => {}}
+                  onSubmit={() => undefined}
+                  onClear={() => undefined}
                   buttonActionText="Subscribe"
                   displayClearButton={false}
                 />
