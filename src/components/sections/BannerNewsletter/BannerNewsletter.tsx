@@ -5,7 +5,7 @@ import styles from './banner-newsletter.module.scss'
 
 function BannerNewsletter() {
   return (
-    <Section data-fs-product-details-content className="layout__content">
+    <Section className="layout__content">
       <div className={styles.fsBannerNewsletter}>
         <BannerText
           title="Get to Know Our Next Release"
