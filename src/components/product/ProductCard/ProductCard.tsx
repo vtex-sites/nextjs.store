@@ -23,7 +23,7 @@ export interface ProductCardProps {
   product: ProductSummary_ProductFragment
   index: number
   /**
-   * Set a border to the component.
+   * Sets a border to the component.
    */
   bordered?: boolean
   /**
@@ -35,7 +35,7 @@ export interface ProductCardProps {
    */
   aspectRatio?: number
   /**
-   * Enable a ButtonBuy to the component.
+   * Enables a ButtonBuy to the component.
    */
   ButtonBuy?: ReactNode
 }

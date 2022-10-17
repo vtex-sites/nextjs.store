@@ -6,7 +6,7 @@ import Badge from './Badge'
 
 export type DiscountBadgeProps = {
   /**
-   * Specifies old price before discount.
+   * Specifies price without discount applied.
    */
   listPrice: number
   /**
@@ -14,15 +14,15 @@ export type DiscountBadgeProps = {
    */
   spotPrice: number
   /**
-   * Specifies the component size as big.
+   * Sets the component size as big.
    */
   big?: boolean
   /**
-   * Set limit percentage value to consider a low discount.
+   * Sets the limit percentage value to consider a low discount.
    */
   thresholdLow?: number
   /**
-   * Set limit percentage value to consider a high discount.
+   * Sets the limit percentage value to consider a high discount.
    */
   thresholdHigh?: number
 }
