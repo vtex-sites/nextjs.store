@@ -1,0 +1,33 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+
+import InputText from '.'
+
+<Meta title="Atoms/InputText" />
+
+export const Template = (args) => {
+  return <InputText {...args} />
+}
+
+<header>
+
+# Input Text
+
+Input Text are text fields used to get user inputs.
+
+</header>
+
+## Overview
+
+The `InputText` component uses [FastStore UI Input Text](https://www.faststore.dev/reference/ui/atoms/Input) as base.
+
+<Canvas isColumn>
+  <Story
+    name="overview-default"
+    args={{
+      id: 'overview-default',
+      label: '',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

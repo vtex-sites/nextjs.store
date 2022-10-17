@@ -1,0 +1,31 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+
+import Button, { ButtonBuy, ButtonLink } from '.'
+
+<Meta title="Atoms/Button" />
+
+export const Template = (args) => <Button {...args}>Button</Button>
+
+<header>
+
+# Button
+
+Regular button
+
+</header>
+
+## Overview
+
+The `Button` component uses [FastStore UI Button](https://www.faststore.dev/reference/ui/atoms/Button) as base.
+
+<Canvas>
+  <Story name="Overview">
+    <Button variant="primary">Primary Button</Button>
+    <Button variant="secondary" style={{ marginLeft: 20 }}>
+      Secondary Button
+    </Button>
+    <Button variant="tertiary" style={{ marginLeft: 20 }}>
+      Tertiary Button
+    </Button>
+  </Story>
+</Canvas>

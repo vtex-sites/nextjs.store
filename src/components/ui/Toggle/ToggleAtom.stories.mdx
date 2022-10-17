@@ -1,0 +1,29 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+
+import Toggle from '.'
+
+<Meta title="Atoms/InputToggle" component={Toggle} />
+
+export const Template = (args) => <Toggle {...args} onChange={() => {}} />
+
+<header>
+
+# Toggle
+
+An input checkbox styled to look like a switch button.
+
+</header>
+
+## Overview
+
+<Canvas>
+  <Story
+    name="overview-default"
+    args={{
+      id: 'overview-toggle-default',
+      label: '',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
