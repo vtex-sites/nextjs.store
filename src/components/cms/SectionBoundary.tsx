@@ -14,10 +14,7 @@ class SectionBoundary extends Component<{
     }
   }
 
-  // We can't accurately type the error here, since it could vary depending on
-  // what caused it. This is not standardized.
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public componentDidCatch(error: any, errorInfo: ErrorInfo) {
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error(
       `Error while rendering secttion ${this.props.name} with:\n${error.message} ${errorInfo.componentStack}`
     )
@@ -30,7 +27,7 @@ class SectionBoundary extends Component<{
       return null
     }
 
-    return <section data-fs-boundary>{this.props.children}</section>
+    return this.props.children
   }
 }
 
