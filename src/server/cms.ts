@@ -36,8 +36,7 @@ export type PageContentType = ContentData & {
       slug: string
       title: string
       description: string
-      titleTemplate: string
-      canonical: string
+      canonical?: string
     }
   }
 }
