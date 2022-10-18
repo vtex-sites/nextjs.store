@@ -17,7 +17,7 @@ type Options =
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isLocator = (x: any): x is Locator =>
-  typeof x.documentId === 'string' &&
+  typeof x.contentType === 'string' &&
   (typeof x.releaseId === 'string' || typeof x.documentId === 'string')
 
 export const getPage = <T extends ContentData>(options: Options) => {
