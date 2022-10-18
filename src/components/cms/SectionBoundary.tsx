@@ -16,7 +16,7 @@ class SectionBoundary extends Component<{
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error(
-      `Error while rendering secttion ${this.props.name} with:\n${error.message} ${errorInfo.componentStack}`
+      `Error while rendering section ${this.props.name} with:\n${error.message} ${errorInfo.componentStack}`
     )
 
     // TODO: Add fetch in here so we can know which sections are failing on our dashboard
