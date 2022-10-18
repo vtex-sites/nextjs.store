@@ -1464,9 +1464,9 @@
     react-swipeable "^7.0.0"
     tabbable "^5.2.1"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/7329461d/@faststore/ui":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/79979383/@faststore/ui":
   version "1.12.13"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/7329461d/@faststore/ui#df1269e3c95c6dcc3a3f6bb57da05dd32c9cfb2c"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/79979383/@faststore/ui#37bd868b44c42a6f031b0fede84ec6e6241678ea"
   dependencies:
     "@reach/popover" "^0.16.0"
     "@storybook/addon-a11y" "^6.4.4"
