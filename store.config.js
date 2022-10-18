@@ -15,7 +15,7 @@ module.exports = {
   // Platform specific configs for API
   api: {
     storeId: 'storeframework',
-    workspace: 'master',
+    workspace: 'gimenes',
     environment: 'vtexcommercestable',
     hideUnavailableItems: true,
   },

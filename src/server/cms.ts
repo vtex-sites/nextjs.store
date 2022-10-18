@@ -1,5 +1,5 @@
 import ClientCMS from '@vtex/client-cms'
-import type { Locator } from '@vtex/client-cms'
+import type { Locator, ContentData } from '@vtex/client-cms'
 
 import config from '../../store.config'
 
@@ -8,15 +8,36 @@ export const clientCMS = new ClientCMS({
   tenant: config.api.storeId,
 })
 
-type Options = Locator | string
+type Options =
+  | Locator
+  | {
+      contentType: string
+      filters?: Record<string, string>
+    }
 
-export const getPageSections = async (options: Options) => {
-  const page =
-    typeof options !== 'string'
-      ? await clientCMS.getCMSPage(options)
-      : await clientCMS
-          .getCMSPagesByContentType(options)
-          .then((pages) => pages.data[0])
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isLocator = (x: any): x is Locator =>
+  typeof x.documentId === 'string' &&
+  (typeof x.releaseId === 'string' || typeof x.documentId === 'string')
 
-  return page.sections
+export const getPage = <T extends ContentData>(options: Options) => {
+  const page = isLocator(options)
+    ? clientCMS.getCMSPage(options)
+    : clientCMS
+        .getCMSPagesByContentType(options.contentType, options.filters)
+        .then((pages) => pages.data[0])
+
+  return page as Promise<T>
+}
+
+export type PageContentType = ContentData & {
+  settings: {
+    seo: {
+      slug: string
+      title: string
+      description: string
+      titleTemplate: string
+      canonical: string
+    }
+  }
 }
