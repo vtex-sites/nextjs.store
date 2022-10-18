@@ -3,8 +3,8 @@ import type { GetStaticProps } from 'next'
 import type { ContentData, Locator } from '@vtex/client-cms'
 
 import RenderPageSections from 'src/components/cms/RenderPageSections'
-import { mark } from 'src/sdk/tests/mark'
 import Newsletter from 'src/components/sections/Newsletter'
+import { mark } from 'src/sdk/tests/mark'
 import { getPageSections } from 'src/server/cms'
 
 import storeConfig from '../../store.config'
