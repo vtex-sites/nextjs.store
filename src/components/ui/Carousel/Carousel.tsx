@@ -6,7 +6,11 @@ import Icon from 'src/components/ui/Icon'
 
 import styles from './carousel.module.scss'
 
-export type CarouselProps = UICarouselProps
+export type CarouselProps = {
+  id?: string
+  testId?: string
+  itemsPerPage?: number
+} & Pick<UICarouselProps, 'id' | 'testId' | 'itemsPerPage'>
 
 function Carousel({
   children,
@@ -15,36 +19,34 @@ function Carousel({
   const isMobile = window.innerWidth <= 768
 
   return (
-    <div>
-      <UICarousel
-        variant="scroll"
-        infiniteMode={false}
-        className={styles.fsCarousel}
-        itemsPerPage={isMobile ? 1 : itemsPerPage}
-        navigationIcons={{
-          left: (
-            <Icon
-              width={20}
-              height={20}
-              weight="bold"
-              color="#171a1c"
-              name="ArrowLeft"
-            />
-          ),
-          right: (
-            <Icon
-              width={20}
-              height={20}
-              weight="bold"
-              color="#171a1c"
-              name="ArrowRight"
-            />
-          ),
-        }}
-      >
-        {children}
-      </UICarousel>
-    </div>
+    <UICarousel
+      variant="scroll"
+      infiniteMode={false}
+      className={styles.fsCarousel}
+      itemsPerPage={isMobile ? 1 : itemsPerPage}
+      navigationIcons={{
+        left: (
+          <Icon
+            width={20}
+            height={20}
+            weight="bold"
+            color="#171a1c"
+            name="ArrowLeft"
+          />
+        ),
+        right: (
+          <Icon
+            width={20}
+            height={20}
+            weight="bold"
+            color="#171a1c"
+            name="ArrowRight"
+          />
+        ),
+      }}
+    >
+      {children}
+    </UICarousel>
   )
 }
 
