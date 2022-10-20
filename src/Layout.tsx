@@ -1,7 +1,8 @@
-import { lazy, Suspense } from 'react'
 import type { PropsWithChildren } from 'react'
+import { lazy, Suspense, useMemo } from 'react'
 
-import Alert from 'src/components/common/Alert'
+import RenderLayoutSections from 'src/components/cms/RenderLayoutSections'
+import { useCMS } from 'src/components/cms/useCMS'
 import Footer from 'src/components/common/Footer'
 import Navbar from 'src/components/common/Navbar'
 import Toast from 'src/components/common/Toast'
@@ -16,11 +17,12 @@ const RegionModal = lazy(
 function Layout({ children }: PropsWithChildren) {
   const { cart: displayCart, modal: displayModal } = useUI()
 
+  const options = useMemo(() => ({ contentType: 'globalAlert' }), [])
+  const page = useCMS(options)
+
   return (
     <>
-      <Alert icon="Bell" link={{ text: 'Buy now', to: '/office' }} dismissible>
-        Get 10% off today:&nbsp;<span>NEW10</span>
-      </Alert>
+      <RenderLayoutSections sections={page?.sections} />
 
       <Navbar />
 
