@@ -8,7 +8,7 @@ class StatusError extends Error {
   }
 }
 
-const pickParam = (req: NextApiRequest, parameter: string) => {
+export const pickParam = (req: NextApiRequest, parameter: string) => {
   const maybeParam = req.query[parameter]
 
   if (typeof maybeParam !== 'string') {
