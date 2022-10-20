@@ -25,6 +25,9 @@ type ActionableBadge =
     }
 
 export type BadgeProps = {
+  /**
+   * Sets the component's size.
+   */
   big?: boolean
   variant?: BadgeVariants
   children: ReactNode

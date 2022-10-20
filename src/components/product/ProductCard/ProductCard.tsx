@@ -27,7 +27,7 @@ export interface ProductCardProps {
    */
   bordered?: boolean
   /**
-   * Controls the component's size.
+   * Sets the component's size.
    */
   variant?: Variant
   /**
