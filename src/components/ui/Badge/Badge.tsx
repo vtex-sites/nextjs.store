@@ -29,9 +29,15 @@ export type BadgeProps = {
    * Sets the component's size.
    */
   big?: boolean
+  /**
+   * Specifies the component variant.
+   */
   variant?: BadgeVariants
   children: ReactNode
   onClose?: () => void
+  /**
+   * Adds a Close Button to the component.
+   */
   actionable?: boolean
 } & ActionableBadge
 
