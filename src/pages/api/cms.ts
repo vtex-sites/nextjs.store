@@ -21,14 +21,6 @@ const handler: NextApiHandler = async (req, res) => {
       contentType: pickParam(req, 'contentType'),
     })
 
-    // If the content doesn't exist prevent preview mode from being enabled
-    if (!page) {
-      throw new StatusError(
-        `Content NotFound for ${JSON.stringify(req.query, null, 2)}`,
-        404
-      )
-    }
-
     res.status(200).json(page)
   } catch (error) {
     if (error instanceof StatusError) {
