@@ -22,7 +22,7 @@ A custom `Badge` that display product's discounts. You can see its usage on [Pro
 
 ## Overview
 
-The `DiscountBadge` component uses [Badge](https://www.faststore.dev/reference/ui/atoms/Badge) as base.
+The `DiscountBadge` component uses [Badge](?path=/docs/molecules-badge-default--overview-neutral) as base.
 
 <Canvas>
   <Story
@@ -30,6 +30,26 @@ The `DiscountBadge` component uses [Badge](https://www.faststore.dev/reference/u
     args={{
       big: false,
       listPrice: 45,
+      spotPrice: 40,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-discount-medium"
+    args={{
+      big: false,
+      listPrice: 65,
+      spotPrice: 40,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-discount-high"
+    args={{
+      big: false,
+      listPrice: 80,
       spotPrice: 40,
     }}
   >

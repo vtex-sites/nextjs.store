@@ -49,11 +49,44 @@ Badges are status descriptors used to emphasize an item's state.
 
 The `Badge` component uses [FastStore UI Badge](https://www.faststore.dev/reference/ui/atoms/Badge) as base.
 
-<Canvas>
+<Canvas className="sbdocs-vertically-center">
   <Story
-    name="overview-default"
+    name="overview-neutral"
     args={{
-      children: 'Badge',
+      children: 'Neutral',
+      big: false,
+      actionable: false,
+      variant: 'neutral',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-info"
+    args={{
+      children: 'Info',
+      big: false,
+      actionable: false,
+      variant: 'info',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-highlighted"
+    args={{
+      children: 'Highlighted',
+      big: false,
+      actionable: false,
+      variant: 'highlighted',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-success"
+    args={{
+      children: 'Success',
       big: false,
       actionable: false,
       variant: 'success',
@@ -62,9 +95,31 @@ The `Badge` component uses [FastStore UI Badge](https://www.faststore.dev/refere
     {Template.bind({})}
   </Story>
   <Story
+    name="overview-warning"
+    args={{
+      children: 'Warning',
+      big: false,
+      actionable: false,
+      variant: 'warning',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="overview-danger"
+    args={{
+      children: 'Danger',
+      big: false,
+      actionable: false,
+      variant: 'danger',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
     name="overview-actionable"
     args={{
-      children: 'Badge Actionable',
+      children: 'Big & Actionable',
       big: true,
       actionable: true,
       variant: 'success',
