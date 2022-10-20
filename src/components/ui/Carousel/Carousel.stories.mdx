@@ -3,6 +3,8 @@ import {
   TokenTable,
   TokenRow,
   TokenDivider,
+  BestPractices,
+  BestPracticesRule,
 } from 'src/../.storybook/components'
 
 import Carousel from '.'
@@ -189,3 +191,12 @@ The `Carousel` component uses [FastStore UI Carousel](https://www.faststore.dev/
     value="calc(var(--fs-carousel-bullet-height-desktop) / 2)"
   />
 </TokenTable>
+
+---
+
+<BestPractices>
+  <BestPracticesRule
+    recommendedDescription="Always use more than 1 item per page so then the component keeps the proposed navigation behavior for both versions (mobile and desktop)."
+    discouragedDescription="Avoid using more items per page than the total number of items."
+  />
+</BestPractices>
