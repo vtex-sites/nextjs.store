@@ -1,5 +1,5 @@
 import ClientCMS from '@vtex/client-cms'
-import type { Locator, ContentData } from '@vtex/client-cms'
+import type { ContentData, Locator } from '@vtex/client-cms'
 
 import config from '../../store.config'
 
@@ -8,7 +8,7 @@ export const clientCMS = new ClientCMS({
   tenant: config.api.storeId,
 })
 
-type Options =
+export type Options =
   | Locator
   | {
       contentType: string
@@ -63,4 +63,10 @@ export type PageContentType = ContentData & {
       canonical?: string
     }
   }
+}
+
+export const fetchCMS = async (options: Options) => {
+  return fetch(
+    `/api/cms?${new URLSearchParams(Object.entries(options)).toString()}`
+  )
 }
