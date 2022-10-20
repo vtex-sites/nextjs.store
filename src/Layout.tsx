@@ -17,7 +17,7 @@ const RegionModal = lazy(
 function Layout({ children }: PropsWithChildren) {
   const { cart: displayCart, modal: displayModal } = useUI()
 
-  const options = useMemo(() => ({ contentType: 'globalAlert' }), [])
+  const options = useMemo(() => ({ contentType: 'layout' }), [])
   const page = useCMS(options)
 
   return (

@@ -1,7 +1,7 @@
 [
   {
-    "id": "globalAlert",
-    "name": "Global Alert Page",
+    "id": "layout",
+    "name": "Global Components",
     "configurationSchemaSets": []
   },
   {
