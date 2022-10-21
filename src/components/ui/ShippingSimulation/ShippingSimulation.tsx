@@ -1,3 +1,4 @@
+import type { IShippingItem } from '@faststore/api'
 import { Table, TableBody, TableCell, TableRow } from '@faststore/ui'
 import type { HTMLAttributes } from 'react'
 
@@ -10,12 +11,6 @@ import Link from '../Link'
 import styles from './shipping-simulation.module.scss'
 import { useShippingSimulation } from './useShippingSimulation'
 
-export type ShippingItem = {
-  id: string
-  quantity: number
-  seller: string
-}
-
 interface ShippingSimulationProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * ID to find this component in testing tools (e.g.: cypress,
@@ -25,7 +20,7 @@ interface ShippingSimulationProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Object used for simulating shippings
    */
-  shippingItem: ShippingItem
+  shippingItem: IShippingItem
 }
 
 function ShippingSimulation({

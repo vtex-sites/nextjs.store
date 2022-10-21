@@ -1,11 +1,10 @@
+import type { IShippingItem } from '@faststore/api'
 import type { ChangeEvent } from 'react'
 import { useCallback, useEffect, useReducer } from 'react'
 
 import type { ShippingSimulationQueryQuery } from '@generated/graphql'
 import { useSession } from 'src/sdk/session'
 import { getShippingSimulation } from 'src/sdk/shipping'
-
-import type { ShippingItem } from './ShippingSimulation'
 
 type InputProps = {
   postalCode?: string
@@ -127,7 +126,7 @@ function getShippingInformation(
   return [location, options]
 }
 
-export const useShippingSimulation = (shippingItem: ShippingItem) => {
+export const useShippingSimulation = (shippingItem: IShippingItem) => {
   const { postalCode: sessionPostalCode, country } = useSession()
   const [{ input, shippingSimulation }, dispatch] = useReducer(
     reducer,
