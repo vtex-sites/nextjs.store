@@ -320,6 +320,7 @@ export type MutationSubscribeToNewsletterArgs = {
 
 export type MutationValidateCartArgs = {
   cart: IStoreCart
+  session: InputMaybe<IStoreSession>
 }
 
 export type MutationValidateSessionArgs = {
@@ -441,6 +442,8 @@ export type ShippingSla = {
   deliveryIds: Maybe<Array<Maybe<DeliveryIds>>>
   /** ShippingSLA friendly name. */
   friendlyName: Maybe<Scalars['String']>
+  /** ShippingSLA friendly shipping estimate. */
+  friendlyShippingEstimate: Maybe<Scalars['String']>
   /** ShippingSLA id. */
   id: Maybe<Scalars['String']>
   /** ShippingSLA name. */
@@ -1103,6 +1106,7 @@ export type ServerProductPageQueryQuery = {
 
 export type ValidateCartMutationMutationVariables = Exact<{
   cart: IStoreCart
+  session: IStoreSession
 }>
 
 export type ValidateCartMutationMutation = {
@@ -1334,10 +1338,10 @@ export type ShippingSimulationQueryQuery = {
   shipping: {
     logisticsInfo: Array<{
       slas: Array<{
-        name: string | null
         friendlyName: string | null
         price: number | null
         shippingEstimate: string | null
+        friendlyShippingEstimate: string | null
       } | null> | null
     } | null> | null
     address: { city: string | null; neighborhood: string | null } | null
