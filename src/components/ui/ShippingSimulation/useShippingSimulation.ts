@@ -1,4 +1,4 @@
-import type { IShippingItem } from '@faststore/api'
+import type { IShippingItem, ShippingSla } from '@faststore/api'
 import type { ChangeEvent } from 'react'
 import { useCallback, useEffect, useReducer } from 'react'
 
@@ -12,15 +12,9 @@ type InputProps = {
   errorMessage?: string
 }
 
-type ShippingOptionProps = {
-  carrier: string
-  estimate: string
-  price?: string
-}
-
 type ShippingSimulationProps = {
   location?: string
-  options?: ShippingOptionProps[]
+  options?: ShippingSla[]
 }
 
 type State = {
@@ -110,20 +104,15 @@ const reducer = (state: State, action: Action) => {
 
 function getShippingInformation(
   shipping: ShippingSimulationQueryQuery['shipping']
-): [string, ShippingOptionProps[]] {
+): [string, ShippingSla[]] {
   const location =
     [shipping?.address?.neighborhood, shipping?.address?.city]
       .filter(Boolean)
       .join(' / ') ?? ''
 
-  const options: ShippingOptionProps[] =
-    shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
-      carrier: sla?.friendlyName ?? '',
-      estimate: sla?.friendlyShippingEstimate ?? '',
-      price: String(sla?.price) ?? '',
-    })) ?? []
+  const options = shipping?.logisticsInfo?.[0]?.slas ?? []
 
-  return [location, options]
+  return [location, options as ShippingSla[]]
 }
 
 export const useShippingSimulation = (shippingItem: IShippingItem) => {

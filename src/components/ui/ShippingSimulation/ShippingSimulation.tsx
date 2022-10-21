@@ -86,21 +86,23 @@ function ShippingSimulation({
             <TableBody>
               {shippingOptions.map((option) => (
                 <TableRow
-                  key={option.carrier}
+                  key={option.friendlyName}
                   data-fs-shipping-simulation-table-row
                 >
                   <TableCell data-fs-shipping-simulation-table-cell>
-                    {option.carrier}
+                    {option.friendlyName}
                   </TableCell>
                   <TableCell data-fs-shipping-simulation-table-cell>
-                    {option.estimate}
+                    {option.friendlyShippingEstimate}
                   </TableCell>
                   <TableCell data-fs-shipping-simulation-table-cell>
-                    <Price
-                      formatter={formatter}
-                      value={Number(option.price)}
-                      SRText="price"
-                    />
+                    {option.price && (
+                      <Price
+                        formatter={formatter}
+                        value={option.price}
+                        SRText="price"
+                      />
+                    )}
                   </TableCell>
                 </TableRow>
               ))}
