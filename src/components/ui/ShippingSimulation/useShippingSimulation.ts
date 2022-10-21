@@ -3,7 +3,7 @@ import { useCallback, useEffect, useReducer } from 'react'
 
 import type { ShippingSimulationQueryQuery } from '@generated/graphql'
 import { useSession } from 'src/sdk/session'
-import { getFriendlyEstimate, getShippingSimulation } from 'src/sdk/shipping'
+import { getShippingSimulation } from 'src/sdk/shipping'
 
 import type { ShippingItem } from './ShippingSimulation'
 
@@ -119,10 +119,8 @@ function getShippingInformation(
 
   const options: ShippingOptionProps[] =
     shipping?.logisticsInfo?.[0]?.slas?.map((sla) => ({
-      carrier: sla?.name ?? '',
-      estimate: sla?.shippingEstimate
-        ? getFriendlyEstimate(sla.shippingEstimate)
-        : '',
+      carrier: sla?.friendlyName ?? '',
+      estimate: sla?.friendlyShippingEstimate ?? '',
       price: String(sla?.price) ?? '',
     })) ?? []
 
