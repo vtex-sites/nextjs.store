@@ -79,7 +79,9 @@ export const getStaticProps: GetStaticProps<
   Locator
 > = async (context) => {
   const page = await getPage<PageContentType>({
-    ...(context.previewData ?? { filters: { 'settings.seo.slug': '/' } }),
+    ...(context.previewData?.contentType === 'page'
+      ? context.previewData
+      : { filters: { 'settings.seo.slug': '/' } }),
     contentType: 'page',
   })
 

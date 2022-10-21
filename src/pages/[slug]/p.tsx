@@ -174,7 +174,7 @@ export const getStaticProps: GetStaticProps<
   const slug = params?.slug ?? ''
   const [cmsPage, searchResult] = await Promise.all([
     getPage<PDPContentType>({
-      ...previewData,
+      ...(previewData?.contentType === 'pdp' ? previewData : null),
       contentType: 'pdp',
     }),
     execute<ServerProductPageQueryQueryVariables, ServerProductPageQueryQuery>({
