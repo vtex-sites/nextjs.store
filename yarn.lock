@@ -1445,9 +1445,9 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/9c3a681a/@faststore/api":
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/bd2edcb4/@faststore/api":
   version "1.12.17"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/9c3a681a/@faststore/api#1edfba5da60d11aa6837f6b1895c22790b5747b4"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/bd2edcb4/@faststore/api#cc2a6bbb697431ff68f937e891b600495090eecd"
   dependencies:
     "@graphql-tools/schema" "^8.2.0"
     "@rollup/plugin-graphql" "^1.0.0"
