@@ -34,11 +34,11 @@ module.exports = {
   },
 
   // Production URLs
-  storeUrl: 'https://vtexfaststore.com',
-  secureSubdomain: 'https://secure.vtexfaststore.com',
-  checkoutUrl: 'https://secure.vtexfaststore.com/checkout',
-  loginUrl: 'https://secure.vtexfaststore.com/api/io/login',
-  accountUrl: 'https://secure.vtexfaststore.com/api/io/account',
+  storeUrl: 'https://demo.faststore.com',
+  secureSubdomain: 'https://secure.demo.faststore.com',
+  checkoutUrl: 'https://secure.demo.faststore.com/checkout',
+  loginUrl: 'https://secure.demo.faststore.com/api/io/login',
+  accountUrl: 'https://secure.demo.faststore.com/api/io/account',
 
   // Lighthouse CI
   lighthouse: {
