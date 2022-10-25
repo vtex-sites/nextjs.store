@@ -20,6 +20,7 @@ import storeConfig from '../../store.config'
  * Sections: Components imported from '../components/sections' only.
  * Do not import or render components from any other folder in here.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const COMPONENTS: Record<string, ComponentType<any>> = {
   Hero,
   BannerText,
