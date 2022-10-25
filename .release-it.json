@@ -3,7 +3,8 @@
     "commitMessage": "chore(release): ${version}"
   },
   "npm": {
-    "publish": true
+    "publish": true,
+    "skipChecks": true
   },
   "publishConfig": {
     "access": "public"
