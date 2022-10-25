@@ -43,4 +43,6 @@ jobs:
         run: yarn install --verbose
 
       - name: Release
-        run: yarn release
+        run: |
+          echo $NODE_AUTH_TOKEN
+          yarn release
