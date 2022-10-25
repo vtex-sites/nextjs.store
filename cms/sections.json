@@ -255,7 +255,7 @@
       "title": "Cross Selling Shelf",
       "description": "Add cross selling product data to your users",
       "type": "object",
-      "required": ["title", "first", "after", "sort"],
+      "required": ["title", "items", "kind"],
       "properties": {
         "title": {
           "type": "string",
