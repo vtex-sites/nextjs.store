@@ -13,12 +13,6 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     if: github.repository == 'vtex-sites/nextjs.store' && !startsWith(github.event.head_commit.message, 'chore(release):')
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      YARN_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      YARN_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
     steps:
       - name: Check out code
@@ -44,3 +38,6 @@ jobs:
 
       - name: Release
         run: npm run release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
