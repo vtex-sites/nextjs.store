@@ -40,5 +40,10 @@ jobs:
       - name: Setup Auth Token
         run: yarn config set '//registry.npmjs.org/:_authToken' "$NPM_TOKEN"
 
+      - name: Setup Auth Token
+        run: yarn config set '//registry.yarnpkg.com/:_authToken' "$NPM_TOKEN"
+
       - name: Release
         run: yarn release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
