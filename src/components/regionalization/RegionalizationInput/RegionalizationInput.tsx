@@ -14,9 +14,9 @@ function RegionInput({ closeModal }: Props) {
   const [input, setInput] = useState<string>('')
 
   const handleSubmit = async () => {
-    const value = inputRef.current?.value
+    const postalCode = inputRef.current?.value
 
-    if (typeof value !== 'string') {
+    if (typeof postalCode !== 'string') {
       return
     }
 
@@ -25,11 +25,20 @@ function RegionInput({ closeModal }: Props) {
     try {
       const newSession = await validateSession({
         ...session,
-        postalCode: value,
+        postalCode,
       })
 
       if (newSession) {
         sessionStore.set(newSession)
+      }
+
+      const isNewPostalCode = session.postalCode !== postalCode
+
+      if (!newSession && isNewPostalCode) {
+        sessionStore.set({
+          ...session,
+          postalCode,
+        })
       }
 
       closeModal()
