@@ -1455,18 +1455,9 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/6abcb4a9/@faststore/ui":
-  version "1.12.13"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/6abcb4a9/@faststore/ui#14b31b9c7a7c7f41fd75049e35ddf4c8204a7ec8"
-  dependencies:
-    "@reach/popover" "^0.16.0"
-    "@storybook/addon-a11y" "^6.4.4"
-    react-swipeable "^7.0.0"
-    tabbable "^5.2.1"
-
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/bdb11e86/@faststore/ui":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/ac7cc5b2/@faststore/ui":
   version "1.12.17"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/bdb11e86/@faststore/ui#ae800b9a373799fcac5edb4507208509de3678f5"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/ac7cc5b2/@faststore/ui#347f2daf34198dbec07684788de48aeef5474af4"
   dependencies:
     "@reach/popover" "^0.16.0"
     "@storybook/addon-a11y" "^6.4.4"
