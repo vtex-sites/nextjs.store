@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+## [0.2.0](https://github.com/vtex-sites/nextjs.store/compare/0.1.1...0.2.0) (2022-10-25)
+
+
+### Features
+
+* Integrate CMS with PDP ([#283](https://github.com/vtex-sites/nextjs.store/issues/283)) ([e3c3ec8](https://github.com/vtex-sites/nextjs.store/commit/e3c3ec889cb76b185488ba8f8fa9e1007ffc99d5))
+
+### [0.1.1](https://github.com/vtex-sites/nextjs.store/compare/0.1.0...0.1.1) (2022-10-25)
+
+## 0.1.0 (2022-10-25)
+
+
+### Features
+
+* publish @faststore/core to npm ([#286](https://github.com/vtex-sites/nextjs.store/issues/286)) ([6d1e277](https://github.com/vtex-sites/nextjs.store/commit/6d1e277806f5b0afd3ca48f2f599f5b47f3b71b5))
+
+
+### Bug Fixes
+
+* release-it to npm ([#287](https://github.com/vtex-sites/nextjs.store/issues/287)) ([c783f0c](https://github.com/vtex-sites/nextjs.store/commit/c783f0cf8de7f13dac90a0fbfe67db737401574c))
+
+### 0.0.2 (2022-10-25)
+
+### 0.0.1 (2022-10-25)
+
 ### [22.42.6](https://github.com/vtex-sites/nextjs.store/compare/22.42.5...22.42.6) (2022-10-24)
 
 ### [22.42.5](https://github.com/vtex-sites/nextjs.store/compare/22.42.4...22.42.5) (2022-10-24)
