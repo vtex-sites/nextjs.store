@@ -23,23 +23,14 @@ function RegionInput({ closeModal }: Props) {
     setErrorMessage('')
 
     try {
-      const newSession = await validateSession({
+      const newSession = {
         ...session,
         postalCode,
-      })
-
-      if (newSession) {
-        sessionStore.set(newSession)
       }
 
-      const isNewPostalCode = session.postalCode !== postalCode
+      const validatedSession = await validateSession(newSession)
 
-      if (!newSession && isNewPostalCode) {
-        sessionStore.set({
-          ...session,
-          postalCode,
-        })
-      }
+      sessionStore.set(validatedSession ?? newSession)
 
       closeModal()
     } catch (error) {
