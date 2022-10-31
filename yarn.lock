@@ -1433,6 +1433,15 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/components":
+  version "1.12.20"
+  uid "4d4ab4b5e05b7cfe0d13db1c1a87209a37f714d6"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/components#4d4ab4b5e05b7cfe0d13db1c1a87209a37f714d6"
+
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/components":
+  version "1.12.20"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/components#4d4ab4b5e05b7cfe0d13db1c1a87209a37f714d6"
+
 "@faststore/graphql-utils@^1.11.8":
   version "1.11.8"
   resolved "https://registry.yarnpkg.com/@faststore/graphql-utils/-/graphql-utils-1.11.8.tgz#3ef15e20d043c2d619c124a9295c4af859f0b976"
@@ -1455,13 +1464,25 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@^1.12.13":
-  version "1.12.13"
-  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-1.12.13.tgz#0467b83fc820827319873dcef33ba00efe42f8c1"
-  integrity sha512-x3Fy7+NZb1BjpigmInk521uP7aqrzlK3/U8CfKHrX433WS7aBDMOMBL3XnnW5ddAJ3oA9h/Be8iw5yH83nC1ig==
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/ui":
+  version "1.12.20"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/ui#374d4050dffa6bb159f5f027f4f26d882d7bbc5d"
   dependencies:
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/components"
     "@reach/popover" "^0.16.0"
-    "@storybook/addon-a11y" "^6.4.4"
+    include-media "^1.4.10"
+    modern-normalize "^1.1.0"
+    react-swipeable "^6.1.2"
+    tabbable "^5.2.1"
+
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/ui":
+  version "1.12.20"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/ui#490e81ea8388897a9a981590afa4e0fc52813f2a"
+  dependencies:
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/components"
+    "@reach/popover" "^0.16.0"
+    include-media "^1.4.10"
+    modern-normalize "^1.1.0"
     react-swipeable "^6.1.2"
     tabbable "^5.2.1"
 
@@ -2442,7 +2463,7 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-5.3.0.tgz#0ec9264cf54a527671d990eb874e030b55b70dcc"
   integrity sha512-CX6t4SYQ37lzxicAqsBtxA3OseeoVrh9cSJ5PFYam0GksYlupRfy1A+Q4aYD3zvcfECLc0zO2u+ZnR2UYKvCrw==
 
-"@storybook/addon-a11y@^6.4.4", "@storybook/addon-a11y@^6.5.9":
+"@storybook/addon-a11y@^6.5.9":
   version "6.5.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.5.9.tgz#191fb8ea9be4feee67fd11553b98ab56ecfc1295"
   integrity sha512-jRiuJ2xlN8quVq2lOqpxqyuwAj8xLcgVBPy+Mf220u7AZmmbS/0sONyHKROfEBjJoHQAQYqn2vSAeuQZuTWyVA==
@@ -12365,6 +12386,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+modern-normalize@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/modern-normalize/-/modern-normalize-1.1.0.tgz#da8e80140d9221426bd4f725c6e11283d34f90b7"
+  integrity sha512-2lMlY1Yc1+CUy0gw4H95uNN7vjbpoED7NNRSBHE25nWfLBdmMzFCsPshlzbxHz+gYMcBEUN8V4pU16prcdPSgA==
 
 modify-values@^1.0.0:
   version "1.0.1"

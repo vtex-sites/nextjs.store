@@ -1,7 +1,4 @@
-import { Radio as UIRadio, Label as UILabel } from '@faststore/ui'
-import type { RadioProps as UIRadioProps } from '@faststore/ui'
-
-import styles from './radio.module.scss'
+import { Radio as UIRadio } from '@faststore/ui'
 
 export type RadioProps = {
   /**
@@ -20,15 +17,15 @@ export type RadioProps = {
    * Identify radio in the same group.
    */
   name?: string
-} & UIRadioProps
+}
 
 function Radio({ id, label, value, name, ...otherProps }: RadioProps) {
   return (
-    <div data-fs-radio className={styles.fsRadio}>
+    <div>
       <UIRadio id={id} value={value ?? label} name={name} {...otherProps} />
-      <UILabel data-fs-label htmlFor={id}>
+      <label data-fs-label htmlFor={id}>
         {label}
-      </UILabel>
+      </label>
     </div>
   )
 }
