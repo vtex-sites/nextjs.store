@@ -1433,15 +1433,14 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/components@*":
-  version "1.12.32"
-  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-1.12.32.tgz#2c50bf528fe92b394b533034f30091f462812880"
-  integrity sha512-XVtWCp4RKpD0umr40vNYw0myh06wwIJ77i8MwfhWqzBEzZm9ht1E3nBoPcfYvAk73WFDHrHcdokiqBVfpPMRnA==
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/components":
+  version "1.12.20"
+  uid "4d4ab4b5e05b7cfe0d13db1c1a87209a37f714d6"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/components#4d4ab4b5e05b7cfe0d13db1c1a87209a37f714d6"
 
-"@faststore/components@2.0.5-alpha.0":
-  version "2.0.5-alpha.0"
-  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.5-alpha.0.tgz#080ad9095d9d6b142facc87a3e885f3680e9937d"
-  integrity sha512-ykuATgweefl/dqB7iB8zxxoiAKChoowlaE+3wfeBADMjt8BLS5bJNwhrBwkTKvevRAh4tc6UeBVkRRaXVlibTw==
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/components":
+  version "1.12.20"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/components#4d4ab4b5e05b7cfe0d13db1c1a87209a37f714d6"
 
 "@faststore/graphql-utils@^1.11.8":
   version "1.12.20"
@@ -1465,16 +1464,26 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@2.0.5-alpha.0":
-  version "2.0.5-alpha.0"
-  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.5-alpha.0.tgz#2e75b8e2a04db8962445d5211867416af6482bc2"
-  integrity sha512-vMpK89CSCVXMhgDxY6PG1paoRttY7BhKeb7bq+YRPuJ8AtCb5MMedJZdWgGk+oJaT+110o+mIb0763/pFlZuiQ==
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/ui":
+  version "1.12.20"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/ui#374d4050dffa6bb159f5f027f4f26d882d7bbc5d"
   dependencies:
-    "@faststore/components" "*"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/37b95011/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
-    react-swipeable "^7.0.0"
+    react-swipeable "^6.1.2"
+    tabbable "^5.2.1"
+
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/ui":
+  version "1.12.20"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/ui#490e81ea8388897a9a981590afa4e0fc52813f2a"
+  dependencies:
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/98ec0992/@faststore/components"
+    "@reach/popover" "^0.16.0"
+    include-media "^1.4.10"
+    modern-normalize "^1.1.0"
+    react-swipeable "^6.1.2"
     tabbable "^5.2.1"
 
 "@gar/promisify@^1.0.1":
