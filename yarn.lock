@@ -1433,13 +1433,9 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/5d1fdfe6/@faststore/components":
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/9f1d7024/@faststore/components":
   version "1.12.20"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/5d1fdfe6/@faststore/components#799898ee33450f204ef0e8f9682540a88a44989d"
-
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/f0a8acd8/@faststore/components":
-  version "1.12.20"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/f0a8acd8/@faststore/components#557c8b649672ec1cb6426047d68229c975277433"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/9f1d7024/@faststore/components#884f8ed0db765afd022055f611aea318bddf2030"
 
 "@faststore/graphql-utils@^1.11.8":
   version "1.11.8"
@@ -1463,11 +1459,11 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/5d1fdfe6/@faststore/ui":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/9f1d7024/@faststore/ui":
   version "1.12.20"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/5d1fdfe6/@faststore/ui#dc203766b8329001fb90799a99c0982d968c7f9b"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/9f1d7024/@faststore/ui#a6bb44a3b68fc4380338bcffa5e14202a0130650"
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/5d1fdfe6/@faststore/components"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/9f1d7024/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
@@ -15549,8 +15545,6 @@ ssri@^6.0.1:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
   integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
-  dependencies:
-    figgy-pudding "^3.5.1"
 
 ssri@^8.0.1:
   version "8.0.1"
