@@ -1,7 +1,3 @@
-import '../styles/global/tokens.scss'
-import '../styles/global/resets.scss'
-import '../styles/global/typography.scss'
-import '../styles/global/layout.scss'
 import '../styles/global/components.scss'
 // @faststore/ui styles
 import '@faststore/ui/src/styles/global.scss'
