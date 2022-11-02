@@ -1,4 +1,4 @@
-import { Radio as UIRadio } from '@faststore/ui'
+import { Radio as UIRadio, Label as UILabel } from '@faststore/ui'
 
 export type RadioProps = {
   /**
@@ -23,9 +23,9 @@ function Radio({ id, label, value, name, ...otherProps }: RadioProps) {
   return (
     <div>
       <UIRadio id={id} value={value ?? label} name={name} {...otherProps} />
-      <label data-fs-label htmlFor={id}>
+      <UILabel data-fs-label htmlFor={id}>
         {label}
-      </label>
+      </UILabel>
     </div>
   )
 }
