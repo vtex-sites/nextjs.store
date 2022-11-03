@@ -1,4 +1,4 @@
-import { Label as UILabel, List as UIList } from '@faststore/ui'
+import { Checkbox, Label as UILabel, List as UIList } from '@faststore/ui'
 
 import type {
   Filter_FacetsFragment,
@@ -6,7 +6,6 @@ import type {
 } from '@generated/graphql'
 import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 import { Badge } from 'src/components/ui/Badge'
-import Checkbox from 'src/components/ui/Checkbox'
 import PriceRange from 'src/components/ui/PriceRange'
 
 import styles from './facets.module.scss'
