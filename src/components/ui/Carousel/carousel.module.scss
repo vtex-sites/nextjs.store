@@ -20,6 +20,7 @@
   --fs-carousel-controls-bkg-color        : var(--fs-color-neutral-0);
   --fs-carousel-controls-border-radius    : var(--fs-border-radius-circle);
   --fs-carousel-controls-box-shadow       : var(--fs-shadow-darker);
+  --fs-carousel-controls-icon-color       : var(--fs-color-neutral-7);
 
   --fs-carousel-controls-control-left     : var(--fs-spacing-5);
   --fs-carousel-controls-control-right    : var(--fs-carousel-controls-control-left);
@@ -94,6 +95,10 @@
       height: 100%;
       margin-right: var(--fs-carousel-item-margin-right);
     }
+  }
+
+  [data-fs-icon] {
+    color: var(--fs-carousel-controls-icon-color);
   }
 
   [data-fs-carousel-controls] {

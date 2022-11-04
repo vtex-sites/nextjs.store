@@ -29,24 +29,8 @@ function Carousel({
       className={styles.fsCarousel}
       itemsPerPage={isMobile ? 1 : itemsPerPage}
       navigationIcons={{
-        left: (
-          <Icon
-            width={20}
-            height={20}
-            weight="bold"
-            color="#171a1c"
-            name="ArrowLeft"
-          />
-        ),
-        right: (
-          <Icon
-            width={20}
-            height={20}
-            weight="bold"
-            color="#171a1c"
-            name="ArrowRight"
-          />
-        ),
+        left: <Icon width={20} height={20} weight="bold" name="ArrowLeft" />,
+        right: <Icon width={20} height={20} weight="bold" name="ArrowRight" />,
       }}
     >
       {children}
