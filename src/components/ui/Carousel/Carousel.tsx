@@ -13,6 +13,8 @@ export type CarouselProps = {
 } & Pick<UICarouselProps, 'id' | 'testId' | 'itemsPerPage'>
 
 function Carousel({
+  id,
+  testId,
   children,
   itemsPerPage = 5,
 }: PropsWithChildren<CarouselProps>) {
@@ -20,6 +22,8 @@ function Carousel({
 
   return (
     <UICarousel
+      id={id}
+      testId={testId}
       variant="scroll"
       infiniteMode={false}
       className={styles.fsCarousel}
