@@ -34,7 +34,7 @@
     "@faststore/components": "2.0.5-alpha.0",
     "@faststore/graphql-utils": "^1.11.8",
     "@faststore/sdk": "^1.11.8",
-    "@faststore/ui": "https://pkg.csb.dev/vtex/faststore/commit/5d1fdfe6/@faststore/ui",
+    "@faststore/ui": "https://pkg.csb.dev/vtex/faststore/commit/f0a8acd8/@faststore/ui",
     "@vtex/client-cms": "^0.2.12",
     "graphql": "^15.0.0",
     "include-media": "^1.4.10",
