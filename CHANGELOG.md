@@ -5,6 +5,70 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [0.3.2](https://github.com/vtex-sites/nextjs.store/compare/0.3.1...0.3.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* specifies exact typescript version to avoid breaking changes ([#300](https://github.com/vtex-sites/nextjs.store/issues/300)) ([7b719ac](https://github.com/vtex-sites/nextjs.store/commit/7b719ac1810c1510f7082984d2f10c45553b1822))
+
+### [0.3.1](https://github.com/vtex-sites/nextjs.store/compare/0.3.0...0.3.1) (2022-11-08)
+
+
+### Bug Fixes
+
+* include necessary build dependencies with package ([#297](https://github.com/vtex-sites/nextjs.store/issues/297)) ([c7b2345](https://github.com/vtex-sites/nextjs.store/commit/c7b2345645a89c3edd74296a0fa06ade3653ff6d))
+
+## [0.3.0](https://github.com/vtex-sites/nextjs.store/compare/0.2.2...0.3.0) (2022-11-07)
+
+
+### Features
+
+* Adds `Carousel` component ([#273](https://github.com/vtex-sites/nextjs.store/issues/273)) ([cbc0107](https://github.com/vtex-sites/nextjs.store/commit/cbc0107d5ef7b435c7a9e52756d0edc8cae03fe1))
+
+### [0.2.2](https://github.com/vtex-sites/nextjs.store/compare/0.2.1...0.2.2) (2022-10-28)
+
+
+### Bug Fixes
+
+* Setting postal code a 2nd time doesn't work ([#291](https://github.com/vtex-sites/nextjs.store/issues/291)) ([bc7e834](https://github.com/vtex-sites/nextjs.store/commit/bc7e8344305dc3f9a00a58da6913e6694630aba1))
+
+### [0.2.1](https://github.com/vtex-sites/nextjs.store/compare/0.2.0...0.2.1) (2022-10-28)
+
+
+### Chores
+
+* make store extendable ([#293](https://github.com/vtex-sites/nextjs.store/issues/293)) ([f8c3632](https://github.com/vtex-sites/nextjs.store/commit/f8c3632740d263c8d435033678ed1591f23f0359))
+
+## [0.2.0](https://github.com/vtex-sites/nextjs.store/compare/0.1.1...0.2.0) (2022-10-25)
+
+
+### Features
+
+* Integrate CMS with PDP ([#283](https://github.com/vtex-sites/nextjs.store/issues/283)) ([e3c3ec8](https://github.com/vtex-sites/nextjs.store/commit/e3c3ec889cb76b185488ba8f8fa9e1007ffc99d5))
+
+### [0.1.1](https://github.com/vtex-sites/nextjs.store/compare/0.1.0...0.1.1) (2022-10-25)
+
+## 0.1.0 (2022-10-25)
+
+
+### Features
+
+* publish @faststore/core to npm ([#286](https://github.com/vtex-sites/nextjs.store/issues/286)) ([6d1e277](https://github.com/vtex-sites/nextjs.store/commit/6d1e277806f5b0afd3ca48f2f599f5b47f3b71b5))
+
+
+### Bug Fixes
+
+* release-it to npm ([#287](https://github.com/vtex-sites/nextjs.store/issues/287)) ([c783f0c](https://github.com/vtex-sites/nextjs.store/commit/c783f0cf8de7f13dac90a0fbfe67db737401574c))
+
+### 0.0.2 (2022-10-25)
+
+### 0.0.1 (2022-10-25)
+
+### [22.42.6](https://github.com/vtex-sites/nextjs.store/compare/22.42.5...22.42.6) (2022-10-24)
+
+### [22.42.5](https://github.com/vtex-sites/nextjs.store/compare/22.42.4...22.42.5) (2022-10-24)
+
 ### [22.42.4](https://github.com/vtex-sites/nextjs.store/compare/22.42.3...22.42.4) (2022-10-21)
 
 ### [22.42.3](https://github.com/vtex-sites/nextjs.store/compare/22.42.2...22.42.3) (2022-10-20)

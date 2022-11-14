@@ -25,10 +25,10 @@ import Section from '../Section'
 import styles from './product-details.module.scss'
 
 interface Props {
-  product: ProductDetailsFragment_ProductFragment
+  context: ProductDetailsFragment_ProductFragment
 }
 
-function ProductDetails({ product: staleProduct }: Props) {
+function ProductDetails({ context: staleProduct }: Props) {
   const { currency } = useSession()
   const [addQuantity, setAddQuantity] = useState(1)
 
