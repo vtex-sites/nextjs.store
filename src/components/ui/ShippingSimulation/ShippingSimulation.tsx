@@ -86,14 +86,14 @@ function ShippingSimulation({
             <TableBody>
               {shippingOptions.map((option) => (
                 <TableRow
-                  key={option.friendlyName}
+                  key={option.carrier}
                   data-fs-shipping-simulation-table-row
                 >
                   <TableCell data-fs-shipping-simulation-table-cell>
-                    {option.friendlyName}
+                    {option.carrier}
                   </TableCell>
                   <TableCell data-fs-shipping-simulation-table-cell>
-                    {option.friendlyShippingEstimate}
+                    {option.localizedEstimates}
                   </TableCell>
                   <TableCell data-fs-shipping-simulation-table-cell>
                     {option.price && (

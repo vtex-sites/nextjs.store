@@ -1,8 +1,11 @@
-import type { IShippingItem, ShippingSla } from '@faststore/api'
 import type { ChangeEvent } from 'react'
 import { useCallback, useEffect, useReducer } from 'react'
 
-import type { ShippingSimulationQueryQuery } from '@generated/graphql'
+import type {
+  IShippingItem,
+  ShippingSimulationQueryQuery,
+  ShippingSla,
+} from '@generated/graphql'
 import { useSession } from 'src/sdk/session'
 import { getShippingSimulation } from 'src/sdk/shipping'
 
