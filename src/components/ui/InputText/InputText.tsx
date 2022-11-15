@@ -5,6 +5,8 @@ import type { InputProps } from '@faststore/ui'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 
+import styles from './input-text.module.scss'
+
 type DefaultProps = {
   /**
    * ID to identify input and corresponding label.
@@ -34,6 +36,7 @@ type ActionableInputText =
       onSubmit?: never
       onClear?: never
       buttonActionText?: string
+      displayClearButton?: never
     }
   | {
       /**
@@ -52,6 +55,10 @@ type ActionableInputText =
        * The text displayed on the Button. Suggestion: maximum 9 characters.
        */
       buttonActionText?: string
+      /**
+       * Boolean that controls the clear button.
+       */
+      displayClearButton?: boolean
     }
 
 export type InputTextProps = DefaultProps &
@@ -63,6 +70,7 @@ const InputText = ({
   label,
   type = 'text',
   error,
+  displayClearButton,
   actionable,
   buttonActionText = 'Apply',
   onSubmit,
@@ -78,6 +86,7 @@ const InputText = ({
 
   return (
     <div
+      className={styles.fsInputText}
       data-fs-input-text
       data-fs-input-text-actionable={actionable}
       data-fs-input-text-error={error && error !== ''}
@@ -94,10 +103,8 @@ const InputText = ({
       <UILabel htmlFor={id}>{label}</UILabel>
 
       {shouldDisplayButton &&
-        (error ? (
+        (displayClearButton || error ? (
           <Button
-            variant="tertiary"
-            data-fs-button-icon
             data-fs-button-size="small"
             aria-label="Clear Field"
             icon={<Icon name="XCircle" width={20} height={20} />}
@@ -111,7 +118,9 @@ const InputText = ({
             {buttonActionText}
           </Button>
         ))}
-      {shouldDisplayError && <span data-fs-input-text-message>{error}</span>}
+      {shouldDisplayError && (
+        <span data-fs-input-text-error-message>{error}</span>
+      )}
     </div>
   )
 }

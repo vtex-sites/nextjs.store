@@ -10,8 +10,8 @@
   --fs-button-height                                : var(--fs-control-tap-size);
   --fs-button-gap                                   : var(--fs-spacing-2);
 
-  --fs-button-shadow                                : none;
-  --fs-button-shadow-hover                          : none;
+  --fs-button-shadow                                : var(--fs-shadow);
+  --fs-button-shadow-hover                          : var(--fs-button-shadow);
 
   --fs-button-border-radius                         : var(--fs-border-radius);
   --fs-button-border-width                          : var(--fs-border-width-thick);
@@ -26,8 +26,8 @@
 
   // Primary
   --fs-button-primary-text-color                    : var(--fs-color-primary-text);
-  --fs-button-primary-text-color-hover              : var(--fs-color-primary-text);
-  --fs-button-primary-text-color-active             : var(--fs-color-primary-text);
+  --fs-button-primary-text-color-hover              : var(--fs-button-primary-text-color);
+  --fs-button-primary-text-color-active             : var(--fs-button-primary-text-color);
   --fs-button-primary-bkg-color                     : var(--fs-color-primary-bkg);
   --fs-button-primary-bkg-color-hover               : var(--fs-color-primary-bkg-hover);
   --fs-button-primary-bkg-color-active              : var(--fs-color-primary-bkg-active);
@@ -50,20 +50,20 @@
   // Secondary
   --fs-button-secondary-text-color                  : var(--fs-color-secondary-text);
   --fs-button-secondary-text-color-hover            : var(--fs-color-text-inverse);
-  --fs-button-secondary-text-color-active           : var(--fs-color-text-inverse);
+  --fs-button-secondary-text-color-active           : var(--fs-button-secondary-text-color-hover);
   --fs-button-secondary-bkg-color                   : var(--fs-color-secondary-bkg);
   --fs-button-secondary-bkg-color-hover             : var(--fs-color-secondary-bkg-hover);
   --fs-button-secondary-bkg-color-active            : var(--fs-color-secondary-bkg-active);
-  --fs-button-secondary-border-color                : var(--fs-color-secondary-text);
+  --fs-button-secondary-border-color                : var(--fs-button-secondary-text-color);
   --fs-button-secondary-border-color-hover          : var(--fs-button-secondary-bkg-color-hover);
   --fs-button-secondary-border-color-active         : var(--fs-button-secondary-bkg-color-active);
   --fs-button-secondary-shadow-hover                : var(--fs-button-shadow-hover);
 
-  --fs-button-secondary-inverse-text-color          : var(--fs-color-text-inverse);
-  --fs-button-secondary-inverse-text-color-hover    : var(--fs-color-secondary-text);
-  --fs-button-secondary-inverse-text-color-active   : var(--fs-color-secondary-text);
-  --fs-button-secondary-inverse-bkg-color           : var(--fs-color-secondary-bkg);
-  --fs-button-secondary-inverse-bkg-color-hover     : var(--fs-color-text-inverse);
+  --fs-button-secondary-inverse-text-color          : var(--fs-button-secondary-text-color-hover);
+  --fs-button-secondary-inverse-text-color-hover    : var(--fs-button-secondary-text-color);
+  --fs-button-secondary-inverse-text-color-active   : var(--fs-button-secondary-inverse-text-color-hover);
+  --fs-button-secondary-inverse-bkg-color           : var(--fs-button-secondary-bkg-color);
+  --fs-button-secondary-inverse-bkg-color-hover     : var(--fs-button-secondary-text-color-hover);
   --fs-button-secondary-inverse-bkg-color-active    : var(--fs-color-secondary-bkg-light);
   --fs-button-secondary-inverse-border-color        : var(--fs-button-secondary-inverse-text-color);
   --fs-button-secondary-inverse-border-color-hover  : var(--fs-button-secondary-inverse-bkg-color-hover);
@@ -72,7 +72,7 @@
 
   // Tertiary
   --fs-button-tertiary-text-color                   : var(--fs-color-tertiary-text);
-  --fs-button-tertiary-text-color-hover             : var(--fs-color-tertiary-text);
+  --fs-button-tertiary-text-color-hover             : var(--fs-button-tertiary-text-color);
   --fs-button-tertiary-text-color-active            : var(--fs-button-primary-bkg-color);
   --fs-button-tertiary-bkg-color                    : var(--fs-color-tertiary-bkg);
   --fs-button-tertiary-bkg-color-hover              : var(--fs-color-tertiary-bkg-hover);
@@ -82,9 +82,9 @@
   --fs-button-tertiary-border-color-active          : var(--fs-button-tertiary-border-color);
   --fs-button-tertiary-shadow-hover                 : var(--fs-button-shadow-hover);
 
-  --fs-button-tertiary-inverse-text-color           : var(--fs-color-text-inverse);
-  --fs-button-tertiary-inverse-text-color-hover     : var(--fs-color-text-inverse);
-  --fs-button-tertiary-inverse-text-color-active    : var(--fs-color-text-inverse);
+  --fs-button-tertiary-inverse-text-color           : var(--fs-button-secondary-text-color-hover);
+  --fs-button-tertiary-inverse-text-color-hover     : var(--fs-button-secondary-text-color-hover);
+  --fs-button-tertiary-inverse-text-color-active    : var(--fs-button-secondary-text-color-hover);
   --fs-button-tertiary-inverse-bkg-color            : var(--fs-button-secondary-inverse-bkg-color);
   --fs-button-tertiary-inverse-bkg-color-hover      : var(--fs-button-primary-bkg-color-hover);
   --fs-button-tertiary-inverse-bkg-color-active     : var(--fs-button-primary-bkg-color-active);
@@ -112,6 +112,15 @@
   // Icon
   --fs-button-icon-padding                          : 0 var(--fs-spacing-1);
 
+  // Counter
+  --fs-button-counter-size                          : var(--fs-spacing-3);
+  --fs-button-counter-padding                       : var(--fs-spacing-0);
+  --fs-button-counter-text-size                     : var(--fs-text-size-0);
+  --fs-button-counter-text-color                    : var(--fs-color-text-inverse);
+  --fs-button-counter-bkg-color                     : var(--fs-color-link);
+  --fs-button-counter-border-radius                 : var(--fs-border-radius-pill);
+  --fs-button-counter-border-color                  : var(--fs-color-body-bkg);
+
   // Small
   --fs-button-small-padding                         : var(--fs-spacing-0) var(--fs-spacing-1);
   --fs-button-small-min-height                      : var(--fs-spacing-5);
@@ -137,7 +146,7 @@
   box-shadow: var(--fs-button-shadow);
   transition: var(--fs-button-transition-property) var(--fs-button-transition-timing) var(--fs-button-transition-function);
 
-  [data-store-icon] {
+  [data-fs-icon] {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,7 +350,32 @@
     }
   }
 
-  &[data-fs-button-icon] {
+  &[data-fs-button-icon="true"] {
+    position: relative;
+
+    [data-fs-button-counter] {
+      position: absolute;
+      top: .375rem;
+      left: 1.625rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: var(--fs-button-counter-size);
+      height: var(--fs-button-counter-size);
+      padding: var(--fs-button-counter-padding);
+      font-size: var(--fs-button-counter-text-size);
+      font-weight: var(--fs-text-weight-bold);
+      color: var(--fs-button-counter-text-color);
+      background: var(--fs-button-counter-bkg-color);
+      border-radius: var(--fs-button-counter-border-radius);
+      box-shadow: 0 0 0 var(--fs-button-border-width) var(--fs-button-counter-border-color);
+      transition: var(--fs-button-transition-property) var(--fs-button-transition-timing) var(--fs-button-transition-function);
+    }
+
+    &:hover, &:active, &:focus, &:focus-visible {
+      [data-fs-button-counter] { box-shadow: 0 0 0 var(--fs-button-border-width) var(--fs-button-tertiary-bkg-color-hover); }
+    }
+
     &[data-fs-button-variant] {
       width: var(--fs-button-height);
       height: var(--fs-button-height);

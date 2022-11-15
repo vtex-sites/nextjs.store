@@ -14,27 +14,27 @@ function RegionInput({ closeModal }: Props) {
   const [input, setInput] = useState<string>('')
 
   const handleSubmit = async () => {
-    const value = inputRef.current?.value
+    const postalCode = inputRef.current?.value
 
-    if (typeof value !== 'string') {
+    if (typeof postalCode !== 'string') {
       return
     }
 
     setErrorMessage('')
 
     try {
-      const newSession = await validateSession({
+      const newSession = {
         ...session,
-        postalCode: value,
-      })
-
-      if (newSession) {
-        sessionStore.set(newSession)
+        postalCode,
       }
+
+      const validatedSession = await validateSession(newSession)
+
+      sessionStore.set(validatedSession ?? newSession)
 
       closeModal()
     } catch (error) {
-      setErrorMessage('You entered an invalid Zip Code')
+      setErrorMessage('You entered an invalid Postal Code')
     }
   }
 
@@ -44,7 +44,7 @@ function RegionInput({ closeModal }: Props) {
         inputRef={inputRef}
         id="postal-code-input"
         error={errorMessage}
-        label="Zip Code"
+        label="Postal Code"
         actionable
         value={input}
         onInput={(e) => {

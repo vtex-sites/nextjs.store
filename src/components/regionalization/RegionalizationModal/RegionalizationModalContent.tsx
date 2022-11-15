@@ -20,8 +20,6 @@ function RegionalizationModalContent({
       <header data-fs-regionalization-modal-header>
         {onClose && (
           <Button
-            variant="tertiary"
-            data-fs-button-icon
             onClick={() => onClose?.()}
             data-fs-regionalization-modal-button
             aria-label="Close Regionalization Modal"
@@ -39,7 +37,7 @@ function RegionalizationModalContent({
           <RegionalizationInput closeModal={() => onClose?.()} />
         </div>
         <Link href="/" data-fs-regionalization-modal-link>
-          {"Don't know my Postal Code"}
+          {"I don't know my Postal Code"}
           <Icon name="ArrowSquareOut" width={18} height={18} />
         </Link>
       </div>
