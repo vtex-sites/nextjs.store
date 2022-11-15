@@ -5,6 +5,275 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [0.3.3](https://github.com/vtex-sites/nextjs.store/compare/0.3.2...0.3.3) (2022-11-14)
+
+
+### Features
+
+* Shipping Simulation API ([#210](https://github.com/vtex-sites/nextjs.store/issues/210)) ([f391389](https://github.com/vtex-sites/nextjs.store/commit/f3913896261e404d6a93d8bb7e5c805ae00e52a5))
+
+### [0.3.2](https://github.com/vtex-sites/nextjs.store/compare/0.3.1...0.3.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* specifies exact typescript version to avoid breaking changes ([#300](https://github.com/vtex-sites/nextjs.store/issues/300)) ([7b719ac](https://github.com/vtex-sites/nextjs.store/commit/7b719ac1810c1510f7082984d2f10c45553b1822))
+
+### [0.3.1](https://github.com/vtex-sites/nextjs.store/compare/0.3.0...0.3.1) (2022-11-08)
+
+
+### Bug Fixes
+
+* include necessary build dependencies with package ([#297](https://github.com/vtex-sites/nextjs.store/issues/297)) ([c7b2345](https://github.com/vtex-sites/nextjs.store/commit/c7b2345645a89c3edd74296a0fa06ade3653ff6d))
+
+## [0.3.0](https://github.com/vtex-sites/nextjs.store/compare/0.2.2...0.3.0) (2022-11-07)
+
+
+### Features
+
+* Adds `Carousel` component ([#273](https://github.com/vtex-sites/nextjs.store/issues/273)) ([cbc0107](https://github.com/vtex-sites/nextjs.store/commit/cbc0107d5ef7b435c7a9e52756d0edc8cae03fe1))
+
+### [0.2.2](https://github.com/vtex-sites/nextjs.store/compare/0.2.1...0.2.2) (2022-10-28)
+
+
+### Bug Fixes
+
+* Setting postal code a 2nd time doesn't work ([#291](https://github.com/vtex-sites/nextjs.store/issues/291)) ([bc7e834](https://github.com/vtex-sites/nextjs.store/commit/bc7e8344305dc3f9a00a58da6913e6694630aba1))
+
+### [0.2.1](https://github.com/vtex-sites/nextjs.store/compare/0.2.0...0.2.1) (2022-10-28)
+
+
+### Chores
+
+* make store extendable ([#293](https://github.com/vtex-sites/nextjs.store/issues/293)) ([f8c3632](https://github.com/vtex-sites/nextjs.store/commit/f8c3632740d263c8d435033678ed1591f23f0359))
+
+## [0.2.0](https://github.com/vtex-sites/nextjs.store/compare/0.1.1...0.2.0) (2022-10-25)
+
+
+### Features
+
+* Integrate CMS with PDP ([#283](https://github.com/vtex-sites/nextjs.store/issues/283)) ([e3c3ec8](https://github.com/vtex-sites/nextjs.store/commit/e3c3ec889cb76b185488ba8f8fa9e1007ffc99d5))
+
+### [0.1.1](https://github.com/vtex-sites/nextjs.store/compare/0.1.0...0.1.1) (2022-10-25)
+
+## 0.1.0 (2022-10-25)
+
+
+### Features
+
+* publish @faststore/core to npm ([#286](https://github.com/vtex-sites/nextjs.store/issues/286)) ([6d1e277](https://github.com/vtex-sites/nextjs.store/commit/6d1e277806f5b0afd3ca48f2f599f5b47f3b71b5))
+
+
+### Bug Fixes
+
+* release-it to npm ([#287](https://github.com/vtex-sites/nextjs.store/issues/287)) ([c783f0c](https://github.com/vtex-sites/nextjs.store/commit/c783f0cf8de7f13dac90a0fbfe67db737401574c))
+
+### 0.0.2 (2022-10-25)
+
+### 0.0.1 (2022-10-25)
+
+### [22.42.6](https://github.com/vtex-sites/nextjs.store/compare/22.42.5...22.42.6) (2022-10-24)
+
+### [22.42.5](https://github.com/vtex-sites/nextjs.store/compare/22.42.4...22.42.5) (2022-10-24)
+
+### [22.42.4](https://github.com/vtex-sites/nextjs.store/compare/22.42.3...22.42.4) (2022-10-21)
+
+### [22.42.3](https://github.com/vtex-sites/nextjs.store/compare/22.42.2...22.42.3) (2022-10-20)
+
+### [22.42.2](https://github.com/vtex-sites/nextjs.store/compare/22.42.1...22.42.2) (2022-10-20)
+
+
+### Features
+
+* Storybook Updates ([#271](https://github.com/vtex-sites/nextjs.store/issues/271)) ([176139a](https://github.com/vtex-sites/nextjs.store/commit/176139a3290330e2626d22f3ca23e2a1722883f3))
+
+### [22.42.1](https://github.com/vtex-sites/nextjs.store/compare/22.42.0...22.42.1) (2022-10-19)
+
+
+### Bug Fixes
+
+* Bad postal code on shipping data  ([#279](https://github.com/vtex-sites/nextjs.store/issues/279)) ([3d71613](https://github.com/vtex-sites/nextjs.store/commit/3d71613130815768f72538c830e78650ae1babf4))
+
+## [22.42.0](https://github.com/vtex-sites/nextjs.store/compare/22.41.1...22.42.0) (2022-10-19)
+
+
+### Features
+
+* Add Page content-type ([#278](https://github.com/vtex-sites/nextjs.store/issues/278)) ([50a7998](https://github.com/vtex-sites/nextjs.store/commit/50a79989aeaacbed9a7f3873c04b6ae6014c467b))
+
+### [22.41.1](https://github.com/vtex-sites/nextjs.store/compare/22.41.0...22.41.1) (2022-10-19)
+
+
+### Chores
+
+* Renames data-attr ([#276](https://github.com/vtex-sites/nextjs.store/issues/276)) ([1dde467](https://github.com/vtex-sites/nextjs.store/commit/1dde467b8ed912832f100ddbf83e36deb37bbb2f))
+
+## [22.41.0](https://github.com/vtex-sites/nextjs.store/compare/22.40.2...22.41.0) (2022-10-18)
+
+
+### Features
+
+* CMS Error Boundaries ([#277](https://github.com/vtex-sites/nextjs.store/issues/277)) ([87d8236](https://github.com/vtex-sites/nextjs.store/commit/87d8236f762414071af2baa4338f164730bbea1f))
+
+### [22.40.2](https://github.com/vtex-sites/nextjs.store/compare/22.40.1...22.40.2) (2022-10-17)
+
+
+### Chores
+
+* use transition api to defer navbar behavior ([#269](https://github.com/vtex-sites/nextjs.store/issues/269)) ([1339bb8](https://github.com/vtex-sites/nextjs.store/commit/1339bb867d6c53e5e8575bcb39ca5ebc41c4207b))
+
+### [22.40.1](https://github.com/vtex-sites/nextjs.store/compare/22.40.0...22.40.1) (2022-10-17)
+
+
+### Features
+
+* Adjust Newsletter to match new designs ([#252](https://github.com/vtex-sites/nextjs.store/issues/252)) ([3fc67a7](https://github.com/vtex-sites/nextjs.store/commit/3fc67a755f3bb6ef396fb8580843066964de35dd))
+
+## [22.40.0](https://github.com/vtex-sites/nextjs.store/compare/22.39.6...22.40.0) (2022-10-14)
+
+
+### Features
+
+* Adds missing CSS modules ([#270](https://github.com/vtex-sites/nextjs.store/issues/270)) ([831011e](https://github.com/vtex-sites/nextjs.store/commit/831011ebaece3a2e818a2678dfdb484428eaaadf)), closes [vtex-sites/nextjs.store#267](https://github.com/vtex-sites/nextjs.store/issues/267)
+
+### [22.39.6](https://github.com/vtex-sites/nextjs.store/compare/22.39.5...22.39.6) (2022-10-14)
+
+
+### Chores
+
+* Change `resource-summary:stylesheet` Lighthouse metric to warning ([#272](https://github.com/vtex-sites/nextjs.store/issues/272)) ([bd405e9](https://github.com/vtex-sites/nextjs.store/commit/bd405e9fd5a04bcb6da7f2211a6beee32cb3f9a1))
+
+### [22.39.5](https://github.com/vtex-sites/nextjs.store/compare/22.39.4...22.39.5) (2022-10-13)
+
+### [22.39.4](https://github.com/vtex-sites/nextjs.store/compare/22.39.3...22.39.4) (2022-10-11)
+
+### [22.39.3](https://github.com/vtex-sites/nextjs.store/compare/22.39.2...22.39.3) (2022-10-10)
+
+
+### Bug Fixes
+
+* Top searches locale ([#264](https://github.com/vtex-sites/nextjs.store/issues/264)) ([ea3fd29](https://github.com/vtex-sites/nextjs.store/commit/ea3fd2961b40c04e3421ca3e24e3f89c7f402154))
+
+### [22.39.2](https://github.com/vtex-sites/nextjs.store/compare/22.39.1...22.39.2) (2022-10-10)
+
+### [22.39.1](https://github.com/vtex-sites/nextjs.store/compare/22.39.0...22.39.1) (2022-10-06)
+
+
+### Bug Fixes
+
+* using data-fs instead data-store ([#265](https://github.com/vtex-sites/nextjs.store/issues/265)) ([0aebcd7](https://github.com/vtex-sites/nextjs.store/commit/0aebcd7fcc3a9a41278f082b1fdbdadbd2d6b9fe))
+
+## [22.39.0](https://github.com/vtex-sites/nextjs.store/compare/22.38.3...22.39.0) (2022-09-29)
+
+
+### Features
+
+* Create Product Details Content component ([#258](https://github.com/vtex-sites/nextjs.store/issues/258)) ([954e4b3](https://github.com/vtex-sites/nextjs.store/commit/954e4b38934dcf254350dc1d7ad1d4a7677a0bf3))
+
+### [22.38.3](https://github.com/vtex-sites/nextjs.store/compare/22.38.2...22.38.3) (2022-09-29)
+
+### [22.38.2](https://github.com/vtex-sites/nextjs.store/compare/22.38.1...22.38.2) (2022-09-29)
+
+
+### Bug Fixes
+
+* Wrong sku being returned for slug ([#261](https://github.com/vtex-sites/nextjs.store/issues/261)) ([b4c6911](https://github.com/vtex-sites/nextjs.store/commit/b4c6911fadac42a12f935e606f6f812316840d39))
+
+### [22.38.1](https://github.com/vtex-sites/nextjs.store/compare/22.38.0...22.38.1) (2022-09-28)
+
+
+### Bug Fixes
+
+* ImageGallery height on responsive views ([#255](https://github.com/vtex-sites/nextjs.store/issues/255)) ([8f704c2](https://github.com/vtex-sites/nextjs.store/commit/8f704c2a23eadc3e2274abc483379972fd27fa8b))
+
+## [22.38.0](https://github.com/vtex-sites/nextjs.store/compare/22.37.1...22.38.0) (2022-09-26)
+
+
+### Features
+
+* add [@cache](https://github.com/cache)Control directive to GraphQL schema ([#259](https://github.com/vtex-sites/nextjs.store/issues/259)) ([f93597d](https://github.com/vtex-sites/nextjs.store/commit/f93597d0008f2459ba0816119298f6c067f13d23))
+
+### [22.37.1](https://github.com/vtex-sites/nextjs.store/compare/22.37.0...22.37.1) (2022-09-19)
+
+
+### Bug Fixes
+
+* improve the execute server type ([#254](https://github.com/vtex-sites/nextjs.store/issues/254)) ([c35ddd9](https://github.com/vtex-sites/nextjs.store/commit/c35ddd9b9b32c11e765680cf8bdadb5a948f2462))
+
+## [22.37.0](https://github.com/vtex-sites/nextjs.store/compare/22.36.9...22.37.0) (2022-09-16)
+
+
+### Features
+
+* Fire `view_cart` event when the minicart is opened ([#247](https://github.com/vtex-sites/nextjs.store/issues/247)) ([b9c2f61](https://github.com/vtex-sites/nextjs.store/commit/b9c2f6190368d9c4200e13b697a842fce7221378))
+
+### [22.36.9](https://github.com/vtex-sites/nextjs.store/compare/22.36.8...22.36.9) (2022-09-16)
+
+
+### Bug Fixes
+
+* A regression with CLS on the Home page ([#251](https://github.com/vtex-sites/nextjs.store/issues/251)) ([85bb9ce](https://github.com/vtex-sites/nextjs.store/commit/85bb9ce0b85f9ca2045a73acb5cb24857ba794f7))
+
+### [22.36.8](https://github.com/vtex-sites/nextjs.store/compare/22.36.7...22.36.8) (2022-09-15)
+
+
+### Bug Fixes
+
+* `ShippingSimulation` tokens ([#250](https://github.com/vtex-sites/nextjs.store/issues/250)) ([d2fddf2](https://github.com/vtex-sites/nextjs.store/commit/d2fddf2c16df1bb69a29eaecfaaec148168b9df3))
+
+### [22.36.7](https://github.com/vtex-sites/nextjs.store/compare/22.36.6...22.36.7) (2022-09-15)
+
+
+### Bug Fixes
+
+* Product Details Grid ([#236](https://github.com/vtex-sites/nextjs.store/issues/236)) ([61970cc](https://github.com/vtex-sites/nextjs.store/commit/61970cc64aacc60f1d1ca042ef0e2db16bffb438))
+
+### [22.36.6](https://github.com/vtex-sites/nextjs.store/compare/22.36.5...22.36.6) (2022-09-14)
+
+
+### Bug Fixes
+
+* `view_item_list` event being fired without products ([#242](https://github.com/vtex-sites/nextjs.store/issues/242)) ([5bb098b](https://github.com/vtex-sites/nextjs.store/commit/5bb098b900596f3aaec77a4d1137adc90c1d767a))
+
+### [22.36.5](https://github.com/vtex-sites/nextjs.store/compare/22.36.4...22.36.5) (2022-09-13)
+
+
+### Refactoring
+
+* Extract `SkuSelector` component to `@faststore/ui` ([#240](https://github.com/vtex-sites/nextjs.store/issues/240)) ([b446979](https://github.com/vtex-sites/nextjs.store/commit/b446979695f4eb0aa952d500bb2cae4ccfd8bf28))
+
+### [22.36.4](https://github.com/vtex-sites/nextjs.store/compare/22.36.3...22.36.4) (2022-09-13)
+
+### [22.36.3](https://github.com/vtex-sites/nextjs.store/compare/22.36.2...22.36.3) (2022-09-13)
+
+### [22.36.2](https://github.com/vtex-sites/nextjs.store/compare/22.36.1...22.36.2) (2022-09-12)
+
+
+### Refactoring
+
+* Extract `CartItem` from the starter to `@faststore/ui` ([#239](https://github.com/vtex-sites/nextjs.store/issues/239)) ([0319076](https://github.com/vtex-sites/nextjs.store/commit/0319076f0dd99b5d4757dd61ce64659ad9d86792))
+
+### [22.36.1](https://github.com/vtex-sites/nextjs.store/compare/22.36.0...22.36.1) (2022-09-12)
+
+
+### Chores
+
+* move OrderSummary to FastStore UI ([#238](https://github.com/vtex-sites/nextjs.store/issues/238)) ([055ff8b](https://github.com/vtex-sites/nextjs.store/commit/055ff8b308adc63587661f379927e276e23cca8c))
+
+## [22.36.0](https://github.com/vtex-sites/nextjs.store/compare/22.35.3...22.36.0) (2022-09-06)
+
+
+### Features
+
+* Adds `Gift` component ([#234](https://github.com/vtex-sites/nextjs.store/issues/234)) ([ef78f5d](https://github.com/vtex-sites/nextjs.store/commit/ef78f5d78d29d4ece856c0cb4fdcfa16853e3d75))
+
+### [22.35.3](https://github.com/vtex-sites/nextjs.store/compare/22.35.2...22.35.3) (2022-09-02)
+
+
+### Chores
+
+* Adds props description - Hero documentation (Storybook)  ([#229](https://github.com/vtex-sites/nextjs.store/issues/229)) ([8a452b8](https://github.com/vtex-sites/nextjs.store/commit/8a452b8fcf5df65b849d5aa4ae9da2c2ec31a403))
+
 ### [22.35.2](https://github.com/vtex-sites/nextjs.store/compare/22.35.1...22.35.2) (2022-08-31)
 
 
