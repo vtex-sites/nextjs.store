@@ -1,4 +1,8 @@
-import { Checkbox, Label as UILabel, List as UIList } from '@faststore/ui'
+import {
+  Checkbox as UICheckbox,
+  Label as UILabel,
+  List as UIList,
+} from '@faststore/ui'
 
 import type {
   Filter_FacetsFragment,
@@ -80,7 +84,7 @@ function Facets({
 
                     return (
                       <li key={id} data-fs-facets-list-item>
-                        <Checkbox
+                        <UICheckbox
                           id={id}
                           checked={item.selected}
                           onChange={() =>
