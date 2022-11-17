@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
 and this project adheres to [Calendar Versioning](https://calver.org/).
 
+### [0.3.3](https://github.com/vtex-sites/nextjs.store/compare/0.3.2...0.3.3) (2022-11-14)
+
+
+### Features
+
+* Shipping Simulation API ([#210](https://github.com/vtex-sites/nextjs.store/issues/210)) ([f391389](https://github.com/vtex-sites/nextjs.store/commit/f3913896261e404d6a93d8bb7e5c805ae00e52a5))
+
+### [0.3.2](https://github.com/vtex-sites/nextjs.store/compare/0.3.1...0.3.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* specifies exact typescript version to avoid breaking changes ([#300](https://github.com/vtex-sites/nextjs.store/issues/300)) ([7b719ac](https://github.com/vtex-sites/nextjs.store/commit/7b719ac1810c1510f7082984d2f10c45553b1822))
+
+### [0.3.1](https://github.com/vtex-sites/nextjs.store/compare/0.3.0...0.3.1) (2022-11-08)
+
+
+### Bug Fixes
+
+* include necessary build dependencies with package ([#297](https://github.com/vtex-sites/nextjs.store/issues/297)) ([c7b2345](https://github.com/vtex-sites/nextjs.store/commit/c7b2345645a89c3edd74296a0fa06ade3653ff6d))
+
 ## [0.3.0](https://github.com/vtex-sites/nextjs.store/compare/0.2.2...0.3.0) (2022-11-07)
 
 
