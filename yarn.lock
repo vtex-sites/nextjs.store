@@ -1433,9 +1433,9 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/ad3dcb1f/@faststore/components":
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/fd4fe68c/@faststore/components":
   version "1.12.20"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/ad3dcb1f/@faststore/components#3533b16c7cc053b5e525a5fb01a27297b2272dfc"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/fd4fe68c/@faststore/components#25d9aa69052612641bda65dded6d8784a558b901"
 
 "@faststore/graphql-utils@^1.11.8":
   version "1.11.8"
@@ -1459,15 +1459,15 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/ad3dcb1f/@faststore/ui":
-  version "1.12.20"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/ad3dcb1f/@faststore/ui#544a1bafca478afe25e44597bd8770b7438fd751"
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/fd4fe68c/@faststore/ui":
+  version "1.12.23"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/fd4fe68c/@faststore/ui#b64dd1b6430df79167a668e3438cf96b360ffd04"
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/ad3dcb1f/@faststore/components"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/fd4fe68c/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
-    react-swipeable "^6.1.2"
+    react-swipeable "^7.0.0"
     tabbable "^5.2.1"
 
 "@gar/promisify@^1.0.1":
@@ -14255,10 +14255,10 @@ react-sizeme@^3.0.1:
     shallowequal "^1.1.0"
     throttle-debounce "^3.0.1"
 
-react-swipeable@^6.1.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-6.2.2.tgz#52ba570f3a7a90db7093094ec476f3d151f727d1"
-  integrity sha512-Oz7nSFrssvq2yvy05aNL3F+yBUqSvLsK6x1mu+rQFOpMdQVnt4izKt1vyjvvTb70q6GQOaSpaB6qniROW2MAzQ==
+react-swipeable@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-7.0.0.tgz#7a12570ee435d35ac700511de338384aa78d12cd"
+  integrity sha512-NI7KGfQ6gwNFN0Hor3vytYW3iRfMMaivGEuxcADOOfBCx/kqwXE8IfHFxEcxSUkxCYf38COLKYd9EMYZghqaUA==
 
 react-syntax-highlighter@^15.4.5:
   version "15.5.0"
