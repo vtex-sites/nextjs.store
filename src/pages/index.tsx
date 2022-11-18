@@ -1,41 +1,60 @@
 import { NextSeo, SiteLinksSearchBoxJsonLd } from 'next-seo'
-import { Suspense } from 'react'
+import type { ComponentType } from 'react'
+import type { GetStaticProps } from 'next'
+import type { Locator } from '@vtex/client-cms'
 
+import RenderPageSections from 'src/components/cms/RenderPageSections'
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
-import IncentivesMock from 'src/components/sections/Incentives/incentivesMock'
+import Newsletter from 'src/components/sections/Newsletter'
 import ProductShelf from 'src/components/sections/ProductShelf'
 import ProductTiles from 'src/components/sections/ProductTiles'
-import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
-import ProductTilesSkeleton from 'src/components/skeletons/ProductTilesSkeleton'
-import { ITEMS_PER_SECTION } from 'src/constants'
 import { mark } from 'src/sdk/tests/mark'
+import { getPage } from 'src/server/cms'
+import type { PageContentType } from 'src/server/cms'
+import CUSTOM_SECTIONS from 'src/customizations'
 
 import storeConfig from '../../store.config'
 
-function Page() {
+/**
+ * Sections: Components imported from each store's custom components and '../components/sections'.
+ * Do not import or render components from any other folder in here.
+ */
+const COMPONENTS: Record<string, ComponentType<any>> = {
+  Hero,
+  BannerText,
+  IncentivesHeader,
+  ProductShelf,
+  ProductTiles,
+  Newsletter,
+  ...CUSTOM_SECTIONS,
+}
+
+type Props = PageContentType
+
+function Page({ sections, settings }: Props) {
   return (
     <>
       {/* SEO */}
       <NextSeo
-        title={storeConfig.seo.title}
-        description={storeConfig.seo.description}
+        title={settings.seo.title}
+        description={settings.seo.description}
         titleTemplate={storeConfig.seo.titleTemplate}
-        canonical={storeConfig.storeUrl}
+        canonical={settings.seo.canonical ?? storeConfig.storeUrl}
         openGraph={{
           type: 'website',
           url: storeConfig.storeUrl,
-          title: storeConfig.seo.title,
-          description: storeConfig.seo.description,
+          title: settings.seo.title,
+          description: settings.seo.description,
         }}
       />
       <SiteLinksSearchBoxJsonLd
         url={storeConfig.storeUrl}
         potentialActions={[
           {
-            target: `${storeConfig.storeUrl}/s/?q={search_term_string}`,
-            queryInput: 'required name=search_term_string',
+            target: `${storeConfig.storeUrl}/s/?q`,
+            queryInput: 'search_term_string',
           },
         ]}
       />
@@ -51,48 +70,26 @@ function Page() {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-      <Hero
-        title="New Offers"
-        subtitle="At BaseStore you can shop the best tech of 2022. Enjoy and get 10% off on your first purchase."
-        linkText="See all"
-        link="/technology"
-        imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
-        imageAlt="Quest 2 Controller on a table"
-      />
-
-      <IncentivesHeader incentives={IncentivesMock} />
-
-      <Suspense fallback={<ProductShelfSkeleton loading />}>
-        <ProductShelf
-          first={ITEMS_PER_SECTION}
-          selectedFacets={[{ key: 'productClusterIds', value: '140' }]}
-          title="Most Wanted"
-        />
-      </Suspense>
-
-      <Suspense fallback={<ProductTilesSkeleton loading />}>
-        <ProductTiles
-          first={3}
-          selectedFacets={[{ key: 'productClusterIds', value: '141' }]}
-          title="Just Arrived"
-        />
-      </Suspense>
-
-      <BannerText
-        title="Receive our news and promotions in advance. Enjoy and get 10% off on your first purchase."
-        actionPath="/"
-        actionLabel="Call to action"
-      />
-
-      <Suspense fallback={<ProductShelfSkeleton loading />}>
-        <ProductShelf
-          first={ITEMS_PER_SECTION}
-          selectedFacets={[{ key: 'productClusterIds', value: '142' }]}
-          title="Deals & Promotions"
-        />
-      </Suspense>
+      <RenderPageSections sections={sections} components={COMPONENTS} />
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps<
+  Props,
+  Record<string, string>,
+  Locator
+> = async (context) => {
+  const page = await getPage<PageContentType>({
+    ...(context.previewData?.contentType === 'page'
+      ? context.previewData
+      : { filters: { 'settings.seo.slug': '/' } }),
+    contentType: 'page',
+  })
+
+  return {
+    props: page,
+  }
 }
 
 Page.displayName = 'Page'

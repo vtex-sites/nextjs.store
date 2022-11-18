@@ -1,5 +1,5 @@
 import RegionalizationInput from 'src/components/regionalization/RegionalizationInput'
-import { ButtonIcon } from 'src/components/ui/Button'
+import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 
@@ -19,7 +19,7 @@ function RegionalizationModalContent({
     >
       <header data-fs-regionalization-modal-header>
         {onClose && (
-          <ButtonIcon
+          <Button
             onClick={() => onClose?.()}
             data-fs-regionalization-modal-button
             aria-label="Close Regionalization Modal"
@@ -37,7 +37,7 @@ function RegionalizationModalContent({
           <RegionalizationInput closeModal={() => onClose?.()} />
         </div>
         <Link href="/" data-fs-regionalization-modal-link>
-          {"Don't know my Postal Code"}
+          {"I don't know my Postal Code"}
           <Icon name="ArrowSquareOut" width={18} height={18} />
         </Link>
       </div>

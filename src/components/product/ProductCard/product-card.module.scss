@@ -8,7 +8,7 @@
   // Default properties
   --fs-product-card-padding                  : var(--fs-spacing-1) var(--fs-spacing-1) var(--fs-spacing-2) var(--fs-spacing-1);
   --fs-product-card-gap                      : var(--fs-grid-gap-2);
-  --fs-product-card-min-width                : 14rem;
+  --fs-product-card-min-width                : 10rem;
 
   --fs-product-card-shadow                   : var(--fs-shadow);
   --fs-product-card-shadow-hover             : var(--fs-shadow-hover);
@@ -20,7 +20,7 @@
   --fs-product-card-border-radius            : var(--fs-border-radius);
   --fs-product-card-border-width             : var(--fs-border-width);
   --fs-product-card-border-color             : var(--fs-border-color-light);
-  --fs-product-card-border-color-hover       : var(--fs-border-color-light-hover);
+  --fs-product-card-border-color-hover       : var(--fs-border-color-hover);
 
   --fs-product-card-transition-function      : var(--fs-transition-function);
   --fs-product-card-transition-property      : var(--fs-transition-property);
@@ -30,27 +30,34 @@
   --fs-product-card-content-padding          : var(--fs-spacing-2) 0 0 0;
 
   // Image
-  --fs-product-card-img-radius               : var(--fs-border-radius);
+  --fs-product-card-img-radius               : var(--fs-product-card-border-radius);
+  --fs-product-card-img-scale-hover          : 1;
 
   // Title
-  --fs-product-card-title-color         : var(--fs-color-text);
-  --fs-product-card-title-size          : var(--fs-text-size-base);
-  --fs-product-card-title-weight        : var(--fs-text-weight-regular);
-  --fs-product-card-title-max-lines     : var(--fs-text-max-lines);
+  --fs-product-card-title-color              : var(--fs-color-text);
+  --fs-product-card-title-size               : var(--fs-text-size-base);
+  --fs-product-card-title-weight             : var(--fs-text-weight-regular);
+  --fs-product-card-title-max-lines          : var(--fs-text-max-lines);
 
   // Price
-  --fs-product-card-price-color         : var(--fs-color-text);
-  --fs-product-card-price-size          : var(--fs-text-size-base);
-  --fs-product-card-price-listing-color : var(--fs-color-text-light);
-  --fs-product-card-price-listing-size  : var(--fs-text-size-legend);
+  --fs-product-card-price-color              : var(--fs-color-text);
+  --fs-product-card-price-size               : var(--fs-text-size-base);
+  --fs-product-card-price-listing-color      : var(--fs-color-text-light);
+  --fs-product-card-price-listing-size       : var(--fs-text-size-legend);
 
   // Description
-  --fs-product-card-description-color   : var(--fs-color-text);
-  --fs-product-card-description-size    : var(--fs-text-size-legend);
+  --fs-product-card-description-color        : var(--fs-color-text);
+  --fs-product-card-description-size         : var(--fs-text-size-legend);
 
   // Subtitle
-  --fs-product-card-subtitle-color      : var(--fs-color-text-light);
-  --fs-product-card-subtitle-size       : var(--fs-text-size-tiny);
+  --fs-product-card-subtitle-color           : var(--fs-color-text-light);
+  --fs-product-card-subtitle-size            : var(--fs-text-size-tiny);
+
+  // Wide
+  --fs-product-card-wide-padding             : 0;
+  --fs-product-card-wide-content-padding     : var(--fs-spacing-2);
+  --fs-product-card-wide-bkg-color           : var(--fs-color-neutral-bkg);
+  --fs-product-card-wide-min-width           : 9rem;
 
   // --------------------------------------------------------
   // Structural Styles
@@ -80,15 +87,20 @@
       background-color: var(--fs-product-card-bkg-color-hover);
       border-color: var(--fs-product-card-border-color-hover);
       box-shadow: var(--fs-product-card-shadow-hover);
+      [data-fs-product-card-image] img { transform: scale(var(--fs-product-card-img-scale-hover)); }
     }
   }
 
-  [data-product-card-image] {
+  [data-fs-product-card-image] {
     position: relative;
     display: flex;
     justify-content: center;
     overflow: hidden;
     border-radius: var(--fs-product-card-img-radius);
+
+    img {
+      transition: var(--fs-product-card-transition-property) var(--fs-product-card-transition-timing) var(--fs-product-card-transition-function);
+    }
   }
 
   [data-fs-product-card-content] {
@@ -114,7 +126,7 @@
       }
     }
 
-    [data-store-badge],
+    [data-fs-badge],
     [data-fs-product-card-actions] { margin-top: var(--fs-spacing-2); }
   }
 
@@ -167,13 +179,19 @@
 
   &[data-fs-product-card-bordered="true"] {
     border: var(--fs-product-card-border-width) solid var(--fs-product-card-border-color);
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: var(--fs-product-card-border-color-hover);
+      }
+    }
   }
 
   &[data-fs-product-card-variant="wide"] {
-    --fs-product-card-padding: 0;
-    --fs-product-card-content-padding: var(--fs-spacing-2);
-    --fs-product-card-bkg-color: var(--fs-color-neutral-bkg);
-    --fs-product-card-min-width: 9rem;
+    --fs-product-card-padding         : var(--fs-product-card-wide-padding);
+    --fs-product-card-content-padding : var(--fs-product-card-wide-content-padding);
+    --fs-product-card-bkg-color       : var(--fs-product-card-wide-bkg-color);
+    --fs-product-card-min-width       : var(--fs-product-card-wide-min-width);
 
     grid-template-rows: 1fr auto;
 
@@ -203,10 +221,10 @@
     }
 
     [data-product-card-image] {
-      border-radius: var(--fs-product-card-border-radius) var(--fs-product-card-border-radius) 0 0;
+      border-radius: 0;
     }
 
-    [data-store-badge] {
+    [data-fs-badge] {
       @include media(">=notebook") {
         grid-row: 1;
         grid-column: 2;
@@ -230,7 +248,7 @@
       gap: calc(var(--fs-product-card-gap) / 2);
     }
 
-    [data-store-badge] { align-self: end; }
+    [data-fs-badge] { align-self: end; }
     [data-fs-product-card-prices] { margin-bottom: 0; }
   }
 }

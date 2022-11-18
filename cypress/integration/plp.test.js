@@ -35,7 +35,7 @@ describe('Search page Filters and Sorting options', () => {
         const value = $checkbox.attr('data-value')
         // const quantity = $checkbox.attr('data-quantity')
 
-        cy.getById('filter-modal-button-apply')
+        cy.getById('filter-slider-button-apply')
           .click()
 
           .then(() => {
@@ -209,16 +209,13 @@ describe('Infinite Scroll pagination', () => {
     cy.visit(pages.collection, options)
     cy.waitForHydration()
 
-    cy.getById('show-more')
-      .should('exist')
-      .click()
+    cy.getById('show-more').should('exist').click()
 
-      .getById('total-product-count')
-      .scrollIntoView({ duration: 1000 })
+    cy.scrollTo('top')
       .location('search')
       .should('match', /page=0$/)
 
-      .get('[data-testid=product-gallery] [data-testid=store-product-card]')
+    cy.get('[data-testid=product-gallery] [data-testid=store-product-card]')
       .last()
       .scrollIntoView({ duration: 1000 })
       .location('search')

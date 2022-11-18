@@ -11,20 +11,17 @@ Kickoff your store with this boilerplate. This starter ships with the main FastS
 
 ## ⚠️ Before you start
 
-As of Dec, 22, 2021, this starter is still far from covering most basic cases found on VTEX. To summarize what we still do not support that is considered basic on the VTEX commerce platform, we prepared the list below. If the feature you want is listed, you can either wait for us to add support to the feature, or fork the repo and implement on your own. Note that, by forking the repo, you will miss new features and improvements we do in this repo and you will need a developer to backport the feature to your store. Finally, this list is a work in progress, so some features may be missing from both base.store starter and this list.
+As of Sep, 2022, this starter is still far from covering most basic cases found on VTEX. To summarize what we still do not support that is considered basic on the VTEX commerce platform, we prepared the list below. If the feature you want is listed, you can either wait for us to add support to the feature, or fork the repo and implement on your own. Note that, by forking the repo, you will miss new features and improvements we do in this repo and you will need a developer to backport the feature to your store. Finally, this list is a work in progress, so some features may be missing from both base.store starter and this list.
 
 1. Multiple CMS Previews. Only one user is allowed to preview content from the CMS at a time. If two users preview any content from any page at the CMS, the previews are not consistent and one user may see data from the other.
 2. Price Table
-3. Regionalization
-4. Internationalization
-5. Shared Cart (Carrinho compartilhado)
-6. Clear products that are our of stock from cart
-7. GDPR (LGDP)
-8. Shipping simulation
-9. Sitemap
-10. Sku selector on PDP
-11. Promotions via utm
-12. Product specifications
+3. Internationalization
+4. Shared Cart (Carrinho compartilhado)
+5. Clear products that are our of stock from cart
+6. GDPR (LGDP)
+7. Shipping simulation
+8. Sitemap
+9. Promotions via utm
 
 ## 🚀 Quick start
 
@@ -287,27 +284,6 @@ function Button({ variant, ...props }: Props) {
 ```
 
 Now we have a styled Button component that accepts different variants!! 🎉
-The aforementioned guide works well for UI components. However, components like `Navbar` and `Footer` are more complex and usually don't have variants, since they usually serve a single responsibility on the page. For these cases, you can use [BEM-Style CSS Syntax in SCSS](https://en.bem.info/methodology/) like:
-
-```tsx
- // components/common/Navbar/Navbar.tsx
- ...
- function Navbar {
-   return (
-      <header className="navbar">
-        <div className="navbar__header">
-         <section className="navbar__row">
-           <Button
-               className="navbar__menu"
-               aria-label="Open Menu"
-           >
-             <ListIcon size={32} />
-           </Button>
-         </section>
-        </div>
-      </header>
-   )
-```
 
 ### Managing SVG Icons
 Icons help build web pages by illustrating concepts and improving website navigation. However, using icons can decrease the page's performance. One option to avoid the decrease of the page's performance is to use SVGs from a single SVG file, located in `/static/icons.svg`, and load them with the `ui/Icon` component.
@@ -417,6 +393,18 @@ That's it! you have just regenerated all graphql queries/fragments for your appl
 
 > Pro tip: Pass `-w` to the `yarn generate` command so it watches for changes and you don't need to run this command multiple times
 
+## CMS Integration
+
+This store is integrated with [VTEX headless CMS](https://www.faststore.dev/tutorials/cms/0). 
+
+The page rendered with CMS is:
+
+- index page: `pages/index.tsx`
+
+### CMS configs
+
+It's possible to change the CMS tenant and workspace at `store.config.js`.
+
 ## 🎓 Learning the Frameworks
 
 Looking for more guidance? Full documentation for FastStore lives [on this GitHub repository](https://github.com/vtex/faststore). Also, for learning NextJS, take a look at the [NextJS Website](https://nextjs.org/docs/getting-started), they have plenty of tutorials and examples in there.
@@ -446,4 +434,4 @@ export const onRenderBody = ({ setHeadComponents }) => {
 }
 ```
 
-For more information about integrating third-party scripts: [Partytown Wiki](https://github.com/BuilderIO/partytown/wiki)
+For more information about integrating third-party scripts: [Partytown Wiki](https://github.com/BuilderIO/partytown/wiki).

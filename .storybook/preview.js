@@ -1,10 +1,17 @@
-import '!style-loader!css-loader!sass-loader!../src/styles/fonts.css'
 import '!style-loader!css-loader!sass-loader!../src/styles/global/layout.scss'
 import '!style-loader!css-loader!sass-loader!../src/styles/global/resets.scss'
 import '!style-loader!css-loader!sass-loader!../src/styles/global/storybook-components.scss'
 import '!style-loader!css-loader!sass-loader!../src/styles/global/tokens.scss'
 import '!style-loader!css-loader!sass-loader!../src/styles/global/typography.scss'
+import { initialize, mswDecorator } from 'msw-storybook-addon'
+
+// Initialize MSW
+initialize()
+
 import SBTheme from './theme'
+
+// Provide the MSW addon decorator globally
+export const decorators = [mswDecorator]
 
 // Viewports from src/styles/vendors/include-media_overwrite.scss
 const customViewports = {
@@ -68,11 +75,13 @@ export const parameters = {
       order: [
         'Getting Started',
         'Theming',
-        'Fundamentals',
-        ['Colors', 'Typography', 'Icons'],
+        'Global Tokens',
+        'Media',
+        ['Colors', 'Typography', 'Spacing', 'Grid & Layout'],
         'Atoms',
         'Molecules',
         'Organisms',
+        'Features',
         'Releases',
       ],
     },

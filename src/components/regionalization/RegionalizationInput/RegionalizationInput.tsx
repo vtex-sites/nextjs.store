@@ -1,8 +1,7 @@
-import { useSession } from '@faststore/sdk'
 import { useRef, useState } from 'react'
 
 import InputText from 'src/components/ui/InputText'
-import { validateSession } from 'src/sdk/session/validate'
+import { sessionStore, useSession, validateSession } from 'src/sdk/session'
 
 interface Props {
   closeModal: () => void
@@ -10,31 +9,32 @@ interface Props {
 
 function RegionInput({ closeModal }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
-  const { setSession, isValidating, ...session } = useSession()
+  const { isValidating, ...session } = useSession()
   const [errorMessage, setErrorMessage] = useState<string>('')
+  const [input, setInput] = useState<string>('')
 
   const handleSubmit = async () => {
-    const value = inputRef.current?.value
+    const postalCode = inputRef.current?.value
 
-    if (typeof value !== 'string') {
+    if (typeof postalCode !== 'string') {
       return
     }
 
     setErrorMessage('')
 
     try {
-      const newSession = await validateSession({
+      const newSession = {
         ...session,
-        postalCode: value,
-      })
-
-      if (newSession) {
-        setSession(newSession)
+        postalCode,
       }
+
+      const validatedSession = await validateSession(newSession)
+
+      sessionStore.set(validatedSession ?? newSession)
 
       closeModal()
     } catch (error) {
-      setErrorMessage('You entered an invalid Zip Code')
+      setErrorMessage('You entered an invalid Postal Code')
     }
   }
 
@@ -43,10 +43,16 @@ function RegionInput({ closeModal }: Props) {
       <InputText
         inputRef={inputRef}
         id="postal-code-input"
-        errorMessage={errorMessage}
-        label="Zip Code"
+        error={errorMessage}
+        label="Postal Code"
         actionable
+        value={input}
+        onInput={(e) => {
+          errorMessage !== '' && setErrorMessage('')
+          setInput(e.currentTarget.value)
+        }}
         onSubmit={handleSubmit}
+        onClear={() => setInput('')}
       />
     </div>
   )

@@ -16,8 +16,125 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
+  /**
+   * Example:
+   *
+   * ```json
+   * {
+   *   Color: 'Red', Size: '42'
+   * }
+   * ```
+   */
+  ActiveVariations: any
+  /**
+   * Example:
+   *
+   * ```json
+   * {
+   *   Color: [
+   *     {
+   *       src: "https://storecomponents.vtexassets.com/...",
+   *       alt: "...",
+   *       label: "...",
+   *       value: "..."
+   *     },
+   *     {
+   *       src: "https://storecomponents.vtexassets.com/...",
+   *       alt: "...",
+   *       label: "...",
+   *       value: "..."
+   *     }
+   *   ],
+   *   Size: [
+   *     {
+   *       src: "https://storecomponents.vtexassets.com/...",
+   *       alt: "...",
+   *       label: "...",
+   *       value: "..."
+   *     }
+   *   ]
+   * }
+   * ```
+   */
+  FormattedVariants: any
   /** A string or the string representation of an object (a stringified object). */
   ObjectOrString: any
+  /**
+   * Example:
+   *
+   * ```json
+   * {
+   *   'Color-Red-Size-40': 'classic-shoes-37'
+   * }
+   * ```
+   */
+  SlugsMap: any
+  /**
+   * Example:
+   *
+   * ```json
+   * {
+   *   Color: [ "Red", "Blue", "Green" ],
+   *   Size: [ "40", "41" ]
+   * }
+   * ```
+   */
+  VariantsByName: any
+}
+
+/** Address information. */
+export type Address = {
+  /** Address city */
+  city: Maybe<Scalars['String']>
+  /** Address complement */
+  complement: Maybe<Scalars['String']>
+  /** Address country */
+  country: Maybe<Scalars['String']>
+  /** Address geoCoordinates */
+  geoCoordinates: Maybe<Array<Maybe<Scalars['Float']>>>
+  /** Address neighborhood */
+  neighborhood: Maybe<Scalars['String']>
+  /** Address number */
+  number: Maybe<Scalars['String']>
+  /** Address postal code */
+  postalCode: Maybe<Scalars['String']>
+  /** Address reference */
+  reference: Maybe<Scalars['String']>
+  /** Address state */
+  state: Maybe<Scalars['String']>
+  /** Address street */
+  street: Maybe<Scalars['String']>
+}
+
+export type DeliveryIds = {
+  /** DeliveryIds courier id */
+  courierId: Maybe<Scalars['String']>
+  /** DeliveryIds courier name */
+  courierName: Maybe<Scalars['String']>
+  /** DeliveryIds dock id */
+  dockId: Maybe<Scalars['String']>
+  /** DeliveryIds quantity */
+  quantity: Maybe<Scalars['Int']>
+  /** DeliveryIds warehouse id */
+  warehouseId: Maybe<Scalars['String']>
+}
+
+/** Person data input to the newsletter. */
+export type IPersonNewsletter = {
+  /** Person's email. */
+  email: Scalars['String']
+  /** Person's name. */
+  name: Scalars['String']
+}
+
+/** Shipping Simulation item input. */
+export type IShippingItem = {
+  /** ShippingItem ID / Sku. */
+  id: Scalars['String']
+  /** Number of items. */
+  quantity: Scalars['Int']
+  /** Seller responsible for the ShippingItem. */
+  seller: Scalars['String']
 }
 
 /** Shopping cart input. */
@@ -128,20 +245,135 @@ export type IStoreSession = {
   postalCode: InputMaybe<Scalars['String']>
 }
 
+export type LogisticsInfo = {
+  /** LogisticsInfo itemIndex. */
+  itemIndex: Maybe<Scalars['String']>
+  /** LogisticsInfo selectedSla. */
+  selectedSla: Maybe<Scalars['String']>
+  /** List of LogisticsInfo ShippingSLA. */
+  slas: Maybe<Array<Maybe<ShippingSla>>>
+}
+
+/** Shipping Simulation Logistic Item. */
+export type LogisticsItem = {
+  /** LogisticsItem availability. */
+  availability: Maybe<Scalars['String']>
+  /** LogisticsItem ID / Sku. */
+  id: Maybe<Scalars['String']>
+  /** LogisticsItem listPrice. */
+  listPrice: Maybe<Scalars['Int']>
+  /** LogisticsItem measurementUnit. */
+  measurementUnit: Maybe<Scalars['String']>
+  /** LogisticsItem price. */
+  price: Maybe<Scalars['Int']>
+  /** Next date in which price is scheduled to change. If there is no scheduled change, this will be set a year in the future from current time. */
+  priceValidUntil: Maybe<Scalars['String']>
+  /** Number of items. */
+  quantity: Maybe<Scalars['Int']>
+  requestIndex: Maybe<Scalars['Int']>
+  /** LogisticsItem rewardValue. */
+  rewardValue: Maybe<Scalars['Int']>
+  /** Seller responsible for the ShippingItem. */
+  seller: Maybe<Scalars['String']>
+  /** List of Sellers. */
+  sellerChain: Maybe<Array<Maybe<Scalars['String']>>>
+  /** LogisticsItem sellingPrice. */
+  sellingPrice: Maybe<Scalars['Int']>
+  /** LogisticsItem tax. */
+  tax: Maybe<Scalars['Int']>
+  /** LogisticsItem unitMultiplier. */
+  unitMultiplier: Maybe<Scalars['Int']>
+}
+
+export type MessageFields = {
+  /** MessageFields ean. */
+  ean: Maybe<Scalars['String']>
+  /** MessageFields item index. */
+  itemIndex: Maybe<Scalars['String']>
+  /** MessageFields sku name. */
+  skuName: Maybe<Scalars['String']>
+}
+
+export type MessageInfo = {
+  /** MessageInfo code. */
+  code: Maybe<Scalars['String']>
+  /** MessageInfo fields. */
+  fields: Maybe<MessageFields>
+  /** MessageInfo status. */
+  status: Maybe<Scalars['String']>
+  /** MessageInfo text. */
+  text: Maybe<Scalars['String']>
+}
+
 export type Mutation = {
+  /** Subscribes a new person to the newsletter list. */
+  subscribeToNewsletter: Maybe<PersonNewsletter>
   /** Checks for changes between the cart presented in the UI and the cart stored in the ecommerce platform. If changes are detected, it returns the cart stored on the platform. Otherwise, it returns `null`. */
   validateCart: Maybe<StoreCart>
   /** Updates a web session with the specified values. */
   validateSession: Maybe<StoreSession>
 }
 
+export type MutationSubscribeToNewsletterArgs = {
+  data: IPersonNewsletter
+}
+
 export type MutationValidateCartArgs = {
   cart: IStoreCart
+  session: InputMaybe<IStoreSession>
 }
 
 export type MutationValidateSessionArgs = {
   search: Scalars['String']
   session: IStoreSession
+}
+
+/** Newsletter information. */
+export type PersonNewsletter = {
+  /** Person's ID in the newsletter list. */
+  id: Scalars['String']
+}
+
+export type PickupAddress = {
+  /** PickupAddress address id. */
+  addressId: Maybe<Scalars['String']>
+  /** PickupAddress address type. */
+  addressType: Maybe<Scalars['String']>
+  /** PickupAddress city. */
+  city: Maybe<Scalars['String']>
+  /** PickupAddress complement. */
+  complement: Maybe<Scalars['String']>
+  /** PickupAddress country. */
+  country: Maybe<Scalars['String']>
+  /** PickupAddress geo coordinates. */
+  geoCoordinates: Maybe<Array<Maybe<Scalars['Float']>>>
+  /** PickupAddress neighborhood. */
+  neighborhood: Maybe<Scalars['String']>
+  /** PickupAddress number. */
+  number: Maybe<Scalars['String']>
+  /** PickupAddress postal code. */
+  postalCode: Maybe<Scalars['String']>
+  /** PickupAddress receiver name. */
+  receiverName: Maybe<Scalars['String']>
+  /** PickupAddress reference. */
+  reference: Maybe<Scalars['String']>
+  /** PickupAddress state. */
+  state: Maybe<Scalars['String']>
+  /** PickupAddress street. */
+  street: Maybe<Scalars['String']>
+}
+
+export type PickupStoreInfo = {
+  /** PickupStoreInfo additional information. */
+  additionalInfo: Maybe<Scalars['String']>
+  /** PickupStoreInfo address. */
+  address: Maybe<PickupAddress>
+  /** PickupStoreInfo dock id. */
+  dockId: Maybe<Scalars['String']>
+  /** PickupStoreInfo friendly name. */
+  friendlyName: Maybe<Scalars['String']>
+  /** Information if the store has pickup enable. */
+  isPickupStore: Maybe<Scalars['Boolean']>
 }
 
 export type Query = {
@@ -155,6 +387,8 @@ export type Query = {
   product: StoreProduct
   /** Returns the result of a product, facet, or suggestion search. */
   search: StoreSearchResult
+  /** Returns information about shipping simulation. */
+  shipping: Maybe<ShippingData>
 }
 
 export type QueryAllCollectionsArgs = {
@@ -181,6 +415,84 @@ export type QuerySearchArgs = {
   selectedFacets: InputMaybe<Array<IStoreSelectedFacet>>
   sort?: InputMaybe<StoreSort>
   term?: InputMaybe<Scalars['String']>
+}
+
+export type QueryShippingArgs = {
+  country: Scalars['String']
+  items: Array<IShippingItem>
+  postalCode: Scalars['String']
+}
+
+/** Shipping Simulation information. */
+export type ShippingData = {
+  /** Address information. */
+  address: Maybe<Address>
+  /** List of LogisticsItem. */
+  items: Maybe<Array<Maybe<LogisticsItem>>>
+  /** List of LogisticsInfo. */
+  logisticsInfo: Maybe<Array<Maybe<LogisticsInfo>>>
+  /** List of MessageInfo. */
+  messages: Maybe<Array<Maybe<MessageInfo>>>
+}
+
+export type ShippingSla = {
+  /** ShippingSLA carrier. */
+  carrier: Maybe<Scalars['String']>
+  /** ShippingSLA delivery channel. */
+  deliveryChannel: Maybe<Scalars['String']>
+  /** List of ShippingSLA delivery ids. */
+  deliveryIds: Maybe<Array<Maybe<DeliveryIds>>>
+  /** ShippingSLA friendly name. */
+  friendlyName: Maybe<Scalars['String']>
+  /** ShippingSLA id. */
+  id: Maybe<Scalars['String']>
+  /**
+   * ShippingSLA localized shipping estimate.
+   * Note: this will always return a localized string for locale `en-US`.
+   */
+  localizedEstimates: Maybe<Scalars['String']>
+  /** ShippingSLA name. */
+  name: Maybe<Scalars['String']>
+  /** ShippingSLA pickup distance. */
+  pickupDistance: Maybe<Scalars['Float']>
+  /** ShippingSLA pickup point id. */
+  pickupPointId: Maybe<Scalars['String']>
+  /** ShippingSLA pickup store info. */
+  pickupStoreInfo: Maybe<PickupStoreInfo>
+  /** ShippingSLA price. */
+  price: Maybe<Scalars['Float']>
+  /** ShippingSLA shipping estimate. */
+  shippingEstimate: Maybe<Scalars['String']>
+  /** ShippingSLA shipping estimate date. */
+  shippingEstimateDate: Maybe<Scalars['String']>
+}
+
+export type SkuVariants = {
+  /** SKU property values for the current SKU. */
+  activeVariations: Maybe<Scalars['ActiveVariations']>
+  /** All available options for each SKU variant property, indexed by their name. */
+  allVariantsByName: Maybe<Scalars['VariantsByName']>
+  /**
+   * Available options for each varying SKU property, taking into account the
+   * `dominantVariantName` property. Returns all available options for the
+   * dominant property, and only options that can be combined with its current
+   * value for other properties.
+   */
+  availableVariations: Maybe<Scalars['FormattedVariants']>
+  /**
+   * Maps property value combinations to their respective SKU's slug. Enables
+   * us to retrieve the slug for the SKU that matches the currently selected
+   * variations in O(1) time.
+   */
+  slugsMap: Maybe<Scalars['SlugsMap']>
+}
+
+export type SkuVariantsAvailableVariationsArgs = {
+  dominantVariantName: Scalars['String']
+}
+
+export type SkuVariantsSlugsMapArgs = {
+  dominantVariantName: Scalars['String']
 }
 
 /** Aggregate offer information, for a given SKU that is available to be fulfilled by multiple sellers. */
@@ -287,7 +599,7 @@ export type StoreCollectionMeta = {
   selectedFacets: Array<StoreCollectionFacet>
 }
 
-/** Product collection type. Possible values are `Department`, `Category`, `Brand` or `Cluster`. */
+/** Product collection type. Possible values are `Department`, `Category`, `Brand`, `Cluster`, `SubCategory` or `Collection`. */
 export type StoreCollectionType =
   /** Product brand. */
   | 'Brand'
@@ -295,8 +607,12 @@ export type StoreCollectionType =
   | 'Category'
   /** Product cluster. */
   | 'Cluster'
+  /** Product collection. */
+  | 'Collection'
   /** First level of product categorization. */
   | 'Department'
+  /** Third level of product categorization. */
+  | 'SubCategory'
 
 /** Currency information. */
 export type StoreCurrency = {
@@ -324,8 +640,9 @@ export type StoreFacetRange = {
   key: Scalars['String']
   /** Facet label. */
   label: Scalars['String']
+  /** Maximum facet range value. */
   max: StoreFacetValueRange
-  /** Array with information on each facet value. */
+  /** Minimum facet range value. */
   min: StoreFacetValueRange
 }
 
@@ -348,8 +665,11 @@ export type StoreFacetValueBoolean = {
   value: Scalars['String']
 }
 
+/** Search facet range value information. Used for minimum and maximum range values. */
 export type StoreFacetValueRange = {
+  /** Search facet range absolute value. */
   absolute: Scalars['Float']
+  /** Search facet range selected value. */
   selected: Scalars['Float']
 }
 
@@ -459,6 +779,8 @@ export type StoreProduct = {
   offers: StoreAggregateOffer
   /** Product ID, such as [ISBN](https://www.isbn-international.org/content/what-isbn) or similar global IDs. */
   productID: Scalars['String']
+  /** The product's release date. Formatted using https://en.wikipedia.org/wiki/ISO_8601 */
+  releaseDate: Scalars['String']
   /** Array with review information. */
   review: Array<StoreReview>
   /** Meta tag data. */
@@ -495,6 +817,12 @@ export type StoreProductGroup = {
   name: Scalars['String']
   /** Product group ID. */
   productGroupID: Scalars['String']
+  /**
+   * Object containing data structures to facilitate handling different SKU
+   * variant properties. Specially useful for implementing SKU selection
+   * components.
+   */
+  skuVariants: Maybe<SkuVariants>
 }
 
 /** Properties that can be associated with products and products groups. */
@@ -652,7 +980,15 @@ export type ProductDetailsFragment_ProductFragment = {
   gtin: string
   description: string
   id: string
-  isVariantOf: { productGroupID: string; name: string }
+  isVariantOf: {
+    name: string
+    productGroupID: string
+    skuVariants: {
+      activeVariations: any | null
+      slugsMap: any | null
+      availableVariations: any | null
+    } | null
+  }
   image: Array<{ url: string; alternateName: string }>
   brand: { name: string }
   offers: {
@@ -733,6 +1069,7 @@ export type ServerProductPageQueryQuery = {
     gtin: string
     name: string
     description: string
+    releaseDate: string
     id: string
     seo: { title: string; description: string; canonical: string }
     brand: { name: string }
@@ -754,7 +1091,15 @@ export type ServerProductPageQueryQuery = {
         seller: { identifier: string }
       }>
     }
-    isVariantOf: { productGroupID: string; name: string }
+    isVariantOf: {
+      productGroupID: string
+      name: string
+      skuVariants: {
+        activeVariations: any | null
+        slugsMap: any | null
+        availableVariations: any | null
+      } | null
+    }
     additionalProperty: Array<{
       propertyID: string
       name: string
@@ -766,6 +1111,7 @@ export type ServerProductPageQueryQuery = {
 
 export type ValidateCartMutationMutationVariables = Exact<{
   cart: IStoreCart
+  session: IStoreSession
 }>
 
 export type ValidateCartMutationMutation = {
@@ -820,6 +1166,29 @@ export type CartItemFragment = {
   }
 }
 
+export type CartProductItemFragment = {
+  sku: string
+  name: string
+  gtin: string
+  image: Array<{ url: string; alternateName: string }>
+  brand: { name: string }
+  isVariantOf: { productGroupID: string; name: string }
+  additionalProperty: Array<{
+    propertyID: string
+    name: string
+    value: any
+    valueReference: string
+  }>
+}
+
+export type SubscribeToNewsletterMutationVariables = Exact<{
+  data: IPersonNewsletter
+}>
+
+export type SubscribeToNewsletterMutation = {
+  subscribeToNewsletter: { id: string } | null
+}
+
 export type BrowserProductQueryQueryVariables = Exact<{
   locator: Array<IStoreSelectedFacet> | IStoreSelectedFacet
 }>
@@ -831,7 +1200,15 @@ export type BrowserProductQueryQuery = {
     gtin: string
     description: string
     id: string
-    isVariantOf: { productGroupID: string; name: string }
+    isVariantOf: {
+      name: string
+      productGroupID: string
+      skuVariants: {
+        activeVariations: any | null
+        slugsMap: any | null
+        availableVariations: any | null
+      } | null
+    }
     image: Array<{ url: string; alternateName: string }>
     brand: { name: string }
     offers: {
@@ -953,5 +1330,25 @@ export type ValidateSessionMutation = {
       givenName: string
       familyName: string
     } | null
+  } | null
+}
+
+export type ShippingSimulationQueryQueryVariables = Exact<{
+  postalCode: Scalars['String']
+  country: Scalars['String']
+  items: Array<IShippingItem> | IShippingItem
+}>
+
+export type ShippingSimulationQueryQuery = {
+  shipping: {
+    logisticsInfo: Array<{
+      slas: Array<{
+        carrier: string | null
+        price: number | null
+        shippingEstimate: string | null
+        localizedEstimates: string | null
+      } | null> | null
+    } | null> | null
+    address: { city: string | null; neighborhood: string | null } | null
   } | null
 }
