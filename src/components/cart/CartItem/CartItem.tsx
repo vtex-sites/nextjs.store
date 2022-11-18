@@ -7,6 +7,7 @@ import {
   CartItemPrices as UICartItemPrices,
   CartItemContent as UICartItemContent,
   CartItemImage as UICartItemImage,
+  IconButton as UIIconButton,
 } from '@faststore/ui'
 import { useCallback, useMemo } from 'react'
 import type {
@@ -15,7 +16,6 @@ import type {
   RemoveFromCartEvent,
 } from '@faststore/sdk'
 
-import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
@@ -136,14 +136,13 @@ function CartItem({ item, gift = false }: Props) {
 
       {!gift && (
         <UICartItemActions>
-          <Button
-            variant="tertiary"
+          <UIIconButton
             icon={<Icon name="XCircle" width={18} height={18} />}
             iconPosition="left"
             {...btnProps}
           >
             Remove
-          </Button>
+          </UIIconButton>
           <QuantitySelector
             min={1}
             initial={item.quantity}
