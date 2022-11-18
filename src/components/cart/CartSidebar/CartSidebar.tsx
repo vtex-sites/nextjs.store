@@ -1,10 +1,13 @@
 import { sendAnalyticsEvent } from '@faststore/sdk'
-import { List as UIList, IconButton as UIIconButton } from '@faststore/ui'
+import {
+  List as UIList,
+  IconButton as UIIconButton,
+  Badge as UIBadge,
+} from '@faststore/ui'
 import { useEffect } from 'react'
 import type { ViewCartEvent, CurrencyCode } from '@faststore/sdk'
 
 import Alert from 'src/components/ui/Alert'
-import { Badge } from 'src/components/ui/Badge'
 import Icon from 'src/components/ui/Icon'
 import SlideOver from 'src/components/ui/SlideOver'
 import { useCart } from 'src/sdk/cart'
@@ -67,7 +70,7 @@ function CartSidebar() {
           <p data-fs-cart-sidebar-title-text className="text__lead">
             Your Cart
           </p>
-          <Badge variant="info">{totalItems}</Badge>
+          <UIBadge variant="info">{totalItems}</UIBadge>
         </div>
         <UIIconButton
           data-fs-cart-sidebar-close-button
