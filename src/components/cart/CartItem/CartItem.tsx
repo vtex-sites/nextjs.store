@@ -7,7 +7,7 @@ import {
   CartItemPrices as UICartItemPrices,
   CartItemContent as UICartItemContent,
   CartItemImage as UICartItemImage,
-  IconButton as UIIconButton,
+  Button as UIButton,
 } from '@faststore/ui'
 import { useCallback, useMemo } from 'react'
 import type {
@@ -136,13 +136,13 @@ function CartItem({ item, gift = false }: Props) {
 
       {!gift && (
         <UICartItemActions>
-          <UIIconButton
+          <UIButton
             icon={<Icon name="XCircle" width={18} height={18} />}
             iconPosition="left"
             {...btnProps}
           >
             Remove
-          </UIIconButton>
+          </UIButton>
           <QuantitySelector
             min={1}
             initial={item.quantity}

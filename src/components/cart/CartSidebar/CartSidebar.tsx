@@ -2,6 +2,7 @@ import { sendAnalyticsEvent } from '@faststore/sdk'
 import {
   List as UIList,
   IconButton as UIIconButton,
+  Button as UIButton,
   Badge as UIBadge,
 } from '@faststore/ui'
 import { useEffect } from 'react'
@@ -117,7 +118,7 @@ function CartSidebar() {
               total={total}
               numberOfItems={totalItems}
               checkoutButton={
-                <UIIconButton
+                <UIButton
                   data-fs-cart-sidebar-checkout-button
                   variant="primary"
                   icon={
@@ -129,7 +130,7 @@ function CartSidebar() {
                   {...btnProps}
                 >
                   {isValidating ? 'Loading...' : 'Checkout'}
-                </UIIconButton>
+                </UIButton>
               }
             />
           </footer>
