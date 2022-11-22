@@ -139,6 +139,7 @@ function CartItem({ item, gift = false }: Props) {
           <UIButton
             icon={<Icon name="XCircle" width={18} height={18} />}
             iconPosition="left"
+            variant="tertiary"
             {...btnProps}
           >
             Remove
