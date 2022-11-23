@@ -1,4 +1,9 @@
-import { Input as UIInput, Label as UILabel } from '@faststore/ui'
+import {
+  Input as UIInput,
+  Label as UILabel,
+  Button as UIButton,
+  IconButton as UIIconButton,
+} from '@faststore/ui'
 import type { MutableRefObject } from 'react'
 import type { InputProps } from '@faststore/ui'
 
@@ -104,7 +109,7 @@ const InputText = ({
 
       {shouldDisplayButton &&
         (displayClearButton || error ? (
-          <Button
+          <UIIconButton
             data-fs-button-size="small"
             aria-label="Clear Field"
             icon={<Icon name="XCircle" width={20} height={20} />}
@@ -114,9 +119,9 @@ const InputText = ({
             }}
           />
         ) : (
-          <Button variant="tertiary" size="small" onClick={onSubmit}>
+          <UIButton variant="tertiary" size="small" onClick={onSubmit}>
             {buttonActionText}
-          </Button>
+          </UIButton>
         ))}
       {shouldDisplayError && (
         <span data-fs-input-text-error-message>{error}</span>
