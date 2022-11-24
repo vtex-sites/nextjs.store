@@ -1,8 +1,7 @@
-import { List as UIList } from '@faststore/ui'
+import { List as UIList, Badge as UIBadge } from '@faststore/ui'
 import { forwardRef } from 'react'
 import type { HTMLAttributes } from 'react'
 
-import { Badge } from 'src/components/ui/Badge'
 import Link from 'src/components/ui/Link'
 import useSearchInput, { formatSearchPath } from 'src/sdk/search/useSearchInput'
 import useTopSearch from 'src/sdk/search/useTopSearch'
@@ -61,9 +60,9 @@ const SearchTop = forwardRef<HTMLDivElement, SearchTopProps>(function SearchTop(
                     )
                   }
                 >
-                  <Badge data-fs-search-badge variant="info">
+                  <UIBadge data-fs-search-badge variant="info">
                     {index + 1}
-                  </Badge>
+                  </UIBadge>
                   {term.value}
                 </Link>
               </li>

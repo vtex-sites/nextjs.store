@@ -2,6 +2,7 @@ import {
   Checkbox as UICheckbox,
   Label as UILabel,
   List as UIList,
+  Badge as UIBadge,
 } from '@faststore/ui'
 
 import type {
@@ -9,7 +10,6 @@ import type {
   IStoreSelectedFacet,
 } from '@generated/graphql'
 import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
-import { Badge } from 'src/components/ui/Badge'
 import PriceRange from 'src/components/ui/PriceRange'
 
 import styles from './facets.module.scss'
@@ -104,9 +104,9 @@ function Facets({
                           data-fs-facets-list-item-label
                         >
                           {item.label}{' '}
-                          <Badge data-fs-facets-list-item-badge>
+                          <UIBadge data-fs-facets-list-item-badge>
                             {item.quantity}
-                          </Badge>
+                          </UIBadge>
                         </UILabel>
                       </li>
                     )
