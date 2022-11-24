@@ -7,7 +7,6 @@ import {
 import type { MutableRefObject } from 'react'
 import type { InputProps } from '@faststore/ui'
 
-import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 
 import styles from './input-text.module.scss'
