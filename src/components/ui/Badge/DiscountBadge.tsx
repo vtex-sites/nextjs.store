@@ -1,8 +1,9 @@
 import { memo } from 'react'
+import { Badge as UIBadge } from '@faststore/ui'
 
 import { useDiscountPercent } from 'src/sdk/product/useDiscountPercent'
 
-import Badge from './Badge'
+import styles from './badge.module.scss'
 
 export type DiscountBadgeProps = {
   /**
@@ -14,9 +15,9 @@ export type DiscountBadgeProps = {
    */
   spotPrice: number
   /**
-   * Sets the component size as big.
+   * Sets the component's size.
    */
-  big?: boolean
+  size?: 'small' | 'big'
   /**
    * Sets the limit percentage value to consider a low discount.
    */
@@ -30,7 +31,7 @@ export type DiscountBadgeProps = {
 const DiscountBadge = ({
   listPrice,
   spotPrice,
-  big = false,
+  size = 'small',
   thresholdLow = 15,
   thresholdHigh = 40,
 }: DiscountBadgeProps) => {
@@ -48,9 +49,13 @@ const DiscountBadge = ({
       : 'high'
 
   return (
-    <Badge big={big} data-fs-discount-badge-variant={discountVariant}>
+    <UIBadge
+      className={styles.fsBadge}
+      size={size}
+      data-fs-discount-badge-variant={discountVariant}
+    >
       {discountPercent}% off
-    </Badge>
+    </UIBadge>
   )
 }
 

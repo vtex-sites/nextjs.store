@@ -1,10 +1,9 @@
 import type { ComponentPropsWithRef, FormEvent, ReactNode } from 'react'
 import { forwardRef, useRef } from 'react'
-import { Form } from '@faststore/ui'
+import { Form, Button as UIButton } from '@faststore/ui'
 
 import { useUI } from 'src/sdk/ui/Provider'
 import Icon from 'src/components/ui/Icon'
-import Button from 'src/components/ui/Button'
 import Link from 'src/components/ui/Link'
 import InputText from 'src/components/ui/InputText'
 import { useNewsletter } from 'src/sdk/newsletter/useNewsletter'
@@ -136,9 +135,9 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
                     Privacy Policy.
                   </Link>
                 </span>
-                <Button variant="secondary" inverse type="submit">
+                <UIButton variant="secondary" inverse type="submit">
                   {loading ? 'Loading...' : 'Subscribe'}
-                </Button>
+                </UIButton>
               </>
             )}
           </div>
