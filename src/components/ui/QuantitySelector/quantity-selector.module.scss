@@ -35,10 +35,6 @@
   --fs-qty-selector-button-bkg-color-focus    : var(--fs-qty-selector-button-bkg-color-hover);
   --fs-qty-selector-button-border-radius      : var(--fs-qty-selector-border-radius);
 
-  --fs-qty-selector-transition-function       : var(--fs-transition-function);
-  --fs-qty-selector-transition-property       : var(--fs-transition-property);
-  --fs-qty-selector-transition-timing         : var(--fs-transition-timing);
-
   // Disabled properties
   --fs-qty-selector-disabled-bkg-color        : var(--fs-color-disabled-bkg);
   --fs-qty-selector-disabled-text-color       : var(--fs-color-disabled-text);
@@ -73,15 +69,6 @@
     font-size: var(--fs-qty-selector-text-size);
     color: var(--fs-qty-selector-text-color);
     text-align: center;
-    background-color: var(--fs-qty-selector-bkg-color);
-    border: var(--fs-qty-selector-border-width) solid var(--fs-qty-selector-border-color);
-    border-radius: var(--fs-qty-selector-border-radius);
-    transition:
-      var(--fs-qty-selector-transition-property)
-      var(--fs-qty-selector-transition-timing)
-      var(--fs-qty-selector-transition-function);
-
-    @include input-focus-ring;
   }
 
   [data-quantity-selector-button] {
@@ -163,10 +150,10 @@
   // --------------------------------------------------------
 
   &[data-fs-quantity-selector="disabled"] {
-    [data-quantity-selector-input] {
-      background-color: var(--fs-qty-selector-disabled-bkg-color);
-      border-color: var(--fs-qty-selector-disabled-border-color);
-    }
+    // [data-quantity-selector-input] {
+    //   background-color: var(--fs-qty-selector-disabled-bkg-color);
+    //   border-color: var(--fs-qty-selector-disabled-border-color);
+    // }
     [data-quantity-selector-button]:hover [data-fs-icon] { background-color: transparent; }
   }
 }

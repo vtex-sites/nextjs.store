@@ -6,30 +6,20 @@
   // --------------------------------------------------------
 
   // Default properties
-  --fs-input-padding                     : var(--fs-spacing-2) var(--fs-spacing-2) 0;
-  --fs-input-height                      : var(--fs-control-tap-size);
-
-  --fs-input-box-shadow                  : none;
-  --fs-input-box-shadow-hover            : 0 0 0 var(--fs-border-width) var(--fs-border-color-active);
-
-  --fs-input-border-radius               : var(--fs-border-radius);
-  --fs-input-border-width                : var(--fs-border-width);
-  --fs-input-border-color                : var(--fs-border-color);
-  --fs-input-border-color-hover          : var(--fs-border-color-active);
+  --fs-input-text-padding                : var(--fs-spacing-2) var(--fs-spacing-2) 0;
+  --fs-input-text-border-color           : var(--fs-border-color);
 
   --fs-input-text-color                  : var(--fs-color-text);
   --fs-input-text-size                   : var(--fs-text-size-body);
 
-  --fs-input-line-height                 : 1.25;
-
-  --fs-input-transition-function         : var(--fs-transition-function);
-  --fs-input-transition-property         : var(--fs-transition-property);
-  --fs-input-transition-timing           : var(--fs-transition-timing);
+  --fs-input-text-transition-function    : var(--fs-transition-function);
+  --fs-input-text-transition-property    : var(--fs-transition-property);
+  --fs-input-text-transition-timing      : var(--fs-transition-timing);
 
   // Label
-  --fs-input-label-padding               : 0 var(--fs-spacing-2);
-  --fs-input-label-color                 : var(--fs-color-text-light);
-  --fs-input-label-size                  : var(--fs-text-size-tiny);
+  --fs-input-text-label-padding          : 0 var(--fs-spacing-2);
+  --fs-input-text-label-color            : var(--fs-color-text-light);
+  --fs-input-text-label-size             : var(--fs-text-size-tiny);
 
   // Error
   --fs-input-error-message-size          : var(--fs-text-size-legend);
@@ -56,20 +46,12 @@
 
   input,
   label {
-    transition: var(--fs-input-transition-property) var(--fs-input-transition-timing) var(--fs-input-transition-function);
+    transition: var(--fs-input-text-transition-property) var(--fs-input-text-transition-timing) var(--fs-input-text-transition-function);
   }
 
   input {
-    height: var(--fs-input-height);
-    padding: var(--fs-input-padding);
-    font-size: var(--fs-input-text-size);
-    line-height: var(--fs-input-line-height);
+    padding: var(--fs-input-text-padding);
     color: var(--fs-input-text-color);
-    border: var(--fs-input-border-width) solid var(--fs-input-border-color);
-    border-radius: var(--fs-input-border-radius);
-    box-shadow: var(--fs-input-box-shadow);
-
-    @include input-focus-ring;
 
     &:placeholder-shown + label {
       top: calc(1.5 * (var(--fs-input-text-size) / 2));
@@ -88,28 +70,20 @@
     &:not(:placeholder-shown) + label,
     &:focus + label {
       top: rem(6px);
-      font-size: var(--fs-input-label-size);
+      font-size: var(--fs-input-text-label-size);
     }
 
-    &:hover:not(:disabled):not(:focus-visible):not(:focus) {
-      border-color: var(--fs-input-border-color-hover);
-      box-shadow: var(--fs-input-box-shadow-hover);
-    }
-
-    &:disabled {
+    &:disabled + label {
       cursor: not-allowed;
-      background-color: var(--fs-input-disabled-bkg-color);
-      border: var(--fs-input-disabled-border-width) solid var(--fs-input-disabled-border-color);
-      + label { cursor: not-allowed; }
     }
   }
 
   label {
     position: absolute;
-    padding: var(--fs-input-label-padding);
+    padding: var(--fs-input-text-label-padding);
     font-size: var(--fs-input-text-size);
     line-height: 1.5;
-    color: var(--fs-input-label-color);
+    color: var(--fs-input-text-label-color);
   }
 
   // --------------------------------------------------------
@@ -155,7 +129,7 @@
         width: 1px;
         height: 80%;
         content: "";
-        background-color: var(--fs-input-border-color);
+        background-color: var(--fs-input-text-border-color);
       }
     }
 
