@@ -1433,18 +1433,9 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/17c5bb65/@faststore/components":
-  version "1.12.20"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/17c5bb65/@faststore/components#455e06ecc6ba1e8e86b5fa4ff0bdcbc25fadf527"
-
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/2ca56975/@faststore/components":
-  version "1.12.20"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/2ca56975/@faststore/components#19424126a900abbfebb33f41833ee7d6fb9186a5"
-
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/b32d1e0a/@faststore/components":
-  version "1.12.20"
-  uid "455e06ecc6ba1e8e86b5fa4ff0bdcbc25fadf527"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/b32d1e0a/@faststore/components#455e06ecc6ba1e8e86b5fa4ff0bdcbc25fadf527"
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/bc3bc87a/@faststore/components":
+  version "2.0.3-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/bc3bc87a/@faststore/components#b171c429561802f707e457fb5946f9aa94a04ccd"
 
 "@faststore/graphql-utils@^1.11.8":
   version "1.12.20"
@@ -1468,22 +1459,11 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/17c5bb65/@faststore/ui":
-  version "1.12.23"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/17c5bb65/@faststore/ui#4f3397caa933d8cad97e143a98bbdf0b09324f5b"
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/bc3bc87a/@faststore/ui":
+  version "2.0.3-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/bc3bc87a/@faststore/ui#e2802ca72689f8c9e08e128d31defa41bfba157a"
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/17c5bb65/@faststore/components"
-    "@reach/popover" "^0.16.0"
-    include-media "^1.4.10"
-    modern-normalize "^1.1.0"
-    react-swipeable "^7.0.0"
-    tabbable "^5.2.1"
-
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/b32d1e0a/@faststore/ui":
-  version "1.12.23"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/b32d1e0a/@faststore/ui#071dab5861026d1ab06ce12f7292e9b1a5113ba8"
-  dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/b32d1e0a/@faststore/components"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/bc3bc87a/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
