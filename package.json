@@ -34,7 +34,7 @@
     "@faststore/components": "https://pkg.csb.dev/vtex/faststore/commit/2ca56975/@faststore/components",
     "@faststore/graphql-utils": "^1.11.8",
     "@faststore/sdk": "^1.11.8",
-    "@faststore/ui": "https://pkg.csb.dev/vtex/faststore/commit/b32d1e0a/@faststore/ui",
+    "@faststore/ui": "https://pkg.csb.dev/vtex/faststore/commit/76a53b82/@faststore/ui",
     "@types/react": "^18.0.14",
     "@vtex/client-cms": "^0.2.12",
     "@vtex/tsconfig": "0.6.0",
