@@ -1,11 +1,14 @@
 import type { ComponentPropsWithRef, FormEvent, ReactNode } from 'react'
 import { forwardRef, useRef } from 'react'
-import { Form, Button as UIButton } from '@faststore/ui'
+import {
+  Form,
+  Button as UIButton,
+  InputField as UIInputField,
+} from '@faststore/ui'
 
 import { useUI } from 'src/sdk/ui/Provider'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
-import InputText from 'src/components/ui/InputText'
 import { useNewsletter } from 'src/sdk/newsletter/useNewsletter'
 
 import Section from '../Section'
@@ -95,7 +98,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
           <div data-fs-newsletter-controls>
             {lite ? (
               <>
-                <InputText
+                <UIInputField
                   inputRef={emailInputRef}
                   id="newsletter-email"
                   label="Your Email"
@@ -116,13 +119,13 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
               </>
             ) : (
               <>
-                <InputText
+                <UIInputField
                   inputRef={nameInputRef}
                   id="newsletter-name"
                   label="Your Name"
                   required
                 />
-                <InputText
+                <UIInputField
                   inputRef={emailInputRef}
                   id="newsletter-email"
                   label="Your Email"
