@@ -1468,6 +1468,7 @@
   version "2.0.6-alpha.0"
   resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.6-alpha.0.tgz#8cc01148e8d412799e7944b612de31b8a8ee3eb3"
   integrity sha512-ulhrf9B88ZufUThlc2DCVpLNNfRUbiE5jUMS8DBH0rUYRrTvcTqtiUi6grvudmuzT+HPS9H3SWChcDfkLk1gJQ==
+
   dependencies:
     "@faststore/components" "*"
     "@reach/popover" "^0.16.0"
@@ -15535,8 +15536,6 @@ ssri@^6.0.1:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
   integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
-  dependencies:
-    figgy-pudding "^3.5.1"
 
 ssri@^8.0.1:
   version "8.0.1"
