@@ -1438,9 +1438,10 @@
   resolved "https://registry.yarnpkg.com/@faststore/components/-/components-1.12.32.tgz#2c50bf528fe92b394b533034f30091f462812880"
   integrity sha512-XVtWCp4RKpD0umr40vNYw0myh06wwIJ77i8MwfhWqzBEzZm9ht1E3nBoPcfYvAk73WFDHrHcdokiqBVfpPMRnA==
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/2ca56975/@faststore/components":
-  version "1.12.20"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/2ca56975/@faststore/components#19424126a900abbfebb33f41833ee7d6fb9186a5"
+"@faststore/components@2.0.5-alpha.0":
+  version "2.0.5-alpha.0"
+  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.5-alpha.0.tgz#080ad9095d9d6b142facc87a3e885f3680e9937d"
+  integrity sha512-ykuATgweefl/dqB7iB8zxxoiAKChoowlaE+3wfeBADMjt8BLS5bJNwhrBwkTKvevRAh4tc6UeBVkRRaXVlibTw==
 
 "@faststore/graphql-utils@^1.11.8":
   version "1.12.20"
@@ -1468,7 +1469,6 @@
   version "2.0.6-alpha.0"
   resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.6-alpha.0.tgz#8cc01148e8d412799e7944b612de31b8a8ee3eb3"
   integrity sha512-ulhrf9B88ZufUThlc2DCVpLNNfRUbiE5jUMS8DBH0rUYRrTvcTqtiUi6grvudmuzT+HPS9H3SWChcDfkLk1gJQ==
-
   dependencies:
     "@faststore/components" "*"
     "@reach/popover" "^0.16.0"
@@ -15536,6 +15536,8 @@ ssri@^6.0.1:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
   integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
+  dependencies:
+    figgy-pudding "^3.5.1"
 
 ssri@^8.0.1:
   version "8.0.1"
