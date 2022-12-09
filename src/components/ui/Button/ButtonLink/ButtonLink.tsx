@@ -27,6 +27,7 @@ function ButtonLink({
       className={styles.fsButton}
       data-fs-button
       data-fs-button-link
+      data-fs-link={null}
       data-fs-button-variant={variant}
       data-fs-button-inverse={inverse}
       data-fs-button-disabled={disabled}
