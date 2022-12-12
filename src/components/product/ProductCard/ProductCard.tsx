@@ -4,13 +4,13 @@ import {
   ProductCardContent as UIProductCardContent,
   ProductCardImage as UIProductCardImage,
   Badge as UIBadge,
+  DiscountBadge as UIDiscountBadge,
 } from '@faststore/ui'
 import { gql } from '@faststore/graphql-utils'
 import { memo } from 'react'
 import type { ReactNode } from 'react'
 
 import Link from 'src/components/ui/Link'
-import { DiscountBadge } from 'src/components/ui/Badge'
 import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
@@ -116,7 +116,7 @@ function ProductCard({
         {outOfStock ? (
           <UIBadge>Out of stock</UIBadge>
         ) : (
-          <DiscountBadge listPrice={listPrice} spotPrice={spotPrice} />
+          <UIDiscountBadge listPrice={listPrice} spotPrice={spotPrice} />
         )}
         {!!BuyButton && (
           <UIProductCardActions data-fs-product-card-actions>

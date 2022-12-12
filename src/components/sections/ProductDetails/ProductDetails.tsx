@@ -2,11 +2,13 @@ import { gql } from '@faststore/graphql-utils'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import { sendAnalyticsEvent } from '@faststore/sdk'
 import { useEffect, useState } from 'react'
-import { BuyButton as UIBuyButton } from '@faststore/ui'
+import {
+  BuyButton as UIBuyButton,
+  DiscountBadge as UIDiscountBadge,
+} from '@faststore/ui'
 
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import OutOfStock from 'src/components/product/OutOfStock'
-import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
 import { ImageGallery } from 'src/components/ui/ImageGallery'
 import Price from 'src/components/ui/Price'
@@ -123,7 +125,7 @@ function ProductDetails({ context: staleProduct }: Props) {
           <ProductTitle
             title={<h1>{name}</h1>}
             label={
-              <DiscountBadge
+              <UIDiscountBadge
                 listPrice={listPrice}
                 spotPrice={lowPrice}
                 size="big"
