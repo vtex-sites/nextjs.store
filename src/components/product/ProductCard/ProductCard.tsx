@@ -36,9 +36,9 @@ export interface ProductCardProps {
    */
   aspectRatio?: number
   /**
-   * Enables a ButtonBuy to the component.
+   * Enables a BuyButton to the component.
    */
-  ButtonBuy?: ReactNode
+  BuyButton?: ReactNode
 }
 
 function ProductCard({
@@ -47,7 +47,7 @@ function ProductCard({
   variant = 'default',
   bordered = false,
   aspectRatio = 1,
-  ButtonBuy,
+  BuyButton,
   ...otherProps
 }: ProductCardProps) {
   const {
@@ -68,7 +68,7 @@ function ProductCard({
       data-fs-product-card
       data-fs-product-card-variant={variant}
       data-fs-product-card-bordered={bordered}
-      data-fs-product-card-actionable={!!ButtonBuy}
+      data-fs-product-card-actionable={!!BuyButton}
       data-fs-product-card-sku={sku}
       className={styles.fsProductCard}
       {...otherProps}
@@ -118,9 +118,9 @@ function ProductCard({
         ) : (
           <DiscountBadge listPrice={listPrice} spotPrice={spotPrice} />
         )}
-        {!!ButtonBuy && (
+        {!!BuyButton && (
           <UIProductCardActions data-fs-product-card-actions>
-            {ButtonBuy}
+            {BuyButton}
           </UIProductCardActions>
         )}
       </UIProductCardContent>

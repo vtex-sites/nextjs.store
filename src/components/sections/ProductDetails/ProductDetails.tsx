@@ -2,7 +2,7 @@ import { gql } from '@faststore/graphql-utils'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import { sendAnalyticsEvent } from '@faststore/sdk'
 import { useEffect, useState } from 'react'
-import { ButtonBuy as UIButtonBuy } from '@faststore/ui'
+import { BuyButton as UIBuyButton } from '@faststore/ui'
 
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import OutOfStock from 'src/components/product/OutOfStock'
@@ -182,9 +182,9 @@ function ProductDetails({ context: staleProduct }: Props) {
             {isValidating ? (
               <AddToCartLoadingSkeleton />
             ) : (
-              <UIButtonBuy disabled={buyDisabled} {...buyProps}>
+              <UIBuyButton disabled={buyDisabled} {...buyProps}>
                 Add to Cart
-              </UIButtonBuy>
+              </UIBuyButton>
             )}
             {!availability && (
               <OutOfStock
