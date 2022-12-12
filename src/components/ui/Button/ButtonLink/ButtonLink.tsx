@@ -1,11 +1,11 @@
 import { useRef } from 'react'
 import type { FocusEvent } from 'react'
 import { Icon as UIIcon } from '@faststore/ui'
+import type { ButtonProps } from '@faststore/ui'
 
 import Link from 'src/components/ui/Link'
 import type { LinkProps } from 'src/components/ui/Link'
 
-import type { ButtonProps } from '../Button'
 import styles from '../button.module.scss'
 
 type ButtonLinkProps = ButtonProps & Omit<LinkProps, 'variant'>
