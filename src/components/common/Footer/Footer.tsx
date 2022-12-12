@@ -49,7 +49,7 @@ export function Footer({
         {sectionSocial && (
           <section data-fs-footer-social>
             <p data-fs-footer-title>Follow us</p>
-            <UIList variant="unordered">
+            <UIList>
               <li>
                 <Link
                   variant="footer"
