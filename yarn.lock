@@ -1438,10 +1438,10 @@
   resolved "https://registry.yarnpkg.com/@faststore/components/-/components-1.12.32.tgz#2c50bf528fe92b394b533034f30091f462812880"
   integrity sha512-XVtWCp4RKpD0umr40vNYw0myh06wwIJ77i8MwfhWqzBEzZm9ht1E3nBoPcfYvAk73WFDHrHcdokiqBVfpPMRnA==
 
-"@faststore/components@2.0.7-alpha.0":
-  version "2.0.7-alpha.0"
-  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.7-alpha.0.tgz#59ad24f783a6fa3c5de92fe6f674606d9e72afa1"
-  integrity sha512-RdIf2rCIQVAg3S+akOONX37Y5r2DOeJscHguk29EXrtSPqFaCnERwIqYxq0iGRebPu/bO7OashO2ctH5HX/Psg==
+"@faststore/components@2.0.10-alpha.0":
+  version "2.0.10-alpha.0"
+  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.10-alpha.0.tgz#859c6bbf313ce14d8167691834eff867c995c253"
+  integrity sha512-FSpBjLRgMgjUGA5rw7QGurH+D1T4+mt6ixZRU/Y8uHF6wyN4lMWa6+ufMQzNhHXmhGg5+m/Vz7OzyH2w8NA4wg==
 
 "@faststore/graphql-utils@^1.11.8":
   version "1.12.20"
@@ -1465,10 +1465,10 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@2.0.7-alpha.0":
-  version "2.0.7-alpha.0"
-  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.7-alpha.0.tgz#c261e9b9150ac57a286f65b677fefb2839be0e08"
-  integrity sha512-31YZgvlngKJ5YsykbN2fdTyL6YZNXjWwWgVx3843OD7nTH2DurVCSdbwyc3DTSEb6TuPzOB0Xg2X8nkwi4R0xQ==
+"@faststore/ui@2.0.10-alpha.0":
+  version "2.0.10-alpha.0"
+  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.10-alpha.0.tgz#fc9b42bd3184ccdffba847c30d4c876755f2a8f8"
+  integrity sha512-s4QJf5qPxdav+huGIka3SOEw2PQ0DrOXOQJvrVq5/Z5o8BiN+Cc0AObgBsUZXk1XYPZFttZjvw6l/v2dTtvykA==
   dependencies:
     "@faststore/components" "*"
     "@reach/popover" "^0.16.0"
