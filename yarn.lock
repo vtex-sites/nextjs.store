@@ -1443,6 +1443,10 @@
   resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.10-alpha.0.tgz#859c6bbf313ce14d8167691834eff867c995c253"
   integrity sha512-FSpBjLRgMgjUGA5rw7QGurH+D1T4+mt6ixZRU/Y8uHF6wyN4lMWa6+ufMQzNhHXmhGg5+m/Vz7OzyH2w8NA4wg==
 
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/47c382b8/@faststore/components":
+  version "2.0.9-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/47c382b8/@faststore/components#9e1d01d20b44ce079865f20d917b50d17dce1426"
+
 "@faststore/graphql-utils@^1.11.8":
   version "1.12.20"
   resolved "https://registry.yarnpkg.com/@faststore/graphql-utils/-/graphql-utils-1.12.20.tgz#fadb2ab2aae26dabd74056f5f549b73da1000a4d"
@@ -1470,7 +1474,7 @@
   resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.10-alpha.0.tgz#fc9b42bd3184ccdffba847c30d4c876755f2a8f8"
   integrity sha512-s4QJf5qPxdav+huGIka3SOEw2PQ0DrOXOQJvrVq5/Z5o8BiN+Cc0AObgBsUZXk1XYPZFttZjvw6l/v2dTtvykA==
   dependencies:
-    "@faststore/components" "*"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/47c382b8/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
