@@ -1433,9 +1433,9 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/62f5667e/@faststore/components":
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/e089253a/@faststore/components":
   version "2.0.7-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/62f5667e/@faststore/components#f484e021bd87b684b88417eb5b0271c48417cc6d"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/e089253a/@faststore/components#7af9fea0349709abbb97c9e6f669039a09db8081"
 
 "@faststore/graphql-utils@^1.11.8":
   version "1.12.20"
@@ -1459,11 +1459,11 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/62f5667e/@faststore/ui":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/e089253a/@faststore/ui":
   version "2.0.7-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/62f5667e/@faststore/ui#eebd1523e32a1d3d0089f76050a4fa844bb24239"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/e089253a/@faststore/ui#61696c78c74ffba055637b093a90da3817aae408"
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/62f5667e/@faststore/components"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/e089253a/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
@@ -14255,11 +14255,6 @@ react-sizeme@^3.0.1:
     shallowequal "^1.1.0"
     throttle-debounce "^3.0.1"
 
-react-swipeable@^6.1.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-6.2.2.tgz#52ba570f3a7a90db7093094ec476f3d151f727d1"
-  integrity sha512-Oz7nSFrssvq2yvy05aNL3F+yBUqSvLsK6x1mu+rQFOpMdQVnt4izKt1vyjvvTb70q6GQOaSpaB6qniROW2MAzQ==
-
 react-swipeable@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-7.0.0.tgz#7a12570ee435d35ac700511de338384aa78d12cd"
@@ -15534,6 +15529,8 @@ ssri@^6.0.1:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
   integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
+  dependencies:
+    figgy-pudding "^3.5.1"
 
 ssri@^8.0.1:
   version "8.0.1"
