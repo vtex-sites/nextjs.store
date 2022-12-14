@@ -1,9 +1,12 @@
-import { Input as UIInput, Label as UILabel } from '@faststore/ui'
+import {
+  Input as UIInput,
+  Label as UILabel,
+  SROnly as UISROnly,
+} from '@faststore/ui'
 import { forwardRef } from 'react'
 import type { InputHTMLAttributes } from 'react'
 
 import Icon from 'src/components/ui/Icon'
-import SROnly from 'src/components/ui/SROnly'
 
 import styles from './toggle.module.scss'
 
@@ -66,7 +69,7 @@ const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
           {label}
         </UILabel>
       ) : (
-        <SROnly text={label} />
+        <UISROnly text={label} />
       )}
     </div>
   )
