@@ -1443,6 +1443,10 @@
   resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.18-alpha.0.tgz#e234fe4cdfa9ffd662402d74abf07fa4d35d0591"
   integrity sha512-g8hrJnHGUerh0Zv0ty56tJ8lAmB66q8sIl7NHs0i+NtYTxxyTVxPeMrbjZhu6VW3+7pUWbLeWlUqL6xXbHBvyA==
 
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/b5f2872d/@faststore/components":
+  version "2.0.16-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/b5f2872d/@faststore/components#b6005a3fca5914387185386a0b6f9ddb01a9b9bc"
+
 "@faststore/graphql-utils@^2.0.3-alpha.0":
   version "2.0.3-alpha.0"
   resolved "https://registry.yarnpkg.com/@faststore/graphql-utils/-/graphql-utils-2.0.3-alpha.0.tgz#1d70065f5fcaafc51e9399b11b1b117a28a89f38"
@@ -1471,6 +1475,17 @@
   integrity sha512-QGlDAPoyZex+pgmMQWfC56ffZory00EXWJIM6HKO8y6iSem9j9OxrJPp6mY7jX2MFyUUi+FOYU9RHMnt8CuIjw==
   dependencies:
     "@faststore/components" "*"
+    "@reach/popover" "^0.16.0"
+    include-media "^1.4.10"
+    modern-normalize "^1.1.0"
+    react-swipeable "^7.0.0"
+    tabbable "^5.2.1"
+
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/b5f2872d/@faststore/ui":
+  version "2.0.16-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/b5f2872d/@faststore/ui#c495db25e0c67b24aeef628176ed862a2d1c2f1c"
+  dependencies:
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/b5f2872d/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
