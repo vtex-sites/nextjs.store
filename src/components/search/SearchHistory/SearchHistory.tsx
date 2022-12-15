@@ -23,7 +23,7 @@ const SearchHistory = () => {
           Clear History
         </UIButton>
       </div>
-      <UIList variant="ordered">
+      <UIList as="ol">
         {searchHistory.map((item) => (
           <li key={item.term} data-fs-search-item>
             <Link
