@@ -52,7 +52,8 @@ export function Footer({
             <UIList>
               <li>
                 <Link
-                  variant="footer"
+                  variant="display"
+                  size="small"
                   href="https://www.facebook.com/"
                   title="Facebook"
                   target="_blank"
@@ -63,7 +64,8 @@ export function Footer({
               </li>
               <li>
                 <Link
-                  variant="footer"
+                  variant="display"
+                  size="small"
                   href="https://www.instagram.com/"
                   title="Instagram"
                   target="_blank"
@@ -74,7 +76,8 @@ export function Footer({
               </li>
               <li>
                 <Link
-                  variant="footer"
+                  variant="display"
+                  size="small"
                   href="https://www.pinterest.com/"
                   title="Pinterest"
                   target="_blank"
@@ -85,7 +88,8 @@ export function Footer({
               </li>
               <li>
                 <Link
-                  variant="footer"
+                  variant="display"
+                  size="small"
                   href="https://twitter.com/"
                   title="Twitter"
                   target="_blank"
