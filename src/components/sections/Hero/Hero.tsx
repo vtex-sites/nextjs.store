@@ -1,49 +1,24 @@
-import type { ReactNode } from 'react'
 import {
   Hero as UIHero,
   HeroHeading as UIHeroHeading,
   HeroImage as UIHeroImage,
 } from '@faststore/ui'
+import type {
+  HeroProps as UIHeroProps,
+  HeroImageProps as UIHeroImageProps,
+  HeroHeadingProps as UIHeroHeadingProps,
+} from '@faststore/ui'
 
 import Section from '../Section'
 
-export interface HeroProps {
-  /**
-   * Content for the h1 tag.
-   */
-  title: string
-  /**
-   * Content for the p tag.
-   */
-  subtitle: string
-  /**
-   * Specifies the URL the action button goes to.
-   */
-  link?: string
-  /**
-   * Specifies the action button's content.
-   */
-  linkText?: string
-  /**
-   * Icon component for additional customization.
-   */
-  icon?: ReactNode
-  /**
-   * Specifies the image URL.
-   */
-  imageSrc: string
-  /**
-   * Alternative description of the image.
-   */
-  imageAlt: string
-}
+export type HeroProps = UIHeroProps & UIHeroHeadingProps & UIHeroImageProps
 
 const Hero = ({
+  icon,
+  link,
   title,
   subtitle,
   linkText,
-  link,
-  icon,
   imageAlt,
   imageSrc,
 }: HeroProps) => {
