@@ -1,18 +1,22 @@
 import { isNotFoundError } from '@faststore/api'
+import { gql } from '@faststore/graphql-utils'
+import type { SearchState } from '@faststore/sdk'
 import {
   formatSearchState,
   parseSearchState,
   SearchProvider,
 } from '@faststore/sdk'
-import { gql } from '@faststore/graphql-utils'
+import type { GetStaticPaths, GetStaticProps } from 'next'
 import { BreadcrumbJsonLd, NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
-import type { SearchState } from '@faststore/sdk'
-import type { GetStaticPaths, GetStaticProps } from 'next'
-import { Hero, HeroImage, HeroHeading } from '@faststore/ui'
 
+import type {
+  ServerCollectionPageQueryQuery,
+  ServerCollectionPageQueryQueryVariables,
+} from '@generated/graphql'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
+import Hero from 'src/components/sections/Hero'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import ProductShelf from 'src/components/sections/ProductShelf'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
@@ -21,10 +25,6 @@ import { ITEMS_PER_PAGE, ITEMS_PER_SECTION } from 'src/constants'
 import { useApplySearchState } from 'src/sdk/search/state'
 import { mark } from 'src/sdk/tests/mark'
 import { execute } from 'src/server'
-import type {
-  ServerCollectionPageQueryQuery,
-  ServerCollectionPageQueryQueryVariables,
-} from '@generated/graphql'
 
 import storeConfig from '../../store.config'
 
@@ -99,17 +99,14 @@ function Page(props: Props) {
         name={title}
       />
 
-      <Hero variant="secondary">
-        <HeroImage
-          imageAlt="Quest 2 Controller on a table"
-          imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
-        />
-        <HeroHeading
-          title={title}
-          subtitle={`All the amazing ${title} from the brands we partner with.`}
-          icon={<Icon name="Headphones" width={48} height={48} />}
-        />
-      </Hero>
+      <Hero
+        variant="secondary"
+        title={title}
+        subtitle={`All the amazing ${title} from the brands we partner with.`}
+        imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
+        imageAlt="Quest 2 Controller on a table"
+        icon={<Icon name="Headphones" width={48} height={48} />}
+      />
 
       <ProductGallery title={title} />
 
