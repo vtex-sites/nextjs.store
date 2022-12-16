@@ -10,9 +10,9 @@ import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import type { SearchState } from '@faststore/sdk'
 import type { GetStaticPaths, GetStaticProps } from 'next'
+import { Hero, HeroImage, HeroHeading } from '@faststore/ui'
 
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import Hero from 'src/components/sections/Hero'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import ProductShelf from 'src/components/sections/ProductShelf'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
@@ -99,14 +99,17 @@ function Page(props: Props) {
         name={title}
       />
 
-      <Hero
-        variant="secondary"
-        title={title}
-        subtitle={`All the amazing ${title} from the brands we partner with.`}
-        imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
-        imageAlt="Quest 2 Controller on a table"
-        icon={<Icon name="Headphones" width={48} height={48} weight="thin" />}
-      />
+      <Hero variant="secondary">
+        <HeroImage
+          imageAlt="Quest 2 Controller on a table"
+          imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
+        />
+        <HeroHeading
+          title={title}
+          subtitle={`All the amazing ${title} from the brands we partner with.`}
+          icon={<Icon name="Headphones" width={48} height={48} />}
+        />
+      </Hero>
 
       <ProductGallery title={title} />
 
