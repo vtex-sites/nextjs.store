@@ -1,6 +1,7 @@
 {
   "baseUrl": "http://localhost:3000/",
   "retries": 2,
+  "defaultCommandTimeout": 10000,
   "video": true,
   "trashAssetsBeforeRuns": true,
   "screenshotOnRunFailure": true,
