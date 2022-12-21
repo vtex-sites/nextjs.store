@@ -1,6 +1,11 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
 
-import Dropdown, { DropdownButton, DropdownMenu, DropdownItem } from '.'
+import {
+  Dropdown,
+  DropdownButton,
+  DropdownMenu,
+  DropdownItem
+} from '@faststore/ui'
 import Icon from '../Icon'
 
 import style from 'src/components/ui/Button/button.module.scss'
@@ -40,13 +45,16 @@ export const TemplateWithIcon = (args) => (
       <span>Dropdown Item w/ Icon</span>
     </DropdownButton>
     <DropdownMenu {...args}>
-      <DropdownItem icon={<Icon name="User" width={24} height={24} />}>
+      <DropdownItem>
+        <Icon name="User" width={24} height={24} />
         My Account
       </DropdownItem>
-      <DropdownItem icon={<Icon name="Calendar" width={24} height={24} />}>
+      <DropdownItem>
+        <Icon name="Calendar" width={24} height={24} />
         My Orders
       </DropdownItem>
-      <DropdownItem icon={<Icon name="Gift" width={24} height={24} />}>
+      <DropdownItem>
+        <Icon name="Gift" width={24} height={24} />
         Gifts
       </DropdownItem>
     </DropdownMenu>
