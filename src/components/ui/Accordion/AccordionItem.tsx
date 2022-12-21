@@ -44,13 +44,13 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
     >
       <UIAccordionButton
         className="text__title-subsection"
-        data-fs-accordion-item-button
+        data-fs-accordion-button
         data-testid={`${testId}-button`}
       >
         {buttonLabel}
         <UIIcon
           data-testid={`${testId}-button-icon`}
-          data-fs-accordion-item-button-icon
+          data-fs-accordion-button-icon
           component={
             <>
               <Icon
@@ -69,10 +69,7 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
           }
         />
       </UIAccordionButton>
-      <UIAccordionPanel
-        data-testid={`${testId}-panel`}
-        data-fs-accordion-item-panel
-      >
+      <UIAccordionPanel data-testid={`${testId}-panel`} data-fs-accordion-panel>
         {children}
       </UIAccordionPanel>
     </UIAccordionItem>

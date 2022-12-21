@@ -35,7 +35,7 @@
     }
   }
 
-  [data-fs-accordion-item-button] {
+  [data-fs-accordion-button] {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -47,7 +47,7 @@
     border: 0;
   }
 
-  [data-fs-accordion-item-button-icon] {
+  [data-fs-accordion-button-icon] {
     display: flex;
 
     [data-icon] {
@@ -59,7 +59,7 @@
     }
   }
 
-  [data-fs-accordion-item-panel] {
+  [data-fs-accordion-panel] {
     padding-bottom: var(--fs-accordion-item-panel-padding-bottom);
   }
 }

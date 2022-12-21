@@ -143,7 +143,7 @@ function ProductDetailsContent({
               <UITableRow>
                 <UITableCell variant="header">
                   <UIIcon
-                    data-fs-accordion-item-button-icon
+                    data-fs-accordion-button-icon
                     component={<Icon name="Ruler" width={18} height={18} />}
                   />
                   <span>Width</span>
@@ -153,7 +153,7 @@ function ProductDetailsContent({
               <UITableRow>
                 <UITableCell variant="header">
                   <UIIcon
-                    data-fs-accordion-item-button-icon
+                    data-fs-accordion-button-icon
                     component={<Icon name="Ruler" width={18} height={18} />}
                   />
                   Height
@@ -163,7 +163,7 @@ function ProductDetailsContent({
               <UITableRow>
                 <UITableCell variant="header">
                   <UIIcon
-                    data-fs-accordion-item-button-icon
+                    data-fs-accordion-button-icon
                     component={<Icon name="Ruler" width={18} height={18} />}
                   />
                   Dimensions
@@ -173,7 +173,7 @@ function ProductDetailsContent({
               <UITableRow>
                 <UITableCell variant="header">
                   <UIIcon
-                    data-fs-accordion-item-button-icon
+                    data-fs-accordion-button-icon
                     component={<Icon name="Bag" width={18} height={18} />}
                   />
                   Weight
@@ -183,7 +183,7 @@ function ProductDetailsContent({
               <UITableRow>
                 <UITableCell variant="header">
                   <UIIcon
-                    data-fs-accordion-item-button-icon
+                    data-fs-accordion-button-icon
                     component={
                       <Icon name="RocketLaunch" width={18} height={18} />
                     }
@@ -195,7 +195,7 @@ function ProductDetailsContent({
               <UITableRow>
                 <UITableCell variant="header">
                   <UIIcon
-                    data-fs-accordion-item-button-icon
+                    data-fs-accordion-button-icon
                     component={
                       <Icon name="CircleWavyCheck" width={18} height={18} />
                     }

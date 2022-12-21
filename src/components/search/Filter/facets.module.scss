@@ -64,7 +64,7 @@
   }
 
   [data-fs-facets-accordion-item] {
-    [data-fs-accordion-item-button] {
+    [data-fs-accordion-button] {
       font-size: var(--fs-facets-accordion-item-button-text-size);
       font-weight: var(--fs-facets-accordion-item-button-text-weight);
       line-height: var(--fs-facets-accordion-item-button-line-height);
@@ -77,7 +77,7 @@
       }
     }
 
-    [data-fs-accordion-item-panel] {
+    [data-fs-accordion-panel] {
       @include media(">=notebook") {
         padding-right: var(--fs-facets-accordion-item-panel-padding-right-notebook);
         padding-left: var(--fs-facets-accordion-item-panel-padding-left-notebook);
