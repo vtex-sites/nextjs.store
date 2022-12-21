@@ -3,10 +3,8 @@ import {
   Hero as UIHero,
   HeroHeading as UIHeroHeading,
   HeroImage as UIHeroImage,
-  LinkButton as UILinkButton,
 } from '@faststore/ui'
 
-import Icon from 'src/components/ui/Icon'
 import Image from 'src/components/ui/Image/Image'
 
 import Section from '../Section'
@@ -85,27 +83,13 @@ const Hero = ({
             sizes="(max-width: 768px) 70vw, 50vw"
           />
         </UIHeroImage>
-        <UIHeroHeading data-fs-hero-heading aria-labelledby="hero-heading">
-          <div data-fs-hero-wrapper className="layout__content">
-            <div data-fs-hero-info>
-              <h1 data-fs-hero-title>{title}</h1>
-              <p data-fs-hero-subtitle>{subtitle}</p>
-              {!!link && (
-                <UILinkButton
-                  href={link}
-                  inverse={colorVariant === 'main'}
-                  icon={<Icon name="ArrowRight" width={24} height={24} />}
-                  iconPosition="right"
-                >
-                  {linkText}
-                </UILinkButton>
-              )}
-            </div>
-            {icon && variant === 'secondary' && (
-              <div data-fs-hero-icon>{icon}</div>
-            )}
-          </div>
-        </UIHeroHeading>
+        <UIHeroHeading
+          title={title}
+          subtitle={subtitle}
+          link={link}
+          linkText={linkText}
+          icon={icon}
+        />
       </UIHero>
     </Section>
   )
