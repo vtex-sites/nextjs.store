@@ -132,9 +132,7 @@ function ProductDetailsContent({
           data-fs-product-details-about
           prefixId="product-details-content"
         >
-          <UIAccordionButton>
-            <h2 className="text__title-subsection">{labels.about}</h2>
-          </UIAccordionButton>
+          <UIAccordionButton>{labels.about}</UIAccordionButton>
           <UIAccordionPanel>
             <UITable
               cellPadding={0}
@@ -217,9 +215,7 @@ function ProductDetailsContent({
           data-fs-product-details-highlights
           prefixId="product-details-content"
         >
-          <UIAccordionButton>
-            <h2 className="text__title-subsection">{labels.highlights}</h2>
-          </UIAccordionButton>
+          <UIAccordionButton>{labels.highlights}</UIAccordionButton>
           <UIAccordionPanel>
             <UIList marker>
               <li>
@@ -261,9 +257,7 @@ function ProductDetailsContent({
           data-fs-product-details-learn-more
           prefixId="product-details-content"
         >
-          <UIAccordionButton>
-            <h2 className="text__title-subsection">{labels.learnMore}</h2>
-          </UIAccordionButton>
+          <UIAccordionButton>{labels.learnMore}</UIAccordionButton>
           <UIAccordionPanel>
             <p className="text__body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
