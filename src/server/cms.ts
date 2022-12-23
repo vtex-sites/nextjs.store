@@ -38,17 +38,17 @@ export const getPage = async <T extends ContentData>(options: Options) => {
     )
   }
 
-  // if (pages.length !== 1) {
-  //   throw new Error(
-  //     `Multiple content defined on the CMS for content type ${
-  //       options.contentType
-  //     }. Remove duplicated content before proceeding. Context: ${JSON.stringify(
-  //       options,
-  //       null,
-  //       2
-  //     )}`
-  //   )
-  // }
+  if (pages.length !== 1) {
+    throw new Error(
+      `Multiple content defined on the CMS for content type ${
+        options.contentType
+      }. Remove duplicated content before proceeding. Context: ${JSON.stringify(
+        options,
+        null,
+        2
+      )}`
+    )
+  }
 
   return pages[0] as T
 }
