@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <p align="center">    
-=======
-<p align="center"> aa 
->>>>>>> a66e76b2 (test)
   <a href="https://github.com/vtex/faststore">
     <img alt="Store Framework" src="https://emoji.slack-edge.com/T02BCPD0X/store-framework/7547b127e929c376.png" width="75" />
   </a>
