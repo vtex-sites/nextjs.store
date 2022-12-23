@@ -15,12 +15,11 @@ const RegionModal = lazy(
 
 function Layout({ children }: PropsWithChildren) {
   const { cart: displayCart, modal: displayModal } = useUI()
-  console.log(process.env)
 
   return (
     <>
       <Alert icon="Bell" link={{ text: 'Buy now', to: '/office' }} dismissible>
-        test
+        {JSON.stringify(process.env)}
       </Alert>
 
       <Navbar />
