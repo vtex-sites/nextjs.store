@@ -125,7 +125,11 @@ function ProductDetails({ context: staleProduct }: Props) {
           <ProductTitle
             title={<h1>{name}</h1>}
             label={
-              <UIDiscountBadge listPrice={listPrice} spotPrice={lowPrice} />
+              <UIDiscountBadge
+                listPrice={listPrice}
+                spotPrice={lowPrice}
+                size="big"
+              />
             }
             refNumber={productId}
           />
