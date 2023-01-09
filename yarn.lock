@@ -1460,7 +1460,6 @@
   version "2.0.38-alpha.0"
   resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.38-alpha.0.tgz#2533237e393ee5a5b3cdc880c1d58515bfe8ec82"
   integrity sha512-TDa32916kM+WS8nxQBSn1eRspHZOTpIvD2cXGV8xA9GCOopcgOFEbtai1qCS2WHgO0t/qVWE2vCvXwW63dVnxw==
-  
   dependencies:
     "@faststore/components" "*"
     "@reach/popover" "^0.16.0"

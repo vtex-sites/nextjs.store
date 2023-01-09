@@ -14,7 +14,6 @@ import {
 
 import Icon from 'src/components/ui/Icon'
 
-import styles from './product-details-content.module.scss'
 import Section from '../Section'
 
 interface ArticleLabels {
@@ -103,10 +102,7 @@ function ProductDetailsContent({
   const labels = { ...DEFAULT_LABELS, ...propLabels }
 
   return (
-    <Section
-      className={styles.fsProductDetailsContent}
-      data-fs-product-details-content
-    >
+    <Section data-fs-product-details-content>
       <UIAccordion
         indices={indices}
         onChange={onChange}
@@ -141,68 +137,70 @@ function ProductDetailsContent({
             >
               <UITableBody>
                 <UITableRow>
-                  <UITableCell variant="header">
+                  <UITableCell variant="header" align="left">
                     <UIIcon
-                      data-fs-accordion-button-icon
+                      data-fs-accordion-item-button-icon
                       component={<Icon name="Ruler" width={18} height={18} />}
                     />
                     <span>Width</span>
                   </UITableCell>
-                  <UITableCell>1.50m</UITableCell>
+                  <UITableCell align="right">1.50m</UITableCell>
                 </UITableRow>
                 <UITableRow>
-                  <UITableCell variant="header">
+                  <UITableCell variant="header" align="left">
                     <UIIcon
-                      data-fs-accordion-button-icon
+                      data-fs-accordion-item-button-icon
                       component={<Icon name="Ruler" width={18} height={18} />}
                     />
                     Height
                   </UITableCell>
-                  <UITableCell>1.50m</UITableCell>
+                  <UITableCell align="right">1.50m</UITableCell>
                 </UITableRow>
                 <UITableRow>
-                  <UITableCell variant="header">
+                  <UITableCell variant="header" align="left">
                     <UIIcon
-                      data-fs-accordion-button-icon
+                      data-fs-accordion-item-button-icon
                       component={<Icon name="Ruler" width={18} height={18} />}
                     />
                     Dimensions
                   </UITableCell>
-                  <UITableCell>7.27 x 3.03 x 9.94 inches</UITableCell>
+                  <UITableCell align="right">
+                    7.27 x 3.03 x 9.94 inches
+                  </UITableCell>
                 </UITableRow>
                 <UITableRow>
-                  <UITableCell variant="header">
+                  <UITableCell variant="header" align="left">
                     <UIIcon
-                      data-fs-accordion-button-icon
+                      data-fs-accordion-item-button-icon
                       component={<Icon name="Bag" width={18} height={18} />}
                     />
                     Weight
                   </UITableCell>
-                  <UITableCell>12oz</UITableCell>
+                  <UITableCell align="right">12oz</UITableCell>
                 </UITableRow>
                 <UITableRow>
-                  <UITableCell variant="header">
+                  <UITableCell variant="header" align="left">
                     <UIIcon
-                      data-fs-accordion-button-icon
+                      data-fs-accordion-item-button-icon
                       component={
                         <Icon name="RocketLaunch" width={18} height={18} />
                       }
                     />
                     Days to ship
                   </UITableCell>
-                  <UITableCell>11 Days</UITableCell>
+                  <UITableCell align="right">11 Days</UITableCell>
                 </UITableRow>
                 <UITableRow>
-                  <UITableCell variant="header">
+                  <UITableCell variant="header" align="left">
                     <UIIcon
-                      data-fs-accordion-button-icon
+                      data-fs-accordion-item-button-icon
                       component={
                         <Icon name="CircleWavyCheck" width={18} height={18} />
                       }
                     />
                     Estimated
                   </UITableCell>
-                  <UITableCell>Nov 10th</UITableCell>
+                  <UITableCell align="right">Nov 10th</UITableCell>
                 </UITableRow>
               </UITableBody>
             </UITable>
