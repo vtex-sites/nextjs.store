@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import type { ReactNode, PropsWithChildren } from 'react'
 
-import UIAlert from 'src/components/ui/Alert'
+import { Alert as UIAlert } from '@faststore/ui'
 import { mark } from 'src/sdk/tests/mark'
 import Icon from 'src/components/ui/Icon'
 
@@ -38,7 +38,7 @@ function Alert({
 
   return (
     <UIAlert
-      icon={<Icon name={icon} width={24} height={24} />}
+      icon={<Icon name={icon} />}
       dismissible={dismissible}
       onClose={onAlertClose}
       link={link}
