@@ -79,7 +79,7 @@ function BaseBreadcrumb({
 
       {collapseBreadcrumb && (
         <UIDropdown>
-          <UIDropdownButton data-fs-breadcrumb-dropdown-button>
+          <UIDropdownButton data-fs-breadcrumb-dropdown-button size="small">
             <Icon name="DotsThree" width={24} height={24} />
           </UIDropdownButton>
           <UIDropdownMenu data-fs-breadcrumb-dropdown-menu>
@@ -88,8 +88,10 @@ function BaseBreadcrumb({
                 data-fs-breadcrumb-dropdown-item
                 onClick={() => router.push(item)}
                 key={String(index)}
+                icon={
+                  <Icon name="ArrowElbowDownRight" width={24} height={24} />
+                }
               >
-                <Icon name="ArrowElbowDownRight" width={24} height={24} />
                 {name}
               </UIDropdownItem>
             ))}

@@ -1461,7 +1461,7 @@
   resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.38-alpha.0.tgz#2533237e393ee5a5b3cdc880c1d58515bfe8ec82"
   integrity sha512-TDa32916kM+WS8nxQBSn1eRspHZOTpIvD2cXGV8xA9GCOopcgOFEbtai1qCS2WHgO0t/qVWE2vCvXwW63dVnxw==
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/08e162b6/@faststore/components"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/afccde47/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
