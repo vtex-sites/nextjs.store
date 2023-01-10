@@ -78,7 +78,9 @@ function Facets({
               data-type={type}
               data-fs-facets-accordion-item
             >
-              <UIAccordionButton>{label}</UIAccordionButton>
+              <UIAccordionButton testId={`${testId}-accordion-button`}>
+                {label}
+              </UIAccordionButton>
               <UIAccordionPanel>
                 {type === 'StoreFacetBoolean' && isExpanded && (
                   <UIList data-fs-facets-list>
