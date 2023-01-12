@@ -15,6 +15,7 @@ interface Props {
   link?: {
     to: string
     text: string
+    target: string
   }
   dismissible: boolean
 }

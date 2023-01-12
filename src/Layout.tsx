@@ -2,7 +2,6 @@ import { lazy, Suspense } from 'react'
 import type { PropsWithChildren } from 'react'
 
 import Alert from 'src/components/common/Alert'
-import Icon from 'src/components/ui/Icon'
 import Footer from 'src/components/common/Footer'
 import Navbar from 'src/components/common/Navbar'
 import Toast from 'src/components/common/Toast'
@@ -19,7 +18,11 @@ function Layout({ children }: PropsWithChildren) {
 
   return (
     <>
-      <Alert icon="Bell" link={{ text: 'Buy now', to: '/office' }} dismissible>
+      <Alert
+        icon="Bell"
+        link={{ text: 'Buy now', to: '/office', target: '_self' }}
+        dismissible
+      >
         Get 10% off today:&nbsp;<span>NEW10</span>
       </Alert>
 
