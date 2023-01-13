@@ -20,7 +20,7 @@ function Layout({ children }: PropsWithChildren) {
     <>
       <Alert
         icon="Bell"
-        link={{ text: 'Buy now', to: '/office', target: '_self' }}
+        link={{ children: 'Buy now', href: '/office', target: '_self' }}
         dismissible
       >
         Get 10% off today:&nbsp;<span>NEW10</span>
