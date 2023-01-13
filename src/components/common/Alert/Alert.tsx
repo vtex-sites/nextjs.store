@@ -1,31 +1,17 @@
 import { useCallback, useState } from 'react'
 import type { ReactNode, PropsWithChildren } from 'react'
 
-import { Alert as UIAlert } from '@faststore/ui'
+import { Alert as UIAlert, AlertProps } from '@faststore/ui'
 import { mark } from 'src/sdk/tests/mark'
-import Icon from 'src/components/ui/Icon'
 
-interface Props {
-  icon: string
+interface Props extends AlertProps {
   /**
    * For CMS integration purposes, should be used to pass content through it
    * instead pass through children
    */
   content?: ReactNode
-  link?: {
-    to: string
-    text: string
-    target: string
-  }
-  dismissible: boolean
 }
-function Alert({
-  icon,
-  content,
-  link,
-  dismissible = false,
-  children,
-}: PropsWithChildren<Props>) {
+function Alert(args: PropsWithChildren<Props>) {
   const [displayAlert, setDisplayAlert] = useState(true)
 
   const onAlertClose = useCallback(
@@ -37,13 +23,10 @@ function Alert({
     return null
   }
 
+  const { content, children, ...otherProps } = args
+
   return (
-    <UIAlert
-      icon={<Icon name={icon} />}
-      dismissible={dismissible}
-      onClose={onAlertClose}
-      link={link}
-    >
+    <UIAlert onClose={onAlertClose} {...otherProps}>
       {content ?? children}
     </UIAlert>
   )
