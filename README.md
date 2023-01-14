@@ -173,7 +173,7 @@ What better than an example for learning the best practices while adding compone
 Components live on the `src/components` folder. Each component may have, at most, 3 files: a component file, an export file, and a styling file.
 First, let's create a folder and the files.
 
-```sh
+```shell
 mkdir src/components/ui/Button
 touch src/components/ui/Button/Button.tsx
 touch src/components/ui/Button/index.tsx
