@@ -1,6 +1,8 @@
-import Modal from 'src/components/ui/Modal'
+import { Modal, ModalProps } from '@faststore/ui'
 
 import { RegionalizationModalContent } from '.'
+
+type x = ModalProps['children']
 
 function RegionalizationModal() {
   return (
