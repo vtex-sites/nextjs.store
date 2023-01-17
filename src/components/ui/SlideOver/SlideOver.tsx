@@ -44,6 +44,7 @@ function SlideOver({
     <UIModal
       className={`${styles.fsSlideOver} ${className}`}
       isOpen={isOpen}
+      data-modal={null}
       data-fs-slide-over
       data-fs-slide-over-direction={direction}
       data-fs-slide-over-size={size}
