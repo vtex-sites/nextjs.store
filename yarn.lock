@@ -1432,6 +1432,10 @@
   version "2.0.44-alpha.0"
   resolved "https://pkg.csb.dev/vtex/faststore/commit/4b62a3fa/@faststore/components#290a402dc5d990955b0550e29b29635004af663b"
 
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/components":
+  version "2.0.50-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/components#53f86191a5b1ed1d600531e088ca32050fc7174b"
+
 "@faststore/graphql-utils@^2.0.3-alpha.0":
   version "2.0.3-alpha.0"
   resolved "https://registry.yarnpkg.com/@faststore/graphql-utils/-/graphql-utils-2.0.3-alpha.0.tgz#1d70065f5fcaafc51e9399b11b1b117a28a89f38"
@@ -1459,6 +1463,17 @@
   resolved "https://pkg.csb.dev/vtex/faststore/commit/06e05560/@faststore/ui#a158138fba3d75ad0465313aa8d7597ace99c679"
   dependencies:
     "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/06e05560/@faststore/components"
+    "@reach/popover" "^0.16.0"
+    include-media "^1.4.10"
+    modern-normalize "^1.1.0"
+    react-swipeable "^7.0.0"
+    tabbable "^5.2.1"
+
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/ui":
+  version "2.0.50-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/ui#3fdec509f0a2eacb33783dd791e3a7aec7f8ec76"
+  dependencies:
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
@@ -15501,6 +15516,8 @@ ssri@^6.0.1:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
   integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
+  dependencies:
+    figgy-pudding "^3.5.1"
 
 ssri@^8.0.1:
   version "8.0.1"
