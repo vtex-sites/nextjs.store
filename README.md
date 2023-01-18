@@ -23,7 +23,7 @@ As of Sep, 2022, this starter is still far from covering most basic cases found 
 8. Sitemap
 9. Promotions via utm
 
-## 🚀 Quick start
+## 🚀 Quick start.
 
 0. **Clone this repo**
 
