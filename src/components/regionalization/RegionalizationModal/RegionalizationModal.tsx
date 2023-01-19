@@ -1,14 +1,11 @@
-import { Modal, ModalProps } from '@faststore/ui'
-
-import { RegionalizationModalContent } from '.'
-
-type x = ModalProps['children']
+import { Modal as UIModal } from '@faststore/ui'
+import RegionalizationModalContent from './RegionalizationModalContent'
 
 function RegionalizationModal() {
   return (
-    <Modal>
+    <UIModal>
       {({ fadeOut }) => <RegionalizationModalContent onClose={fadeOut} />}
-    </Modal>
+    </UIModal>
   )
 }
 
