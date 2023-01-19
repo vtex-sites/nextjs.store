@@ -18,7 +18,7 @@ As of Sep, 2022, this starter is still far from covering most basic cases found 
 3. Internationalization
 4. Shared Cart (Carrinho compartilhado)
 5. Clear products that are our of stock from cart
-6. GDPR (LGDP)
+6. GDPR (LGDP).
 7. Shipping simulation
 8. Sitemap
 9. Promotions via utm
