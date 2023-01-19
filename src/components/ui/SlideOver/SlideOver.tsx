@@ -28,7 +28,7 @@ interface SlideOverProps extends HTMLAttributes<HTMLDivElement> {
    * This function is called whenever the user clicks outside
    * the modal content
    */
-  onDismiss?: () => void
+  onDismiss?: () => {}
 }
 
 function SlideOver({
