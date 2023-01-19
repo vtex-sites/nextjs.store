@@ -215,7 +215,7 @@ Now, your Button component is powered by Store UI. However, if you try to use th
 ```sh
 touch src/components/ui/Button/button.scss
 ```
-
+.
 Now, on `button.scss`:
 
 ```css
