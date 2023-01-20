@@ -1424,17 +1424,15 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/06e05560/@faststore/components":
-  version "2.0.50-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/06e05560/@faststore/components#02217301c520844197a6be5547295b92273726a6"
+"@faststore/components@*":
+  version "1.12.32"
+  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-1.12.32.tgz#2c50bf528fe92b394b533034f30091f462812880"
+  integrity sha512-XVtWCp4RKpD0umr40vNYw0myh06wwIJ77i8MwfhWqzBEzZm9ht1E3nBoPcfYvAk73WFDHrHcdokiqBVfpPMRnA==
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/4b62a3fa/@faststore/components":
-  version "2.0.44-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/4b62a3fa/@faststore/components#290a402dc5d990955b0550e29b29635004af663b"
-
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/components":
-  version "2.0.50-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/components#53f86191a5b1ed1d600531e088ca32050fc7174b"
+"@faststore/components@^2.0.54-alpha.0":
+  version "2.0.54-alpha.0"
+  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.54-alpha.0.tgz#897d06650b23dc25f93f76d159f07b1fc781d76f"
+  integrity sha512-e+uAydTa4wvh/x9+xnq504naREqhIlO0mbx3WlHyozThZpH0xYcmRps9vXgTk7q3hZ9S4Kf4Cq7uF13+88KuHw==
 
 "@faststore/graphql-utils@^2.0.3-alpha.0":
   version "2.0.3-alpha.0"
@@ -1458,22 +1456,12 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/06e05560/@faststore/ui":
-  version "2.0.50-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/06e05560/@faststore/ui#a158138fba3d75ad0465313aa8d7597ace99c679"
+"@faststore/ui@^2.0.54-alpha.0":
+  version "2.0.54-alpha.0"
+  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.54-alpha.0.tgz#fbb4c83cc390f4e4be3ee04bf69e6218349711ed"
+  integrity sha512-NswMON5QxEeOuSlqOc1Poh+5WJ3748C+0U/Y6EcLEJr14J/gwn5WIRg4hyLgOR1QjWpbn6uivGba1+kDUxxMFQ==
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/06e05560/@faststore/components"
-    "@reach/popover" "^0.16.0"
-    include-media "^1.4.10"
-    modern-normalize "^1.1.0"
-    react-swipeable "^7.0.0"
-    tabbable "^5.2.1"
-
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/ui":
-  version "2.0.50-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/ui#3fdec509f0a2eacb33783dd791e3a7aec7f8ec76"
-  dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/a167c1f8/@faststore/components"
+    "@faststore/components" "*"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
