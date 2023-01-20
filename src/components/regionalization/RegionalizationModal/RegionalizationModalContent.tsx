@@ -1,7 +1,6 @@
 import {
   ModalBody as UIModalBody,
   ModalHeader as UIModalHeader,
-  IconButton as UIIconButton,
 } from '@faststore/ui'
 
 import RegionalizationInput from 'src/components/regionalization/RegionalizationInput'
