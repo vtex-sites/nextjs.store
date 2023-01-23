@@ -96,20 +96,16 @@ function CartSidebar() {
                 <CartItem item={item} />
               </li>
             ))}
-          </UIList>
-
-          {gifts.length > 0 && (
-            <>
-              <UIAlert icon={<Icon name="Gift" />}>Gifts</UIAlert>
-              <UIList data-fs-cart-sidebar-list>
+            {gifts.length > 0 && (
+              <>
                 {gifts.map((item) => (
                   <li key={item.id}>
-                    <CartItem gift item={item} />
+                    <CartItem item={item} />
                   </li>
                 ))}
-              </UIList>
-            </>
-          )}
+              </>
+            )}
+          </UIList>
 
           <footer data-fs-cart-sidebar-footer>
             <OrderSummary
