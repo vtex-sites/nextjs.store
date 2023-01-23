@@ -14,6 +14,7 @@ import type {
 import { Image } from 'src/components/ui/Image'
 import { cartStore } from 'src/sdk/cart'
 import { useSession } from 'src/sdk/session'
+// import { useRemoveButton } from 'src/sdk/cart/useRemoveButton'
 import type { CartItem as ICartItem } from 'src/sdk/cart'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
@@ -60,10 +61,9 @@ function useCartItemEvent() {
 
 interface Props {
   item: ICartItem
-  gift?: boolean
 }
 
-function CartItem({ item, gift = false }: Props) {
+function CartItem({ item }: Props) {
   const { sendCartItemEvent } = useCartItemEvent()
 
   const onQuantityChange = useCallback(
@@ -87,7 +87,8 @@ function CartItem({ item, gift = false }: Props) {
       price={item.price}
       listPrice={item.listPrice}
       quantity={item.quantity}
-      quantityOnChange={onQuantityChange}
+      onQuantityChange={onQuantityChange}
+      // onClose={useRemoveButton(item)}
     >
       <UICartItemImage>
         <Image
