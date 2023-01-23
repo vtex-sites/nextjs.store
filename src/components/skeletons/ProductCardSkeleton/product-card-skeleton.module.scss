@@ -27,6 +27,10 @@
   --fs-product-card-skeleton-badge-min-width-mobile    : 30%;
   --fs-product-card-skeleton-badge-min-width-tablet    : var(--fs-product-card-skeleton-content-height);
 
+  // Image
+  --fs-product-card-skeleton-image-height-mobile       : 45vw;
+  --fs-product-card-skeleton-image-height-desktop      : 12.188rem;
+
   // Sectioned
   --fs-product-card-skeleton-sectioned-image-min-width : 13rem;
   --fs-product-card-skeleton-sectioned-image-height    : 12.188rem;
@@ -71,6 +75,14 @@
         min-width: var(--fs-product-card-skeleton-badge-min-width-tablet);
         max-width: var(--fs-product-card-skeleton-badge-max-width);
       }
+    }
+  }
+
+  [data-fs-product-card-skeleton-image] {
+    height: var(--fs-product-card-skeleton-image-height-mobile);
+
+    @include media(">=notebook") {
+      height: var(--fs-product-card-skeleton-image-height-desktop);
     }
   }
 
