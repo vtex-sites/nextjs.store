@@ -1445,15 +1445,15 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/9af33da6/@faststore/components":
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/889150fb/@faststore/components":
   version "2.0.50-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/9af33da6/@faststore/components#61eb4934a54778a4e93f53dbf774e3ecc36efad1"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/889150fb/@faststore/components#31e4a5aae9c6be54995b4059d3bf102f224b624d"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/9af33da6/@faststore/ui", "@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/9af33da6/@faststore/ui":
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/889150fb/@faststore/ui", "@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/889150fb/@faststore/ui":
   version "2.0.50-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/9af33da6/@faststore/ui#5d737647b74b5a56abe3fd0199c3d190c5398e14"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/889150fb/@faststore/ui#0495070356a93edf3206ef27cf5a6f4be82d9574"
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/9af33da6/@faststore/components"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/889150fb/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
