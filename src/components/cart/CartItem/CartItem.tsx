@@ -13,6 +13,7 @@ import type {
 
 import { Image } from 'src/components/ui/Image'
 import { cartStore } from 'src/sdk/cart'
+import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useSession } from 'src/sdk/session'
 import { useRemoveButton } from 'src/sdk/cart/useRemoveButton'
 import type { CartItem as ICartItem } from 'src/sdk/cart'
@@ -88,6 +89,7 @@ function CartItem({ item }: Props) {
     <UICartItem
       price={item.price}
       listPrice={item.listPrice}
+      formatter={useFormattedPrice}
       quantity={item.quantity}
       onQuantityChange={onQuantityChange}
       removeBtnProps={btnProps}
