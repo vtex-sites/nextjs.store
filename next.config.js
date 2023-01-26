@@ -1,4 +1,9 @@
 // @ts-check
+// This file sets a custom webpack configuration to use your Next.js app
+// with Sentry.
+// https://nextjs.org/docs/api-reference/next.config.js/introduction
+// https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+const { withSentryConfig } = require('@sentry/nextjs')
 
 /**
  * @type {import('next').NextConfig}
@@ -33,3 +38,15 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+module.exports = withSentryConfig(
+  module.exports,
+  {
+    org: 'vtex',
+    project: 'faststore-starter',
+    authToken: process.env.SENTRY_AUTH_TOKEN,
+    release: process.env.COMMIT_ID,
+    // This should contain the name of your account after the trace. "faststore-account"
+  },
+  { hideSourceMaps: true }
+)
