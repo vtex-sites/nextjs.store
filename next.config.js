@@ -39,6 +39,8 @@ const nextConfig = {
 
 module.exports = nextConfig
 
+process.env.SENTRY_RELEASE = process.env.SENTRY_RELEASE || process.env.COMMIT_ID
+
 module.exports = withSentryConfig(
   module.exports,
   {
