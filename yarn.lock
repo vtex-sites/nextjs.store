@@ -1447,12 +1447,11 @@
 
 "@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/17778fab/@faststore/components":
   version "2.0.54-alpha.0"
-  uid afb187d2c906caeca8efb1663c72da69dce342cd
   resolved "https://pkg.csb.dev/vtex/faststore/commit/17778fab/@faststore/components#afb187d2c906caeca8efb1663c72da69dce342cd"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/337858ff/@faststore/components":
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/d2fe7ea6/@faststore/components":
   version "2.0.54-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/337858ff/@faststore/components#afb187d2c906caeca8efb1663c72da69dce342cd"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/d2fe7ea6/@faststore/components#6a0bfd9d83bb7e825495731c4eaef77d4db6b62d"
 
 "@faststore/graphql-utils@^2.0.3-alpha.0":
   version "2.0.3-alpha.0"
@@ -1487,11 +1486,11 @@
     react-swipeable "^7.0.0"
     tabbable "^5.2.1"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/337858ff/@faststore/ui":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/d2fe7ea6/@faststore/ui":
   version "2.0.54-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/337858ff/@faststore/ui#1095cfc1b4e56d5d406838efacf2eae6f5742b76"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/d2fe7ea6/@faststore/ui#0acefd068c5156cfc96b578ef2cfeb861bbf0347"
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/337858ff/@faststore/components"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/d2fe7ea6/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
