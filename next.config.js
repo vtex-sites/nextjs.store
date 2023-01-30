@@ -39,11 +39,6 @@ const nextConfig = {
 
 module.exports = nextConfig
 
-// This is needed due to a bug in SentryWebpackPlugin. It's the only way we can set a custom release id
-process.env.SENTRY_RELEASE = process.env.SENTRY_RELEASE
-  ? process.env.SENTRY_RELEASE
-  : process.env.COMMIT_ID
-
 module.exports = withSentryConfig(
   module.exports,
   {
