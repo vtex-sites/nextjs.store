@@ -49,7 +49,8 @@ module.exports = withSentryConfig(
   {
     org: 'vtex',
     project: 'faststore-starter',
-    authToken: process.env.SENTRY_AUTH_TOKEN,
+    authToken:
+      '0b0f74f609754db18fdf59d992e62efe8e3ccfb3186d4ee99188709b8a9ce4c3',
     release: process.env.COMMIT_ID,
     // This should contain the name of your account after the trace. "faststore-account"
   },
