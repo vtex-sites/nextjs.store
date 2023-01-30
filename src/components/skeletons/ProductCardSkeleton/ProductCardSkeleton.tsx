@@ -36,31 +36,27 @@ function ProductCardSkeleton({
       data-fs-product-card-skeleton-sectioned={sectioned}
     >
       <div data-fs-product-card-skeleton-image>
-        <UISkeleton size={{ width: '100%', height: '100%' }} shimmer />
+        <UISkeleton size={{ width: '100%', height: '100%' }} />
       </div>
       <div data-fs-product-card-skeleton-content>
         <UISkeleton
           data-fs-product-card-skeleton-text
           size={{ width: '100%', height: '1.5rem' }}
-          shimmer
         />
         <UISkeleton
           data-fs-product-card-skeleton-text
           size={{ width: '100%', height: '1.5rem' }}
-          shimmer
         />
         <UISkeleton
           data-fs-product-card-skeleton-badge
           size={{ width: '100%', height: '2rem' }}
           border="pill"
-          shimmer
         />
         {displayButton && (
           <UISkeleton
             data-fs-product-card-skeleton-button
             size={{ width: '6rem', height: '2rem' }}
             style={{ columnGap: '.75rem' }}
-            shimmer
           />
         )}
       </div>

@@ -81,7 +81,6 @@ function ProductGallery({ title, searchTerm }: Props) {
             data-fs-product-listing-results-count-skeleton
             loading={!data}
             size={{ width: '100%', height: '1.5rem' }}
-            shimmer
           >
             <h2 data-testid="total-product-count">{totalCount} Results</h2>
           </UISkeleton>
@@ -92,7 +91,6 @@ function ProductGallery({ title, searchTerm }: Props) {
             data-fs-product-listing-sort-skeleton
             loading={facets?.length === 0}
             size={{ width: 'auto', height: '1.5rem' }}
-            shimmer
           >
             <Sort />
           </UISkeleton>
@@ -101,7 +99,6 @@ function ProductGallery({ title, searchTerm }: Props) {
             data-fs-product-listing-filter-button-skeleton
             loading={facets?.length === 0}
             size={{ width: '6rem', height: '1.5rem' }}
-            shimmer
           >
             <UIButton
               variant="tertiary"

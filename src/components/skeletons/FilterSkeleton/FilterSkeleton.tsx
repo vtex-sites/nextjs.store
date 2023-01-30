@@ -17,7 +17,6 @@ function FilterSkeleton({
     <div className={styles.fsFilterSkeleton} data-fs-filter-skeleton>
       <UISkeleton
         data-fs-filter-skeleton-text
-        shimmer
         size={{ width: '100%', height: '1.5rem' }}
       />
 
@@ -25,14 +24,17 @@ function FilterSkeleton({
         <UISkeleton
           data-fs-filter-skeleton-text
           size={{ width: '100%', height: '1.5rem' }}
+          shimmer={false}
         />
         <UISkeleton
           data-fs-filter-skeleton-text
           size={{ width: '100%', height: '1.5rem' }}
+          shimmer={false}
         />
         <UISkeleton
           data-fs-filter-skeleton-text
           size={{ width: '100%', height: '1.5rem' }}
+          shimmer={false}
         />
       </div>
     </div>

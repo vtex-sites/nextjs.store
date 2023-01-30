@@ -25,11 +25,7 @@ function ProductTileSkeleton({
         data-fs-product-tile-skeleton-image
         data-fs-product-tile-skeleton-index={index}
       >
-        <UISkeleton
-          size={{ width: 'auto', height: '100%' }}
-          loading={true}
-          shimmer
-        />
+        <UISkeleton size={{ width: 'auto', height: '100%' }} loading={true} />
       </div>
       <div
         data-fs-product-tile-skeleton-content
@@ -39,9 +35,9 @@ function ProductTileSkeleton({
           data-fs-product-tile-skeleton-text
           data-fs-product-tile-skeleton-index={index}
         >
-          <UISkeleton size={{ width: '100%', height: '1.5rem' }} shimmer />
+          <UISkeleton size={{ width: '100%', height: '1.5rem' }} />
           <div data-fs-product-tile-skeleton-price>
-            <UISkeleton size={{ width: '100%', height: '1.5rem' }} shimmer />
+            <UISkeleton size={{ width: '100%', height: '1.5rem' }} />
           </div>
         </div>
 
@@ -49,11 +45,7 @@ function ProductTileSkeleton({
           data-fs-product-tile-skeleton-badge
           data-fs-product-tile-skeleton-index={index}
         >
-          <UISkeleton
-            size={{ width: '100%', height: '2rem' }}
-            border="pill"
-            shimmer
-          />
+          <UISkeleton size={{ width: '100%', height: '2rem' }} border="pill" />
         </div>
       </div>
     </div>
