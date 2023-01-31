@@ -63,14 +63,20 @@ function ProductCard({
     image: [img],
     offers: {
       lowPrice: spotPrice,
-      offers: [{ listPrice }],
+      offers: [{ listPrice, availability }],
     },
   } = product
 
   const linkProps = useProductLink({ product, selectedOffer: 0, index })
+  const outOfStock = availability !== 'https://schema.org/InStock'
 
   return (
-    <UIProductCard bordered={bordered} variant={variant} {...otherProps}>
+    <UIProductCard
+      outOfStock={outOfStock}
+      bordered={bordered}
+      variant={variant}
+      {...otherProps}
+    >
       <UIProductCardImage aspectRatio={aspectRatio}>
         <Image
           src={img.url}
@@ -89,6 +95,7 @@ function ProductCard({
           formatter: useFormattedPrice,
         }}
         ratingValue={ratingValue}
+        outOfStock={outOfStock}
         onButtonClick={onButtonClick}
         linkProps={linkProps}
         showDiscountBadge={showDiscountBadge}
