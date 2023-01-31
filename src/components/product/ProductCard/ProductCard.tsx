@@ -59,17 +59,15 @@ function ProductCard({
   ...otherProps
 }: ProductCardProps) {
   const {
-    sku,
     isVariantOf: { name },
     image: [img],
     offers: {
       lowPrice: spotPrice,
-      offers: [{ listPrice, availability }],
+      offers: [{ listPrice }],
     },
   } = product
 
   const linkProps = useProductLink({ product, selectedOffer: 0, index })
-  const outOfStock = availability !== 'https://schema.org/InStock'
 
   return (
     <UIProductCard bordered={bordered} variant={variant} {...otherProps}>
