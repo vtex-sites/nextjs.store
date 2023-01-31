@@ -23,13 +23,11 @@ const getRatio = (products: number, idx: number) => {
 
 interface ProductTilesSkeletonProps {
   loading?: boolean
-  variant?: 'wide' | 'default'
 }
 
 function ProductTilesSkeleton({
   children,
   loading = true,
-  variant = 'default',
 }: PropsWithChildren<ProductTilesSkeletonProps>) {
   return loading ? (
     <Tiles>
@@ -37,7 +35,6 @@ function ProductTilesSkeleton({
         <Tile key={String(index)}>
           <ProductTileSkeleton
             index={index + 1}
-            variant={variant}
             aspectRatio={getRatio(DEFAULT_ITEMS_NUMBER, index)}
           />
         </Tile>
