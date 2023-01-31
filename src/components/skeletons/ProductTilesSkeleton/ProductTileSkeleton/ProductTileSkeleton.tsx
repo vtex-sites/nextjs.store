@@ -37,10 +37,10 @@ function ProductTileSkeleton({
             data-fs-product-tile-skeleton-text
             data-fs-product-tile-skeleton-index={index}
           >
-            <UISkeleton size={{ width: '100%', height: '1.5rem' }} />
+            <UISkeleton size={{ width: '70%', height: '1.5rem' }} />
           </div>
           <div data-fs-product-tile-skeleton-price>
-            <UISkeleton size={{ width: '100%', height: '1.5rem' }} />
+            <UISkeleton size={{ width: '60%', height: '1.5rem' }} />
           </div>
         </div>
 
@@ -48,7 +48,7 @@ function ProductTileSkeleton({
           data-fs-product-tile-skeleton-badge
           data-fs-product-tile-skeleton-index={index}
         >
-          <UISkeleton size={{ width: '100%', height: '2rem' }} border="pill" />
+          <UISkeleton size={{ width: '6rem', height: '2rem' }} border="pill" />
         </div>
       </div>
     </div>

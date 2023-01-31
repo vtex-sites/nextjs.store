@@ -53,15 +53,15 @@ function ProductCardSkeleton({
       <div data-fs-product-card-skeleton-content>
         <UISkeleton
           data-fs-product-card-skeleton-text
-          size={{ width: '100%', height: '1.5rem' }}
+          size={{ width: '90%', height: '1.5rem' }}
         />
         <UISkeleton
           data-fs-product-card-skeleton-text
-          size={{ width: '100%', height: '1.5rem' }}
+          size={{ width: '70%', height: '1.5rem' }}
         />
         <UISkeleton
           data-fs-product-card-skeleton-badge
-          size={{ width: '100%', height: '2rem' }}
+          size={{ width: '6rem', height: '2rem' }}
           border="pill"
         />
         {displayButton && (
