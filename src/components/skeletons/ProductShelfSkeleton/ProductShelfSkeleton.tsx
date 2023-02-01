@@ -12,7 +12,7 @@ interface Props {
 
 function ProductShelfSkeleton({
   children,
-  aspectRatio = 1,
+  aspectRatio,
   loading = true,
 }: PropsWithChildren<Props>) {
   return loading ? (
