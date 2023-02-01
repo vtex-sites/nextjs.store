@@ -87,9 +87,11 @@ function CartItem({ item }: Props) {
 
   return (
     <UICartItem
-      price={item.price}
-      listPrice={item.listPrice}
-      formatter={useFormattedPrice}
+      price={{
+        value: item.price,
+        listPrice: item.listPrice,
+        formatter: useFormattedPrice,
+      }}
       quantity={item.quantity}
       onQuantityChange={onQuantityChange}
       removeBtnProps={btnProps}
