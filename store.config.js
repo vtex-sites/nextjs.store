@@ -3,7 +3,7 @@ module.exports = {
     title: 'NextJSStore',
     description: 'Fast Demo Store',
     titleTemplate: '%s | FastStore',
-    author: 'Store Framework',
+    author: 'Store Framework test',
   },
 
   // Theming
