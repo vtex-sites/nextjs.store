@@ -19,6 +19,7 @@ import { useUI } from '@faststore/ui'
 import { useFadeEffect } from '@faststore/ui'
 
 import CartItem from '../CartItem'
+import Gift from '../../ui/Gift'
 import EmptyCart from '../EmptyCart'
 import OrderSummary from '../OrderSummary'
 import styles from './cart-sidebar.module.scss'
@@ -100,7 +101,7 @@ function CartSidebar() {
               <>
                 {gifts.map((item) => (
                   <li key={item.id}>
-                    <CartItem item={item} />
+                    <Gift item={item} />
                   </li>
                 ))}
               </>
