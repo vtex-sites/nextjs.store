@@ -1445,9 +1445,13 @@
     isomorphic-unfetch "^3.1.0"
     p-limit "^3.1.0"
 
-"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/b531e620/@faststore/components":
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/e5a4a9ee/@faststore/components":
   version "2.0.59-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/b531e620/@faststore/components#fe5ecd7a26a44aae6e859df13ebbc589b2ca7649"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/e5a4a9ee/@faststore/components#62cda479487e83590e21183d81dc13d9e6008bb4"
+
+"@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/f33d08ba/@faststore/components":
+  version "2.0.59-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/f33d08ba/@faststore/components#dd1bdf19dcf825172c0bdbd4138ef5a7a22fb2cf"
 
 "@faststore/graphql-utils@^2.0.3-alpha.0":
   version "2.0.3-alpha.0"
@@ -1471,11 +1475,22 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/b531e620/@faststore/ui":
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/e5a4a9ee/@faststore/ui":
   version "2.0.59-alpha.0"
-  resolved "https://pkg.csb.dev/vtex/faststore/commit/b531e620/@faststore/ui#c849cd91a03eb7e8478ba67c1a5bdfd6531c3592"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/e5a4a9ee/@faststore/ui#d0f91a7accae02f6bbf749f26de0b0810598df29"
   dependencies:
-    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/b531e620/@faststore/components"
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/e5a4a9ee/@faststore/components"
+    "@reach/popover" "^0.16.0"
+    include-media "^1.4.10"
+    modern-normalize "^1.1.0"
+    react-swipeable "^7.0.0"
+    tabbable "^5.2.1"
+
+"@faststore/ui@https://pkg.csb.dev/vtex/faststore/commit/f33d08ba/@faststore/ui":
+  version "2.0.59-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/f33d08ba/@faststore/ui#f825f317d17ff22cb1bcacb1e0bb7a2ac192447c"
+  dependencies:
+    "@faststore/components" "https://pkg.csb.dev/vtex/faststore/commit/f33d08ba/@faststore/components"
     "@reach/popover" "^0.16.0"
     include-media "^1.4.10"
     modern-normalize "^1.1.0"
