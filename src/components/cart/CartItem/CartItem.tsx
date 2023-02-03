@@ -95,6 +95,8 @@ function CartItem({ item }: Props) {
       quantity={item.quantity}
       onQuantityChange={onQuantityChange}
       removeBtnProps={btnProps}
+      data-sku={item.itemOffered.sku}
+      data-seller={item.seller.identifier}
     >
       <UICartItemImage>
         <Image
