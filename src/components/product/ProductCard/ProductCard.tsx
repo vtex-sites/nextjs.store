@@ -59,6 +59,7 @@ function ProductCard({
   ...otherProps
 }: ProductCardProps) {
   const {
+    sku,
     isVariantOf: { name },
     image: [img],
     offers: {
@@ -75,6 +76,7 @@ function ProductCard({
       outOfStock={outOfStock}
       bordered={bordered}
       variant={variant}
+      data-fs-product-card-sku={sku}
       {...otherProps}
     >
       <UIProductCardImage aspectRatio={aspectRatio}>
