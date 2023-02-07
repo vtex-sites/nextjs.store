@@ -103,7 +103,7 @@
   }
 
   [data-fs-footer-social],
-  [data-fs-footer-payment-methods] {
+  [data-fs-payment-methods] {
     @include media(">=notebook") {
       grid-column: 11 / span 2;
       margin-left: calc(-1 * var(--fs-spacing-3));
@@ -137,7 +137,7 @@
     }
   }
 
-  [data-fs-footer-payment-methods] {
+  [data-fs-payment-methods] {
     @include media("<notebook") {
       margin: var(--fs-footer-spacing-vertical-mobile) auto;
     }
