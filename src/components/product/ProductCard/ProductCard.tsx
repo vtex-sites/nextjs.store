@@ -5,7 +5,6 @@ import {
 } from '@faststore/ui'
 import { gql } from '@faststore/graphql-utils'
 import { memo } from 'react'
-import NextLink from 'next/link'
 
 import { Image } from 'src/components/ui/Image'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
@@ -69,12 +68,7 @@ function ProductCard({
     },
   } = product
 
-  const linkProps = {
-    ...useProductLink({ product, selectedOffer: 0, index }),
-    as: NextLink,
-    passHref: true,
-    legacyBehavior: false,
-  }
+  const linkProps = useProductLink({ product, selectedOffer: 0, index })
   const outOfStock = availability !== 'https://schema.org/InStock'
 
   return (
