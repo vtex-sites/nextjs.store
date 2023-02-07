@@ -1450,10 +1450,10 @@
   resolved "https://registry.yarnpkg.com/@faststore/components/-/components-1.12.32.tgz#2c50bf528fe92b394b533034f30091f462812880"
   integrity sha512-XVtWCp4RKpD0umr40vNYw0myh06wwIJ77i8MwfhWqzBEzZm9ht1E3nBoPcfYvAk73WFDHrHcdokiqBVfpPMRnA==
 
-"@faststore/components@2.0.61-alpha.0":
-  version "2.0.61-alpha.0"
-  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.61-alpha.0.tgz#5bc0a5124874cdc6e04d136983ecd5c888bb2c4a"
-  integrity sha512-wylsQy4cf67FXLz6XFE0izPUFPSo/mQ6/cm/uW0FJ0M7mssn4PwukGOtRS7A6YDq+Okj3iOQtFNYLUebYMzloA==
+"@faststore/components@2.0.62-alpha.0":
+  version "2.0.62-alpha.0"
+  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-2.0.62-alpha.0.tgz#531215692d9ebc7a0124161386586c8236de9005"
+  integrity sha512-q72HZKTMF8UZo2HnXuG+bgZg7xxD4+dEnJt8EgdldBQ4LVg/QLcDLTrQCnSxHLvh3okCBMbBo+ICtSE+UXXk+Q==
 
 "@faststore/graphql-utils@^2.0.3-alpha.0":
   version "2.0.3-alpha.0"
