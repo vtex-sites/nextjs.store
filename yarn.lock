@@ -1477,10 +1477,10 @@
   dependencies:
     idb-keyval "^5.1.3"
 
-"@faststore/ui@2.0.61-alpha.0":
-  version "2.0.61-alpha.0"
-  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.61-alpha.0.tgz#6c3cc37460c893eadd6c20aa4792a8100a2784b9"
-  integrity sha512-CJDAk73a97wVQy9QtxsGZru03ilSXc9OSHJ/uH42WXIqRhKE2i6oR5zj4aAzWfHgvRpf8Ui7HMol1L65FCKjOw==
+"@faststore/ui@2.0.62-alpha.0":
+  version "2.0.62-alpha.0"
+  resolved "https://registry.yarnpkg.com/@faststore/ui/-/ui-2.0.62-alpha.0.tgz#eceeda7b2f2374249c4c6a177b275a0b291e69f1"
+  integrity sha512-KvKeTBjgnE+b6wqwBy3TfEFPM6x0u0BhHEWedUXsDkPwGlFEuqVlEfYQYQ0kZxqkYOMrHiPT6Kgsl8nHPrDoqg==
   dependencies:
     "@faststore/components" "*"
     "@reach/popover" "^0.16.0"
