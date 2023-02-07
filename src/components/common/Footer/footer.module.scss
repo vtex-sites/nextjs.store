@@ -103,7 +103,7 @@
   }
 
   [data-fs-footer-social],
-  [data-fs-payment-methods] {
+  [data-fs-footer-payment-methods] {
     @include media(">=notebook") {
       grid-column: 11 / span 2;
       margin-left: calc(-1 * var(--fs-spacing-3));
@@ -137,7 +137,7 @@
     }
   }
 
-  [data-fs-payment-methods] {
+  [data-fs-footer-payment-methods] {
     @include media("<notebook") {
       margin: var(--fs-footer-spacing-vertical-mobile) auto;
     }
@@ -212,7 +212,7 @@
     }
   }
 
-  &:not([data-fs-payment-methods="true"]) [data-fs-footer-copyright] {
+  &:not([data-fs-footer-payment-methods="true"]) [data-fs-footer-copyright] {
     @include media(">=notebook") {
       grid-column: span 10;
     }

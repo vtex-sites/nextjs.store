@@ -38,7 +38,7 @@ export function Footer({
       data-fs-footer
       data-fs-footer-incentives={sectionIncentives}
       data-fs-footer-social={sectionSocial}
-      data-fs-payment-methods={sectionPaymentMethods}
+      data-fs-footer-payment-methods={sectionPaymentMethods}
       className={`${styles.fsFooter} layout__content-full`}
     >
       {sectionIncentives && <IncentivesFooter />}
