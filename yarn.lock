@@ -1448,6 +1448,10 @@
 "@faststore/components@https://pkg.csb.dev/vtex/faststore/commit/0a08b11a/@faststore/components":
   version "2.0.61-alpha.0"
   resolved "https://pkg.csb.dev/vtex/faststore/commit/0a08b11a/@faststore/components#afd6af31e564b5f62eea1140bae52d06a104ea39"
+"@faststore/components@*":
+  version "1.12.32"
+  resolved "https://registry.yarnpkg.com/@faststore/components/-/components-1.12.32.tgz#2c50bf528fe92b394b533034f30091f462812880"
+  integrity sha512-XVtWCp4RKpD0umr40vNYw0myh06wwIJ77i8MwfhWqzBEzZm9ht1E3nBoPcfYvAk73WFDHrHcdokiqBVfpPMRnA==
 
 "@faststore/graphql-utils@^2.0.3-alpha.0":
   version "2.0.3-alpha.0"
