@@ -1,4 +1,5 @@
 import {
+  LinkElementType,
   ProductCard as UIProductCard,
   ProductCardContent as UIProductCardContent,
   ProductCardImage as UIProductCardImage,
@@ -10,6 +11,8 @@ import { Image } from 'src/components/ui/Image'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
 import type { ProductSummary_ProductFragment } from '@generated/graphql'
+import NextLink from 'next/link'
+import { LinkProps } from 'src/components/ui/Link'
 
 type Variant = 'wide' | 'default'
 
@@ -68,7 +71,13 @@ function ProductCard({
     },
   } = product
 
-  const linkProps = useProductLink({ product, selectedOffer: 0, index })
+  const linkProps = {
+    ...useProductLink({ product, selectedOffer: 0, index }),
+    as: NextLink,
+    passHref: true,
+    legacyBehavior: false,
+  }
+
   const outOfStock = availability !== 'https://schema.org/InStock'
 
   return (
