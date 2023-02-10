@@ -1,5 +1,4 @@
 import {
-  LinkElementType,
   ProductCard as UIProductCard,
   ProductCardContent as UIProductCardContent,
   ProductCardImage as UIProductCardImage,
@@ -12,7 +11,6 @@ import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
 import type { ProductSummary_ProductFragment } from '@generated/graphql'
 import NextLink from 'next/link'
-import { LinkProps } from 'src/components/ui/Link'
 
 type Variant = 'wide' | 'default'
 
