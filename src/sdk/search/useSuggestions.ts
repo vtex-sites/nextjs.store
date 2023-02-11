@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+import { sendAnalyticsEvent } from '@faststore/sdk'
 import { gql } from '@faststore/graphql-utils'
 
 import { useQuery } from 'src/sdk/graphql/useQuery'
@@ -7,6 +9,7 @@ import type {
 } from '@generated/graphql'
 
 import { useSession } from '../session'
+import type { IntelligentSearchQueryEvent } from '../analytics/types'
 
 const MAX_SUGGESTIONS = 5
 
@@ -24,19 +27,49 @@ const query = gql`
           ...ProductSummary_product
         }
       }
+      products {
+        pageInfo {
+          totalCount
+        }
+      }
+      metadata {
+        ...SearchEvent_metadata
+      }
     }
   }
 `
 
 function useSuggestions(term: string, limit: number = MAX_SUGGESTIONS) {
   const { channel, locale } = useSession()
+  const variables = useMemo(
+    () => ({
+      term,
+      selectedFacets: [
+        { key: 'channel', value: channel ?? '' },
+        { key: 'locale', value: locale },
+      ],
+    }),
+    [term, locale, channel]
+  )
 
-  const { data, error } = useQuery<Query, Variables>(query, {
-    term,
-    selectedFacets: [
-      { key: 'channel', value: channel ?? '' },
-      { key: 'locale', value: locale },
-    ],
+  const { data, error } = useQuery<Query, Variables>(query, variables, {
+    onSuccess: (callbackData) => {
+      if (callbackData && term) {
+        sendAnalyticsEvent<IntelligentSearchQueryEvent>({
+          name: 'intelligent_search_query',
+          params: {
+            locale,
+            term,
+            url: window.location.href,
+            logicalOperator:
+              callbackData.search.metadata?.logicalOperator ?? 'and',
+            isTermMisspelled:
+              callbackData.search.metadata?.isTermMisspelled ?? false,
+            totalCount: callbackData.search.products.pageInfo.totalCount,
+          },
+        })
+      }
+    },
   })
 
   return {

@@ -1421,10 +1421,20 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faststore/api@^1.12.29":
-  version "1.12.29"
-  resolved "https://registry.yarnpkg.com/@faststore/api/-/api-1.12.29.tgz#c49d6e0876f9263aff66fa317b073023324bdd1f"
-  integrity sha512-rhz+R957MpHPfMYOmBgwC57R62qfnh7lkEUbTWmZFkrcqW1p/fasOW+j0bpfwJRNXjLTfBjiHePfuCtbFKMMvA==
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/3904aba5/@faststore/api":
+  version "2.0.60-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/3904aba5/@faststore/api#9be79ad1b748ca577523f699b94c8d8015ea634c"
+  dependencies:
+    "@graphql-tools/schema" "^8.2.0"
+    "@rollup/plugin-graphql" "^1.0.0"
+    dataloader "^2.1.0"
+    fast-deep-equal "^3.1.3"
+    isomorphic-unfetch "^3.1.0"
+    p-limit "^3.1.0"
+
+"@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/c95ae398/@faststore/api":
+  version "2.0.60-alpha.0"
+  resolved "https://pkg.csb.dev/vtex/faststore/commit/c95ae398/@faststore/api#0ed776381dcade84782450d47be9fe3047d6ebd2"
   dependencies:
     "@graphql-tools/schema" "^8.2.0"
     "@rollup/plugin-graphql" "^1.0.0"
@@ -15519,6 +15529,8 @@ ssri@^6.0.1:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
   integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
+  dependencies:
+    figgy-pudding "^3.5.1"
 
 ssri@^8.0.1:
   version "8.0.1"
