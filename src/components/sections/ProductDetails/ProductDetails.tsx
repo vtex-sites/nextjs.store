@@ -28,6 +28,16 @@ interface Props {
   context: ProductDetailsFragment_ProductFragment
 }
 
+/**
+ * Name of the sku variant property that's considered **dominant**. Which means
+ * that all other varying properties will be filtered by the SkuSelectors
+ * according to the current value of this property.
+ *
+ * Ex: If `Red` is the current value for the 'Color' variation, we'll only
+ * render possible values for 'Size' that are available in `Red`.
+ */
+const DOMINANT_SKU_SELECTOR_PROPERTY = 'Color'
+
 function ProductDetails({ context: staleProduct }: Props) {
   const { currency } = useSession()
   const [addQuantity, setAddQuantity] = useState(1)
@@ -165,10 +175,11 @@ function ProductDetails({ context: staleProduct }: Props) {
             </section>
             {skuVariants && (
               <Selectors
-                slugsMap={skuVariants.slugsMap}
-                availableVariations={skuVariants.availableVariations}
-                activeVariations={skuVariants.activeVariations}
                 data-fs-product-details-selectors
+                slugsMap={skuVariants.slugsMap}
+                activeVariations={skuVariants.activeVariations}
+                dominantVariation={DOMINANT_SKU_SELECTOR_PROPERTY}
+                availableVariations={skuVariants.availableVariations}
               />
             )}
             {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
