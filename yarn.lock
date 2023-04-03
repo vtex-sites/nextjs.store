@@ -1201,9 +1201,9 @@
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
 "@cypress/code-coverage@^3.9.10":
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/@cypress/code-coverage/-/code-coverage-3.10.1.tgz#1ab8beb53339ffb117660ccbbd4e9de569588467"
-  integrity sha512-tDe+GAOqgGR0V6C7X3fJyMiCijF7A8ZSCQ/90hNAKpZqiXXwoe1iA8enVxRkzrVqJdnpkvuKbOkkHAJrfZxsCw==
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/@cypress/code-coverage/-/code-coverage-3.10.2.tgz#b7726a7baa8d778b4f8918df9df4d126d733bcbe"
+  integrity sha512-bAeM1CgRotyuA8zLqoZxnjOKQzb3MgDoy/XgV/LTaweepXB79jEl3GI6LvvwyC8Qv/IVyobK5/5ksU7AvoM5bQ==
   dependencies:
     "@cypress/webpack-preprocessor" "^5.11.0"
     chalk "4.1.2"
@@ -1322,7 +1322,7 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faststore/api@1.12.38":
+"@faststore/api@^1.12.38":
   version "1.12.38"
   resolved "https://registry.yarnpkg.com/@faststore/api/-/api-1.12.38.tgz#1b244c908e78730257e3ca847efd22b3b5b8459d"
   integrity sha512-fndJvuF7caPp0tOQMhDmr4sbFt8iQ91lbuQU5Ncagx3vJYgWuFtxNiIeqte1mXRfZAp+bNxSHG1Em2X/ABtgKw==
