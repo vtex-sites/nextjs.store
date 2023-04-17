@@ -12,6 +12,17 @@ import { useValidationCache } from '@envelop/validation-cache'
 import { getContextFactory, getSchema, isFastStoreError } from '@faststore/api'
 import { GraphQLError } from 'graphql'
 import type { Maybe, Options as APIOptions, CacheControl } from '@faststore/api'
+// Import the required OpenTelemetry libraries and plugins
+import {
+  BasicTracerProvider,
+  ConsoleSpanExporter,
+  SimpleSpanProcessor,
+} from '@opentelemetry/sdk-trace-base'
+import { Resource } from '@opentelemetry/resources'
+import { registerInstrumentations } from '@opentelemetry/instrumentation'
+import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
+import { useOpenTelemetry } from '@envelop/opentelemetry'
 
 import persisted from '../../@generated/graphql/persisted.json'
 import storeConfig from '../../store.config'
@@ -21,6 +32,41 @@ interface ExecuteOptions<V = Record<string, unknown>> {
   variables: V
   query?: string | null
 }
+
+const collectorOptions = {
+  // url is optional and can be omitted - default is http://localhost:4317
+  url: 'opentelemetry-collector-beta.vtex.systems',
+}
+
+// Create a new tracer provider
+const tracerProvider = new BasicTracerProvider({
+  resource: new Resource({
+    service: 'faststore-api',
+  }),
+})
+
+// Create a new exporter
+const exporter = new OTLPTraceExporter(collectorOptions)
+
+// Set up a span processor to export spans to Honeycomb
+const spanProcessor = new SimpleSpanProcessor(exporter)
+
+// Set up a console exporter for debugging purposes
+const consoleExporter = new ConsoleSpanExporter()
+const debugProcessor = new SimpleSpanProcessor(consoleExporter)
+
+// Register the span processors with the tracer provider
+tracerProvider.addSpanProcessor(spanProcessor)
+tracerProvider.addSpanProcessor(debugProcessor)
+
+// Register the tracer provider with the OpenTelemetry API
+tracerProvider.register()
+
+// Register OpenTelemetry instrumentations and plugins
+registerInstrumentations({
+  instrumentations: [new HttpInstrumentation()],
+  tracerProvider,
+})
 
 const persistedQueries = new Map(Object.entries(persisted))
 
@@ -59,6 +105,22 @@ const getEnvelop = async () =>
       useGraphQlJit(),
       useValidationCache(),
       useParserCache(),
+      useOpenTelemetry(
+        {
+          resolvers: true, // Tracks resolvers calls, and tracks resolvers thrown errors
+          variables: true, // Includes the operation variables values as part of the metadata collected
+          result: true, // Includes execution result object as part of the metadata collected
+        },
+
+        // The @opentelemetry/sdk-trace-base was renamed from @opentelemetry/tracing but the
+        // envelop plugin doesn't support this change yet. This causes the class type to be incompatible,
+        // even if they are the same.
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        tracerProvider as any,
+        undefined,
+        undefined,
+        'faststore-api'
+      ),
     ],
   })
 
