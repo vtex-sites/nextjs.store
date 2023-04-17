@@ -102,9 +102,6 @@ const getEnvelop = async () =>
       useAsyncSchema(apiSchema),
       useExtendContext(apiContextFactory),
       useMaskedErrors({ formatError }),
-      useGraphQlJit(),
-      useValidationCache(),
-      useParserCache(),
       useOpenTelemetry(
         {
           resolvers: true, // Tracks resolvers calls, and tracks resolvers thrown errors
@@ -114,13 +111,16 @@ const getEnvelop = async () =>
 
         // The @opentelemetry/sdk-trace-base was renamed from @opentelemetry/tracing but the
         // envelop plugin doesn't support this change yet. This causes the class type to be incompatible,
-        // even if they are the same.
+        // even if they are the same. https://github.com/n1ru4l/envelop/issues/1610
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         tracerProvider as any,
         undefined,
         undefined,
         'faststore-api'
       ),
+      useGraphQlJit(),
+      useValidationCache(),
+      useParserCache(),
     ],
   })
 
