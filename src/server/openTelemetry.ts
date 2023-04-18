@@ -109,7 +109,10 @@ export const useOpenTelemetry = (
                 ctx
               )
 
-              parentTypeMap.set(getResolverSpanKey(path), resolverSpan)
+              parentTypeMap.set(
+                getResolverSpanKey(path),
+                context[tracingSpanSymbol]
+              )
 
               return ({ result }) => {
                 if (result instanceof Error) {
