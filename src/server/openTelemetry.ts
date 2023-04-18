@@ -112,11 +112,6 @@ export const useOpenTelemetry = (
                   ? parentNameMap.get(previousResolverSpanKey)
                   : context[tracingSpanSymbol]
 
-              const ctx = opentelemetry.trace.setSpan(
-                opentelemetry.context.active(),
-                parentSpan
-              )
-
               const currentResolverTypeSpanKey = [
                 previousResolverSpanKey,
                 parentType,
@@ -128,18 +123,24 @@ export const useOpenTelemetry = (
                 currentResolverTypeSpanKey
               )
 
-              const resolverTypeSpan = hasResolverTypeSpan
-                ? null
-                : tracer.startSpan(
-                    parentType.toString(),
-                    {
-                      attributes: {
-                        [AttributeName.RESOLVER_TYPE_NAME]:
-                          parentType.toString(),
-                      },
+              let resolverTypeSpan: opentelemetry.Span | null = null
+
+              if (!hasResolverTypeSpan) {
+                const ctx = opentelemetry.trace.setSpan(
+                  opentelemetry.context.active(),
+                  parentSpan
+                )
+
+                resolverTypeSpan = tracer.startSpan(
+                  parentType.toString(),
+                  {
+                    attributes: {
+                      [AttributeName.RESOLVER_TYPE_NAME]: parentType.toString(),
                     },
-                    ctx
-                  )
+                  },
+                  ctx
+                )
+              }
 
               let parentTypeCtx = parentNameTypeMap.get(
                 currentResolverTypeSpanKey
