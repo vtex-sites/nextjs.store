@@ -20,8 +20,8 @@ import {
 } from '@opentelemetry/sdk-trace-base'
 import { Resource } from '@opentelemetry/resources'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
-import { useOpenTelemetry } from '@envelop/opentelemetry'
 
+import { useOpenTelemetry } from './openTelemetry'
 import persisted from '../../@generated/graphql/persisted.json'
 import storeConfig from '../../store.config'
 
