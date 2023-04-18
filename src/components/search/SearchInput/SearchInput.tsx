@@ -8,7 +8,7 @@ import {
   useImperativeHandle,
 } from 'react'
 import type { CSSProperties } from 'react'
-import { useRouter } from 'next/router'
+import { Router, useRouter } from 'next/router'
 import { sendAnalyticsEvent } from '@faststore/sdk'
 import type { SearchEvent } from '@faststore/sdk'
 import { SearchInput as UISearchInput } from '@faststore/ui'
@@ -31,6 +31,13 @@ import styles from './search-input.module.scss'
 const SearchDropdown = lazy(
   () => import('src/components/search/SearchDropdown')
 )
+
+const handleSearchSubmit = async (term: string) => {
+  const response = await fetch(`/api/redirect?query=${term}`)
+  const data = await response.json()
+
+  return data.redirect
+}
 
 export type SearchInputProps = {
   onSearchClick?: () => void
@@ -101,8 +108,9 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
             }
             placeholder="Search everything at the store"
             onChange={(e) => setSearchQuery(e.target.value)}
-            onSubmit={(term) => {
-              const path = formatSearchPath(term)
+            onSubmit={async (term) => {
+              const redirect = await handleSearchSubmit(term)
+              const path = redirect || formatSearchPath(term)
 
               onSearchInputSelection(term, path)
               router.push(path)
