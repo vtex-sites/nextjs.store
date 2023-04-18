@@ -97,7 +97,7 @@ export const useOpenTelemetry = (
               )
 
               const resolverSpan = tracer.startSpan(
-                fieldName,
+                `${parentType.toString()}.${fieldName}`,
                 {
                   attributes: {
                     [AttributeName.RESOLVER_FIELD_NAME]: fieldName,
