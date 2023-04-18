@@ -37,6 +37,7 @@
     "@faststore/ui": "^1.12.23",
     "@opentelemetry/exporter-trace-otlp-grpc": "^0.38.0",
     "@opentelemetry/instrumentation": "^0.38.0",
+    "@opentelemetry/instrumentation-graphql": "^0.34.0",
     "@opentelemetry/instrumentation-http": "^0.38.0",
     "@opentelemetry/resources": "^1.12.0",
     "@opentelemetry/sdk-trace-base": "^1.12.0",

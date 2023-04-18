@@ -21,6 +21,7 @@ import {
 import { Resource } from '@opentelemetry/resources'
 import { registerInstrumentations } from '@opentelemetry/instrumentation'
 import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
+import { GraphQLInstrumentation } from '@opentelemetry/instrumentation-graphql'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
 import { useOpenTelemetry } from '@envelop/opentelemetry'
 
@@ -70,7 +71,13 @@ tracerProvider.register()
 
 // Register OpenTelemetry instrumentations and plugins
 registerInstrumentations({
-  instrumentations: [new HttpInstrumentation()],
+  instrumentations: [
+    new HttpInstrumentation({ serverName: 'faststore/api' }),
+    new GraphQLInstrumentation({
+      mergeItems: true,
+      ignoreTrivialResolveSpans: true,
+    }),
+  ],
   tracerProvider,
 })
 
