@@ -87,7 +87,7 @@ export const useOpenTelemetry = (
     onPluginInit({ addPlugin }) {
       if (options.resolvers) {
         const parentNameMap = new Map<string, opentelemetry.Span>()
-        const parentNameTypeMap = new Map<string, opentelemetry.Span>()
+        const parentNameTypeMap = new Map<string, opentelemetry.Context>()
         const parentNameTypePromiseMap = new Map<string, Promise<unknown>>()
 
         addPlugin(
@@ -124,10 +124,12 @@ export const useOpenTelemetry = (
                 .filter(Boolean)
                 .join('::')
 
-              const resolverTypeSpan = parentNameTypeMap.has(
+              const hasResolverTypeSpan = parentNameTypeMap.has(
                 currentResolverTypeSpanKey
               )
-                ? parentNameTypeMap.get(currentResolverTypeSpanKey)!
+
+              const resolverTypeSpan = hasResolverTypeSpan
+                ? null
                 : tracer.startSpan(
                     parentType.toString(),
                     {
@@ -139,15 +141,18 @@ export const useOpenTelemetry = (
                     ctx
                   )
 
-              parentNameTypeMap.set(
-                currentResolverTypeSpanKey,
-                resolverTypeSpan
+              let parentTypeCtx = parentNameTypeMap.get(
+                currentResolverTypeSpanKey
               )
 
-              const parentTypeCtx = opentelemetry.trace.setSpan(
-                opentelemetry.context.active(),
-                resolverTypeSpan
-              )
+              if (!hasResolverTypeSpan && resolverTypeSpan) {
+                parentTypeCtx = opentelemetry.trace.setSpan(
+                  opentelemetry.context.active(),
+                  resolverTypeSpan
+                )
+
+                parentNameTypeMap.set(currentResolverTypeSpanKey, parentTypeCtx)
+              }
 
               const resolverSpan = tracer.startSpan(
                 `${parentType.toString()}.${fieldName}`,
@@ -174,7 +179,7 @@ export const useOpenTelemetry = (
               new Promise((resolve) => {
                 mainResolve = resolve
               }).then(() => {
-                resolverTypeSpan.end()
+                resolverTypeSpan?.end()
               })
 
               parentNameMap.set(getResolverSpanKey(path), resolverSpan)
