@@ -21,7 +21,6 @@ import {
 import { Resource } from '@opentelemetry/resources'
 import { registerInstrumentations } from '@opentelemetry/instrumentation'
 import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
-import { GraphQLInstrumentation } from '@opentelemetry/instrumentation-graphql'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
 import { useOpenTelemetry } from '@envelop/opentelemetry'
 
@@ -68,18 +67,6 @@ tracerProvider.addSpanProcessor(debugProcessor)
 
 // Register the tracer provider with the OpenTelemetry API
 tracerProvider.register()
-
-// Register OpenTelemetry instrumentations and plugins
-registerInstrumentations({
-  instrumentations: [
-    new HttpInstrumentation({ serverName: 'faststore/api' }),
-    new GraphQLInstrumentation({
-      mergeItems: true,
-      ignoreTrivialResolveSpans: true,
-    }),
-  ],
-  tracerProvider,
-})
 
 const persistedQueries = new Map(Object.entries(persisted))
 
