@@ -41,7 +41,13 @@ const collectorOptions = {
 // Create a new tracer provider
 const tracerProvider = new BasicTracerProvider({
   resource: new Resource({
-    service: 'faststore-api',
+    'service.name': 'faststore-api',
+    'service.version': '1.12.38',
+    'service.name_and_version': 'faststore-api@1.12.38',
+    platform: storeConfig.platform,
+    [`${storeConfig.platform}.account`]: storeConfig.api.storeId,
+    [`${storeConfig.platform}.workspace`]: storeConfig.api.workspace,
+    [`${storeConfig.platform}.environment`]: storeConfig.api.environment,
   }),
 })
 
