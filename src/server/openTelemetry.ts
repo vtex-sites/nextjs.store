@@ -88,7 +88,10 @@ export const useOpenTelemetry = (
       if (options.resolvers) {
         const parentNameMap = new Map<string, opentelemetry.Span>()
         const parentNameTypeMap = new Map<string, opentelemetry.Context>()
-        const parentNameTypePromiseMap = new Map<string, Promise<unknown>>()
+        const parentNameTypePromiseMap = new Map<
+          string,
+          Set<Promise<unknown>>
+        >()
 
         addPlugin(
           // eslint-disable-next-line
@@ -186,10 +189,9 @@ export const useOpenTelemetry = (
               parentNameMap.set(getResolverSpanKey(path), resolverSpan)
               parentNameTypePromiseMap.set(
                 currentResolverTypeSpanKey,
-                Promise.all([
-                  parentNameTypePromiseMap.get(currentResolverTypeSpanKey),
-                  promise,
-                ]).then(mainResolve)
+                new Set(
+                  parentNameTypePromiseMap.get(currentResolverTypeSpanKey)
+                ).add(promise)
               )
 
               return ({ result }) => {
@@ -203,6 +205,7 @@ export const useOpenTelemetry = (
                 }
 
                 resolvePromise?.(true)
+                Promise.all(parentNameTypePromiseMap).then(mainResolve)
               }
             }
 
