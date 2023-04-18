@@ -164,11 +164,11 @@ export const useOpenTelemetry = (
 
               let resolvePromise: null | ((value: unknown) => void) = null
               let mainResolve: null | ((value: unknown) => void) = null
-              let rejectPromise: null | ((value: unknown) => void) = null
+              // let rejectPromise: null | ((value: unknown) => void) = null
 
-              const promise = new Promise((resolve, reject) => {
+              const promise = new Promise((resolve) => {
                 resolvePromise = resolve
-                rejectPromise = reject
+                // rejectPromise = reject
               })
 
               new Promise((resolve) => {
