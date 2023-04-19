@@ -99,7 +99,7 @@ export const useOpenTelemetry = (
                 previousResolverSpanKey &&
                 parentTypeMap.has(previousResolverSpanKey)
               ) {
-                ctx = parentTypeMap.get(previousResolverSpanKey)
+                ctx = parentTypeMap.get(previousResolverSpanKey)!
               } else {
                 // parentTypeMap.clear()
 
