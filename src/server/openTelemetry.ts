@@ -38,7 +38,7 @@ type PluginContext = {
   [tracingSpanSymbol]: opentelemetry.Span
 }
 
-function getResolverSpanKey(path: Path) {
+function getResolverSpanKey(path: Path, id: string) {
   const nodes = []
 
   let currentPath: Path | undefined = path
@@ -49,7 +49,7 @@ function getResolverSpanKey(path: Path) {
     currentPath = currentPath.prev
   }
 
-  return nodes.reverse().join('::')
+  return [...nodes, id].reverse().join('::')
 }
 
 export const useOpenTelemetry = (
@@ -86,13 +86,28 @@ export const useOpenTelemetry = (
 
               const { fieldName, returnType, parentType, path } = info
 
-              const ctx =
-                path.prev && parentTypeMap.has(getResolverSpanKey(path.prev))
-                  ? parentTypeMap.get(getResolverSpanKey(path.prev))!
-                  : opentelemetry.trace.setSpan(
-                      opentelemetry.context.active(),
-                      context[tracingSpanSymbol]
-                    )
+              const previousResolverSpanKey =
+                path.prev &&
+                getResolverSpanKey(
+                  path.prev,
+                  context[tracingSpanSymbol].spanContext().spanId
+                )
+
+              let ctx = null
+
+              if (
+                previousResolverSpanKey &&
+                parentTypeMap.has(previousResolverSpanKey)
+              ) {
+                ctx = parentTypeMap.get(previousResolverSpanKey)
+              } else {
+                // parentTypeMap.clear()
+
+                ctx = opentelemetry.trace.setSpan(
+                  opentelemetry.context.active(),
+                  context[tracingSpanSymbol]
+                )
+              }
 
               const resolverSpan = tracer.startSpan(
                 `${parentType.toString()}.${fieldName}`,
@@ -109,7 +124,13 @@ export const useOpenTelemetry = (
 
               const resolverCtx = opentelemetry.trace.setSpan(ctx, resolverSpan)
 
-              parentTypeMap.set(getResolverSpanKey(path), resolverCtx)
+              parentTypeMap.set(
+                getResolverSpanKey(
+                  path,
+                  context[tracingSpanSymbol].spanContext().spanId
+                ),
+                resolverCtx
+              )
 
               return ({ result }) => {
                 if (result instanceof Error) {
