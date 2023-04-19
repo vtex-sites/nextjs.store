@@ -117,6 +117,10 @@ export const useOpenTelemetry = (
                     [AttributeName.RESOLVER_TYPE_NAME]: parentType.toString(),
                     [AttributeName.RESOLVER_RESULT_TYPE]: returnType.toString(),
                     [AttributeName.RESOLVER_ARGS]: JSON.stringify(args || {}),
+                    'debug.path': getResolverSpanKey(
+                      path,
+                      context[tracingSpanSymbol].spanContext().spanId
+                    ),
                   },
                 },
                 ctx
