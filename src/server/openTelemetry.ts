@@ -72,7 +72,7 @@ export const useOpenTelemetry = (
   return {
     onPluginInit({ addPlugin }) {
       if (options.resolvers) {
-        const parentTypeMap = new Map<string, opentelemetry.Span>()
+        const parentTypeMap = new Map<string, opentelemetry.Context>()
 
         addPlugin(
           // eslint-disable-next-line
@@ -86,15 +86,13 @@ export const useOpenTelemetry = (
 
               const { fieldName, returnType, parentType, path } = info
 
-              const parentSpan =
+              const ctx =
                 path.prev && parentTypeMap.has(getResolverSpanKey(path.prev))
                   ? parentTypeMap.get(getResolverSpanKey(path.prev))
-                  : context[tracingSpanSymbol]
-
-              const ctx = opentelemetry.trace.setSpan(
-                opentelemetry.context.active(),
-                parentSpan
-              )
+                  : opentelemetry.trace.setSpan(
+                      opentelemetry.context.active(),
+                      context[tracingSpanSymbol]
+                    )
 
               const resolverSpan = tracer.startSpan(
                 `${parentType.toString()}.${fieldName}`,
@@ -109,7 +107,12 @@ export const useOpenTelemetry = (
                 ctx
               )
 
-              parentTypeMap.set(getResolverSpanKey(path), resolverSpan)
+              const resolverCtx = opentelemetry.trace.setSpan(
+                opentelemetry.context.active(),
+                resolverSpan
+              )
+
+              parentTypeMap.set(getResolverSpanKey(path), resolverCtx)
 
               return ({ result }) => {
                 if (result instanceof Error) {
