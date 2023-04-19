@@ -41,7 +41,15 @@ type PluginContext = {
 function getResolverSpanKey(path: Path, id: string) {
   const nodes = []
 
-  let currentPath: Path | undefined = path
+  // If the first node (after reversed, it will be the last one) is an integer, that is, identifies a list,
+  // we don't want to include it in the key. Note that this will only happen when analysing .prev paths in
+  // a list of elements. We just want to remove the initial node that is a integer, not all of them.
+  //
+  // Nodes with keys 6bc73341b2a183fc::product::image::0::url would not be able to find
+  // parents with key 6bc73341b2a183fc::product::image because of the "0" list index -
+  // it would search for 6bc73341b2a183fc::product::image::0
+  let currentPath: Path | undefined =
+    nodes.length === 0 && Number.isInteger(path.key) ? path.prev : path
 
   while (currentPath) {
     nodes.push(currentPath.key)
