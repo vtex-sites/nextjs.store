@@ -38,11 +38,8 @@ type PluginContext = {
   [tracingSpanSymbol]: opentelemetry.Span
 }
 
-// eslint-disable-next-line
-function getResolverSpanKey(path: Path, id: string) {
+function getResolverSpanKey(path: Path) {
   const nodes = []
-
-  id
 
   // If the first node (after reversed, it will be the last one) is an integer, that is, identifies a list,
   // we don't want to include it in the key. Note that this will only happen when analysing .prev paths in
@@ -80,11 +77,14 @@ export const useOpenTelemetry = (
 
   const tracer = tracingProvider.getTracer(serviceName)
 
+  let resolverContextsByRootSpans: Record<
+    string,
+    Record<string, opentelemetry.Context>
+  > = {}
+
   return {
     onPluginInit({ addPlugin }) {
       if (options.resolvers) {
-        const parentTypeMap = new Map<string, opentelemetry.Context>()
-
         addPlugin(
           // eslint-disable-next-line
           useOnResolve(({ info, context, args }) => {
@@ -94,26 +94,27 @@ export const useOpenTelemetry = (
               context[tracingSpanSymbol]
             ) {
               tracer.getActiveSpanProcessor()
+              const rootContextSpanId =
+                context[tracingSpanSymbol].spanContext().spanId
 
               const { fieldName, returnType, parentType, path } = info
 
               const previousResolverSpanKey =
-                path.prev &&
-                getResolverSpanKey(
-                  path.prev,
-                  context[tracingSpanSymbol].spanContext().spanId
-                )
+                path.prev && getResolverSpanKey(path.prev)
 
-              let ctx = null
+              let ctx: opentelemetry.Context | null = null
 
               if (
                 previousResolverSpanKey &&
-                parentTypeMap.has(previousResolverSpanKey)
+                resolverContextsByRootSpans[rootContextSpanId][
+                  previousResolverSpanKey
+                ]
               ) {
-                ctx = parentTypeMap.get(previousResolverSpanKey)!
+                ctx =
+                  resolverContextsByRootSpans[rootContextSpanId][
+                    previousResolverSpanKey
+                  ]
               } else {
-                parentTypeMap.clear()
-
                 ctx = opentelemetry.trace.setSpan(
                   opentelemetry.context.active(),
                   context[tracingSpanSymbol]
@@ -132,10 +133,7 @@ export const useOpenTelemetry = (
                     [AttributeName.RESOLVER_TYPE_NAME]: parentType.toString(),
                     [AttributeName.RESOLVER_RESULT_TYPE]: returnType.toString(),
                     [AttributeName.RESOLVER_ARGS]: JSON.stringify(args || {}),
-                    'meta.span.path': getResolverSpanKey(
-                      path,
-                      context[tracingSpanSymbol].spanContext().spanId
-                    ),
+                    'meta.span.path': getResolverSpanKey(path),
                   },
                 },
                 ctx
@@ -143,13 +141,9 @@ export const useOpenTelemetry = (
 
               const resolverCtx = opentelemetry.trace.setSpan(ctx, resolverSpan)
 
-              parentTypeMap.set(
-                getResolverSpanKey(
-                  path,
-                  context[tracingSpanSymbol].spanContext().spanId
-                ),
-                resolverCtx
-              )
+              resolverContextsByRootSpans[rootContextSpanId][
+                getResolverSpanKey(path)
+              ] = resolverCtx
 
               return ({ result }) => {
                 if (result instanceof Error) {
@@ -200,6 +194,13 @@ export const useOpenTelemetry = (
 
             return
           }
+
+          const rootContextSpanId = executionSpan.spanContext().spanId
+
+          const { [rootContextSpanId]: _, ...rest } =
+            resolverContextsByRootSpans
+
+          resolverContextsByRootSpans = rest
 
           if (result.data && options.result) {
             executionSpan.setAttribute(
