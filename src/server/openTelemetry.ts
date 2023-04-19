@@ -88,7 +88,7 @@ export const useOpenTelemetry = (
 
               const ctx =
                 path.prev && parentTypeMap.has(getResolverSpanKey(path.prev))
-                  ? parentTypeMap.get(getResolverSpanKey(path.prev))
+                  ? parentTypeMap.get(getResolverSpanKey(path.prev))!
                   : opentelemetry.trace.setSpan(
                       opentelemetry.context.active(),
                       context[tracingSpanSymbol]
@@ -107,10 +107,7 @@ export const useOpenTelemetry = (
                 ctx
               )
 
-              const resolverCtx = opentelemetry.trace.setSpan(
-                opentelemetry.context.active(),
-                resolverSpan
-              )
+              const resolverCtx = opentelemetry.trace.setSpan(ctx, resolverSpan)
 
               parentTypeMap.set(getResolverSpanKey(path), resolverCtx)
 
