@@ -38,8 +38,11 @@ type PluginContext = {
   [tracingSpanSymbol]: opentelemetry.Span
 }
 
+// eslint-disable-next-line
 function getResolverSpanKey(path: Path, id: string) {
   const nodes = []
+
+  id
 
   // If the first node (after reversed, it will be the last one) is an integer, that is, identifies a list,
   // we don't want to include it in the key. Note that this will only happen when analysing .prev paths in
@@ -57,7 +60,7 @@ function getResolverSpanKey(path: Path, id: string) {
     currentPath = currentPath.prev
   }
 
-  return [...nodes, id].reverse().join('::')
+  return [...nodes].reverse().join('.')
 }
 
 export const useOpenTelemetry = (
@@ -109,7 +112,7 @@ export const useOpenTelemetry = (
               ) {
                 ctx = parentTypeMap.get(previousResolverSpanKey)!
               } else {
-                // parentTypeMap.clear()
+                parentTypeMap.clear()
 
                 ctx = opentelemetry.trace.setSpan(
                   opentelemetry.context.active(),
