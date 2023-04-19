@@ -117,15 +117,20 @@ export const useOpenTelemetry = (
                 )
               }
 
+              const maybeResolverIndexInList = Number.isInteger(path.prev?.key)
+              const resolverIndexInListText = maybeResolverIndexInList
+                ? `[${maybeResolverIndexInList}]`
+                : ''
+
               const resolverSpan = tracer.startSpan(
-                `${parentType.toString()}.${fieldName}`,
+                `${parentType.toString()}.${fieldName}${resolverIndexInListText}`,
                 {
                   attributes: {
                     [AttributeName.RESOLVER_FIELD_NAME]: fieldName,
                     [AttributeName.RESOLVER_TYPE_NAME]: parentType.toString(),
                     [AttributeName.RESOLVER_RESULT_TYPE]: returnType.toString(),
                     [AttributeName.RESOLVER_ARGS]: JSON.stringify(args || {}),
-                    'debug.path': getResolverSpanKey(
+                    'meta.span.path': getResolverSpanKey(
                       path,
                       context[tracingSpanSymbol].spanContext().spanId
                     ),
