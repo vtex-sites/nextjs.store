@@ -119,6 +119,9 @@ export const useOpenTelemetry = (
                   opentelemetry.context.active(),
                   context[tracingSpanSymbol]
                 )
+
+                resolverContextsByRootSpans[rootContextSpanId] =
+                  resolverContextsByRootSpans[rootContextSpanId] ?? {}
               }
 
               const resolverIndexInList = Number.isInteger(path.prev?.key)
