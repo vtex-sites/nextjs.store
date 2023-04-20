@@ -9,8 +9,15 @@ import {
 import { useGraphQlJit } from '@envelop/graphql-jit'
 import { useParserCache } from '@envelop/parser-cache'
 import { useValidationCache } from '@envelop/validation-cache'
-import { getContextFactory, getSchema, isFastStoreError } from '@faststore/api'
+import {
+  getContextFactory,
+  getSchema,
+  getTypeDefs,
+  isFastStoreError,
+} from '@faststore/api'
 import { GraphQLError } from 'graphql'
+import { makeExecutableSchema, mergeSchemas } from '@graphql-tools/schema'
+import { mergeTypeDefs } from '@graphql-tools/merge'
 import type { Maybe, Options as APIOptions, CacheControl } from '@faststore/api'
 // Import the required OpenTelemetry libraries and plugins
 import {
@@ -68,6 +75,27 @@ tracerProvider.register()
 
 const persistedQueries = new Map(Object.entries(persisted))
 
+// Creating type definitions
+const typeDefs = `
+  type ProductCluster {
+    id: String
+    name: String
+  }
+
+  extend type StoreProduct {
+    clusterHighlights: [ProductCluster!]
+  }
+`
+
+// Creating resolvers
+const resolvers = {
+  StoreProduct: {
+    clusterHighlights: () => {
+      throw Error('This is my test error from OpenTelemetry')
+    },
+  },
+}
+
 const apiOptions: APIOptions = {
   platform: storeConfig.platform as APIOptions['platform'],
   account: storeConfig.api.storeId,
@@ -81,6 +109,19 @@ const apiOptions: APIOptions = {
 }
 
 export const apiSchema = getSchema(apiOptions)
+
+const mergedTypeDefs = mergeTypeDefs([getTypeDefs(), typeDefs])
+
+const getMergedSchemas = async () =>
+  mergeSchemas({
+    schemas: [
+      await apiSchema,
+      makeExecutableSchema({
+        resolvers,
+        typeDefs: mergedTypeDefs,
+      }),
+    ],
+  })
 
 const apiContextFactory = getContextFactory(apiOptions)
 
@@ -97,7 +138,7 @@ const formatError: FormatErrorHandler = (err) => {
 const getEnvelop = async () =>
   envelop({
     plugins: [
-      useAsyncSchema(apiSchema),
+      useAsyncSchema(getMergedSchemas()),
       useExtendContext(apiContextFactory),
       useMaskedErrors({ formatError }),
       useOpenTelemetry(
