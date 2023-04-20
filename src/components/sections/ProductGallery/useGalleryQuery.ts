@@ -46,6 +46,7 @@ export const query = gql`
       metadata {
         ...SearchEvent_metadata
       }
+      redirect
     }
   }
 `

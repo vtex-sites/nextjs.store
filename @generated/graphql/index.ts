@@ -16,69 +16,10 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
-  /**
-   * Example:
-   *
-   * ```json
-   * {
-   *   Color: 'Red', Size: '42'
-   * }
-   * ```
-   */
   ActiveVariations: any
-  /**
-   * Example:
-   *
-   * ```json
-   * {
-   *   Color: [
-   *     {
-   *       src: "https://storecomponents.vtexassets.com/...",
-   *       alt: "...",
-   *       label: "...",
-   *       value: "..."
-   *     },
-   *     {
-   *       src: "https://storecomponents.vtexassets.com/...",
-   *       alt: "...",
-   *       label: "...",
-   *       value: "..."
-   *     }
-   *   ],
-   *   Size: [
-   *     {
-   *       src: "https://storecomponents.vtexassets.com/...",
-   *       alt: "...",
-   *       label: "...",
-   *       value: "..."
-   *     }
-   *   ]
-   * }
-   * ```
-   */
   FormattedVariants: any
-  /** A string or the string representation of an object (a stringified object). */
   ObjectOrString: any
-  /**
-   * Example:
-   *
-   * ```json
-   * {
-   *   'Color-Red-Size-40': 'classic-shoes-37'
-   * }
-   * ```
-   */
   SlugsMap: any
-  /**
-   * Example:
-   *
-   * ```json
-   * {
-   *   Color: [ "Red", "Blue", "Green" ],
-   *   Size: [ "40", "41" ]
-   * }
-   * ```
-   */
   VariantsByName: any
 }
 
@@ -139,7 +80,7 @@ export type IShippingItem = {
 
 /** Shopping cart input. */
 export type IStoreCart = {
-  /** Order information, including `orderNumber` and `acceptedOffer`. */
+  /** Order information, including `orderNumber`, `acceptedOffer` and `shouldSplitItem`. */
   order: IStoreOrder
 }
 
@@ -178,6 +119,8 @@ export type IStoreOrder = {
   acceptedOffer: Array<IStoreOffer>
   /** ID of the order in [VTEX order management](https://help.vtex.com/en/tutorial/license-manager-resources-oms--60QcBsvWeum02cFi3GjBzg#). */
   orderNumber: Scalars['String']
+  /** Indicates whether or not items with attachments should be split. */
+  shouldSplitItem: InputMaybe<Scalars['Boolean']>
 }
 
 /** Organization input. */
@@ -869,6 +812,8 @@ export type StoreSearchResult = {
   metadata: Maybe<SearchMetadata>
   /** Search result products. */
   products: StoreProductConnection
+  /** Search result redirect. Used to redirect search terms or filters to specific pages */
+  redirect: Maybe<Scalars['String']>
   /** Search result suggestions. */
   suggestions: StoreSuggestions
 }
@@ -1036,6 +981,7 @@ export type ProductGalleryQueryQueryVariables = Exact<{
 
 export type ProductGalleryQueryQuery = {
   search: {
+    redirect: string | null
     products: { pageInfo: { totalCount: number } }
     facets: Array<
       | {
