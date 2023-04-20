@@ -103,8 +103,8 @@ const getEnvelop = async () =>
       useOpenTelemetry(
         {
           resolvers: true, // Tracks resolvers calls, and tracks resolvers thrown errors
-          variables: true, // Includes the operation variables values as part of the metadata collected
-          result: true, // Includes execution result object as part of the metadata collected
+          variables: false, // Includes the operation variables values as part of the metadata collected
+          result: false, // Includes execution result object as part of the metadata collected
         },
 
         // The @opentelemetry/sdk-trace-base was renamed from @opentelemetry/tracing but the

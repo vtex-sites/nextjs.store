@@ -9,7 +9,6 @@ import {
   ConsoleSpanExporter,
   SimpleSpanProcessor,
 } from '@opentelemetry/sdk-trace-base'
-import { print } from 'graphql'
 import type { Path } from 'graphql/jsutils/Path'
 
 // eslint-disable-next-line
@@ -174,7 +173,7 @@ export const useOpenTelemetry = (
             ...spanAdditionalAttributes,
             [AttributeName.EXECUTION_OPERATION_NAME]:
               args.operationName ?? undefined,
-            [AttributeName.EXECUTION_OPERATION_DOCUMENT]: print(args.document),
+            // [AttributeName.EXECUTION_OPERATION_DOCUMENT]: print(args.document),
             ...(options.variables
               ? {
                   [AttributeName.EXECUTION_VARIABLES]: JSON.stringify(
