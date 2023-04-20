@@ -149,10 +149,7 @@ export const useOpenTelemetry = (
 
               return ({ result }) => {
                 if (result instanceof Error) {
-                  resolverSpan.recordException({
-                    name: AttributeName.RESOLVER_EXCEPTION,
-                    message: JSON.stringify(result),
-                  })
+                  resolverSpan.recordException(result)
                 }
 
                 resolverSpan.end()
