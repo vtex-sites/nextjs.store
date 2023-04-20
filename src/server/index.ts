@@ -91,7 +91,7 @@ const typeDefs = `
 const resolvers = {
   StoreProduct: {
     clusterHighlights: () => {
-      throw Error('This is my test error from OpenTelemetry')
+      throw new Error('This is my test error from OpenTelemetry')
     },
   },
 }
