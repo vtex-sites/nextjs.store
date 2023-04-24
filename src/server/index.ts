@@ -26,8 +26,6 @@ import {
 } from '@opentelemetry/sdk-trace-base'
 import { Resource } from '@opentelemetry/resources'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
-import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
-import { registerInstrumentations } from '@opentelemetry/instrumentation'
 import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node'
 
 import { useOpenTelemetry } from './openTelemetry'
@@ -46,7 +44,7 @@ const collectorOptions = {
 }
 
 // Create a new tracer provider
-const tracerProvider = new NodeTracerProvider({
+export const tracerProvider = new NodeTracerProvider({
   resource: new Resource({
     'service.name': 'faststore-api',
     'service.version': '1.12.38',
@@ -74,11 +72,6 @@ tracerProvider.addSpanProcessor(debugProcessor)
 
 // Register the tracer provider with the OpenTelemetry API
 tracerProvider.register()
-
-registerInstrumentations({
-  instrumentations: [getNodeAutoInstrumentations()],
-  tracerProvider,
-})
 
 const persistedQueries = new Map(Object.entries(persisted))
 
