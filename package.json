@@ -42,6 +42,7 @@
     "@opentelemetry/instrumentation-http": "^0.38.0",
     "@opentelemetry/resources": "^1.12.0",
     "@opentelemetry/sdk-trace-base": "^1.12.0",
+    "@opentelemetry/sdk-trace-node": "^1.12.0",
     "@types/react": "^18.0.14",
     "@vtex/client-cms": "^0.2.12",
     "@vtex/tsconfig": "0.6.0",

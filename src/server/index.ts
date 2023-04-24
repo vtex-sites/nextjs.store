@@ -21,7 +21,6 @@ import { mergeTypeDefs } from '@graphql-tools/merge'
 import type { Maybe, Options as APIOptions, CacheControl } from '@faststore/api'
 // Import the required OpenTelemetry libraries and plugins
 import {
-  BasicTracerProvider,
   ConsoleSpanExporter,
   SimpleSpanProcessor,
 } from '@opentelemetry/sdk-trace-base'
@@ -29,6 +28,7 @@ import { Resource } from '@opentelemetry/resources'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
 import { registerInstrumentations } from '@opentelemetry/instrumentation'
+import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node'
 
 import { useOpenTelemetry } from './openTelemetry'
 import persisted from '../../@generated/graphql/persisted.json'
@@ -46,7 +46,7 @@ const collectorOptions = {
 }
 
 // Create a new tracer provider
-const tracerProvider = new BasicTracerProvider({
+const tracerProvider = new NodeTracerProvider({
   resource: new Resource({
     'service.name': 'faststore-api',
     'service.version': '1.12.38',
