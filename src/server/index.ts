@@ -140,7 +140,6 @@ const getEnvelop = async () =>
     plugins: [
       useAsyncSchema(getMergedSchemas()),
       useExtendContext(apiContextFactory),
-      useMaskedErrors({ formatError }),
       useOpenTelemetry(
         {
           resolvers: true, // Tracks resolvers calls, and tracks resolvers thrown errors
@@ -157,6 +156,7 @@ const getEnvelop = async () =>
         undefined,
         'faststore-api'
       ),
+      useMaskedErrors({ formatError }),
       useGraphQlJit(),
       useValidationCache(),
       useParserCache(),
