@@ -35,6 +35,7 @@
     "@faststore/graphql-utils": "^1.11.8",
     "@faststore/sdk": "^1.11.8",
     "@faststore/ui": "^1.12.23",
+    "@opentelemetry/auto-instrumentations-node": "^0.36.5",
     "@opentelemetry/exporter-trace-otlp-grpc": "^0.38.0",
     "@opentelemetry/instrumentation": "^0.38.0",
     "@opentelemetry/instrumentation-graphql": "^0.34.0",

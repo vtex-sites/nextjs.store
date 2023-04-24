@@ -27,6 +27,8 @@ import {
 } from '@opentelemetry/sdk-trace-base'
 import { Resource } from '@opentelemetry/resources'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
+import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
+import { registerInstrumentations } from '@opentelemetry/instrumentation'
 
 import { useOpenTelemetry } from './openTelemetry'
 import persisted from '../../@generated/graphql/persisted.json'
@@ -72,6 +74,11 @@ tracerProvider.addSpanProcessor(debugProcessor)
 
 // Register the tracer provider with the OpenTelemetry API
 tracerProvider.register()
+
+registerInstrumentations({
+  instrumentations: [getNodeAutoInstrumentations()],
+  tracerProvider,
+})
 
 const persistedQueries = new Map(Object.entries(persisted))
 
