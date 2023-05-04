@@ -1,14 +1,7 @@
 import { isFastStoreError, stringifyCacheControl } from '@faststore/api'
 import type { NextApiHandler, NextApiRequest } from 'next'
-import { registerInstrumentations } from '@opentelemetry/instrumentation'
-import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
 
-import { execute, tracerProvider } from '../../server'
-
-registerInstrumentations({
-  instrumentations: [getNodeAutoInstrumentations()],
-  tracerProvider,
-})
+import { execute } from '../../server'
 
 const parseRequest = (request: NextApiRequest) => {
   const { operationName, variables, query } =

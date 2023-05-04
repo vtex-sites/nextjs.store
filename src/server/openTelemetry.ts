@@ -4,11 +4,7 @@ import { useOnResolve } from '@envelop/on-resolve'
 import type { Attributes } from '@opentelemetry/api'
 import { SpanKind } from '@opentelemetry/api'
 import * as opentelemetry from '@opentelemetry/api'
-import {
-  BasicTracerProvider,
-  ConsoleSpanExporter,
-  SimpleSpanProcessor,
-} from '@opentelemetry/sdk-trace-base'
+import type { BasicTracerProvider } from '@opentelemetry/sdk-trace-base'
 import type { Path } from 'graphql/jsutils/Path'
 
 // eslint-disable-next-line
@@ -61,19 +57,11 @@ function getResolverSpanKey(path: Path) {
 
 export const useOpenTelemetry = (
   options: TracingOptions,
-  tracingProvider?: BasicTracerProvider,
+  tracingProvider: BasicTracerProvider,
   spanKind: SpanKind = SpanKind.SERVER,
   spanAdditionalAttributes: Attributes = {},
-  serviceName = 'graphql'
+  serviceName = 'faststore-api'
 ): Plugin<PluginContext> => {
-  if (!tracingProvider) {
-    tracingProvider = new BasicTracerProvider()
-    tracingProvider.addSpanProcessor(
-      new SimpleSpanProcessor(new ConsoleSpanExporter())
-    )
-    tracingProvider.register()
-  }
-
   const tracer = tracingProvider.getTracer(serviceName)
 
   let resolverContextsByRootSpans: Record<

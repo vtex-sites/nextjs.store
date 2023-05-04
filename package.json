@@ -6,9 +6,9 @@
   "scripts": {
     "generate": "graphql-codegen",
     "build": "yarn partytown && next build",
-    "develop": "yarn partytown && next dev",
+    "develop": "yarn partytown && NODE_OPTIONS='-r ./instrumentation.js' next dev",
     "clean": "rm -r .next",
-    "serve": "next start",
+    "serve": "NODE_OPTIONS='-r ./instrumentation.js' next start",
     "test": "cypress open",
     "lhci": "lhci autorun",
     "format": "prettier --write \"**/*.{ts,js,tsx,jsx,json}\"",

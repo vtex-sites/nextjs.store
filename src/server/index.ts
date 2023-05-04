@@ -19,17 +19,10 @@ import { GraphQLError } from 'graphql'
 import { makeExecutableSchema, mergeSchemas } from '@graphql-tools/schema'
 import { mergeTypeDefs } from '@graphql-tools/merge'
 import type { Maybe, Options as APIOptions, CacheControl } from '@faststore/api'
-// Import the required OpenTelemetry libraries and plugins
-import {
-  ConsoleSpanExporter,
-  SimpleSpanProcessor,
-} from '@opentelemetry/sdk-trace-base'
-import { Resource } from '@opentelemetry/resources'
-import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
-import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node'
 
 import { useOpenTelemetry } from './openTelemetry'
 import persisted from '../../@generated/graphql/persisted.json'
+import { getTracerProvider } from '../instrumentation/node.mjs'
 import storeConfig from '../../store.config'
 
 interface ExecuteOptions<V = Record<string, unknown>> {
@@ -37,43 +30,6 @@ interface ExecuteOptions<V = Record<string, unknown>> {
   variables: V
   query?: string | null
 }
-
-const collectorOptions = {
-  // url is optional and can be omitted - default is http://localhost:4317
-  url: 'opentelemetry-collector-beta.vtex.systems',
-}
-
-// Create a new tracer provider
-export const tracerProvider = new NodeTracerProvider({
-  resource: Resource.default().merge(
-    new Resource({
-      'service.name': 'faststore-api',
-      'service.version': '1.12.38',
-      'service.name_and_version': 'faststore-api@1.12.38',
-      platform: storeConfig.platform,
-      [`${storeConfig.platform}.account`]: storeConfig.api.storeId,
-      [`${storeConfig.platform}.workspace`]: storeConfig.api.workspace,
-      [`${storeConfig.platform}.environment`]: storeConfig.api.environment,
-    })
-  ),
-})
-
-// Create a new exporter
-const exporter = new OTLPTraceExporter(collectorOptions)
-
-// Set up a span processor to export spans to Honeycomb
-const spanProcessor = new SimpleSpanProcessor(exporter)
-
-// Set up a console exporter for debugging purposes
-const consoleExporter = new ConsoleSpanExporter()
-const debugProcessor = new SimpleSpanProcessor(consoleExporter)
-
-// Register the span processors with the tracer provider
-tracerProvider.addSpanProcessor(spanProcessor)
-tracerProvider.addSpanProcessor(debugProcessor)
-
-// Register the tracer provider with the OpenTelemetry API
-tracerProvider.register()
 
 const persistedQueries = new Map(Object.entries(persisted))
 
@@ -153,7 +109,7 @@ const getEnvelop = async () =>
         // envelop plugin doesn't support this change yet. This causes the class type to be incompatible,
         // even if they are the same. https://github.com/n1ru4l/envelop/issues/1610
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        tracerProvider as any,
+        getTracerProvider() as any,
         undefined,
         undefined,
         'faststore-api'
