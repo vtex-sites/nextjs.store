@@ -58,6 +58,8 @@ export function setupTracerProvider() {
     tracerProvider: localTraceProvider,
   })
 
+  tracerProvider = localTraceProvider
+
   return localTraceProvider
 }
 
