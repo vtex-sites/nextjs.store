@@ -2,6 +2,7 @@ import { useSearch } from '@faststore/sdk'
 import { NextSeo } from 'next-seo'
 import { lazy, Suspense } from 'react'
 import type { MouseEvent } from 'react'
+import router from 'next/router'
 
 import Filter from 'src/components/search/Filter'
 import Sort from 'src/components/search/Sort'
@@ -37,6 +38,10 @@ function ProductGallery({ title, searchTerm }: Props) {
   const facets = useDelayedFacets(data)
   const totalCount = data?.search.products.pageInfo.totalCount ?? 0
   const { next, prev } = useDelayedPagination(totalCount)
+  const redirect = data?.redirect
+
+  // check for a redirect
+  redirect && router.push(redirect)
 
   useProductsPrefetch(prev ? prev.cursor : null)
   useProductsPrefetch(next ? next.cursor : null)

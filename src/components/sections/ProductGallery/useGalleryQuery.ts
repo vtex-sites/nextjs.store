@@ -28,6 +28,7 @@ export const query = gql`
     $term: String!
     $selectedFacets: [IStoreSelectedFacet!]!
   ) {
+    redirect(term: $term, selectedFacets: $selectedFacets)
     search(
       first: $first
       after: $after
