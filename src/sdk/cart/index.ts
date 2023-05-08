@@ -101,7 +101,7 @@ const validateCart = async (cart: Cart): Promise<Cart | null> => {
     cart: {
       order: {
         orderNumber: cart.id,
-        shouldSplitItem: cart.shouldSplitItem,
+        shouldSplitItem: cart.shouldSplitItem ?? false,
         acceptedOffer: cart.items.map(
           ({
             price,
