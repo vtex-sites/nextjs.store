@@ -1322,6 +1322,7 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+
 "@faststore/api@https://pkg.csb.dev/vtex/faststore/commit/4c537062/@faststore/api":
   version "1.12.40"
   resolved "https://pkg.csb.dev/vtex/faststore/commit/4c537062/@faststore/api#0335baef8ce0c5a6f15fee0bc9fd1f30e8bfaa15"
