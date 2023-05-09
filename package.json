@@ -30,7 +30,7 @@
     "@envelop/graphql-jit": "^1.1.1",
     "@envelop/parser-cache": "^2.2.0",
     "@envelop/validation-cache": "^2.2.0",
-    "@faststore/api": "https://pkg.csb.dev/vtex/faststore/commit/4c537062/@faststore/api",
+    "@faststore/api": "https://pkg.csb.dev/vtex/faststore/commit/881ee90a/@faststore/api",
     "@faststore/graphql-utils": "^1.11.8",
     "@faststore/sdk": "^1.11.8",
     "@faststore/ui": "^1.12.23",

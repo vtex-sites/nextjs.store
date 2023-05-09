@@ -329,7 +329,7 @@ export type Query = {
   /** Returns the details of a product based on the specified locator. */
   product: StoreProduct
   /** Returns if there's a redirect for a search. */
-  redirect: Maybe<Scalars['String']>
+  redirect: Maybe<StoreRedirect>
   /** Returns the result of a product, facet, or suggestion search. */
   search: StoreSearchResult
   /** Returns information about shipping simulation. */
@@ -795,6 +795,15 @@ export type StorePropertyValue = {
   valueReference: Scalars['String']
 }
 
+/**
+ * Redirect informations, including url returned by the query.
+ * https://schema.org/Thing
+ */
+export type StoreRedirect = {
+  /** URL to redirect */
+  url: Maybe<Scalars['String']>
+}
+
 /** Information of a given review. */
 export type StoreReview = {
   /** Review author. */
@@ -985,7 +994,7 @@ export type ProductGalleryQueryQueryVariables = Exact<{
 }>
 
 export type ProductGalleryQueryQuery = {
-  redirect: string | null
+  redirect: { url: string | null } | null
   search: {
     products: { pageInfo: { totalCount: number } }
     facets: Array<
