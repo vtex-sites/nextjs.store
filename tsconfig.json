@@ -13,7 +13,6 @@
     "allowJs": true,
     "paths": {
       "src/*": ["src/*"],
-      "instrumentation.js": ["instrumentation.js"],
       "@generated/*": ["@generated/*"]
     },
     "forceConsistentCasingInFileNames": true,
@@ -21,12 +20,6 @@
     "incremental": true,
     "isolatedModules": true
   },
-  "include": [
-    "*.d.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "@generated/**/*.ts",
-    "src/instrumentation/node.mjs"
-  ],
+  "include": ["*.d.ts", "src/**/*.ts", "src/**/*.tsx", "@generated/**/*.ts"],
   "exclude": ["node_modules", "public"]
 }
