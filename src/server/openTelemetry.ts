@@ -4,12 +4,12 @@ import { useOnResolve } from '@envelop/on-resolve'
 import type { Attributes } from '@opentelemetry/api'
 import { SpanKind } from '@opentelemetry/api'
 import * as opentelemetry from '@opentelemetry/api'
-import {
-  BasicTracerProvider,
-  ConsoleSpanExporter,
-  SimpleSpanProcessor,
-} from '@opentelemetry/sdk-trace-base'
+import type { BasicTracerProvider } from '@opentelemetry/sdk-trace-base'
 import type { Path } from 'graphql/jsutils/Path'
+import type { LoggerProvider } from '@opentelemetry/sdk-logs'
+import type { LogRecord } from '@opentelemetry/api-logs'
+import { SeverityNumber } from '@opentelemetry/api-logs'
+import { print } from 'graphql'
 
 // eslint-disable-next-line
 export enum AttributeName {
@@ -61,20 +61,14 @@ function getResolverSpanKey(path: Path) {
 
 export const useOpenTelemetry = (
   options: TracingOptions,
-  tracingProvider?: BasicTracerProvider,
+  tracingProvider: BasicTracerProvider,
+  loggerProvider: LoggerProvider,
   spanKind: SpanKind = SpanKind.SERVER,
   spanAdditionalAttributes: Attributes = {},
   serviceName = 'graphql'
 ): Plugin<PluginContext> => {
-  if (!tracingProvider) {
-    tracingProvider = new BasicTracerProvider()
-    tracingProvider.addSpanProcessor(
-      new SimpleSpanProcessor(new ConsoleSpanExporter())
-    )
-    tracingProvider.register()
-  }
-
   const tracer = tracingProvider.getTracer(serviceName)
+  const logger = loggerProvider.getLogger(serviceName)
 
   let resolverContextsByRootSpans: Record<
     string,
@@ -86,7 +80,7 @@ export const useOpenTelemetry = (
       if (options.resolvers) {
         addPlugin(
           // eslint-disable-next-line
-          useOnResolve(({ info, context, args }) => {
+          useOnResolve(({ info, context }) => {
             if (
               context &&
               typeof context === 'object' &&
@@ -134,7 +128,6 @@ export const useOpenTelemetry = (
                     [AttributeName.RESOLVER_FIELD_NAME]: fieldName,
                     [AttributeName.RESOLVER_TYPE_NAME]: parentType.toString(),
                     [AttributeName.RESOLVER_RESULT_TYPE]: returnType.toString(),
-                    [AttributeName.RESOLVER_ARGS]: JSON.stringify(args || {}),
                     'meta.span.path': getResolverSpanKey(path),
                   },
                 },
@@ -170,7 +163,6 @@ export const useOpenTelemetry = (
             ...spanAdditionalAttributes,
             [AttributeName.EXECUTION_OPERATION_NAME]:
               args.operationName ?? undefined,
-            // [AttributeName.EXECUTION_OPERATION_DOCUMENT]: print(args.document),
             ...(options.variables
               ? {
                   [AttributeName.EXECUTION_VARIABLES]: JSON.stringify(
@@ -181,6 +173,8 @@ export const useOpenTelemetry = (
           },
         }
       )
+
+      const executeContext = opentelemetry.context.active()
 
       const resultCbs: OnExecuteHookResult<PluginContext> = {
         onExecuteDone({ result }) {
@@ -201,19 +195,45 @@ export const useOpenTelemetry = (
 
           resolverContextsByRootSpans = rest
 
-          if (result.data && options.result) {
-            executionSpan.setAttribute(
-              AttributeName.EXECUTION_RESULT,
+          const logRecord: LogRecord = {
+            context: executeContext,
+            timestamp: Date.now(),
+            attributes: {
+              [AttributeName.EXECUTION_OPERATION_NAME]:
+                args.operationName ?? undefined,
+              [AttributeName.EXECUTION_OPERATION_DOCUMENT]: print(
+                args.document
+              ),
+              [AttributeName.EXECUTION_VARIABLES]: JSON.stringify(
+                args.variableValues ?? {}
+              ),
+              ...loggerProvider.resource.attributes,
+            },
+          }
+
+          if (
+            typeof result.data !== 'undefined' &&
+            !(result.errors && result.errors.length > 0)
+          ) {
+            logRecord.severityNumber = SeverityNumber.INFO
+            logRecord.severityText = 'INFO'
+            logRecord.attributes![AttributeName.EXECUTION_RESULT] =
               JSON.stringify(result)
-            )
           }
 
           if (result.errors && result.errors.length > 0) {
+            logRecord.severityNumber = SeverityNumber.ERROR
+            logRecord.severityText = 'ERROR'
+            logRecord.attributes![AttributeName.EXECUTION_ERROR] =
+              JSON.stringify(result.errors)
+
             executionSpan.recordException({
               name: AttributeName.EXECUTION_ERROR,
               message: JSON.stringify(result.errors),
             })
           }
+
+          logger.emit(logRecord)
 
           executionSpan.end()
         },
