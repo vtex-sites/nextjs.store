@@ -207,6 +207,8 @@ export const useOpenTelemetry = (
             context: executeContext,
             timestamp: Date.now(),
             attributes: {
+              type: 'log',
+              message: 'test message',
               [AttributeName.EXECUTION_OPERATION_NAME]:
                 args.operationName ?? undefined,
               [AttributeName.EXECUTION_OPERATION_DOCUMENT]: print(

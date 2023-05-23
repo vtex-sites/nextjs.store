@@ -50,7 +50,7 @@ const honeycombCollectorOptions = {
 
 const openSearchCollectorOptions = {
   // url is optional and can be omitted - default is http://localhost:4317
-  url: 'developer-logs.opentelemetry-collector.vtex.systems:80',
+  url: 'developer-logs.opentelemetry-collector.vtex.systems',
 }
 
 // Create a new tracer provider
@@ -75,6 +75,8 @@ const loggerProvider = new LoggerProvider({
     [`${storeConfig.platform}.account`]: storeConfig.api.storeId,
     [`${storeConfig.platform}.workspace`]: storeConfig.api.workspace,
     [`${storeConfig.platform}.environment`]: storeConfig.api.environment,
+    index: 'faststore_beta_api',
+    search_index: 'faststore_beta_api',
     'vtex.search_index': 'faststore_beta_api',
   }),
 })
