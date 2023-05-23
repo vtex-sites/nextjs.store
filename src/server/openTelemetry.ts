@@ -220,14 +220,14 @@ export const useOpenTelemetry = (
             !(result.errors && result.errors.length > 0)
           ) {
             logRecord.severityNumber = SeverityNumber.INFO
-            logRecord.severityText = 'INFO'
+            logRecord.severityText = 'Info'
             logRecord.attributes![AttributeName.EXECUTION_RESULT] =
               JSON.stringify(result)
           }
 
           if (result.errors && result.errors.length > 0) {
             logRecord.severityNumber = SeverityNumber.ERROR
-            logRecord.severityText = 'ERROR'
+            logRecord.severityText = 'Error'
             logRecord.attributes![AttributeName.EXECUTION_ERROR] =
               JSON.stringify(result.errors)
 

@@ -50,7 +50,7 @@ const honeycombCollectorOptions = {
 
 const openSearchCollectorOptions = {
   // url is optional and can be omitted - default is http://localhost:4317
-  url: 'developer-logs.opentelemetry-collector.vtex.systems',
+  url: 'https://developer-logs.opentelemetry-collector.vtex.systems',
 }
 
 // Create a new tracer provider
