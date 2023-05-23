@@ -71,7 +71,7 @@ export const useOpenTelemetry = (
   const tracer = tracingProvider.getTracer(serviceName)
   const logger = loggerProvider.getLogger(serviceName)
 
-  let resolverContextsByRootSpans: Record<
+  const resolverContextsByRootSpans: Record<
     string,
     Record<string, opentelemetry.Context>
   > = {}
@@ -196,16 +196,10 @@ export const useOpenTelemetry = (
             return
           }
 
-          const rootContextSpanId = executionSpan.spanContext().spanId
-
-          const { [rootContextSpanId]: _, ...rest } =
-            resolverContextsByRootSpans
-
-          resolverContextsByRootSpans = rest
-
           const logRecord: LogRecord = {
             context: executeContext,
             timestamp: Date.now(),
+            body: 'Heeeey!',
             attributes: {
               type: 'log',
               message: 'test message',
