@@ -15,6 +15,7 @@ import { print } from 'graphql'
 export enum AttributeName {
   EXECUTION_ERROR = 'graphql.execute.error',
   EXECUTION_RESULT = 'graphql.execute.result',
+  RESOLVER_EXECUTION_ERROR = 'graphql.resolver.error',
   RESOLVER_EXCEPTION = 'graphql.resolver.exception',
   RESOLVER_FIELD_NAME = 'graphql.resolver.fieldName',
   RESOLVER_TYPE_NAME = 'graphql.resolver.typeName',
@@ -142,6 +143,13 @@ export const useOpenTelemetry = (
 
               return ({ result }) => {
                 if (result instanceof Error) {
+                  resolverSpan.setAttributes({
+                    error: true,
+                    'exception.category':
+                      AttributeName.RESOLVER_EXECUTION_ERROR,
+                    'exception.message': result.message,
+                    'exception.type': result.name,
+                  })
                   resolverSpan.recordException(result)
                 }
 
@@ -227,9 +235,10 @@ export const useOpenTelemetry = (
             logRecord.attributes![AttributeName.EXECUTION_ERROR] =
               JSON.stringify(result.errors)
 
-            executionSpan.recordException({
-              name: AttributeName.EXECUTION_ERROR,
-              message: JSON.stringify(result.errors),
+            executionSpan.setAttributes({
+              error: true,
+              'exception.category': AttributeName.EXECUTION_ERROR,
+              'exception.message': JSON.stringify(result.errors),
             })
           }
 
