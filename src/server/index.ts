@@ -22,7 +22,6 @@ import type { Maybe, Options as APIOptions, CacheControl } from '@faststore/api'
 // Import the required OpenTelemetry libraries and plugins
 import {
   BasicTracerProvider,
-  ConsoleSpanExporter,
   SimpleSpanProcessor,
 } from '@opentelemetry/sdk-trace-base'
 import { Resource } from '@opentelemetry/resources'
@@ -76,7 +75,7 @@ const loggerProvider = new LoggerProvider({
     [`${storeConfig.platform}.account`]: storeConfig.api.storeId,
     [`${storeConfig.platform}.workspace`]: storeConfig.api.workspace,
     [`${storeConfig.platform}.environment`]: storeConfig.api.environment,
-    'Attributes.search_index': 'faststore_beta_api',
+    'vtex.search_index': 'faststore_beta_api',
   }),
 })
 
