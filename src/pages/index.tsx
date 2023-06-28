@@ -79,12 +79,10 @@ export const getStaticProps: GetStaticProps<
   Props,
   Record<string, string>,
   Locator
-> = async (context) => {
+> = async ({ previewData }) => {
   const page = await getPage<PageContentType>({
-    ...(context.previewData?.contentType === 'page'
-      ? context.previewData
-      : { filters: { 'settings.seo.slug': '/' } }),
-    contentType: 'page',
+    ...(previewData?.contentType === 'home' && previewData),
+    contentType: 'home',
   })
 
   return {
