@@ -18,5 +18,6 @@ module.exports = lhConfig({
     ],
     deprecations: 'warn',
     'resource-summary:stylesheet:count': ['warn', { maxNumericValue: 400 }],
+    'bf-cache': ['warn', {}],
   },
 })
