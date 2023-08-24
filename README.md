@@ -77,6 +77,7 @@ As of Sep, 2022, this starter is still far from covering most basic cases found 
 1. **Keep the CHANGELOG updated**
    We use a CHANGELOG to keep the history of all notable changes made to this repository.
    Each PR must have at least one entry on the `[UNRELEASED]` section of the `CHANGELOG.md` file.
+   
 
 ## 🧐 What's inside?
 
