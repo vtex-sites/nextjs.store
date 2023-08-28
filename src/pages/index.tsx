@@ -36,7 +36,7 @@ type Props = PageContentType
 function Page({ sections, settings }: Props) {
   return (
     </>
-      {/*        */}
+      {/*       */}
       {/* SEO */}
       <NextSeo
         title={settings.seo.title}
