@@ -7,10 +7,8 @@ import {
 import { gql } from '@faststore/graphql-utils'
 import { memo } from 'react'
 import type { ReactNode } from 'react'
-
 import Link from 'src/components/ui/Link'
 import { Badge, DiscountBadge } from 'src/components/ui/Badge'
-import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
@@ -45,6 +43,7 @@ function ProductCard({
   index,
   variant = 'default',
   bordered = false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   aspectRatio = 1,
   ButtonBuy,
   ...otherProps
@@ -52,7 +51,7 @@ function ProductCard({
   const {
     sku,
     isVariantOf: { name },
-    image: [img],
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     offers: {
       lowPrice: spotPrice,
       offers: [{ listPrice, availability }],
@@ -73,14 +72,14 @@ function ProductCard({
       {...otherProps}
     >
       <UIProductCardImage data-fs-product-card-image>
-        <Image
+        {/* <Image
           src={img.url}
           alt={img.alternateName}
           width={360}
           height={360 / aspectRatio}
           sizes="(max-width: 768px) 25vw, 30vw"
           loading="lazy"
-        />
+        /> */}
       </UIProductCardImage>
 
       <UIProductCardContent data-fs-product-card-content>

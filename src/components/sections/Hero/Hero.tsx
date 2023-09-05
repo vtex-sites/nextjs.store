@@ -4,10 +4,8 @@ import {
   HeroHeading as UIHeroHeading,
   HeroImage as UIHeroImage,
 } from '@faststore/ui'
-
 import { ButtonLink } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
-import Image from 'src/components/ui/Image/Image'
 
 import Section from '../Section'
 import styles from './hero.module.scss'
@@ -62,8 +60,6 @@ const Hero = ({
   linkText,
   link,
   icon,
-  imageAlt,
-  imageSrc,
 }: HeroProps) => {
   return (
     <Section>
@@ -73,18 +69,7 @@ const Hero = ({
         data-fs-hero-variant={variant}
         data-fs-hero-color-variant={colorVariant}
       >
-        <UIHeroImage data-fs-hero-image>
-          <Image
-            preload
-            loading="eager"
-            fetchPriority="high"
-            src={imageSrc}
-            alt={imageAlt}
-            width={360}
-            height={240}
-            sizes="(max-width: 768px) 70vw, 50vw"
-          />
-        </UIHeroImage>
+        <UIHeroImage data-fs-hero-image />
         <UIHeroHeading data-fs-hero-heading aria-labelledby="hero-heading">
           <div data-fs-hero-wrapper className="layout__content">
             <div data-fs-hero-info>

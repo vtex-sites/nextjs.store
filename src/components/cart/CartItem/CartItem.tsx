@@ -14,10 +14,8 @@ import type {
   CurrencyCode,
   RemoveFromCartEvent,
 } from '@faststore/sdk'
-
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
-import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import QuantitySelector from 'src/components/ui/QuantitySelector'
 import { cartStore } from 'src/sdk/cart'
@@ -98,12 +96,12 @@ function CartItem({ item, gift = false }: Props) {
     >
       <UICartItemContent>
         <UICartItemImage>
-          <Image
+          {/* <Image
             src={item.itemOffered.image[0].url}
             alt={item.itemOffered.image[0].alternateName}
             width={72}
             height={72}
-          />
+          /> */}
         </UICartItemImage>
         <UICartItemSummary>
           <UICartItemTitle className="text__body">

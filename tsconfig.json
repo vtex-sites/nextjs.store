@@ -18,8 +18,20 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "incremental": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
-  "include": ["*.d.ts", "src/**/*.ts", "src/**/*.tsx", "@generated/**/*.ts"],
+  "include": [
+    "*.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "@generated/**/*.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules", "public"]
 }

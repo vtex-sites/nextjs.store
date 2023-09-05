@@ -1,6 +1,4 @@
 import { Card, CardContent, CardImage } from '@faststore/ui'
-
-import { Image } from 'src/components/ui/Image'
 import Link from 'src/components/ui/Link'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
@@ -35,7 +33,6 @@ function SearchProductCard({
 
   const {
     isVariantOf: { name },
-    image: [img],
     offers: {
       lowPrice: spotPrice,
       offers: [{ listPrice }],
@@ -62,12 +59,12 @@ function SearchProductCard({
       >
         <CardContent data-fs-search-product-card-content>
           <CardImage data-fs-search-product-card-image>
-            <Image
+            {/* <Image
               src={img.url}
               alt={img.alternateName}
               width={56}
               height={56}
-            />
+            /> */}
           </CardImage>
           <div data-fs-search-product-card-summary>
             <p className="text__title-mini" data-fs-search-product-card-title>

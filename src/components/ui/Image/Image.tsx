@@ -2,7 +2,6 @@ import { forwardRef, memo } from 'react'
 import Head from 'next/head'
 
 import { useImage } from './useImage'
-import type { ImageOptions } from './useImage'
 
 // React still don't have imageSizes declared on its types. Somehow,
 // it generated the right html
@@ -17,7 +16,7 @@ declare module 'react' {
   }
 }
 
-interface Props extends ImageOptions {
+interface Props {
   preload?: boolean
   fetchPriority?: string
 }
@@ -25,7 +24,7 @@ interface Props extends ImageOptions {
 // TODO: Replace this component by next/image
 const Image = forwardRef<HTMLImageElement, Props>(
   ({ preload = false, fetchPriority, ...otherProps }, ref) => {
-    const imgProps = useImage(otherProps)
+    const imgProps = useImage(otherProps as any)
     const { src, sizes = '100vw', srcSet } = imgProps
 
     return (

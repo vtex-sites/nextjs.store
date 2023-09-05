@@ -1,6 +1,5 @@
 import type { ChangeEvent } from 'react'
 import { useCallback, useEffect, useReducer } from 'react'
-
 import type {
   IShippingItem,
   ShippingSimulationQueryQuery,
@@ -160,9 +159,7 @@ export const useShippingSimulation = (shippingItem: IShippingItem) => {
     }
 
     fetchShipping()
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sessionPostalCode])
+  }, [country, sessionPostalCode, shippingItem, shippingPostalCode])
 
   const handleSubmit = useCallback(async () => {
     try {

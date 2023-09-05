@@ -4,8 +4,6 @@ import {
 } from '@faststore/ui'
 import type { SkuSelectorProps } from '@faststore/ui'
 
-import { Image } from 'src/components/ui/Image'
-
 import styles from './sku-selector.module.scss'
 
 function SkuSelector({ ...props }: SkuSelectorProps) {
@@ -24,18 +22,7 @@ function SkuSelector({ ...props }: SkuSelectorProps) {
             checked={option.value === activeValue}
           >
             {variant === 'label' && <span>{option.value}</span>}
-            {variant === 'image' && 'src' in option && (
-              <span>
-                <Image
-                  src={option.src ?? ''}
-                  alt={option.alt}
-                  width={20}
-                  height={20}
-                  loading="lazy"
-                  data-fs-sku-selector-option-image
-                />
-              </span>
-            )}
+            {variant === 'image' && 'src' in option && <span />}
           </UIRadioOption>
         )
       })}

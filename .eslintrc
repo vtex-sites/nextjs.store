@@ -7,7 +7,10 @@
   "rules": {
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "import/no-anonymous-default-export": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/order": "off"
   },
   "settings": {
     "react": {

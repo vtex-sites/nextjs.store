@@ -1,9 +1,7 @@
 import { useRef } from 'react'
 import { Button, IconButton } from '@faststore/ui'
 import { useInView } from 'react-intersection-observer'
-
 import Icon from 'src/components/ui/Icon'
-import { Image } from 'src/components/ui/Image'
 import styles from 'src/components/ui/ImageGallery/image-gallery-selector.module.scss'
 
 import type { ImageElementData } from './ImageGallery'
@@ -45,11 +43,11 @@ const hasScroll = (container: HTMLDivElement | null): boolean => {
 function ImageGallerySelector({ images, onSelect, currentImageIdx }: Props) {
   const elementsRef = useRef<HTMLDivElement>(null)
   const elementHasScroll = hasScroll(elementsRef.current)
-  const { ref: firstImageRef, inView: firstImageInView } = useInView({
+  const { inView: firstImageInView } = useInView({
     threshold: 1,
   })
 
-  const { ref: lastImageRef, inView: lastImageInView } = useInView({
+  const { inView: lastImageInView } = useInView({
     threshold: 1,
   })
 
@@ -70,13 +68,6 @@ function ImageGallerySelector({ images, onSelect, currentImageIdx }: Props) {
       )}
       <div data-fs-image-gallery-selector-elements ref={elementsRef}>
         {images.map((image, idx) => {
-          const ref =
-            idx === 0
-              ? firstImageRef
-              : idx === images.length - 1
-              ? lastImageRef
-              : null
-
           return (
             <Button
               key={idx}
@@ -87,17 +78,7 @@ function ImageGallerySelector({ images, onSelect, currentImageIdx }: Props) {
               data-fs-image-gallery-selector-thumbnail={
                 idx === currentImageIdx ? 'selected' : 'true'
               }
-            >
-              <Image
-                ref={ref}
-                src={image.url}
-                alt={image.alternateName}
-                loading={idx === 0 ? 'eager' : 'lazy'}
-                sizes="(max-width: 72px) 25vw, 30vw"
-                width={72}
-                height={72}
-              />
-            </Button>
+            />
           )
         })}
       </div>
