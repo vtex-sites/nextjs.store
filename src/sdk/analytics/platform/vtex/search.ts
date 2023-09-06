@@ -8,6 +8,7 @@ import type {
   IntelligentSearchQueryEvent,
   SearchSelectItemEvent,
 } from '../../types'
+import { getCookie } from './utils/getCookie'
 
 const THIRTY_MINUTES_S = 30 * 60
 const ONE_YEAR_S = 365 * 24 * 3600
@@ -17,27 +18,27 @@ const randomUUID = () =>
     ? crypto.randomUUID()
     : (Math.random() * 1e6).toFixed(0)
 
-const createStorage = (key: string, expiresSecond: number) => {
-  const timelapsed = (past: number) => (Date.now() - past) / 1e3
+const createCookie = (key: string, expiresSecond: number) => {
+  const urlDomain = new URL(config.storeUrl)
 
   return () => {
-    const item = JSON.parse(localStorage.getItem(key) ?? 'null')
-    const isExpired = !item || timelapsed(item.createdAt) > expiresSecond
-    const payload: string = isExpired ? randomUUID() : item.payload
+    const isExpired = getCookie(key) === undefined
 
     if (isExpired) {
-      const data = { payload, createdAt: Date.now() }
+      const value = randomUUID()
 
-      localStorage.setItem(key, JSON.stringify(data))
+      document.cookie = `${key}=${value}; max-age=${expiresSecond}; domain=${urlDomain.hostname}; path=/; HttpOnly`
+
+      return value
     }
 
-    return payload
+    return getCookie(key)
   }
 }
 
 const user = {
-  anonymous: createStorage('vtex.search.anonymous', ONE_YEAR_S),
-  session: createStorage('vtex.search.session', THIRTY_MINUTES_S),
+  anonymous: createCookie('vtex-faststore-anonymous', ONE_YEAR_S),
+  session: createCookie('vtex-faststore-session', THIRTY_MINUTES_S),
 }
 
 type SearchEvent =
