@@ -27,7 +27,7 @@ const createCookie = (key: string, expiresSecond: number) => {
     if (isExpired) {
       const value = randomUUID()
 
-      document.cookie = `${key}=${value}; max-age=${expiresSecond}; domain=${urlDomain}; path=/; HttpOnly`
+      document.cookie = `${key}=${value}; max-age=${expiresSecond}; domain=${urlDomain}; path=/;`
 
       return value
     }
