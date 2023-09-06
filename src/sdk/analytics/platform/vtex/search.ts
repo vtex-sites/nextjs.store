@@ -19,7 +19,7 @@ const randomUUID = () =>
     : (Math.random() * 1e6).toFixed(0)
 
 const createCookie = (key: string, expiresSecond: number) => {
-  const urlDomain = new URL(config.storeUrl)
+  const urlDomain = `.${new URL(config.storeUrl).hostname}`
 
   return () => {
     const isExpired = getCookie(key) === undefined
@@ -27,7 +27,7 @@ const createCookie = (key: string, expiresSecond: number) => {
     if (isExpired) {
       const value = randomUUID()
 
-      document.cookie = `${key}=${value}; max-age=${expiresSecond}; domain=${urlDomain.hostname}; path=/; HttpOnly`
+      document.cookie = `${key}=${value}; max-age=${expiresSecond}; domain=${urlDomain}; path=/; HttpOnly`
 
       return value
     }
