@@ -16,69 +16,10 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
-  /**
-   * Example:
-   *
-   * ```json
-   * {
-   *   Color: 'Red', Size: '42'
-   * }
-   * ```
-   */
   ActiveVariations: any
-  /**
-   * Example:
-   *
-   * ```json
-   * {
-   *   Color: [
-   *     {
-   *       src: "https://storecomponents.vtexassets.com/...",
-   *       alt: "...",
-   *       label: "...",
-   *       value: "..."
-   *     },
-   *     {
-   *       src: "https://storecomponents.vtexassets.com/...",
-   *       alt: "...",
-   *       label: "...",
-   *       value: "..."
-   *     }
-   *   ],
-   *   Size: [
-   *     {
-   *       src: "https://storecomponents.vtexassets.com/...",
-   *       alt: "...",
-   *       label: "...",
-   *       value: "..."
-   *     }
-   *   ]
-   * }
-   * ```
-   */
   FormattedVariants: any
-  /** A string or the string representation of an object (a stringified object). */
   ObjectOrString: any
-  /**
-   * Example:
-   *
-   * ```json
-   * {
-   *   'Color-Red-Size-40': 'classic-shoes-37'
-   * }
-   * ```
-   */
   SlugsMap: any
-  /**
-   * Example:
-   *
-   * ```json
-   * {
-   *   Color: [ "Red", "Blue", "Green" ],
-   *   Size: [ "40", "41" ]
-   * }
-   * ```
-   */
   VariantsByName: any
 }
 
@@ -374,6 +315,11 @@ export type PickupStoreInfo = {
   friendlyName: Maybe<Scalars['String']>
   /** Information if the store has pickup enable. */
   isPickupStore: Maybe<Scalars['Boolean']>
+}
+
+export type ProductCluster = {
+  id: Maybe<Scalars['String']>
+  name: Maybe<Scalars['String']>
 }
 
 export type Query = {
@@ -773,6 +719,7 @@ export type StoreProduct = {
   brand: StoreBrand
   /** List of items consisting of chain linked web pages, ending with the current page. */
   breadcrumbList: StoreBreadcrumbList
+  clusterHighlights: Maybe<Array<ProductCluster>>
   /** Product description. */
   description: Scalars['String']
   /** Global Trade Item Number. */
@@ -947,6 +894,7 @@ export type ProductSummary_ProductFragment = {
   id: string
   brand: { name: string; brandName: string }
   isVariantOf: { productGroupID: string; name: string }
+  clusterHighlights: Array<{ name: string | null; id: string | null }> | null
   image: Array<{ url: string; alternateName: string }>
   offers: {
     lowPrice: number
@@ -1269,6 +1217,10 @@ export type ProductsQueryQuery = {
           id: string
           brand: { name: string; brandName: string }
           isVariantOf: { productGroupID: string; name: string }
+          clusterHighlights: Array<{
+            name: string | null
+            id: string | null
+          }> | null
           image: Array<{ url: string; alternateName: string }>
           offers: {
             lowPrice: number
@@ -1303,6 +1255,10 @@ export type SearchSuggestionsQueryQuery = {
         id: string
         brand: { name: string; brandName: string }
         isVariantOf: { productGroupID: string; name: string }
+        clusterHighlights: Array<{
+          name: string | null
+          id: string | null
+        }> | null
         image: Array<{ url: string; alternateName: string }>
         offers: {
           lowPrice: number

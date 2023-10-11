@@ -142,7 +142,10 @@ export const fragment = gql`
       productGroupID
       name
     }
-
+    clusterHighlights {
+      name
+      id
+    }
     image {
       url
       alternateName
