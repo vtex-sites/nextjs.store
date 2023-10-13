@@ -76,7 +76,6 @@
     "husky": "^5.2.0",
     "is-ci": "^3.0.0",
     "lint-staged": "^10.5.4",
-    "msw-storybook-addon": "^1.6.3",
     "prettier": "^2.2.0",
     "release-it": "^15.2.0",
     "stylelint": "^14.6.0",
