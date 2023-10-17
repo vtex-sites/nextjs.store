@@ -1,21 +1,17 @@
 {
-  "extends": [
-    "vtex-react/gatsby",
-    "next/core-web-vitals"
-  ],
+  "extends": ["vtex-react/gatsby", "next/core-web-vitals"],
   "root": true,
   "rules": {
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    // TODO: remove after https://github.com/cypress-io/cypress-example-kitchensink/issues/661 has been resolved
+    "cypress/unsafe-to-chain-command": "off"
   },
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-  "ignorePatterns": [
-    "public/~partytown/*",
-    "next-env.d.ts"
-  ]
+  "ignorePatterns": ["public/~partytown/*", "next-env.d.ts"]
 }

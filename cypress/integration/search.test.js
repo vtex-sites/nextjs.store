@@ -21,7 +21,10 @@ describe('Search input', () => {
       cy.visit(pages.home, options)
       cy.waitForHydration()
 
-      cy.getById('store-input-mobile-button').click({ force: true })
+      cy.getById('store-input-mobile-button')
+        .should('exist')
+        .scrollIntoView({ duration: 0 })
+        .click({ force: true })
 
       cy.getById('store-input-mobile')
         .click()
