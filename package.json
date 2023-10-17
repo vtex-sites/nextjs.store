@@ -95,8 +95,5 @@
     "*.scss": [
       "stylelint --fix"
     ]
-  },
-  "msw": {
-    "workerDirectory": "public"
   }
 }
