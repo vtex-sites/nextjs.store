@@ -47,7 +47,7 @@ module.exports = {
       home: '/',
       pdp: '/apple-magic-mouse/p',
       collection: '/office',
-    },
+    }
   },
 
   // E2E CI
