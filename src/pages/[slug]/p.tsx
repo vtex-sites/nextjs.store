@@ -203,6 +203,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       ...data,
       ...cmsPage,
+      key: slug,
     },
   }
 }
