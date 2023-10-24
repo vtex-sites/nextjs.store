@@ -30,7 +30,7 @@ module.exports = {
     channel: '{"salesChannel":"1","regionId":""}',
     country: 'USA',
     postalCode: null,
-    person: null
+    person: null,
   },
 
   // Production URLs
