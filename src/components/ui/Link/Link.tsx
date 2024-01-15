@@ -35,7 +35,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link<
 
   if (isInternalLink) {
     return (
-      <NextLink passHref href={href}>
+      <NextLink passHref href={href} legacyBehavior>
         <UILink
           ref={ref}
           data-fs-link
