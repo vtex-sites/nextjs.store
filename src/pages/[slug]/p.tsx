@@ -105,7 +105,7 @@ function Page({ product, sections, date }: Props) {
         sections={sections}
         components={COMPONENTS}
       />
-      <h1>{date}</h1>
+      <h1>{date as string}</h1>
     </>
   )
 }
