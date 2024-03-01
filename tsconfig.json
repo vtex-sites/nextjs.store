@@ -6,6 +6,8 @@
     "jsx": "preserve",
     "jsxImportSource": "react",
     "resolveJsonModule": true,
+    "target": "es5",
+    "lib": ["es2019"],
     "module": "esnext",
     "rootDir": "./",
     "baseUrl": "./",
