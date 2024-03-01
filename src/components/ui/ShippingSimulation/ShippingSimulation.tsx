@@ -82,7 +82,7 @@ function ShippingSimulation({
             </p>
           </header>
 
-          <Table data-fs-shipping-simulation-table>
+          <Table placeholder="yas" data-fs-shipping-simulation-table>
             <TableBody>
               {shippingOptions.map((option) => (
                 <TableRow
