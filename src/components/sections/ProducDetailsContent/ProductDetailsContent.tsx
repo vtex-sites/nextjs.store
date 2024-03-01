@@ -135,6 +135,7 @@ function ProductDetailsContent({
           prefixId="product-details-content"
         >
           <UITable
+            placeholder="bla"
             cellPadding={0}
             cellSpacing={0}
             className="text__title-mini-alt"
