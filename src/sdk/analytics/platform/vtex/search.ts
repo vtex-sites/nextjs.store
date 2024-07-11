@@ -15,7 +15,7 @@ const ONE_YEAR_S = 365 * 24 * 3600
 
 const randomUUID = () =>
   typeof crypto.randomUUID === 'function'
-    ? crypto.randomUUID().replaceAll('-', '')
+    ? crypto.randomUUID().replace(/-/g, '')
     : (Math.random() * 1e6).toFixed(0)
 
 const createOrRefreshCookie = (key: string, expiresSecond: number) => {
