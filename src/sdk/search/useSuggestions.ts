@@ -9,7 +9,7 @@ import type {
 } from '@generated/graphql'
 
 import { useSession } from '../session'
-import type { IntelligentSearchQueryEvent } from '../analytics/types'
+import type { IntelligentSearchAutocompleteQueryEvent } from '../analytics/types'
 
 const MAX_SUGGESTIONS = 5
 
@@ -55,8 +55,8 @@ function useSuggestions(term: string, limit: number = MAX_SUGGESTIONS) {
   const { data, error } = useQuery<Query, Variables>(query, variables, {
     onSuccess: (callbackData) => {
       if (callbackData && term) {
-        sendAnalyticsEvent<IntelligentSearchQueryEvent>({
-          name: 'intelligent_search_query',
+        sendAnalyticsEvent<IntelligentSearchAutocompleteQueryEvent>({
+          name: 'intelligent_search_autocomplete_query',
           params: {
             locale,
             term,

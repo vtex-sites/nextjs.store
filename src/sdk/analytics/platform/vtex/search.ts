@@ -1,12 +1,13 @@
 /**
- * More info at: https://www.notion.so/vtexhandbook/Event-API-Documentation-48eee26730cf4d7f80f8fd7262231f84
+ * More info at: https://developers.vtex.com/docs/api-reference/intelligent-search-events-api-headless
  */
 import type { AnalyticsEvent } from '@faststore/sdk'
 
 import config from '../../../../../store.config'
 import type {
-  IntelligentSearchQueryEvent,
   SearchSelectItemEvent,
+  IntelligentSearchQueryEvent,
+  IntelligentSearchAutocompleteQueryEvent,
 } from '../../types'
 import { getCookie } from './utils/getCookie'
 
@@ -15,30 +16,35 @@ const ONE_YEAR_S = 365 * 24 * 3600
 
 const randomUUID = () =>
   typeof crypto.randomUUID === 'function'
-    ? crypto.randomUUID()
+    ? crypto.randomUUID().replace(/-/g, '')
     : (Math.random() * 1e6).toFixed(0)
 
-const createCookie = (key: string, expiresSecond: number) => {
-  const urlDomain = `.${new URL(config.storeUrl).hostname}`
+const createOrRefreshCookie = (key: string, expiresSecond: number) => {
+  // Setting the domain attribute specifies which host can receive it; we need it to make the cookies available on the `secure` subdomain.
+  // Although https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie mentioned leading dot (.) is not needed and ignored. I couldn't set the cookies without it.
+  const urlDomain =
+    process.env.NODE_ENV === 'development'
+      ? '.localhost'
+      : `.${new URL(config.storeUrl).hostname}`
 
   return () => {
-    const isExpired = getCookie(key) === undefined
+    let currentValue = getCookie(key)
+    const isExpired = currentValue === undefined
 
     if (isExpired) {
-      const value = randomUUID()
-
-      document.cookie = `${key}=${value}; max-age=${expiresSecond}; domain=${urlDomain}; path=/;`
-
-      return value
+      currentValue = randomUUID()
     }
 
-    return getCookie(key)
+    // Setting the `path=/` makes the cookie accessible on any path of the domain/subdomain
+    document.cookie = `${key}=${currentValue}; max-age=${expiresSecond}; domain=${urlDomain}; path=/;`
+
+    return currentValue
   }
 }
 
 const user = {
-  anonymous: createCookie('vtex-faststore-anonymous', ONE_YEAR_S),
-  session: createCookie('vtex-faststore-session', THIRTY_MINUTES_S),
+  anonymous: createOrRefreshCookie('vtex-search-anonymous', ONE_YEAR_S),
+  session: createOrRefreshCookie('vtex-search-session', THIRTY_MINUTES_S),
 }
 
 type SearchEvent =
@@ -54,6 +60,15 @@ type SearchEvent =
     }
   | {
       type: 'search.query'
+      text: string
+      misspelled: boolean
+      match: number
+      operator: string
+      locale: string
+      url: string
+    }
+  | {
+      type: 'search.autocomplete.query'
       text: string
       misspelled: boolean
       match: number
@@ -80,9 +95,13 @@ const isFullTextSearch = (url: URL) =>
   typeof url.searchParams.get('q') === 'string' &&
   /^\/s(\/)?$/g.test(url.pathname)
 
-const handleEvent = (
-  event: AnalyticsEvent | SearchSelectItemEvent | IntelligentSearchQueryEvent
-) => {
+type EventType =
+  | AnalyticsEvent
+  | SearchSelectItemEvent
+  | IntelligentSearchQueryEvent
+  | IntelligentSearchAutocompleteQueryEvent
+
+const handleEvent = (event: EventType) => {
   switch (event.name) {
     case 'search_select_item': {
       const url = new URL(event.params.url)
@@ -112,6 +131,20 @@ const handleEvent = (
     case 'intelligent_search_query': {
       sendEvent({
         type: 'search.query',
+        url: event.params.url,
+        text: event.params.term,
+        misspelled: event.params.isTermMisspelled,
+        match: event.params.totalCount,
+        operator: event.params.logicalOperator,
+        locale: event.params.locale,
+      })
+
+      break
+    }
+
+    case 'intelligent_search_autocomplete_query': {
+      sendEvent({
+        type: 'search.autocomplete.query',
         url: event.params.url,
         text: event.params.term,
         misspelled: event.params.isTermMisspelled,

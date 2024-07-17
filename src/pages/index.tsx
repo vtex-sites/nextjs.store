@@ -38,15 +38,15 @@ function Page({ sections, settings }: Props) {
     <>
       {/* SEO */}
       <NextSeo
-        title={settings.seo.title}
-        description={settings.seo.description}
+        title={settings?.seo.title}
+        description={settings?.seo.description}
         titleTemplate={storeConfig.seo.titleTemplate}
-        canonical={settings.seo.canonical ?? storeConfig.storeUrl}
+        canonical={settings?.seo.canonical ?? storeConfig.storeUrl}
         openGraph={{
           type: 'website',
           url: storeConfig.storeUrl,
-          title: settings.seo.title,
-          description: settings.seo.description,
+          title: settings?.seo.title,
+          description: settings?.seo.description,
         }}
       />
       <SiteLinksSearchBoxJsonLd
