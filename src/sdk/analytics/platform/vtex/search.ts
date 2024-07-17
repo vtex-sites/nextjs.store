@@ -95,13 +95,13 @@ const isFullTextSearch = (url: URL) =>
   typeof url.searchParams.get('q') === 'string' &&
   /^\/s(\/)?$/g.test(url.pathname)
 
-const handleEvent = (
-  event:
-    | AnalyticsEvent
-    | SearchSelectItemEvent
-    | IntelligentSearchQueryEvent
-    | IntelligentSearchAutocompleteQueryEvent
-) => {
+type EventType =
+  | AnalyticsEvent
+  | SearchSelectItemEvent
+  | IntelligentSearchQueryEvent
+  | IntelligentSearchAutocompleteQueryEvent
+
+const handleEvent = (event: EventType) => {
   switch (event.name) {
     case 'search_select_item': {
       const url = new URL(event.params.url)
