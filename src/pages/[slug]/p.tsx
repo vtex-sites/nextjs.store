@@ -35,7 +35,7 @@ const COMPONENTS: Record<string, ComponentType<any>> = {
 
 type Props = ServerProductPageQueryQuery & PDPContentType
 
-function Page({ product, sections }: Props) {
+function Page({ product, sections, date }: Props) {
   const { currency } = useSession()
   const { seo } = product
   const title = seo.title || storeConfig.seo.title
@@ -105,6 +105,7 @@ function Page({ product, sections }: Props) {
         sections={sections}
         components={COMPONENTS}
       />
+      <h1>{date as string}</h1>
     </>
   )
 }
@@ -204,7 +205,9 @@ export const getStaticProps: GetStaticProps<
       ...data,
       ...cmsPage,
       key: slug,
+      date: new Date().toISOString(),
     },
+    revalidate: 60,
   }
 }
 
