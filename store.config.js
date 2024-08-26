@@ -33,6 +33,14 @@ module.exports = {
     person: null,
   },
 
+  // Default cart
+  cart: {
+    id: '',
+    items: [],
+    messages: [],
+    shouldSplitItem: true,
+  },
+
   // Production URLs
   storeUrl: 'https://nextjs.vtex.app',
   secureSubdomain: 'https://secure.vtexfaststore.com',
