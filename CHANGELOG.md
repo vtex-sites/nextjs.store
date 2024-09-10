@@ -503,7 +503,7 @@ and this project adheres to [Calendar Versioning](https://calver.org/).
 - Support for the new type definitions from React 18 ([#113](https://github.com/vtex-sites/nextjs.store/pull/113)).
 
 ### Changed
-
+- The helper log function `logToTerminal` used by `cy.checkA11y` to also report the HTML element associated to the violation to help with identification ([#141](https://github.com/vtex-sites/nextjs.store/pull/141))
 - Updates `facets` breakpoints tokens ([#150](https://github.com/vtex-sites/nextjs.store/pull/150))
 - Move logo's svg code from JS into static asset ([#135](https://github.com/vtex-sites/nextjs.store/pull/135))
 - Upgrade dependencies ([#131](https://github.com/vtex-sites/nextjs.store/pull/131))
@@ -515,7 +515,6 @@ and this project adheres to [Calendar Versioning](https://calver.org/).
 
 ### Fixed
 
-- `ImageGallerySelector` scroll that isn't working on Safari ([##132](https://github.com/vtex-sites/nextjs.store/pull/#132))
 - Some console errors when running the storybook ([#129](https://github.com/vtex-sites/nextjs.store/pull/129))
 - The search input's dropdown not closing when a suggested product was selected ([#112](https://github.com/vtex-sites/nextjs.store/pull/112).
 - Status code when error occurs (404/500) ([#116](https://github.com/vtex-sites/nextjs.store/pull/116))

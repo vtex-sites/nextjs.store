@@ -8,6 +8,7 @@ import styles from './footer.module.scss'
 
 const links = [
   {
+    id: 'footer-our-company',
     title: 'Our company',
     items: [
       {
@@ -29,6 +30,7 @@ const links = [
     ],
   },
   {
+    id: 'footer-orders-and-purchases',
     title: 'Orders & Purchases',
     items: [
       {
@@ -50,6 +52,7 @@ const links = [
     ],
   },
   {
+    id: 'footer-support-and-services',
     title: 'Support & Services',
     items: [
       {
@@ -67,6 +70,7 @@ const links = [
     ],
   },
   {
+    id: 'footer-partnership',
     title: 'Partnerships',
     items: [
       {
@@ -141,10 +145,12 @@ function FooterLinks() {
       <div className="hidden-mobile">
         <nav data-fs-footer-links-columns>
           {links.map((section) => (
-            <div key={section.title}>
-              <p data-fs-footer-title>{section.title}</p>
+            <nav key={section.title} aria-labelledby={section.id}>
+              <p data-fs-footer-title id={section.id}>
+                {section.title}
+              </p>
               <LinksList items={section.items} />
-            </div>
+            </nav>
           ))}
         </nav>
       </div>

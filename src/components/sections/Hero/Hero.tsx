@@ -85,7 +85,7 @@ const Hero = ({
             sizes="(max-width: 768px) 70vw, 50vw"
           />
         </UIHeroImage>
-        <UIHeroHeading data-fs-hero-heading aria-labelledby="hero-heading">
+        <UIHeroHeading data-fs-hero-heading>
           <div data-fs-hero-wrapper className="layout__content">
             <div data-fs-hero-info>
               <h1 data-fs-hero-title>{title}</h1>
