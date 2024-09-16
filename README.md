@@ -1,3 +1,4 @@
+test3
 <p align="center">
   <a href="https://github.com/vtex/faststore">
     <img alt="Store Framework" src="https://emoji.slack-edge.com/T02BCPD0X/store-framework/7547b127e929c376.png" width="75" />
@@ -7,7 +8,7 @@
   A starter powered by FastStore and NextJS.
 </h1>
 
-Kickoff your store with this boilerplate. This starter ships with the main FastStore configuration files you might need to get up and running blazing fast with the blazing-fast store for React.
+Kickoff your store with this boilerplate. This starter ships with the main FastStore configuration files you might need to get up and running blazing fast with the blazing-fast store for React..
 
 ## ⚠️ Before you start!⚠️ 
 
@@ -436,3 +437,5 @@ export const onRenderBody = ({ setHeadComponents }) => {
 ```
 
 For more information about integrating third-party scripts: [Partytown Wiki](https://github.com/BuilderIO/partytown/wiki).
+b
+b
